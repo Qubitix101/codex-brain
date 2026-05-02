@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/project-classification.schema.json",
+  "title": "Codex Brain Project Classification",
+  "type": "object",
+  "required": [
+    "project",
+    "date",
+    "recommended_mode",
+    "approved_mode",
+    "confidence",
+    "signals",
+    "reasons",
+    "user_approved"
+  ],
+  "properties": {
+    "project": { "type": "string", "minLength": 1 },
+    "date": { "type": "string" },
+    "recommended_mode": { "enum": ["light", "standard", "full"] },
+    "approved_mode": { "enum": ["light", "standard", "full", "pending"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "user_approved": { "type": "boolean" },
+    "signals": {
+      "type": "object",
+      "required": [
+        "public_product",
+        "user_accounts",
+        "stores_user_data",
+        "payments",
+        "multi_tenant",
+        "regulated_domain",
+        "eu_personal_data",
+        "enterprise_customers",
+        "ai_core",
+        "high_scale",
+        "frontend_ui",
+        "world_class_ambition"
+      ],
+      "properties": {
+        "public_product": { "type": "boolean" },
+        "user_accounts": { "type": "boolean" },
+        "stores_user_data": { "type": "boolean" },
+        "payments": { "type": "boolean" },
+        "multi_tenant": { "type": "boolean" },
+        "regulated_domain": { "type": "boolean" },
+        "eu_personal_data": { "type": "boolean" },
+        "enterprise_customers": { "type": "boolean" },
+        "ai_core": { "type": "boolean" },
+        "high_scale": { "type": "boolean" },
+        "frontend_ui": { "type": "boolean" },
+        "world_class_ambition": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risks_if_lower_mode": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}
+

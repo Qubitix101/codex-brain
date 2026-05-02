@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/task-record.schema.json",
+  "title": "Codex Brain Task Record",
+  "type": "object",
+  "required": ["task_id", "status", "started_at", "finished_at", "files_changed", "checks_run", "lessons_considered"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "prd": { "type": "string" },
+    "status": { "enum": ["completed", "failed", "blocked", "partial"] },
+    "started_at": { "type": "string" },
+    "finished_at": { "type": "string" },
+    "files_changed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "checks_run": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "status"],
+        "properties": {
+          "command": { "type": "string" },
+          "status": { "enum": ["passed", "failed", "skipped"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "lessons_considered": { "type": "boolean" },
+    "lesson_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}
+

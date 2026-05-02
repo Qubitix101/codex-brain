@@ -1,0 +1,25 @@
+{
+  "project": "[project-name]",
+  "date": "[YYYY-MM-DD]",
+  "recommended_mode": "pending",
+  "approved_mode": "pending",
+  "confidence": 0,
+  "user_approved": false,
+  "signals": {
+    "public_product": false,
+    "user_accounts": false,
+    "stores_user_data": false,
+    "payments": false,
+    "multi_tenant": false,
+    "regulated_domain": false,
+    "eu_personal_data": false,
+    "enterprise_customers": false,
+    "ai_core": false,
+    "high_scale": false,
+    "frontend_ui": false,
+    "world_class_ambition": false
+  },
+  "reasons": [],
+  "risks_if_lower_mode": []
+}
+

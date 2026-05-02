@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/lesson.schema.json",
+  "title": "Codex Brain Lesson",
+  "type": "object",
+  "required": [
+    "id",
+    "date",
+    "source_project",
+    "category",
+    "severity",
+    "trigger",
+    "lesson",
+    "rule",
+    "applies_to",
+    "confidence",
+    "promote_to",
+    "evidence"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "date": { "type": "string" },
+    "source_project": { "type": "string" },
+    "category": {
+      "enum": [
+        "product",
+        "validation",
+        "research",
+        "architecture",
+        "database",
+        "security",
+        "privacy",
+        "gdpr",
+        "frontend-design",
+        "accessibility",
+        "performance",
+        "billing",
+        "ai",
+        "testing",
+        "workflow",
+        "communication",
+        "other"
+      ]
+    },
+    "severity": { "enum": ["low", "medium", "high", "critical"] },
+    "trigger": { "type": "string" },
+    "lesson": { "type": "string" },
+    "rule": { "type": "string" },
+    "applies_to": {
+      "type": "array",
+      "items": { "enum": ["light", "standard", "full"] }
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "promote_to": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "framework",
+          "schema",
+          "template",
+          "script",
+          "review-checklist",
+          "agent-prompt",
+          "project-rule",
+          "postmortem"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "enum": ["captured", "reinforced", "promoted", "enforced"],
+      "default": "captured"
+    }
+  },
+  "additionalProperties": true
+}
+

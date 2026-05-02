@@ -1,0 +1,16 @@
+{
+  "id": "lesson_[YYYYMMDD]_[short-slug]",
+  "date": "[YYYY-MM-DD]",
+  "source_project": "[project-name]",
+  "category": "other",
+  "severity": "medium",
+  "trigger": "[what happened]",
+  "lesson": "[what we learned]",
+  "rule": "[future behavior this should cause]",
+  "applies_to": ["standard", "full"],
+  "confidence": 0.6,
+  "promote_to": ["framework"],
+  "evidence": ["[link or path]"],
+  "status": "captured"
+}
+

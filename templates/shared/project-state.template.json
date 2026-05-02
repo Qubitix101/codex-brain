@@ -1,0 +1,88 @@
+{
+  "project": "[project-name]",
+  "mode": "pending",
+  "phase": "classify",
+  "phase_status": "not-started",
+  "gates": {
+    "classification": {
+      "status": "not-started",
+      "required_artifacts": [".codex-brain/classification.json"],
+      "missing": [".codex-brain/classification.json"],
+      "approved": false,
+      "notes": "Codex must classify the project before planning or implementation."
+    },
+    "validation": {
+      "status": "not-started",
+      "required_artifacts": [".codex-brain/validation.md"],
+      "missing": [".codex-brain/validation.md"],
+      "approved": false
+    },
+    "research": {
+      "status": "not-started",
+      "required_artifacts": [".codex-brain/research/"],
+      "missing": [".codex-brain/research/"],
+      "approved": false
+    },
+    "plan": {
+      "status": "not-started",
+      "required_artifacts": ["docs/build-plan.md"],
+      "missing": ["docs/build-plan.md"],
+      "approved": false
+    },
+    "design_dna": {
+      "status": "not-started",
+      "required_artifacts": ["design/design-dna.md", "design/tokens.json"],
+      "missing": ["design/design-dna.md", "design/tokens.json"],
+      "approved": false
+    },
+    "decomposition": {
+      "status": "not-started",
+      "required_artifacts": ["docs/prd/"],
+      "missing": ["docs/prd/"],
+      "approved": false
+    },
+    "execution": {
+      "status": "not-started",
+      "required_artifacts": [".codex-brain/task-records/"],
+      "missing": [],
+      "approved": false
+    },
+    "review": {
+      "status": "not-started",
+      "required_artifacts": ["reviews/"],
+      "missing": ["reviews/"],
+      "approved": false
+    },
+    "ship": {
+      "status": "not-started",
+      "required_artifacts": ["docs/ship-checklist.md"],
+      "missing": ["docs/ship-checklist.md"],
+      "approved": false
+    },
+    "learn": {
+      "status": "not-started",
+      "required_artifacts": [".codex-brain/lessons/"],
+      "missing": [],
+      "approved": false
+    }
+  },
+  "design_dna": {
+    "required": false,
+    "status": "not-required",
+    "references_collected": false,
+    "tokens_approved": false,
+    "motion_direction": "",
+    "frontend_unblocked": false
+  },
+  "current_task": {
+    "id": null,
+    "prd": null,
+    "claimed_by": null,
+    "claimed_at": null
+  },
+  "lessons": {
+    "captured_count": 0,
+    "promotion_candidates": []
+  }
+}
+

@@ -1,0 +1,36 @@
+{
+  "project": "example-enterprise-ai-saas",
+  "date": "2026-05-03",
+  "recommended_mode": "full",
+  "approved_mode": "full",
+  "confidence": 0.94,
+  "user_approved": true,
+  "signals": {
+    "public_product": true,
+    "user_accounts": true,
+    "stores_user_data": true,
+    "payments": true,
+    "multi_tenant": true,
+    "regulated_domain": false,
+    "eu_personal_data": true,
+    "enterprise_customers": true,
+    "ai_core": true,
+    "high_scale": true,
+    "frontend_ui": true,
+    "world_class_ambition": true
+  },
+  "reasons": [
+    "Multi-tenant customer data requires isolation design.",
+    "Payments require billing edge-case specification.",
+    "EU personal data requires GDPR planning.",
+    "AI is core to product value and needs eval/safety planning.",
+    "Enterprise customers require trust, reliability, and compliance readiness."
+  ],
+  "risks_if_lower_mode": [
+    "Tenant isolation may be retrofitted too late.",
+    "Billing edge cases can create customer trust and revenue problems.",
+    "GDPR obligations may be missed.",
+    "AI quality and fallback behavior may be underspecified."
+  ]
+}
+
