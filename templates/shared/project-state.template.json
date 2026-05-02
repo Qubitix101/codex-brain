@@ -74,6 +74,17 @@
     "motion_direction": "",
     "frontend_unblocked": false
   },
+  "project_context": {
+    "path": ".codex-brain/project-context.md",
+    "status": "draft",
+    "last_updated": null
+  },
+  "distillates": {
+    "project": null,
+    "research": null,
+    "build_plan": null,
+    "execution": null
+  },
   "current_task": {
     "id": null,
     "prd": null,
@@ -85,4 +96,3 @@
     "promotion_candidates": []
   }
 }
-

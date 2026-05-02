@@ -18,6 +18,15 @@ const requiredFiles = [
   "frameworks/database-scale.md",
   "frameworks/security-gdpr.md",
   "frameworks/narrative-validation.md",
+  "frameworks/competitive-benchmark.md",
+  "frameworks/context-routing-and-help.md",
+  "frameworks/quick-flow.md",
+  "frameworks/vertical-slice-planning.md",
+  "frameworks/context-distillation.md",
+  "frameworks/test-architecture.md",
+  "frameworks/project-context.md",
+  "frameworks/expert-councils.md",
+  "frameworks/skill-workflow-architecture.md",
   "templates/full/master-build-plan.template.md",
   "templates/full/research-matrix.template.md",
   "templates/full/build-plan-checklist.template.md",
@@ -28,6 +37,15 @@ const requiredFiles = [
   "templates/full/frontend-visual-qa.template.md",
   "templates/full/postmortem.template.md",
   "templates/full/mode-downgrade-record.template.md",
+  "templates/full/test-strategy.template.md",
+  "templates/full/traceability-matrix.template.md",
+  "templates/shared/project-context.template.md",
+  "templates/shared/distillate.template.md",
+  "templates/light/quick-spec.template.md",
+  "workflows/README.md",
+  "workflows/context-routing/step-02-compute-next-action.md",
+  "workflows/quick-flow/step-03-implement-slice.md",
+  "workflows/full-mode-readiness/step-03-execution-readiness.md",
   "USAGE-GUIDE.md"
 ];
 
@@ -91,7 +109,17 @@ const requiredConcepts = [
   "governance",
   "postmortem",
   "research category",
-  "frontend visual"
+  "frontend visual",
+  "workflow manifest",
+  "next allowed action",
+  "quick flow",
+  "vertical slice",
+  "traceability matrix",
+  "test strategy",
+  "project context",
+  "context distillation",
+  "expert councils",
+  "session brief"
 ];
 
 const missingConcepts = requiredConcepts.filter((concept) => !corpus.includes(concept));

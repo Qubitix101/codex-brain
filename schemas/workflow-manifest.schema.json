@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/workflow-manifest.schema.json",
+  "title": "Codex Brain Workflow Manifest",
+  "type": "object",
+  "required": ["version", "workflows"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "workflows": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/workflow" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "workflow": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "phase",
+        "modes",
+        "purpose",
+        "required_inputs",
+        "produces",
+        "allowed_actions",
+        "blocked_actions",
+        "next"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "phase": {
+          "enum": [
+            "classify",
+            "validate",
+            "research",
+            "plan",
+            "design-dna",
+            "decompose",
+            "execute",
+            "review",
+            "ship",
+            "learn"
+          ]
+        },
+        "modes": {
+          "type": "array",
+          "items": { "enum": ["light", "standard", "full", "pending"] },
+          "minItems": 1
+        },
+        "purpose": { "type": "string", "minLength": 1 },
+        "required_inputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "produces": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "allowed_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "blocked_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "approval_required": { "type": "boolean" },
+        "escalation_triggers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "next": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
+

@@ -23,6 +23,9 @@ Use this as the tracking file for Full-mode research.
 | 17 | Legal, Trust, and Risk | Not started | | | | |
 | 18 | Build vs Buy and Team Capability | Not started | | | | |
 | 19 | Synthesis and Decisions | Not started | | | | |
+| 20 | Test Architecture and Traceability | Not started | | | | |
+| 21 | Context Continuity and Memory | Not started | | | | |
+| 22 | Workflow Routing and Governance | Not started | | | | |
 
 ## Gate
 
@@ -31,4 +34,6 @@ Use this as the tracking file for Full-mode research.
 - [ ] Evidence ledger created
 - [ ] Key decisions extracted
 - [ ] Build Plan requirements generated
-
+- [ ] Test strategy and traceability requirements generated
+- [ ] Project context and distillation requirements generated
+- [ ] Next-action routing verified

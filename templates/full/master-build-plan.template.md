@@ -495,16 +495,70 @@ Use only if paid.
 | Question | Owner | Deadline | Blocks? | Fallback |
 | --- | --- | --- | --- | --- |
 
+## 31. Test Architecture and Traceability
+
+### Test Strategy
+
+- 
+
+### Traceability Matrix
+
+| Requirement | PRD | Slice | Risk | Test/Command | Status |
+| --- | --- | --- | --- | --- | --- |
+
+### Release Gate Evidence
+
+- 
+
+## 32. Context Continuity and Distillation
+
+### Project Context
+
+- 
+
+### Memory Files
+
+- 
+
+### Distillates
+
+| Distillate | Source | Consumer | Status |
+| --- | --- | --- | --- |
+
+### Stale Context Risks
+
+- 
+
+## 33. Workflow Routing and Governance
+
+### Next Allowed Action
+
+- 
+
+### Blocked Actions
+
+- 
+
+### Approval Points
+
+- 
+
+### Downgrade Risk Process
+
+- 
+
 ## Completion Gate
 
-- [ ] All applicable sections complete
-- [ ] Non-applicable sections justified
-- [ ] Research traceability complete
-- [ ] Design DNA approved
-- [ ] Database and security plans complete
-- [ ] GDPR complete if relevant
-- [ ] AI evals complete if relevant
-- [ ] Billing complete if relevant
-- [ ] Phase breakdown ready for PRDs
-- [ ] No P0/P1 open gaps
-
+- [ ] All applicable sections complete. Verify: every section has content or an explicit not-applicable justification.
+- [ ] Non-applicable sections justified. Verify: each N/A section states why it does not apply.
+- [ ] Research traceability complete. Verify: evidence ledger links to key decisions.
+- [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
+- [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.
+- [ ] GDPR complete if relevant. Verify: lawful basis, subprocessors, retention, export, and deletion are documented.
+- [ ] AI evals complete if relevant. Verify: eval cases, unacceptable outputs, and fallback behavior are documented.
+- [ ] Billing complete if relevant. Verify: plans, entitlements, dunning, refunds, tax/VAT, and webhooks are documented.
+- [ ] Phase breakdown ready for PRDs. Verify: every phase has goal, dependencies, risk, and verification.
+- [ ] Test strategy and traceability matrix ready. Verify: `docs/test/test-strategy.md` and `docs/test/traceability-matrix.md` exist.
+- [ ] Project context and distillation plan ready. Verify: `.codex-brain/project-context.md` and distillate targets are documented.
+- [ ] Workflow routing and blocked actions clear. Verify: next allowed action and blocked actions are listed.
+- [ ] No P0/P1 open gaps. Verify: risk register contains no unresolved P0/P1 blocker.

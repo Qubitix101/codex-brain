@@ -26,14 +26,21 @@ Then tell Codex:
 Use Codex Brain. Read CODEX.md. Classify this project and tell me the next allowed action.
 ```
 
+To let the repo compute the next action:
+
+```bash
+npm run next-action -- --dir "[project-root]"
+```
+
 Codex should:
 
 1. Read `.codex-brain/state.json`.
 2. Read `.codex-brain/classification.json`.
-3. Classify the project as Light, Standard, or Full.
-4. Explain the mode recommendation.
-5. Ask for approval if Standard or Full.
-6. Refuse to implement until the active gate allows implementation.
+3. Read `.codex-brain/project-context.md` and `.codex-brain/memory/` if present.
+4. Classify the project as Light, Standard, or Full.
+5. Explain the mode recommendation.
+6. Ask for approval if Standard or Full.
+7. Refuse to implement until the active gate allows implementation.
 
 ## 2. Classification
 
@@ -76,6 +83,15 @@ Minimum flow:
 
 Light mode is not blind mode. It is focused mode.
 
+For very small, low-risk tasks, use Quick Flow:
+
+1. Confirm no escalation triggers exist.
+2. Copy `templates/light/quick-spec.template.md`.
+3. Define acceptance criteria and verification.
+4. Implement one vertical slice.
+5. Run checks.
+6. Update memory and lessons.
+
 ## 4. Standard Mode Flow
 
 Use Standard for real products with users.
@@ -102,6 +118,8 @@ Full mode requires the deep systems:
 - `frameworks/build-plan-deep-methodology.md`
 - `frameworks/quality-gate-matrix.md`
 - `frameworks/narrative-validation.md`
+- `frameworks/test-architecture.md`
+- `frameworks/context-distillation.md`
 - `catalogs/full-mode-coverage-catalog.json`
 
 Recommended sequence:
@@ -109,17 +127,18 @@ Recommended sequence:
 ```text
 1. Classification approved as Full
 2. Validation with market/moat/pre-mortem
-3. 19-category deep research
+3. Deep research using the Full-mode coverage catalog
 4. Evidence ledger
 5. Design references and Design DNA
 6. Master Build Plan
 7. ADRs for major choices
-8. Promise-to-spec audit
-9. Phase PRDs
-10. Execution loop
-11. Specialist reviews
-12. Ship gate
-13. Postmortem and lessons
+8. Test strategy and traceability matrix
+9. Promise-to-spec audit
+10. Phase PRDs with vertical slices
+11. Execution loop
+12. Specialist reviews
+13. Ship gate
+14. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -175,6 +194,18 @@ Each PRD must include:
 - completion criteria
 
 Each task should be small enough for one execution loop.
+
+Use vertical slices when possible:
+
+- slice through schema, service, API, UI/integration, tests, and verification
+- name the slice by demo outcome
+- keep every checkbox verifiable
+
+Validate plans with:
+
+```bash
+npm run verify-plan -- docs/prd/[file].md
+```
 
 ## 10. Execution Procedure
 
@@ -232,6 +263,23 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
+## 13.5 Context Procedure
+
+At session start, phase changes, and major decisions:
+
+1. Read `.codex-brain/project-context.md`.
+2. Read `.codex-brain/memory/active-context.md`.
+3. Run or produce a session brief.
+4. Update memory after meaningful changes.
+5. Distill large research or Build Plan artifacts before long execution phases.
+
+Useful commands:
+
+```bash
+npm run session-brief -- --dir "[project-root]"
+npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
+```
+
 ## 14. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
@@ -258,4 +306,3 @@ If the user says the goal is world-class, unicorn-level, top-ten, enterprise-gra
 - require ship and learning loops
 
 Speed is not the optimization target. Correctness, quality, trust, and product power are.
-

@@ -1,6 +1,6 @@
 {
   "$schema_note": "Machine-readable Full-mode coverage catalog for Codex Brain. Future sessions should use this to prevent skipped product, engineering, design, security, privacy, scale, and operating concerns.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "mode": "full",
   "principle": "If a project has unicorn-level ambition, enterprise risk, multi-tenancy, payments, AI-core workflows, EU personal data, or public users, every applicable domain must be addressed or explicitly justified as not applicable.",
   "domains": [
@@ -430,6 +430,77 @@
       "review_roles": ["architecture-strategist", "convention-enforcer"]
     },
     {
+      "id": "test-architecture-traceability",
+      "name": "Test Architecture and Traceability",
+      "purpose": "Ensure important requirements are proven by risk-ranked verification before launch.",
+      "required_questions": [
+        "What P0/P1 requirements need verification?",
+        "Which vertical slices prove the critical journeys?",
+        "Which tests map to each requirement?",
+        "What security, privacy, tenant isolation, billing, accessibility, performance, and AI eval cases are required?",
+        "What release gate evidence is needed?"
+      ],
+      "required_artifacts": [
+        "docs/test/test-strategy.md",
+        "docs/test/traceability-matrix.md",
+        "templates/full/test-strategy.template.md",
+        "templates/full/traceability-matrix.template.md"
+      ],
+      "p0_blockers": [
+        "Full-mode product without traceability matrix.",
+        "P0 requirement without verification.",
+        "AI-core product without eval coverage.",
+        "Multi-tenant product without tenant isolation test."
+      ],
+      "review_roles": ["test-architect", "security-gdpr-reviewer", "performance-reliability-reviewer"]
+    },
+    {
+      "id": "context-continuity-memory",
+      "name": "Context Continuity and Memory",
+      "purpose": "Prevent future Codex sessions from losing project decisions, constraints, and current status.",
+      "required_questions": [
+        "What project context must every future session load?",
+        "What decisions belong in memory rather than a transient chat?",
+        "Which large artifacts need context distillation?",
+        "Do state, memory, Build Plan, Design DNA, and current code agree?",
+        "What lessons should be promoted into the brain?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/project-context.md",
+        ".codex-brain/memory/",
+        ".codex-brain/distillates/"
+      ],
+      "p0_blockers": [
+        "Full-mode project without project context.",
+        "Deep research or Build Plan too large for future sessions with no context distillation.",
+        "State and memory disagree on phase, mode, or blocked actions."
+      ],
+      "review_roles": ["context-steward", "architecture-strategist"]
+    },
+    {
+      "id": "workflow-routing-governance",
+      "name": "Workflow Routing and Governance",
+      "purpose": "Ensure Codex always knows the next allowed action and does not skip gates.",
+      "required_questions": [
+        "What is the next allowed action?",
+        "Which workflow creates the missing artifact?",
+        "Which actions are blocked by the current gate?",
+        "Does the workflow manifest route the project correctly?",
+        "Does a mode downgrade require risk acceptance?"
+      ],
+      "required_artifacts": [
+        "catalogs/workflow-manifest.json",
+        "scripts/next-action.mjs",
+        "scripts/session-brief.mjs"
+      ],
+      "p0_blockers": [
+        "Codex cannot identify the next allowed action.",
+        "Workflow manifest missing required phase route.",
+        "Full-mode gate skipped without downgrade record."
+      ],
+      "review_roles": ["context-steward", "adversary"]
+    },
+    {
       "id": "ship-readiness",
       "name": "Ship Readiness",
       "purpose": "Ensure launch is controlled, observable, reversible, and approved.",
@@ -462,7 +533,9 @@
     "frameworks/quality-gate-matrix.md",
     "templates/full/research-matrix.template.md",
     "templates/full/build-plan-checklist.template.md",
+    "templates/full/test-strategy.template.md",
+    "templates/full/traceability-matrix.template.md",
+    "catalogs/workflow-manifest.json",
     "schemas/project-state.schema.json"
   ]
 }
-

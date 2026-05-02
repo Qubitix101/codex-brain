@@ -17,10 +17,14 @@ const codexDir = join(root, ".codex-brain");
 const mode = args.mode || "auto";
 
 mkdirSync(codexDir, { recursive: true });
+mkdirSync(join(codexDir, "distillates"), { recursive: true });
 mkdirSync(join(codexDir, "lessons"), { recursive: true });
+mkdirSync(join(codexDir, "memory"), { recursive: true });
 mkdirSync(join(codexDir, "task-records"), { recursive: true });
 mkdirSync(join(codexDir, "research"), { recursive: true });
 mkdirSync(join(root, "docs", "prd"), { recursive: true });
+mkdirSync(join(root, "docs", "plans"), { recursive: true });
+mkdirSync(join(root, "docs", "ship"), { recursive: true });
 mkdirSync(join(root, "design", "references"), { recursive: true });
 
 const statePath = join(codexDir, "state.json");
@@ -64,6 +68,29 @@ if (!existsSync(prdPath)) {
   copyTemplate(join(brainRoot, "templates", "shared", "prd.template.md"), prdPath);
 }
 
+const projectContextPath = join(codexDir, "project-context.md");
+if (!existsSync(projectContextPath)) {
+  copyTemplate(join(brainRoot, "templates", "shared", "project-context.template.md"), projectContextPath, {
+    "[Project Name]": project
+  });
+}
+
+const memoryTemplates = [
+  "project-brief",
+  "product-context",
+  "system-patterns",
+  "tech-context",
+  "active-context",
+  "progress"
+];
+
+for (const name of memoryTemplates) {
+  const dest = join(codexDir, "memory", `${name}.md`);
+  if (!existsSync(dest)) {
+    copyTemplate(join(brainRoot, "templates", "shared", "memory", `${name}.template.md`), dest);
+  }
+}
+
 console.log(`Codex Brain bootstrapped for ${project}`);
 console.log(`State: ${statePath}`);
-console.log("Next: classify the project and approve Light, Standard, or Full mode.");
+console.log("Next: run next-action, classify the project, and approve Light, Standard, or Full mode.");

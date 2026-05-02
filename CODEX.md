@@ -15,17 +15,23 @@ At the start of any project session:
 1. Locate project state:
    - `.codex-brain/state.json`
    - `.codex-brain/classification.json`
+   - `.codex-brain/project-context.md`
+   - `.codex-brain/memory/`
+   - `.codex-brain/distillates/`
    - `.codex-brain/lessons/`
    - project `CODEX.md` or `CLAUDE.md` if present
 2. If state is missing, initialize from `templates/shared/project-state.template.json`.
-3. Classify the project as Light, Standard, or Full.
-4. Identify the current phase.
-5. Check the gate requirements for that phase.
-6. State the next allowed action.
-7. Do not perform forbidden actions.
+3. Run or mentally apply `scripts/next-action.mjs`.
+4. Classify the project as Light, Standard, or Full if classification is pending.
+5. Identify the current phase.
+6. Check the gate requirements for that phase.
+7. State the next allowed action.
+8. Do not perform forbidden actions.
 
 If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
+If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
+If the session has large artifacts, read `frameworks/context-distillation.md`.
 
 ## Rigor Mode Authority
 
@@ -75,6 +81,8 @@ The lifecycle is:
 Phase 8 feeds back into the repository through structured lessons.
 
 For gate decisions, use `frameworks/quality-gate-matrix.md`. P0 findings block progress.
+
+For workflow routing, use `catalogs/workflow-manifest.json`.
 
 ## Hard Gates
 
@@ -150,6 +158,7 @@ Additional for Full:
 - threat model
 - GDPR/data processing plan
 - billing edge cases if paid
+- test strategy and traceability matrix
 - observability/SLO plan
 - AI orchestration/evaluation plan if AI-core
 
@@ -188,12 +197,15 @@ After frontend implementation, use `frameworks/frontend-visual-qa.md` to verify 
 Requires:
 
 - PRDs split into atomic tasks
+- vertical slices where possible
 - dependencies
 - acceptance criteria
 - reference links
 - allowed file scopes where possible
+- verification hints for every task checkbox
 
 For Full mode, also run `frameworks/narrative-validation.md` before execution. User-facing promises must map to specifications.
+Use `frameworks/vertical-slice-planning.md` and `scripts/verify-plan.mjs`.
 
 Forbidden:
 
@@ -258,12 +270,25 @@ Forbidden:
 Requires:
 
 - structured lessons captured in `.codex-brain/lessons/*.json`
+- memory updated in `.codex-brain/memory/`
+- project context updated if decisions changed
+- distillates updated for large research, Build Plan, or execution context
 - promotion candidates identified
 - postmortem if anything significant failed
 
 Forbidden:
 
 - ending serious projects without feeding learning back into the system
+
+## Benchmark-Informed Additions
+
+Codex Brain deliberately learns from public systems:
+
+- BMAD: workflow routing, help, quick flow, project context, specialist workflows.
+- TracerKit: PRD to plan to build to check, vertical slices, verifiable checkboxes.
+- Memory Bank: persistent project context across sessions.
+
+Codex Brain must go beyond those systems through Full-mode product diligence: database scale, tenant isolation, GDPR, security, AI evals, Design DNA, test architecture, launch readiness, and structured learning promotion.
 
 ## Design Rule
 

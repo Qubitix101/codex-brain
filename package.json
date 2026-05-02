@@ -10,7 +10,11 @@
     "classify": "node scripts/classify-project.mjs",
     "bootstrap": "node scripts/bootstrap-project.mjs",
     "validate-state": "node scripts/validate-state.mjs",
-    "capture-lesson": "node scripts/capture-lesson.mjs"
+    "capture-lesson": "node scripts/capture-lesson.mjs",
+    "next-action": "node scripts/next-action.mjs",
+    "session-brief": "node scripts/session-brief.mjs",
+    "verify-plan": "node scripts/verify-plan.mjs",
+    "distill-context": "node scripts/distill-context.mjs"
   },
   "engines": {
     "node": ">=18"

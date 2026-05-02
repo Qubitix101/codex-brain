@@ -39,6 +39,9 @@ Full research produces:
 ├── 17-legal-trust-and-risk.md
 ├── 18-build-vs-buy-and-team-capability.md
 ├── 19-synthesis-decisions.md
+├── 20-test-architecture-and-traceability.md
+├── 21-context-continuity-and-memory.md
+├── 22-workflow-routing-and-governance.md
 └── evidence-ledger.json
 ```
 
@@ -601,6 +604,57 @@ Output:
 - mode escalation/de-escalation recommendation
 - go / conditional go / pivot / no-go
 
+## Category 20 - Test Architecture and Traceability
+
+Answer:
+
+- What P0/P1 requirements need verification?
+- Which vertical slices prove the critical journeys?
+- Which tests map to each requirement?
+- What security, privacy, tenant isolation, billing, accessibility, performance, and AI eval cases are required?
+- What release gate evidence is needed?
+
+Required:
+
+- test strategy
+- traceability matrix
+- P0/P1 test coverage plan
+- release gate evidence model
+
+## Category 21 - Context Continuity and Memory
+
+Answer:
+
+- What project context must every future session load?
+- What decisions belong in memory rather than a transient chat?
+- Which large artifacts need context distillation?
+- Do state, memory, Build Plan, Design DNA, and current code agree?
+- What lessons should be promoted into the brain?
+
+Required:
+
+- project context
+- memory files
+- context distillation plan
+- stale-context risk review
+
+## Category 22 - Workflow Routing and Governance
+
+Answer:
+
+- What is the next allowed action?
+- Which workflow creates the missing artifact?
+- Which actions are blocked by the current gate?
+- Does the workflow manifest route the project correctly?
+- Does a mode downgrade require risk acceptance?
+
+Required:
+
+- next-action routing
+- workflow manifest coverage
+- blocked action list
+- downgrade risk protocol
+
 ## Research Quality Gate
 
 Before planning:
@@ -610,7 +664,7 @@ Before planning:
 - Every risk has owner/mitigation/defer decision.
 - Every architecture decision has enough evidence for the Build Plan.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, and business-model coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 
@@ -622,4 +676,3 @@ Before planning:
 - Treating AI as magic.
 - Skipping billing edge cases until implementation.
 - Calling a category "not applicable" without justification.
-

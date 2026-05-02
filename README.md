@@ -20,6 +20,7 @@ Every project runs through three loops:
 1. Build Loop: classify, validate, research, plan, design, decompose, execute, review, ship.
 2. Execution Loop: one task, one patch, one verification pass, one state update.
 3. Learning Loop: project lessons become reusable rules, gates, templates, and checklists.
+4. Context Loop: state, memory, distillates, and project context keep future Codex sessions aligned.
 
 Codex Brain is designed for future Codex sessions. The repository is both a human playbook and a machine-readable control layer.
 
@@ -48,7 +49,8 @@ The user approves or overrides it.
 | 4 | Decompose | PRDs with atomic tasks and acceptance criteria |
 | 5 | Execute | Working code through task-level execution loops |
 | 6 | Review | Product, code, security, privacy, accessibility, performance, and architecture review |
-| 7 | Ship | Deployment, monitoring, rollback, learning loop |
+| 7 | Ship | Deployment, monitoring, rollback |
+| 8 | Learn | Lessons, memory updates, distillates, and brain promotion candidates |
 
 ## Repository Structure
 
@@ -59,7 +61,7 @@ codex-brain/
 ├── USAGE-GUIDE.md                    # End-to-end operating guide
 ├── frameworks/
 │   ├── lifecycle.md                  # Master operating model
-│   ├── research-deep-methodology.md   # Full-mode 19-category research system
+│   ├── research-deep-methodology.md   # Full-mode deep research system
 │   ├── build-plan-deep-methodology.md  # Exhaustive Full-mode Build Plan system
 │   ├── rigor-modes.md                # Light / Standard / Full classification
 │   ├── validation.md                 # Idea and product validation
@@ -69,6 +71,15 @@ codex-brain/
 │   ├── frontend-visual-qa.md         # Visual verification after UI build
 │   ├── narrative-validation.md        # Promise-to-spec audit
 │   ├── governance-and-evolution.md    # How lessons safely upgrade the brain
+│   ├── competitive-benchmark.md       # BMAD / TracerKit / Memory Bank benchmark
+│   ├── context-routing-and-help.md     # Next-action routing
+│   ├── quick-flow.md                  # Low-risk fast path
+│   ├── vertical-slice-planning.md      # Demoable execution slicing
+│   ├── context-distillation.md         # Compact context packs
+│   ├── test-architecture.md            # Risk-ranked testing and traceability
+│   ├── project-context.md              # Per-project implementation constitution
+│   ├── expert-councils.md              # Structured specialist review councils
+│   ├── skill-workflow-architecture.md  # Workflow manifest and step architecture
 │   ├── decomposition.md              # PRDs and task shape
 │   ├── execution-loop.md             # Codex task execution protocol
 │   ├── review-and-ship.md            # Review swarm and launch gates
@@ -78,7 +89,9 @@ codex-brain/
 │   ├── quality-gate-matrix.md        # P0/P1 blockers by mode and phase
 │   └── world-class-quality.md        # Top-tier product quality bar
 ├── schemas/                          # Machine-readable state and lesson contracts
+├── catalogs/                         # Full-mode and workflow routing catalogs
 ├── templates/                        # Light / Standard / Full project templates
+├── workflows/                        # Small executable workflow step guides
 ├── scripts/                          # Local validators and helpers
 ├── agents/                           # Role prompts for optional specialist review
 ├── examples/                         # Example state and classification files
@@ -99,6 +112,15 @@ Then ask Codex:
 Use Codex Brain. Read CODEX.md, classify this project, and tell me the next allowed action.
 ```
 
+Useful commands:
+
+```bash
+npm run next-action -- --dir /path/to/project
+npm run session-brief -- --dir /path/to/project
+npm run verify-plan -- /path/to/project/docs/prd/some-prd.md
+npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brain/research
+```
+
 ## Non-Negotiables
 
 - No frontend implementation before Design DNA is approved.
@@ -107,6 +129,8 @@ Use Codex Brain. Read CODEX.md, classify this project, and tell me the next allo
 - No paid product without billing edge cases.
 - No European user data without GDPR analysis.
 - No AI-core product without model, retrieval, eval, fallback, and safety plans.
+- No Full-mode product without test strategy and traceability matrix.
+- No major project continuation without project context and session brief.
 - No shipping without monitoring and rollback.
 - No project ends without lesson capture.
 

@@ -557,6 +557,37 @@ Every unknown must have:
 - blocker status
 - fallback
 
+### 31. Test Architecture and Traceability
+
+Define:
+
+- P0/P1 requirements
+- traceability matrix
+- vertical slice to test mapping
+- security/privacy/tenant/billing/AI eval coverage
+- release gate evidence
+
+### 32. Context Continuity and Distillation
+
+Define:
+
+- project context update policy
+- memory files to maintain
+- research distillate
+- Build Plan distillate
+- execution distillate
+- stale-context review process
+
+### 33. Workflow Routing and Governance
+
+Define:
+
+- next allowed action
+- workflow manifest route
+- blocked actions
+- approval points
+- downgrade risk process
+
 ## Build Plan Completion Gate
 
 The Build Plan is complete only when:
@@ -568,6 +599,10 @@ The Build Plan is complete only when:
 - security/privacy plan matches mode
 - billing plan exists if paid
 - AI plan exists if AI-core
+- test strategy and traceability matrix exist for Full mode
+- project context and memory are initialized
+- large research or Build Plan artifacts have distillation plan
+- next-action routing is clear
 - multi-tenancy plan exists if applicable
 - phase breakdown is execution-ready
 - no critical open question blocks PRDs
@@ -582,4 +617,3 @@ The Build Plan is complete only when:
 - A Build Plan that says "Stripe integration" without edge cases.
 - A Build Plan that says "AI assistant" without evals.
 - A Build Plan with tasks too large for one execution loop.
-

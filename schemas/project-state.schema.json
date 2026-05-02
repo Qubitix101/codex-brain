@@ -60,6 +60,25 @@
       },
       "additionalProperties": true
     },
+    "project_context": {
+      "type": "object",
+      "properties": {
+        "path": { "type": "string" },
+        "status": { "enum": ["missing", "draft", "current", "stale"] },
+        "last_updated": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "distillates": {
+      "type": "object",
+      "properties": {
+        "project": { "type": ["string", "null"] },
+        "research": { "type": ["string", "null"] },
+        "build_plan": { "type": ["string", "null"] },
+        "execution": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
     "current_task": {
       "type": "object",
       "properties": {
@@ -104,4 +123,3 @@
   },
   "additionalProperties": true
 }
-

@@ -109,13 +109,26 @@
 - [ ] Tenant isolation
 - [ ] AI evals if applicable
 - [ ] Smoke tests
+- [ ] Test strategy created
+- [ ] Traceability matrix created
+- [ ] P0/P1 requirements mapped to verification
+- [ ] Release gate evidence defined
 
 ## Execution
 
 - [ ] PRD phase breakdown
+- [ ] Vertical slices defined by demo outcome
 - [ ] Atomic tasks
 - [ ] Acceptance criteria
 - [ ] Verification commands
 - [ ] Allowed scopes
 - [ ] Open questions resolved or deferred safely
 
+## Context and Routing
+
+- [ ] Project context initialized
+- [ ] Memory files initialized
+- [ ] Large research or Build Plan artifacts have distillation plan
+- [ ] Next allowed action identified
+- [ ] Blocked actions documented
+- [ ] Mode downgrade risks documented if applicable
