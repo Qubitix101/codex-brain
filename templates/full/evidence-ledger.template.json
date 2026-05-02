@@ -1,0 +1,18 @@
+{
+  "project": "[project-name]",
+  "version": "0.1.0",
+  "evidence": [
+    {
+      "id": "ev_001",
+      "claim": "[Decision-relevant claim]",
+      "category": "[research category]",
+      "evidence_type": "user-input | source | benchmark | comparison | inference | assumption",
+      "source": "[URL, file, interview, user statement, or analysis]",
+      "confidence": 0.5,
+      "status": "supported | contradicted | assumption | uncertain",
+      "decision_impact": "[what this affects]",
+      "open_questions": []
+    }
+  ]
+}
+

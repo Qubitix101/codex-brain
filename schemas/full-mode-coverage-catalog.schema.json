@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/full-mode-coverage-catalog.schema.json",
+  "title": "Codex Brain Full Mode Coverage Catalog",
+  "type": "object",
+  "required": ["version", "mode", "domains"],
+  "properties": {
+    "version": { "type": "string" },
+    "mode": { "const": "full" },
+    "principle": { "type": "string" },
+    "domains": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "purpose", "required_questions", "required_artifacts", "p0_blockers", "review_roles"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "purpose": { "type": "string" },
+          "required_questions": { "type": "array", "items": { "type": "string" } },
+          "required_artifacts": { "type": "array", "items": { "type": "string" } },
+          "p0_blockers": { "type": "array", "items": { "type": "string" } },
+          "review_roles": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "promotion_targets": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
+

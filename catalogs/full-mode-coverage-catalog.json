@@ -1,0 +1,468 @@
+{
+  "$schema_note": "Machine-readable Full-mode coverage catalog for Codex Brain. Future sessions should use this to prevent skipped product, engineering, design, security, privacy, scale, and operating concerns.",
+  "version": "0.2.0",
+  "mode": "full",
+  "principle": "If a project has unicorn-level ambition, enterprise risk, multi-tenancy, payments, AI-core workflows, EU personal data, or public users, every applicable domain must be addressed or explicitly justified as not applicable.",
+  "domains": [
+    {
+      "id": "product-strategy",
+      "name": "Product Strategy",
+      "purpose": "Ensure we are building a product with a clear user, pain, promise, and wedge.",
+      "required_questions": [
+        "Who is the exact user?",
+        "Who is the buyer if different?",
+        "What painful job does this solve?",
+        "What is the product promise in one sentence?",
+        "What is explicitly out of scope?",
+        "What must be true for the product to be worth building?",
+        "What would make users switch from current alternatives?",
+        "What would make users trust it?",
+        "What would make users churn?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/validation.md",
+        ".codex-brain/research/01-product-and-user.md",
+        "docs/build-plan.md#executive-product-summary",
+        "docs/product/user-flows.md"
+      ],
+      "p0_blockers": [
+        "No target user defined.",
+        "No core product promise.",
+        "No success criteria.",
+        "No out-of-scope boundaries."
+      ],
+      "review_roles": ["product-strategist", "adversary"]
+    },
+    {
+      "id": "market-competition",
+      "name": "Market and Competition",
+      "purpose": "Avoid building in a vacuum and expose category expectations.",
+      "required_questions": [
+        "What category does this compete in?",
+        "What alternatives do users already use?",
+        "What are table stakes?",
+        "Where are competitors weak?",
+        "What pricing anchors exist?",
+        "What distribution channels dominate?",
+        "What wedge gives us a shot?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/02-market-and-competition.md",
+        ".codex-brain/research/03-moat-and-positioning.md"
+      ],
+      "p0_blockers": [
+        "No competitor or alternative analysis for a commercial product.",
+        "No differentiation thesis."
+      ],
+      "review_roles": ["product-strategist", "adversary"]
+    },
+    {
+      "id": "business-model",
+      "name": "Business Model and Pricing",
+      "purpose": "Make revenue mechanics explicit before product and billing are implemented.",
+      "required_questions": [
+        "Who pays?",
+        "What pricing model fits the value metric?",
+        "What are plan boundaries?",
+        "What is the upgrade trigger?",
+        "What happens during cancellation, downgrade, refund, failed payment, and chargeback?",
+        "What tax/VAT assumptions exist?",
+        "How does the product avoid pricing itself into bad unit economics?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/04-business-model-and-pricing.md",
+        ".codex-brain/research/13-billing-and-subscription-edge-cases.md",
+        "docs/product/pricing-and-billing.md"
+      ],
+      "p0_blockers": [
+        "Paid product without billing edge cases.",
+        "Subscription product without entitlement model.",
+        "EU paid product without tax/VAT assumptions."
+      ],
+      "review_roles": ["product-strategist", "security-gdpr-reviewer"]
+    },
+    {
+      "id": "technical-architecture",
+      "name": "Technical Architecture",
+      "purpose": "Ensure the system architecture fits the ambition and can evolve.",
+      "required_questions": [
+        "What are the major system boundaries?",
+        "What must be synchronous vs asynchronous?",
+        "What background jobs exist?",
+        "What services or modules own which responsibilities?",
+        "What is the failure model?",
+        "What can be replaced later?",
+        "What complexity are we intentionally avoiding?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/05-technical-feasibility.md",
+        "docs/architecture/system-overview.md",
+        "docs/adr/"
+      ],
+      "p0_blockers": [
+        "No architecture plan for Standard or Full product.",
+        "Major stack choice without rationale.",
+        "No module/service boundaries for complex product."
+      ],
+      "review_roles": ["architect", "architecture-strategist"]
+    },
+    {
+      "id": "database-scale",
+      "name": "Database, Data Model, and Scale",
+      "purpose": "Prevent weak persistence decisions that become expensive rewrites.",
+      "required_questions": [
+        "What is the source of truth?",
+        "Why this database?",
+        "What alternatives were considered?",
+        "What entities exist?",
+        "Who owns each record?",
+        "What are the hottest queries?",
+        "What grows fastest?",
+        "What indexes are required?",
+        "What is the migration and rollback strategy?",
+        "What happens at 10x, 100x, and 1000x?",
+        "What data must be exported, retained, deleted, or audited?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/06-database-and-scale.md",
+        "docs/adr/001-primary-database.md",
+        "docs/architecture/data-model.md"
+      ],
+      "p0_blockers": [
+        "Persistent product without data model.",
+        "Full-mode product without database ADR.",
+        "High-scale product without scale model.",
+        "No deletion/export strategy for personal data."
+      ],
+      "review_roles": ["database-scaler", "architecture-strategist"]
+    },
+    {
+      "id": "multi-tenancy",
+      "name": "Multi-Tenancy and Data Isolation",
+      "purpose": "Protect customer data boundaries before implementation.",
+      "required_questions": [
+        "Does the product have organizations, workspaces, teams, clients, accounts, schools, clinics, or tenants?",
+        "What is the tenant identifier?",
+        "Where is tenant context enforced?",
+        "Can background jobs cross tenant boundaries?",
+        "Can admins impersonate users?",
+        "What tests prove isolation?",
+        "How are noisy neighbors prevented?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/06-database-and-scale.md#multi-tenancy",
+        "docs/architecture/auth-authorization.md",
+        "docs/architecture/data-model.md#tenant-isolation"
+      ],
+      "p0_blockers": [
+        "Multi-tenant product without tenant model.",
+        "Multi-tenant product without authorization matrix.",
+        "Multi-tenant product without isolation tests."
+      ],
+      "review_roles": ["database-scaler", "security-gdpr-reviewer"]
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "purpose": "Design security controls before attackers or users expose gaps.",
+      "required_questions": [
+        "What assets need protection?",
+        "What are trust boundaries?",
+        "What can an unauthenticated attacker do?",
+        "What can an authenticated malicious user do?",
+        "Where is authorization enforced?",
+        "What abuse paths exist?",
+        "What secrets exist?",
+        "What logs could leak sensitive data?",
+        "What are the incident response steps?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/07-security-threat-model.md",
+        "docs/architecture/security-threat-model.md",
+        "docs/architecture/auth-authorization.md"
+      ],
+      "p0_blockers": [
+        "User-data product without authorization model.",
+        "Public product without input validation and abuse prevention plan.",
+        "Full-mode product without threat model."
+      ],
+      "review_roles": ["security-gdpr-reviewer"]
+    },
+    {
+      "id": "privacy-gdpr",
+      "name": "Privacy, GDPR, and Compliance",
+      "purpose": "Ensure personal data handling is designed, not patched.",
+      "required_questions": [
+        "What personal data is processed?",
+        "What is the lawful basis?",
+        "Who is controller?",
+        "Who are processors/subprocessors?",
+        "Where is data stored?",
+        "How can users export data?",
+        "How can users delete data?",
+        "What is retained and for how long?",
+        "Are cookies or tracking used?",
+        "Is consent required?",
+        "Is a DPA needed?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/08-privacy-gdpr-compliance.md",
+        "docs/architecture/privacy-gdpr.md"
+      ],
+      "p0_blockers": [
+        "EU personal data without GDPR data inventory.",
+        "Personal data without deletion/export plan.",
+        "Tracking without cookie/privacy decision."
+      ],
+      "review_roles": ["security-gdpr-reviewer"]
+    },
+    {
+      "id": "design-dna",
+      "name": "Design DNA and Aesthetics",
+      "purpose": "Avoid generic AI UI and align frontend implementation with user taste.",
+      "required_questions": [
+        "What references does the user like?",
+        "What does the user reject?",
+        "What should the product feel like?",
+        "What colors, typography, density, and components fit?",
+        "What motion level is appropriate?",
+        "What trust signals should the design communicate?",
+        "What accessibility baseline is required?"
+      ],
+      "required_artifacts": [
+        "design/references/",
+        "design/design-dna.md",
+        "design/tokens.json"
+      ],
+      "p0_blockers": [
+        "Frontend implementation before Design DNA approval.",
+        "UI project without design references.",
+        "Full-mode UI without accessibility baseline."
+      ],
+      "review_roles": ["design-director"]
+    },
+    {
+      "id": "frontend-interaction",
+      "name": "Frontend Interaction Quality",
+      "purpose": "Make user flows, states, responsiveness, and accessibility explicit.",
+      "required_questions": [
+        "What states exist for every screen?",
+        "What empty states exist?",
+        "What loading states exist?",
+        "What error states exist?",
+        "What keyboard interactions exist?",
+        "What responsive breakpoints matter?",
+        "What visual QA is required?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/10-frontend-interaction-quality.md",
+        "docs/product/user-flows.md",
+        "design/prototype-notes.md"
+      ],
+      "p0_blockers": [
+        "User-facing UI without state inventory.",
+        "Full-mode UI without accessibility review plan."
+      ],
+      "review_roles": ["design-director", "accessibility-reviewer"]
+    },
+    {
+      "id": "ai-orchestration",
+      "name": "AI Orchestration and Evals",
+      "purpose": "Prevent AI-core products from relying on vague model magic.",
+      "required_questions": [
+        "What exactly does AI do?",
+        "What model/provider is used and why?",
+        "What context is supplied?",
+        "What tools can AI call?",
+        "What data can AI access?",
+        "How is output evaluated?",
+        "What happens when AI is wrong?",
+        "How is prompt injection handled?",
+        "How are costs controlled?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/11-ai-orchestration-and-evals.md",
+        "docs/architecture/ai-orchestration.md"
+      ],
+      "p0_blockers": [
+        "AI-core product without eval plan.",
+        "AI tool-use product without permission model.",
+        "AI user-facing product without failure/fallback behavior."
+      ],
+      "review_roles": ["ai-orchestration-reviewer", "security-gdpr-reviewer"]
+    },
+    {
+      "id": "integrations-vendors",
+      "name": "Integrations and Vendors",
+      "purpose": "Know external dependencies, cost, risk, and exit paths.",
+      "required_questions": [
+        "Which vendors are required?",
+        "What data do they receive?",
+        "What are rate limits?",
+        "What are costs?",
+        "What happens if they fail?",
+        "What is the exit strategy?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/12-integrations-and-vendors.md"
+      ],
+      "p0_blockers": [
+        "Critical vendor with no failure plan.",
+        "Vendor receives personal data without privacy review."
+      ],
+      "review_roles": ["architect", "security-gdpr-reviewer"]
+    },
+    {
+      "id": "reliability-observability",
+      "name": "Reliability, Observability, and Operations",
+      "purpose": "Make the product operable after launch.",
+      "required_questions": [
+        "What must be monitored?",
+        "What are critical user journeys?",
+        "What alerts matter?",
+        "What logs/metrics/traces are needed?",
+        "What is the rollback plan?",
+        "What is the incident response process?",
+        "What SLOs exist?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/14-reliability-observability-operations.md",
+        "docs/ship/monitoring-plan.md",
+        "docs/ship/rollback-plan.md"
+      ],
+      "p0_blockers": [
+        "Production launch without health check.",
+        "Production launch without rollback plan.",
+        "Full-mode product without observability plan."
+      ],
+      "review_roles": ["performance-reliability-reviewer"]
+    },
+    {
+      "id": "analytics-learning",
+      "name": "Analytics and Product Learning",
+      "purpose": "Ensure the product can learn from real usage without violating privacy.",
+      "required_questions": [
+        "What is the north-star metric?",
+        "What activation events matter?",
+        "What retention events matter?",
+        "What should not be tracked?",
+        "How will product feedback create new PRDs?",
+        "How are lessons captured?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/15-analytics-data-strategy.md",
+        ".codex-brain/lessons/"
+      ],
+      "p0_blockers": [
+        "Full-mode product without success metrics.",
+        "Project ending without lesson capture."
+      ],
+      "review_roles": ["product-strategist"]
+    },
+    {
+      "id": "accessibility-i18n",
+      "name": "Accessibility and Internationalization",
+      "purpose": "Make the product usable and legally safer across users, devices, and locales.",
+      "required_questions": [
+        "What WCAG level is required?",
+        "Are keyboard flows complete?",
+        "Are screen reader needs handled?",
+        "Are contrast and focus states defined?",
+        "What languages/locales matter?",
+        "Are date/time/currency formats locale-safe?",
+        "Is RTL needed?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/16-accessibility-internationalization.md",
+        "design/design-dna.md#accessibility-baseline"
+      ],
+      "p0_blockers": [
+        "User-facing UI without accessibility baseline.",
+        "Full-mode product without accessibility review."
+      ],
+      "review_roles": ["accessibility-reviewer", "design-director"]
+    },
+    {
+      "id": "legal-trust-risk",
+      "name": "Legal, Trust, and Risk",
+      "purpose": "Make user and enterprise trust part of product design.",
+      "required_questions": [
+        "What claims does the product make?",
+        "What terms/privacy/security pages are needed?",
+        "What trust objections will buyers have?",
+        "What compliance claims can and cannot be made?",
+        "What disclaimers are needed?",
+        "What risk register items remain?"
+      ],
+      "required_artifacts": [
+        ".codex-brain/research/17-legal-trust-and-risk.md",
+        "docs/product/narrative-promises.md"
+      ],
+      "p0_blockers": [
+        "Enterprise product without trust/security communication.",
+        "AI product without AI disclosure decision.",
+        "Narrative promise without backing spec."
+      ],
+      "review_roles": ["product-strategist", "security-gdpr-reviewer"]
+    },
+    {
+      "id": "execution-prd-quality",
+      "name": "Execution and PRD Quality",
+      "purpose": "Ensure the Build Plan turns into executable, verifiable tasks.",
+      "required_questions": [
+        "Are tasks atomic?",
+        "Are dependencies explicit?",
+        "Are acceptance criteria testable?",
+        "Are file scopes clear?",
+        "Are verification commands defined?",
+        "Can parallel tasks safely avoid conflicts?"
+      ],
+      "required_artifacts": [
+        "docs/prd/",
+        ".codex-brain/state.json",
+        ".codex-brain/task-records/"
+      ],
+      "p0_blockers": [
+        "Execution task without acceptance criteria.",
+        "Parallel execution without task claiming or partitioning.",
+        "Task marked complete without verification."
+      ],
+      "review_roles": ["architecture-strategist", "convention-enforcer"]
+    },
+    {
+      "id": "ship-readiness",
+      "name": "Ship Readiness",
+      "purpose": "Ensure launch is controlled, observable, reversible, and approved.",
+      "required_questions": [
+        "Do tests and builds pass?",
+        "Are critical issues resolved?",
+        "Are smoke tests defined?",
+        "Is monitoring active?",
+        "Can we roll back?",
+        "Who approves launch?",
+        "How are incidents handled?"
+      ],
+      "required_artifacts": [
+        "docs/ship/launch-plan.md",
+        "docs/ship/monitoring-plan.md",
+        "docs/ship/rollback-plan.md",
+        "reviews/"
+      ],
+      "p0_blockers": [
+        "Launch with unresolved critical/high findings.",
+        "Launch without rollback plan.",
+        "Launch without smoke tests."
+      ],
+      "review_roles": ["performance-reliability-reviewer", "security-gdpr-reviewer"]
+    }
+  ],
+  "promotion_targets": [
+    "frameworks/research-deep-methodology.md",
+    "frameworks/build-plan-deep-methodology.md",
+    "frameworks/quality-gate-matrix.md",
+    "templates/full/research-matrix.template.md",
+    "templates/full/build-plan-checklist.template.md",
+    "schemas/project-state.schema.json"
+  ]
+}
+

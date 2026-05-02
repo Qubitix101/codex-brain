@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/check-repo.mjs",
+    "audit-depth": "node scripts/audit-depth.mjs",
     "classify": "node scripts/classify-project.mjs",
     "bootstrap": "node scripts/bootstrap-project.mjs",
     "validate-state": "node scripts/validate-state.mjs",
@@ -15,4 +16,3 @@
     "node": ">=18"
   }
 }
-
