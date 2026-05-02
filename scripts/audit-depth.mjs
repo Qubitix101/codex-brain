@@ -12,6 +12,8 @@ const requiredFiles = [
   "frameworks/research-deep-methodology.md",
   "frameworks/build-plan-deep-methodology.md",
   "frameworks/quality-gate-matrix.md",
+  "frameworks/governance-and-evolution.md",
+  "frameworks/frontend-visual-qa.md",
   "frameworks/design-dna.md",
   "frameworks/database-scale.md",
   "frameworks/security-gdpr.md",
@@ -21,7 +23,12 @@ const requiredFiles = [
   "templates/full/build-plan-checklist.template.md",
   "templates/full/evidence-ledger.template.json",
   "templates/full/adr.template.md",
-  "templates/full/promise-to-spec-audit.template.md"
+  "templates/full/promise-to-spec-audit.template.md",
+  "templates/full/research-category.template.md",
+  "templates/full/frontend-visual-qa.template.md",
+  "templates/full/postmortem.template.md",
+  "templates/full/mode-downgrade-record.template.md",
+  "USAGE-GUIDE.md"
 ];
 
 const corpusFiles = requiredFiles.filter((file) => file.endsWith(".md"));
@@ -78,7 +85,13 @@ const requiredConcepts = [
   "authorization matrix",
   "retention",
   "deletion",
-  "subprocessor"
+  "subprocessor",
+  "visual qa",
+  "mode downgrade",
+  "governance",
+  "postmortem",
+  "research category",
+  "frontend visual"
 ];
 
 const missingConcepts = requiredConcepts.filter((concept) => !corpus.includes(concept));

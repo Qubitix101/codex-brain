@@ -24,6 +24,9 @@ At the start of any project session:
 6. State the next allowed action.
 7. Do not perform forbidden actions.
 
+If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
+If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
+
 ## Rigor Mode Authority
 
 Codex proposes the mode. The user approves it.
@@ -177,6 +180,8 @@ Forbidden:
 - building frontend pages, components, styling, animations, or marketing UI before Design DNA approval
 
 Backend, database, API, auth, tests, and infrastructure may proceed if their gates are satisfied and they do not depend on visual decisions.
+
+After frontend implementation, use `frameworks/frontend-visual-qa.md` to verify the built UI against the approved Design DNA.
 
 ### Gate 4 - Decompose
 

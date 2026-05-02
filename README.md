@@ -56,6 +56,7 @@ The user approves or overrides it.
 codex-brain/
 ├── CODEX.md                         # System entrypoint for future Codex sessions
 ├── README.md
+├── USAGE-GUIDE.md                    # End-to-end operating guide
 ├── frameworks/
 │   ├── lifecycle.md                  # Master operating model
 │   ├── research-deep-methodology.md   # Full-mode 19-category research system
@@ -65,7 +66,9 @@ codex-brain/
 │   ├── research.md                   # Evidence requirements by mode
 │   ├── build-plan.md                 # Build Plan requirements
 │   ├── design-dna.md                 # Frontend aesthetics gate
+│   ├── frontend-visual-qa.md         # Visual verification after UI build
 │   ├── narrative-validation.md        # Promise-to-spec audit
+│   ├── governance-and-evolution.md    # How lessons safely upgrade the brain
 │   ├── decomposition.md              # PRDs and task shape
 │   ├── execution-loop.md             # Codex task execution protocol
 │   ├── review-and-ship.md            # Review swarm and launch gates
