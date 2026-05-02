@@ -71,6 +71,8 @@ The lifecycle is:
 
 Phase 8 feeds back into the repository through structured lessons.
 
+For gate decisions, use `frameworks/quality-gate-matrix.md`. P0 findings block progress.
+
 ## Hard Gates
 
 ### Gate 0 - Classification
@@ -118,6 +120,8 @@ Requires by mode:
 - Standard: competitors, users, technical feasibility, security, privacy, design, database, deployment
 - Full: all Standard items plus market, moat, pricing, multi-tenancy, reliability, compliance, observability, data strategy, AI safety if applicable
 
+For Full mode, use `frameworks/research-deep-methodology.md`. It defines the 19-category research matrix and is mandatory unless the user explicitly downgrades the project mode.
+
 Forbidden:
 
 - writing Build Plan without evidence
@@ -145,6 +149,8 @@ Additional for Full:
 - billing edge cases if paid
 - observability/SLO plan
 - AI orchestration/evaluation plan if AI-core
+
+For Full mode, use `frameworks/build-plan-deep-methodology.md`. It defines the exhaustive Build Plan section list and completion gate.
 
 Forbidden:
 
@@ -181,6 +187,8 @@ Requires:
 - acceptance criteria
 - reference links
 - allowed file scopes where possible
+
+For Full mode, also run `frameworks/narrative-validation.md` before execution. User-facing promises must map to specifications.
 
 Forbidden:
 
@@ -285,4 +293,3 @@ When using Codex Brain, be direct:
 - checks run
 
 Do not bury blockers in long prose.
-

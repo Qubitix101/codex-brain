@@ -58,17 +58,21 @@ codex-brain/
 ├── README.md
 ├── frameworks/
 │   ├── lifecycle.md                  # Master operating model
+│   ├── research-deep-methodology.md   # Full-mode 19-category research system
+│   ├── build-plan-deep-methodology.md  # Exhaustive Full-mode Build Plan system
 │   ├── rigor-modes.md                # Light / Standard / Full classification
 │   ├── validation.md                 # Idea and product validation
 │   ├── research.md                   # Evidence requirements by mode
 │   ├── build-plan.md                 # Build Plan requirements
 │   ├── design-dna.md                 # Frontend aesthetics gate
+│   ├── narrative-validation.md        # Promise-to-spec audit
 │   ├── decomposition.md              # PRDs and task shape
 │   ├── execution-loop.md             # Codex task execution protocol
 │   ├── review-and-ship.md            # Review swarm and launch gates
 │   ├── learning-loop.md              # Structured project learning
 │   ├── database-scale.md             # Data architecture and scale thinking
 │   ├── security-gdpr.md              # Security, privacy, GDPR, compliance
+│   ├── quality-gate-matrix.md        # P0/P1 blockers by mode and phase
 │   └── world-class-quality.md        # Top-tier product quality bar
 ├── schemas/                          # Machine-readable state and lesson contracts
 ├── templates/                        # Light / Standard / Full project templates

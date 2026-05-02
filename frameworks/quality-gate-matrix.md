@@ -1,0 +1,178 @@
+# Quality Gate Matrix
+
+This matrix defines hard blockers across Light, Standard, and Full projects.
+
+Codex should use this to determine whether it is allowed to proceed.
+
+## Gate Severity
+
+| Severity | Meaning | Action |
+| --- | --- | --- |
+| P0 | Blocks current phase | Stop and fix before proceeding |
+| P1 | Blocks ship or next major phase | Fix before gate exit |
+| P2 | Important but deferrable with owner | Document and track |
+| P3 | Nice-to-have | Capture if useful |
+
+## Universal P0 Blockers
+
+These block all modes:
+
+- no project classification
+- no current phase
+- coding before allowed phase
+- frontend implementation before required Design DNA approval
+- missing acceptance criteria for execution task
+- marking task complete without verification
+- unresolved destructive command or secret exposure
+- no lesson capture considered at project end
+
+## Classification Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Project brief exists | Required | Required | Required | P0 |
+| Mode selected | Required | Required | Required | P0 |
+| User approval | Optional | Required | Required | P0 |
+| Risks of lower mode stated | Optional | Required | Required | P1 |
+| Escalation triggers checked | Required | Required | Required | P0 |
+
+## Validation Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Problem statement | Required | Required | Required | P0 |
+| Target user | Required | Required | Required | P0 |
+| Success criteria | Required | Required | Required | P0 |
+| Alternatives | Optional | Required | Required | P1 |
+| Market/moat | Optional | Optional | Required | P1 |
+| Pre-mortem | Optional | Recommended | Required | P1 |
+| Go/no-go decision | Required | Required | Required | P0 |
+
+## Research Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Technical feasibility | Required | Required | Required | P0 |
+| User/problem research | Brief | Required | Required | P1 |
+| Competitor scan | Optional | Required | Required | P1 |
+| Database research if persistent data | Brief | Required | Deep | P0 |
+| Security research if public/user data | Brief | Required | Deep | P0 |
+| GDPR screen if personal data/EU | Required if relevant | Required if relevant | Deep | P0 |
+| Design references if UI | Required | Required | Deep | P0 |
+| Billing research if paid | Optional | Required | Deep | P0 |
+| AI eval research if AI-core | Optional | Required | Deep | P0 |
+| Reliability/observability | Optional | Required | Deep | P1 |
+| Evidence ledger | Optional | Recommended | Required | P1 |
+
+## Build Plan Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Product scope | Required | Required | Required | P0 |
+| User flows | Required if UI | Required | Required | P0 |
+| Architecture | Brief | Required | Deep | P0 |
+| Database/data model | Required if data | Required if data | Deep | P0 |
+| Auth model | Required if auth | Required if auth | Deep | P0 |
+| Authorization model | Required if user data | Required | Deep | P0 |
+| API/module contracts | Basic | Required | Deep | P1 |
+| Security plan | Basic | Required | Deep | P0 |
+| Privacy/GDPR plan | Required if relevant | Required if relevant | Deep | P0 |
+| Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |
+| Billing spec | Required if paid | Required if paid | Deep | P0 |
+| AI orchestration/evals | Required if AI-core | Required if AI-core | Deep | P0 |
+| Observability/ship plan | Basic | Required | Deep | P1 |
+| Testing plan | Basic | Required | Deep | P0 |
+
+## Design DNA Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| References collected | 3-5 | By page type | By workflow + competitors | P0 |
+| User taste approved | Required | Required | Required | P0 |
+| Tokens approved | Basic | Required | Required | P0 |
+| Motion direction | Optional | Required | Required | P1 |
+| Accessibility baseline | Required | Required | Deep | P0 |
+| Do-not-use list | Recommended | Required | Required | P1 |
+| Prototype/key screen | Optional | Recommended | Required | P1 |
+
+## Decomposition Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| PRDs exist | Checklist ok | Required | Required | P0 |
+| Atomic tasks | Required | Required | Required | P0 |
+| Dependencies | Basic | Required | Required | P0 |
+| Acceptance criteria | Required | Required | Required | P0 |
+| Verification commands | Required | Required | Required | P0 |
+| Allowed scopes | Optional | Recommended | Required | P1 |
+| Narrative promise audit | Optional | Recommended | Required | P1 |
+
+## Execution Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| One task at a time | Required | Required | Required | P0 |
+| Dirty worktree checked | Required | Required | Required | P0 |
+| Scope respected | Required | Required | Required | P0 |
+| Tests/checks run | Required | Required | Required | P0 |
+| Task record written | Recommended | Required | Required | P1 |
+| Lessons considered | Required | Required | Required | P1 |
+| Parallel task claiming | Required if parallel | Required if parallel | Required if parallel | P0 |
+
+## Review Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Code review | Basic | Required | Required | P0 |
+| Security review | Basic | Required | Deep | P0 |
+| Privacy review | If relevant | Required if data | Deep | P0 |
+| Accessibility review | If UI | Required if UI | Deep | P0 |
+| Performance review | Basic | Required | Deep | P1 |
+| Architecture review | Optional | Required | Deep | P1 |
+| Database isolation review | If relevant | Required if multi-tenant | Deep | P0 |
+| AI eval review | If AI-core | Required if AI-core | Deep | P0 |
+
+## Ship Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Build passes | Required | Required | Required | P0 |
+| Tests pass | Required | Required | Required | P0 |
+| Smoke tests | Basic | Required | Required | P0 |
+| Monitoring | Optional | Required | Deep | P1 |
+| Rollback plan | Optional | Required | Required | P1 |
+| Critical/high findings resolved | Required | Required | Required | P0 |
+| User approval | Recommended | Required | Required | P0 |
+| Lesson capture | Required | Required | Required | P1 |
+
+## Full-Mode Special Blockers
+
+These are P0/P1 for Full mode:
+
+- Multi-tenant product without tenant isolation tests.
+- Paid product without billing edge cases.
+- AI-core product without evals and fallback behavior.
+- EU personal data without GDPR data inventory and deletion/export plan.
+- Enterprise product without trust/security communication.
+- User-facing product without Design DNA.
+- High-scale product without database scale model.
+- Product launch without monitoring and rollback.
+- Major architecture choice without ADR.
+- Promises in narrative that do not map to specification.
+
+## Model Behavior
+
+When Codex finds a P0:
+
+1. Stop.
+2. State the blocker.
+3. Explain why it matters.
+4. Create or update the missing artifact.
+5. Do not proceed until the gate is satisfied.
+
+When Codex finds a P1:
+
+1. State the risk.
+2. Ask whether to fix now or defer if user approval is required.
+3. If deferred, write owner, deadline, and consequence.
+
