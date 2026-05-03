@@ -66,6 +66,17 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No shipping without tests, monitoring, smoke tests, rollback, and launch approval.
 - No project end without lessons captured.
 
+## Git and Review Workflow
+
+- Do not do meaningful feature, fix, redesign, refactor, database, infrastructure, dependency, or experiment work directly on `main` unless the user explicitly asks.
+- Use a `codex/...` branch for normal feature work.
+- Use a separate worktree for risky experiments, long-running tasks, parallel work, or when the current working tree has unrelated user changes.
+- Prefer pull requests over direct pushes to `main`.
+- Run local Codex review with `/review` before opening or updating a PR when available.
+- Require GitHub Codex Code Review on every PR when the repository integration is available.
+- Treat P0 and P1 review findings as merge blockers unless the user explicitly accepts the risk.
+- Never merge into `main` or push directly to `main` without explicit user approval.
+
 ## Local State
 
 Primary local files:
@@ -104,4 +115,3 @@ npm run verify-plan -- docs/prd/[file].md
 Do not ignore Codex Brain.
 
 Use the local `.codex-brain/` state and this file to continue safely. If deeper methodology is needed, ask the user to provide or clone the canonical repo.
-

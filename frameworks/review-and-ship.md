@@ -38,6 +38,11 @@ Full:
 
 Before production:
 
+- work was completed on a non-`main` branch unless the user explicitly approved direct `main` work
+- pull request exists for meaningful features, fixes, redesigns, refactors, infrastructure changes, database changes, or experiments
+- local Codex review with `/review` was run when available
+- GitHub Codex Code Review was requested or ran automatically when the repository integration is available
+- P0 and P1 Codex Code Review findings are resolved or explicitly escalated to the user
 - tests pass
 - build passes
 - migrations safe
@@ -48,6 +53,7 @@ Before production:
 - smoke tests defined
 - critical/high findings resolved
 - user approval recorded
+- merge into `main` approved by the user
 
 ## Launch Learning
 
@@ -58,4 +64,3 @@ After launch:
 - record user feedback
 - update lessons
 - create follow-up PRDs
-

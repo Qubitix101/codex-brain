@@ -96,6 +96,26 @@ For gate decisions, use `frameworks/quality-gate-matrix.md`. P0 findings block p
 
 For workflow routing, use `catalogs/workflow-manifest.json`.
 
+## Git and PR Review Policy
+
+Protect `main` by default.
+
+For any meaningful feature, fix, redesign, refactor, dependency change, database change, infrastructure change, or experiment:
+
+1. Check the current Git branch and working tree before editing.
+2. Do not work directly on `main` unless the user explicitly asks for it.
+3. Create or recommend a `codex/...` branch for normal feature work.
+4. Create or recommend a separate worktree when the change is risky, experimental, long-running, or when the current working tree has unrelated user changes.
+5. Keep changes focused and review the diff before completion.
+6. Run relevant tests/checks, or document why they could not run.
+7. Prefer opening a pull request instead of pushing directly to `main`.
+8. Run local Codex review with `/review` before opening or updating a PR when available.
+9. Require GitHub Codex Code Review on every PR before merge when the repository integration is available.
+10. Treat P0 and P1 review findings as merge blockers. Resolve or explicitly escalate them to the user before merge.
+11. Never merge into `main` or push directly to `main` without explicit user approval.
+
+Small documentation, copy, or configuration-only changes may stay on the current branch only when the risk is low and the working tree is clean.
+
 ## Hard Gates
 
 ### Gate 0 - Classification
@@ -251,6 +271,8 @@ Forbidden:
 Requires:
 
 - code review
+- local Codex review with `/review` when available
+- GitHub Codex Code Review on the pull request when the repo integration is available
 - security review
 - performance review
 - accessibility review for UI
@@ -260,6 +282,8 @@ Requires:
 Forbidden:
 
 - shipping with unresolved critical/high issues
+- merging unresolved P0 or P1 Codex Code Review findings
+- merging into `main` without explicit user approval
 
 ### Gate 7 - Ship
 

@@ -10,12 +10,16 @@ One task. One focused change. One verification pass. One state update.
 2. Read current PRD.
 3. Select next unblocked task.
 4. Confirm allowed files and forbidden files.
-5. Implement only that task.
-6. Run relevant checks.
-7. Review the diff.
-8. Update task state.
-9. Capture lessons.
-10. Stop.
+5. Check Git branch and working tree.
+6. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
+7. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
+8. Implement only that task.
+9. Run relevant checks.
+10. Review the diff.
+11. Run local Codex review with `/review` when available before PR handoff.
+12. Update task state.
+13. Capture lessons.
+14. Stop.
 
 ## Task Requirements
 
@@ -36,6 +40,8 @@ A task is complete only when:
 - acceptance criteria are satisfied
 - tests/checks pass or failures are documented with reason
 - no unrelated files changed
+- Git branch/worktree choice was appropriate for the risk
+- local review was run or intentionally skipped with reason
 - state is updated
 - lesson capture was considered
 
@@ -44,6 +50,8 @@ A task is complete only when:
 - starting a second task in the same loop
 - modifying unrelated modules
 - ignoring dirty worktree context
+- doing meaningful feature work directly on `main` without explicit user approval
+- merging or pushing directly to `main` without explicit user approval
 - marking a task complete because code was written but not verified
 - loading entire huge specs when task references are enough
 
@@ -58,4 +66,3 @@ Agents must not all pick the first unchecked task. A parallel system must:
 - assign explicit task ids
 
 No parallel execution without disjoint write scopes.
-
