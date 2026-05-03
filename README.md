@@ -112,6 +112,14 @@ Then ask Codex:
 Use Codex Brain. Read CODEX.md, classify this project, and tell me the next allowed action.
 ```
 
+For a reusable new-project prompt, see `START-NEW-PROJECT.md`.
+
+Bootstrap also creates a local project `CODEX.md`, so future sessions can use the shorter trigger:
+
+```text
+Use Codex Brain for this project.
+```
+
 Useful commands:
 
 ```bash

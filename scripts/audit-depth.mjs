@@ -39,6 +39,7 @@ const requiredFiles = [
   "templates/full/mode-downgrade-record.template.md",
   "templates/full/test-strategy.template.md",
   "templates/full/traceability-matrix.template.md",
+  "templates/shared/project-codex.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
   "templates/light/quick-spec.template.md",
@@ -46,6 +47,7 @@ const requiredFiles = [
   "workflows/context-routing/step-02-compute-next-action.md",
   "workflows/quick-flow/step-03-implement-slice.md",
   "workflows/full-mode-readiness/step-03-execution-readiness.md",
+  "START-NEW-PROJECT.md",
   "USAGE-GUIDE.md"
 ];
 
@@ -117,6 +119,7 @@ const requiredConcepts = [
   "traceability matrix",
   "test strategy",
   "project context",
+  "use codex brain",
   "context distillation",
   "expert councils",
   "session brief"

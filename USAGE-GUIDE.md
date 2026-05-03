@@ -26,6 +26,14 @@ Then tell Codex:
 Use Codex Brain. Read CODEX.md. Classify this project and tell me the next allowed action.
 ```
 
+The shortest reliable trigger after bootstrap is:
+
+```text
+Use Codex Brain for this project.
+```
+
+Bootstrap creates a local `CODEX.md` from `templates/shared/project-codex.template.md`, plus `.codex-brain/USE-CODEX-BRAIN.md`, so future sessions have the instruction locally.
+
 To let the repo compute the next action:
 
 ```bash

@@ -68,9 +68,23 @@ if (!existsSync(prdPath)) {
   copyTemplate(join(brainRoot, "templates", "shared", "prd.template.md"), prdPath);
 }
 
+const projectCodexPath = join(root, "CODEX.md");
+if (!existsSync(projectCodexPath)) {
+  copyTemplate(join(brainRoot, "templates", "shared", "project-codex.template.md"), projectCodexPath, {
+    "[Project Name]": project
+  });
+}
+
 const projectContextPath = join(codexDir, "project-context.md");
 if (!existsSync(projectContextPath)) {
   copyTemplate(join(brainRoot, "templates", "shared", "project-context.template.md"), projectContextPath, {
+    "[Project Name]": project
+  });
+}
+
+const localInstructionPath = join(codexDir, "USE-CODEX-BRAIN.md");
+if (!existsSync(localInstructionPath)) {
+  copyTemplate(join(brainRoot, "templates", "shared", "project-codex.template.md"), localInstructionPath, {
     "[Project Name]": project
   });
 }
@@ -93,4 +107,5 @@ for (const name of memoryTemplates) {
 
 console.log(`Codex Brain bootstrapped for ${project}`);
 console.log(`State: ${statePath}`);
+console.log(`Instruction: ${projectCodexPath}`);
 console.log("Next: run next-action, classify the project, and approve Light, Standard, or Full mode.");

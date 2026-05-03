@@ -2,6 +2,18 @@
 
 This repository is the canonical Codex Brain system. When a future Codex session is asked to use Codex Brain, read this file first.
 
+## User Trigger Protocol
+
+When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Brain", "Use the brain system", or similar:
+
+1. Treat this repository as the canonical methodology.
+2. If the current project is not bootstrapped, bootstrap it with `scripts/bootstrap-project.mjs`.
+3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
+4. Read the local `.codex-brain/` state and project context.
+5. Determine and state the next allowed action before building.
+
+For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
+
 ## Prime Directive
 
 Build products methodically. Do not build blind.
@@ -131,7 +143,7 @@ Requires by mode:
 - Standard: competitors, users, technical feasibility, security, privacy, design, database, deployment
 - Full: all Standard items plus market, moat, pricing, multi-tenancy, reliability, compliance, observability, data strategy, AI safety if applicable
 
-For Full mode, use `frameworks/research-deep-methodology.md`. It defines the 19-category research matrix and is mandatory unless the user explicitly downgrades the project mode.
+For Full mode, use `frameworks/research-deep-methodology.md` and `catalogs/full-mode-coverage-catalog.json`. They define the Full-mode research coverage and are mandatory unless the user explicitly downgrades the project mode.
 
 Forbidden:
 

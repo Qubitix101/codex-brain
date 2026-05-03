@@ -8,6 +8,7 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const required = [
   "README.md",
   "CODEX.md",
+  "START-NEW-PROJECT.md",
   "USAGE-GUIDE.md",
   "frameworks/lifecycle.md",
   "frameworks/research-deep-methodology.md",
@@ -49,6 +50,7 @@ const required = [
   "workflows/full-mode-readiness/step-02-build-plan-gate.md",
   "workflows/full-mode-readiness/step-03-execution-readiness.md",
   "templates/shared/project-state.template.json",
+  "templates/shared/project-codex.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
   "templates/shared/memory/project-brief.template.md",

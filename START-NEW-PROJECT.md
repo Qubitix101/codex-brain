@@ -1,0 +1,33 @@
+# Start a New Project With Codex Brain
+
+Use this exact instruction when starting a new project:
+
+```text
+Use Codex Brain. Follow the Codex Brain repo at https://github.com/Qubitix101/codex-brain. Read its CODEX.md first, bootstrap this project if needed, classify the project as Light, Standard, or Full, and tell me the next allowed action before building.
+```
+
+After bootstrap, the new project should contain:
+
+- `CODEX.md`
+- `.codex-brain/state.json`
+- `.codex-brain/project-context.md`
+- `.codex-brain/memory/`
+
+Then future sessions can use the shorter instruction:
+
+```text
+Use Codex Brain for this project.
+```
+
+Codex should then read the local `CODEX.md`, local `.codex-brain/` state, and determine the next allowed action.
+
+## Important Limitation
+
+Codex does not automatically know to use Codex Brain in unrelated new conversations unless the user asks for it or the project already contains the local Codex Brain instruction files.
+
+The reliable trigger is:
+
+```text
+Use Codex Brain.
+```
+
