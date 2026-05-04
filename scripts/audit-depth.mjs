@@ -25,6 +25,7 @@ const requiredFiles = [
   "frameworks/context-distillation.md",
   "frameworks/test-architecture.md",
   "frameworks/project-context.md",
+  "frameworks/session-close-and-context-save.md",
   "frameworks/expert-councils.md",
   "frameworks/skill-workflow-architecture.md",
   "templates/full/master-build-plan.template.md",
@@ -42,11 +43,14 @@ const requiredFiles = [
   "templates/shared/project-codex.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
+  "templates/shared/session-record.template.json",
   "templates/light/quick-spec.template.md",
   "workflows/README.md",
   "workflows/context-routing/step-02-compute-next-action.md",
   "workflows/quick-flow/step-03-implement-slice.md",
   "workflows/full-mode-readiness/step-03-execution-readiness.md",
+  "workflows/session-close/step-02-save-record.md",
+  "workflows/session-close/step-03-health-check.md",
   "START-NEW-PROJECT.md",
   "USAGE-GUIDE.md"
 ];
@@ -120,6 +124,10 @@ const requiredConcepts = [
   "test strategy",
   "project context",
   "use codex brain",
+  "save context",
+  "session close",
+  "session record",
+  "context health",
   "context distillation",
   "expert councils",
   "session brief"

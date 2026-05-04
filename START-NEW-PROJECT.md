@@ -12,6 +12,7 @@ After bootstrap, the new project should contain:
 - `.codex-brain/state.json`
 - `.codex-brain/project-context.md`
 - `.codex-brain/memory/`
+- `.codex-brain/sessions/`
 
 Then future sessions can use the shorter instruction:
 
@@ -20,6 +21,14 @@ Use Codex Brain for this project.
 ```
 
 Codex should then read the local `CODEX.md`, local `.codex-brain/` state, and determine the next allowed action.
+
+At the end of meaningful work, say:
+
+```text
+Save Codex Brain context for this session.
+```
+
+Codex should create a session record, update memory, and record the next action.
 
 ## Important Limitation
 
@@ -30,4 +39,3 @@ The reliable trigger is:
 ```text
 Use Codex Brain.
 ```
-

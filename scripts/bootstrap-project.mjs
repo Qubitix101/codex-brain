@@ -20,6 +20,7 @@ mkdirSync(codexDir, { recursive: true });
 mkdirSync(join(codexDir, "distillates"), { recursive: true });
 mkdirSync(join(codexDir, "lessons"), { recursive: true });
 mkdirSync(join(codexDir, "memory"), { recursive: true });
+mkdirSync(join(codexDir, "sessions"), { recursive: true });
 mkdirSync(join(codexDir, "task-records"), { recursive: true });
 mkdirSync(join(codexDir, "research"), { recursive: true });
 mkdirSync(join(root, "docs", "prd"), { recursive: true });

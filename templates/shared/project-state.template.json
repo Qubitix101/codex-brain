@@ -85,6 +85,16 @@
     "build_plan": null,
     "execution": null
   },
+  "context": {
+    "last_session_id": null,
+    "last_session_path": null,
+    "last_saved_at": null,
+    "last_summary": null,
+    "last_next_action": null,
+    "last_context_health_score": null,
+    "last_context_health_ok": null,
+    "unsaved_changes": false
+  },
   "current_task": {
     "id": null,
     "prd": null,

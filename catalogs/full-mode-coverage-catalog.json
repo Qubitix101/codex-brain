@@ -463,15 +463,20 @@
         "What decisions belong in memory rather than a transient chat?",
         "Which large artifacts need context distillation?",
         "Do state, memory, Build Plan, Design DNA, and current code agree?",
+        "What session record closed the most recent meaningful work?",
+        "What next action should the next Codex session start from?",
         "What lessons should be promoted into the brain?"
       ],
       "required_artifacts": [
         ".codex-brain/project-context.md",
         ".codex-brain/memory/",
+        ".codex-brain/sessions/",
         ".codex-brain/distillates/"
       ],
       "p0_blockers": [
         "Full-mode project without project context.",
+        "Meaningful session ended without session record.",
+        "State missing last next action for the next session.",
         "Deep research or Build Plan too large for future sessions with no context distillation.",
         "State and memory disagree on phase, mode, or blocked actions."
       ],
@@ -536,6 +541,7 @@
     "templates/full/test-strategy.template.md",
     "templates/full/traceability-matrix.template.md",
     "catalogs/workflow-manifest.json",
-    "schemas/project-state.schema.json"
+    "schemas/project-state.schema.json",
+    "schemas/session-record.schema.json"
   ]
 }

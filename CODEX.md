@@ -29,6 +29,7 @@ At the start of any project session:
    - `.codex-brain/classification.json`
    - `.codex-brain/project-context.md`
    - `.codex-brain/memory/`
+   - `.codex-brain/sessions/`
    - `.codex-brain/distillates/`
    - `.codex-brain/lessons/`
    - project `CODEX.md` or `CLAUDE.md` if present
@@ -44,6 +45,7 @@ If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
 If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
+If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
 
 ## Rigor Mode Authority
 
@@ -306,6 +308,7 @@ Forbidden:
 Requires:
 
 - structured lessons captured in `.codex-brain/lessons/*.json`
+- structured session record captured in `.codex-brain/sessions/*.json`
 - memory updated in `.codex-brain/memory/`
 - project context updated if decisions changed
 - distillates updated for large research, Build Plan, or execution context
@@ -315,6 +318,29 @@ Requires:
 Forbidden:
 
 - ending serious projects without feeding learning back into the system
+- ending meaningful sessions without context save
+
+## Session Close Protocol
+
+At the end of meaningful work, Codex must save context.
+
+Meaningful work includes:
+
+- code or artifact changes
+- product, design, architecture, database, security, privacy, or testing decisions
+- failed or passing checks
+- blockers or risks discovered
+- phase/gate changes
+- user corrections that should affect future work
+
+Use:
+
+```bash
+npm run save-context -- --dir . --summary "[what happened]" --next "[next allowed action]"
+npm run context-health -- --dir .
+```
+
+The save must create a session record, update active context, update progress memory, update `state.context`, and leave a concrete next action for the next Codex session.
 
 ## Benchmark-Informed Additions
 

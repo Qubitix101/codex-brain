@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/session-record.schema.json",
+  "title": "Codex Brain Session Record",
+  "type": "object",
+  "required": [
+    "id",
+    "timestamp",
+    "project",
+    "mode",
+    "phase",
+    "summary",
+    "next_action",
+    "context_health"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "timestamp": { "type": "string", "minLength": 1 },
+    "project": { "type": "string", "minLength": 1 },
+    "mode": { "enum": ["light", "standard", "full", "pending"] },
+    "phase": { "type": "string", "minLength": 1 },
+    "phase_status": { "type": "string" },
+    "summary": { "type": "string", "minLength": 1 },
+    "completed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "decisions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "files_changed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "artifacts_updated": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "checks_run": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": { "type": "string", "minLength": 1 },
+    "lessons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "context_updates": {
+      "type": "object",
+      "properties": {
+        "state": { "type": "boolean" },
+        "active_context": { "type": "boolean" },
+        "progress": { "type": "boolean" },
+        "project_context": { "type": "boolean" },
+        "distillates": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "context_health": {
+      "type": "object",
+      "required": ["ok", "score", "warnings"],
+      "properties": {
+        "ok": { "type": "boolean" },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "git": {
+      "type": "object",
+      "properties": {
+        "available": { "type": "boolean" },
+        "branch": { "type": ["string", "null"] },
+        "status_short": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "state_snapshot": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

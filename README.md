@@ -78,6 +78,7 @@ codex-brain/
 │   ├── context-distillation.md         # Compact context packs
 │   ├── test-architecture.md            # Risk-ranked testing and traceability
 │   ├── project-context.md              # Per-project implementation constitution
+│   ├── session-close-and-context-save.md # Structured session handoff and context health
 │   ├── expert-councils.md              # Structured specialist review councils
 │   ├── skill-workflow-architecture.md  # Workflow manifest and step architecture
 │   ├── decomposition.md              # PRDs and task shape
@@ -127,6 +128,8 @@ npm run next-action -- --dir /path/to/project
 npm run session-brief -- --dir /path/to/project
 npm run verify-plan -- /path/to/project/docs/prd/some-prd.md
 npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brain/research
+npm run save-context -- --dir /path/to/project --summary "what happened" --next "next allowed action"
+npm run context-health -- --dir /path/to/project
 ```
 
 ## Non-Negotiables
@@ -139,6 +142,7 @@ npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brai
 - No AI-core product without model, retrieval, eval, fallback, and safety plans.
 - No Full-mode product without test strategy and traceability matrix.
 - No major project continuation without project context and session brief.
+- No meaningful session ends without a session record and next action.
 - No shipping without monitoring and rollback.
 - No project ends without lesson capture.
 

@@ -2,6 +2,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve, relative } from "node:path";
 import { parseArgs, readJson, listFilesRecursive } from "./lib.mjs";
+import { latestSessionPath } from "./context-utils.mjs";
 
 const args = parseArgs(process.argv.slice(2));
 const root = resolve(args.dir || process.cwd());
@@ -38,12 +39,15 @@ const planFiles = []
 
 const activeContext = readIfExists(join(memoryDir, "active-context.md"));
 const progress = readIfExists(join(memoryDir, "progress.md"));
+const latestSession = latestSessionPath(root);
 
 const brief = {
   project: state.project,
   mode: state.mode,
   phase: state.phase,
   phase_status: state.phase_status,
+  last_session: latestSession ? relative(root, latestSession) : null,
+  last_next_action: state.context?.last_next_action || null,
   current_task: state.current_task || {},
   design_dna: state.design_dna || {},
   memory_files: memoryFiles,
@@ -61,6 +65,8 @@ if (args.json) {
   console.log(`- Phase: ${brief.phase} (${brief.phase_status})`);
   console.log(`- Current task: ${brief.current_task.id || "none"}`);
   console.log(`- Design DNA: ${brief.design_dna.status || "unknown"}`);
+  console.log(`- Last session: ${brief.last_session || "none"}`);
+  console.log(`- Last next action: ${brief.last_next_action || "none"}`);
   console.log("");
   console.log("## Plan Progress");
   if (planFiles.length === 0) {
@@ -77,4 +83,3 @@ if (args.json) {
   console.log("## Progress");
   console.log(brief.progress_excerpt || "- No progress memory yet.");
 }
-

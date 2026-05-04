@@ -37,6 +37,13 @@ if (state.design_dna?.required && !state.design_dna.frontend_unblocked) {
   warnings.push("Design DNA is required and frontend is still blocked.");
 }
 
+if (!state.context) {
+  warnings.push("state.context is missing; run save-context after meaningful work.");
+} else {
+  if (!state.context.last_session_id) warnings.push("No last session id recorded in state.context.");
+  if (!state.context.last_next_action) warnings.push("No last next action recorded in state.context.");
+}
+
 if (state.mode === "full") {
   const fullExpected = [
     "docs/build-plan.md",
@@ -49,4 +56,3 @@ if (state.mode === "full") {
 
 console.log(JSON.stringify({ ok: errors.length === 0, errors, warnings }, null, 2));
 process.exit(errors.length === 0 ? 0 : 1);
-

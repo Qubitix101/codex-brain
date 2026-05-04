@@ -98,6 +98,22 @@ Contains:
 - known traps
 - next allowed task
 
+### Session Records
+
+Location: `.codex-brain/sessions/session-[timestamp].json`
+
+Contains:
+
+- summary
+- completed work
+- decisions
+- checks
+- blockers
+- next action
+- context health
+
+Session records are not distillates, but execution distillates should be regenerated from them when session history grows too large.
+
 ## Distillation Format
 
 Use:
@@ -127,4 +143,3 @@ For high-stakes Full-mode work, perform a reverse check:
 - Dropping GDPR/security/database assumptions because they feel boring.
 - Mixing old and new decisions without dates.
 - Using a distillate as the source of truth when the underlying artifact changed.
-

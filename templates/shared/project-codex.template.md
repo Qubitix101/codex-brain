@@ -45,6 +45,28 @@ At the start of a Codex Brain session:
 
 8. Do not write product code until the active gate allows it.
 
+## Required Session Close
+
+At the end of meaningful work, Codex must save context before stopping.
+
+Meaningful work includes:
+
+- code or artifact changes
+- product/design/architecture/security/privacy/database/testing decisions
+- checks run
+- blockers found
+- phase or gate changes
+- reusable lessons
+
+If the canonical Codex Brain repo is available, use:
+
+```bash
+npm run save-context -- --dir . --summary "what happened" --next "next allowed action"
+npm run context-health -- --dir .
+```
+
+If the script is unavailable, manually create `.codex-brain/sessions/session-[timestamp].json`, update `.codex-brain/memory/active-context.md`, update `.codex-brain/memory/progress.md`, and record the next action in `.codex-brain/state.json`.
+
 ## Rigor Rule
 
 Codex proposes the project mode. The user approves it.
@@ -90,6 +112,7 @@ Primary local files:
 - `.codex-brain/memory/tech-context.md`
 - `.codex-brain/memory/active-context.md`
 - `.codex-brain/memory/progress.md`
+- `.codex-brain/sessions/`
 
 The JSON state controls phase and gate status. Memory files preserve project knowledge across sessions.
 
@@ -108,6 +131,8 @@ Use its scripts when possible:
 npm run next-action -- --dir .
 npm run session-brief -- --dir .
 npm run verify-plan -- docs/prd/[file].md
+npm run save-context -- --dir . --summary "what happened" --next "next allowed action"
+npm run context-health -- --dir .
 ```
 
 ## If Canonical Repo Is Not Available

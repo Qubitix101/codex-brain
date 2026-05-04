@@ -33,6 +33,7 @@ Supporting memory:
 - `.codex-brain/memory/tech-context.md`
 - `.codex-brain/memory/active-context.md`
 - `.codex-brain/memory/progress.md`
+- `.codex-brain/sessions/`
 
 ## Required Sections
 
@@ -65,6 +66,7 @@ Update project context when:
 - a new convention is established
 - a recurring mistake becomes a rule
 - the project moves to review or ship
+- a session record reveals stale or missing context
 
 ## Authority
 
@@ -83,4 +85,3 @@ If project context conflicts with:
 - Leaving old decisions unmarked after they change.
 - Hiding important security/privacy rules only in memory.
 - Letting project context drift away from state and current code.
-

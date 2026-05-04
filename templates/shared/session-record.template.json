@@ -1,0 +1,37 @@
+{
+  "id": "session_[timestamp]",
+  "timestamp": "[timestamp]",
+  "project": "[project-name]",
+  "mode": "pending",
+  "phase": "classify",
+  "phase_status": "in-progress",
+  "summary": "",
+  "completed": [],
+  "decisions": [],
+  "files_changed": [],
+  "artifacts_updated": [],
+  "checks_run": [],
+  "blockers": [],
+  "risks": [],
+  "next_action": "",
+  "lessons": [],
+  "context_updates": {
+    "state": false,
+    "active_context": false,
+    "progress": false,
+    "project_context": false,
+    "distillates": false
+  },
+  "context_health": {
+    "ok": false,
+    "score": 0,
+    "warnings": []
+  },
+  "git": {
+    "available": false,
+    "branch": null,
+    "status_short": []
+  },
+  "state_snapshot": {}
+}
+

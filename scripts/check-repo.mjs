@@ -27,6 +27,7 @@ const required = [
   "frameworks/context-distillation.md",
   "frameworks/test-architecture.md",
   "frameworks/project-context.md",
+  "frameworks/session-close-and-context-save.md",
   "frameworks/expert-councils.md",
   "frameworks/skill-workflow-architecture.md",
   "schemas/project-state.schema.json",
@@ -35,6 +36,7 @@ const required = [
   "schemas/full-mode-coverage-catalog.schema.json",
   "schemas/workflow-manifest.schema.json",
   "schemas/session-brief.schema.json",
+  "schemas/session-record.schema.json",
   "catalogs/full-mode-coverage-catalog.json",
   "catalogs/workflow-manifest.json",
   "workflows/README.md",
@@ -49,7 +51,11 @@ const required = [
   "workflows/full-mode-readiness/step-01-research-gate.md",
   "workflows/full-mode-readiness/step-02-build-plan-gate.md",
   "workflows/full-mode-readiness/step-03-execution-readiness.md",
+  "workflows/session-close/step-01-gather.md",
+  "workflows/session-close/step-02-save-record.md",
+  "workflows/session-close/step-03-health-check.md",
   "templates/shared/project-state.template.json",
+  "templates/shared/session-record.template.json",
   "templates/shared/project-codex.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
@@ -75,7 +81,10 @@ const required = [
   "scripts/next-action.mjs",
   "scripts/session-brief.mjs",
   "scripts/verify-plan.mjs",
-  "scripts/distill-context.mjs"
+  "scripts/distill-context.mjs",
+  "scripts/context-utils.mjs",
+  "scripts/save-context.mjs",
+  "scripts/context-health.mjs"
 ];
 
 const missing = required.filter((path) => !existsSync(join(root, path)));

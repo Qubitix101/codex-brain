@@ -111,7 +111,7 @@
       "blocked_actions": ["unrelated refactors", "marking complete without verification", "ignoring failed checks"],
       "approval_required": false,
       "escalation_triggers": ["test failure after repeated attempts", "scope creep", "dirty worktree conflict", "security/privacy blocker"],
-      "next": ["execute-task", "review"]
+      "next": ["execute-task", "review", "session-close"]
     },
     {
       "id": "review",
@@ -125,7 +125,7 @@
       "blocked_actions": ["shipping with unresolved P0/P1 findings"],
       "approval_required": true,
       "escalation_triggers": ["critical issue", "missing tenant isolation test", "missing GDPR evidence", "visual QA mismatch"],
-      "next": ["ship", "execute-task"]
+      "next": ["ship", "execute-task", "session-close"]
     },
     {
       "id": "ship",
@@ -139,7 +139,21 @@
       "blocked_actions": ["launch without rollback", "launch without monitoring", "launch with critical findings"],
       "approval_required": true,
       "escalation_triggers": ["no smoke test", "no rollback", "no owner for incident response"],
-      "next": ["learn"]
+      "next": ["learn", "session-close"]
+    },
+    {
+      "id": "session-close",
+      "name": "Session Close and Context Save",
+      "phase": "learn",
+      "modes": ["light", "standard", "full"],
+      "purpose": "Save structured session context, update memory, record next action, and check context health before ending meaningful work.",
+      "required_inputs": ["session summary", "next action", "current state"],
+      "produces": [".codex-brain/sessions/session-[timestamp].json", ".codex-brain/memory/active-context.md", ".codex-brain/memory/progress.md", ".codex-brain/state.json#context"],
+      "allowed_actions": ["write session record", "update active context", "update progress memory", "record context health", "capture reusable lessons"],
+      "blocked_actions": ["ending meaningful session without context save", "saving vague next action", "mixing ordinary progress with reusable lessons"],
+      "approval_required": false,
+      "escalation_triggers": ["missing next action", "missing active context", "failed context health", "unrecorded blocker"],
+      "next": ["classify-project", "validate-idea", "deep-research", "build-plan", "execute-task"]
     },
     {
       "id": "learn",
@@ -148,13 +162,12 @@
       "modes": ["light", "standard", "full"],
       "purpose": "Capture project lessons and decide whether to promote them into the brain.",
       "required_inputs": ["completed work", "task records", "review findings", "postmortem if applicable"],
-      "produces": [".codex-brain/lessons/", ".codex-brain/memory/progress.md", "postmortems/"],
-      "allowed_actions": ["capture lesson", "promote lesson", "update framework/template/schema/script/agent"],
-      "blocked_actions": ["ending project without lesson capture"],
+      "produces": [".codex-brain/lessons/", ".codex-brain/sessions/", ".codex-brain/memory/progress.md", "postmortems/"],
+      "allowed_actions": ["capture lesson", "save session context", "promote lesson", "update framework/template/schema/script/agent"],
+      "blocked_actions": ["ending project without lesson capture", "ending meaningful session without context save"],
       "approval_required": false,
       "escalation_triggers": ["repeated failure", "missed gate", "security/privacy/design/test issue found late"],
-      "next": ["classify-project"]
+      "next": ["session-close", "classify-project"]
     }
   ]
 }
-

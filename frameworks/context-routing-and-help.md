@@ -129,6 +129,17 @@ At the start of a meaningful session, Codex should summarize:
 
 Use `scripts/session-brief.mjs` when available.
 
+## Session Close
+
+At the end of meaningful work, route to `session-close`.
+
+Codex should use:
+
+- `scripts/save-context.mjs` to write the session record and update memory
+- `scripts/context-health.mjs` to verify the next session has enough context
+
+The next action from session close becomes the first routing input for the next Codex session.
+
 ## Anti-Patterns
 
 - Giving the user a menu of every possible workflow.
@@ -136,4 +147,3 @@ Use `scripts/session-brief.mjs` when available.
 - Treating memory files as authoritative when JSON state disagrees.
 - Treating Full-mode gates as optional after the user asked for top-tier quality.
 - Asking the user to choose a workflow when the state makes the next step obvious.
-

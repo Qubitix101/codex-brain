@@ -14,7 +14,9 @@
     "next-action": "node scripts/next-action.mjs",
     "session-brief": "node scripts/session-brief.mjs",
     "verify-plan": "node scripts/verify-plan.mjs",
-    "distill-context": "node scripts/distill-context.mjs"
+    "distill-context": "node scripts/distill-context.mjs",
+    "save-context": "node scripts/save-context.mjs",
+    "context-health": "node scripts/context-health.mjs"
   },
   "engines": {
     "node": ">=18"

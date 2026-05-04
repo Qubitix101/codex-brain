@@ -10,6 +10,9 @@
     "phase_status",
     "gates",
     "design_dna",
+    "project_context",
+    "distillates",
+    "context",
     "current_task",
     "lessons"
   ],
@@ -76,6 +79,20 @@
         "research": { "type": ["string", "null"] },
         "build_plan": { "type": ["string", "null"] },
         "execution": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "last_session_id": { "type": ["string", "null"] },
+        "last_session_path": { "type": ["string", "null"] },
+        "last_saved_at": { "type": ["string", "null"] },
+        "last_summary": { "type": ["string", "null"] },
+        "last_next_action": { "type": ["string", "null"] },
+        "last_context_health_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "last_context_health_ok": { "type": ["boolean", "null"] },
+        "unsaved_changes": { "type": "boolean" }
       },
       "additionalProperties": true
     },

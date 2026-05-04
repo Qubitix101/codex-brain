@@ -288,6 +288,32 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
+## 13.6 Session Close Procedure
+
+At the end of every meaningful session, save context.
+
+Use:
+
+```bash
+npm run save-context -- --dir "[project-root]" \
+  --summary "what happened" \
+  --completed "completed item" \
+  --decision "decision made" \
+  --check "check command/result" \
+  --blocker "blocker if any" \
+  --next "the next allowed action"
+```
+
+Then check:
+
+```bash
+npm run context-health -- --dir "[project-root]"
+```
+
+This creates `.codex-brain/sessions/session-[timestamp].json`, updates active context, updates progress memory, and writes the latest next action into `.codex-brain/state.json`.
+
+Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
+
 ## 14. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:

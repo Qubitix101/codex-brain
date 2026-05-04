@@ -21,4 +21,4 @@ Use them with:
 - `context-routing/` - determine the next allowed action
 - `quick-flow/` - low-risk fast path
 - `full-mode-readiness/` - Full-mode evidence, plan, and readiness checks
-
+- `session-close/` - save structured session context and check context health
