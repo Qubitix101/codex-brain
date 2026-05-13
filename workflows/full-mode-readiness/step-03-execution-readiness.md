@@ -6,6 +6,8 @@ Before execution:
 - every task has acceptance criteria
 - every checkbox has verification
 - Design DNA blocks are resolved
+- required access blockers are resolved, mocked, or explicitly deferred
+- execution surface is known for each integration-heavy task
 - security/privacy/database tasks are explicit
 - test traceability covers P0/P1 requirements
 - current task is selected and scoped
@@ -13,4 +15,3 @@ Before execution:
 Run `scripts/verify-plan.mjs` against the active PRD or plan.
 
 Execution starts only after readiness passes.
-

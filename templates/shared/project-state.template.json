@@ -23,6 +23,13 @@
       "missing": [".codex-brain/research/"],
       "approved": false
     },
+    "capability_access": {
+      "status": "not-started",
+      "required_artifacts": ["docs/capability-access-map.md"],
+      "missing": ["docs/capability-access-map.md"],
+      "approved": false,
+      "notes": "Map required APIs, SDKs, CLIs, MCP servers, generated harnesses, browser workflows, credentials, mocks, and live verification before Build Plan approval."
+    },
     "plan": {
       "status": "not-started",
       "required_artifacts": ["docs/build-plan.md"],
@@ -82,6 +89,7 @@
   "distillates": {
     "project": null,
     "research": null,
+    "capability_access": null,
     "build_plan": null,
     "execution": null
   },

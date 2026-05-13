@@ -1,0 +1,37 @@
+{
+  "name": "computer-use",
+  "version": "0.1.0",
+  "description": "Local scaffold for future Codex Computer Use workflows, skills, app metadata, and MCP wiring.",
+  "author": {
+    "name": "Qubitix",
+    "url": "https://github.com/Qubitix101"
+  },
+  "homepage": "https://github.com/Qubitix101/codex-brain",
+  "repository": "https://github.com/Qubitix101/codex-brain",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "computer-use",
+    "desktop-automation"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Computer Use Scaffold",
+    "shortDescription": "Placeholder bundle for future desktop automation workflows.",
+    "longDescription": "A repository-local scaffold for experimenting with Codex Computer Use workflow packaging. It does not declare active MCP servers or app connectors yet.",
+    "developerName": "Qubitix",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Desktop automation"
+    ],
+    "websiteURL": "https://github.com/Qubitix101/codex-brain",
+    "defaultPrompt": [
+      "Use Computer Use only when CLI, API, MCP, or browser automation cannot satisfy the desktop workflow.",
+      "Package a repeatable desktop workflow into a safer generated CLI harness before relying on UI clicks."
+    ],
+    "brandColor": "#111111"
+  }
+}

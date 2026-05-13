@@ -80,6 +80,7 @@ Promotion criteria:
 | Missed database scale issue | database framework + ADR template |
 | Repeated execution failure | execution loop + PRD template + script |
 | Repeated review failure | agent prompt + quality matrix |
+| Repeated tool/access failure | capability-access framework + tool routing matrix + capability catalog + workflow gate |
 
 ## Versioning
 
@@ -115,4 +116,3 @@ Before calling the brain healthy:
 - Letting Full-mode rigor leak into every tiny project.
 - Removing a gate because one project felt slow.
 - Downgrading rigor without recording the accepted risk.
-

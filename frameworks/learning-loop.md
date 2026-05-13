@@ -15,6 +15,7 @@ Capture a structured lesson when:
 - an implementation decision was non-obvious
 - a security/privacy/database/design lesson emerges
 - a tool or workflow breaks
+- a CLI/API/MCP/browser/computer-use routing choice causes waste, risk, or rework
 - a shortcut causes rework
 - a quality checklist should be updated
 
@@ -100,7 +101,13 @@ If GDPR is repeatedly missed:
 - update `frameworks/security-gdpr.md`
 - add validator that blocks Standard/Full projects with personal data and no privacy plan
 
+If tool surface selection repeatedly causes waste or blockers:
+
+- update `frameworks/tool-surface-routing.md`
+- add or revise rules in `catalogs/tool-surface-routing-matrix.json`
+- update `frameworks/capability-access-readiness.md`
+- add capability entries to `catalogs/capability-access-catalog.json`
+
 ## Rule
 
 A serious project is not complete until lessons are captured.
-

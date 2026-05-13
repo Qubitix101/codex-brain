@@ -209,6 +209,20 @@ For every major choice:
 - risks
 - exit strategy
 
+### Capability and Access Readiness
+
+Reference `docs/capability-access-map.md` and define:
+
+- production runtime surface for each external capability
+- Codex/agent implementation surface for each capability
+- setup/testing surface
+- official API/SDK/CLI/MCP availability
+- generated harness, Browser, or Computer Use fallback if needed
+- credentials, OAuth, scopes, webhooks, billing, sandbox, and local tooling requirements
+- mock strategy and first live verification path
+- required-now user action checklist
+- destructive, externally visible, paid, and permission-sensitive action boundaries
+
 Required ADRs for Full mode:
 
 - primary database
@@ -594,6 +608,7 @@ The Build Plan is complete only when:
 
 - all required sections exist or are justified as not applicable
 - every major research decision is traced
+- capability/access map exists and all critical required-now access paths are explicit
 - Design DNA is approved if UI exists
 - database plan matches mode
 - security/privacy plan matches mode

@@ -15,9 +15,9 @@ The goal is not more process for its own sake. The goal is adaptive rigor: light
 
 ## The Core Idea
 
-Every project runs through three loops:
+Every project runs through four loops:
 
-1. Build Loop: classify, validate, research, plan, design, decompose, execute, review, ship.
+1. Build Loop: classify, validate, research, map capabilities and access, plan, design, decompose, execute, review, ship.
 2. Execution Loop: one task, one patch, one verification pass, one state update.
 3. Learning Loop: project lessons become reusable rules, gates, templates, and checklists.
 4. Context Loop: state, memory, distillates, and project context keep future Codex sessions aligned.
@@ -44,7 +44,8 @@ The user approves or overrides it.
 | 0 | Classify | Light, Standard, or Full mode selected and approved |
 | 1 | Validate | Go, conditional go, pivot, or no-go decision |
 | 2 | Research | Evidence collected for the required mode |
-| 3 | Plan | Build Plan with architecture, data, product, security, and delivery decisions |
+| 2.5 | Capability and Access | Map required APIs, SDKs, CLIs, MCP servers, browser/computer-use paths, credentials, mocks, and live verification |
+| 3 | Plan | Build Plan with architecture, data, product, security, integrations, access, and delivery decisions |
 | 3.5 | Design DNA | User-approved aesthetics before frontend implementation |
 | 4 | Decompose | PRDs with atomic tasks and acceptance criteria |
 | 5 | Execute | Working code through task-level execution loops |
@@ -67,6 +68,8 @@ codex-brain/
 │   ├── validation.md                 # Idea and product validation
 │   ├── research.md                   # Evidence requirements by mode
 │   ├── build-plan.md                 # Build Plan requirements
+│   ├── capability-access-readiness.md # Gate 2.5 access and integration readiness
+│   ├── tool-surface-routing.md        # CLI / API / MCP / browser / computer-use routing
 │   ├── design-dna.md                 # Frontend aesthetics gate
 │   ├── frontend-visual-qa.md         # Visual verification after UI build
 │   ├── narrative-validation.md        # Promise-to-spec audit
@@ -127,6 +130,8 @@ Useful commands:
 npm run next-action -- --dir /path/to/project
 npm run session-brief -- --dir /path/to/project
 npm run verify-plan -- /path/to/project/docs/prd/some-prd.md
+npm run plan-capabilities -- --brief "what we are building" --mode standard
+npm run route-tool -- --task "inspect the last failed GitHub Actions run"
 npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brain/research
 npm run save-context -- --dir /path/to/project --summary "what happened" --next "next allowed action"
 npm run context-health -- --dir /path/to/project
@@ -136,6 +141,7 @@ npm run context-health -- --dir /path/to/project
 
 - No frontend implementation before Design DNA is approved.
 - No serious backend implementation before database, auth, security, and privacy assumptions are documented.
+- No serious integration-heavy Build Plan before required capabilities, access surfaces, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without an isolation model.
 - No paid product without billing edge cases.
 - No European user data without GDPR analysis.

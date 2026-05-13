@@ -24,6 +24,7 @@ These block all modes:
 - missing acceptance criteria for execution task
 - marking task complete without verification
 - unresolved destructive command or secret exposure
+- critical external capability without known access surface
 - no lesson capture considered at project end
 
 ## Classification Gate
@@ -62,7 +63,21 @@ These block all modes:
 | Billing research if paid | Optional | Required | Deep | P0 |
 | AI eval research if AI-core | Optional | Required | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
+| Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
 | Evidence ledger | Optional | Recommended | Required | P1 |
+
+## Capability and Access Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Capability inventory | Required if external tool | Required | Required | P0 |
+| Product runtime surface selected | Required if external tool | Required | Required | P0 |
+| Agent implementation surface selected | Required if external tool | Required | Required | P1 |
+| Credentials/scopes/accounts/webhooks listed | Required if external tool | Required | Required | P0 |
+| Mock strategy | Required if live access deferred | Required | Required | P1 |
+| First live verification path | Required if external tool | Required | Required | P0 |
+| Destructive/external/paid action boundaries | Required if relevant | Required if relevant | Required | P0 |
+| User action checklist | Required if blocked | Required | Required | P0 |
 
 ## Build Plan Gate
 
@@ -77,6 +92,7 @@ These block all modes:
 | API/module contracts | Basic | Required | Deep | P1 |
 | Security plan | Basic | Required | Deep | P0 |
 | Privacy/GDPR plan | Required if relevant | Required if relevant | Deep | P0 |
+| Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
 | Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |
 | Billing spec | Required if paid | Required if paid | Deep | P0 |
 | AI orchestration/evals | Required if AI-core | Required if AI-core | Deep | P0 |
@@ -157,6 +173,7 @@ These are P0/P1 for Full mode:
 - User-facing product without Design DNA.
 - High-scale product without database scale model.
 - Product launch without monitoring and rollback.
+- Critical external capability without access surface, credentials, mock plan, and live verification trigger.
 - Major architecture choice without ADR.
 - Promises in narrative that do not map to specification.
 
@@ -175,4 +192,3 @@ When Codex finds a P1:
 1. State the risk.
 2. Ask whether to fix now or defer if user approval is required.
 3. If deferred, write owner, deadline, and consequence.
-

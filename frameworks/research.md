@@ -19,6 +19,7 @@ Research produces decisions, not trivia.
 - design references
 - deployment constraints
 - integration constraints
+- capability and access constraints
 
 ## Full Research
 
@@ -36,6 +37,7 @@ Research produces decisions, not trivia.
 - reliability/SLOs
 - analytics/data strategy
 - AI orchestration/evals if applicable
+- capability and access readiness
 - design and interaction references
 
 ## Evidence Standard
@@ -49,4 +51,3 @@ Codex must distinguish:
 - inference
 - recommendation
 - unknown
-

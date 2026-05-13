@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -70,9 +70,22 @@ Research should not become an endless archive. It should produce decisions, risk
 
 See `frameworks/research.md`.
 
+## Phase 2.5 - Capability and Access
+
+Answer: what external powers, access paths, credentials, and tool surfaces are required before planning and execution?
+
+Codex should map the difference between:
+
+- product runtime integrations
+- Codex/agent implementation tools
+- setup/testing tools
+- mocks and live verification
+
+See `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
+
 ## Phase 3 - Plan
 
-Create the Build Plan: the source of truth for product, architecture, data, security, privacy, design constraints, delivery, and verification.
+Create the Build Plan: the source of truth for product, architecture, data, security, privacy, integrations, design constraints, delivery, and verification.
 
 See `frameworks/build-plan.md`.
 
@@ -113,4 +126,3 @@ See `frameworks/learning-loop.md`.
 ## The Critical Rule
 
 If the current phase gate is not satisfied, Codex must not skip ahead. It should produce the missing artifact.
-

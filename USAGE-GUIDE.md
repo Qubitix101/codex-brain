@@ -5,7 +5,7 @@ This guide explains how to use Codex Brain from first idea to shipped product an
 The short version:
 
 ```text
-Classify -> Validate -> Research -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 The important version:
@@ -137,16 +137,17 @@ Recommended sequence:
 2. Validation with market/moat/pre-mortem
 3. Deep research using the Full-mode coverage catalog
 4. Evidence ledger
-5. Design references and Design DNA
-6. Master Build Plan
-7. ADRs for major choices
-8. Test strategy and traceability matrix
-9. Promise-to-spec audit
-10. Phase PRDs with vertical slices
-11. Execution loop
-12. Specialist reviews
-13. Ship gate
-14. Postmortem and lessons
+5. Capability and Access Map
+6. Design references and Design DNA
+7. Master Build Plan
+8. ADRs for major choices
+9. Test strategy and traceability matrix
+10. Promise-to-spec audit
+11. Phase PRDs with vertical slices
+12. Execution loop
+13. Specialist reviews
+14. Ship gate
+15. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -166,7 +167,41 @@ Every category must be:
 
 Silent omission is not allowed.
 
-## 7. Build Plan Procedure
+## 7. Capability and Access Procedure
+
+Before Build Plan approval, create the capability/access map when the product touches external systems, authenticated apps, APIs, SDKs, CLIs, MCP servers, media generation providers, deployment platforms, browser automation, desktop apps, or paid vendors.
+
+Start with:
+
+```bash
+npm run plan-capabilities -- --brief "[what we are building]" --mode standard --markdown
+```
+
+Then copy or fill:
+
+```text
+templates/shared/capability-access-map.template.md -> docs/capability-access-map.md
+```
+
+For each capability, decide:
+
+- product runtime surface
+- agent implementation surface
+- setup/testing surface
+- required credentials, scopes, accounts, OAuth apps, webhooks, billing, and sandbox access
+- mock strategy
+- first live verification command or tool
+- blocked-until user action
+
+Use the router for specific task decisions:
+
+```bash
+npm run route-tool -- --task "create a GitHub PR and inspect failing CI"
+```
+
+Build Plan approval is blocked while a critical required-now capability has no access path.
+
+## 8. Build Plan Procedure
 
 For Full mode:
 
@@ -174,9 +209,10 @@ For Full mode:
 2. Fill all applicable sections.
 3. Create ADRs from `templates/full/adr.template.md`.
 4. Run the Build Plan checklist.
-5. Do not create PRDs until P0/P1 plan gaps are resolved.
+5. Reference `docs/capability-access-map.md`.
+6. Do not create PRDs until P0/P1 plan gaps are resolved.
 
-## 8. Design DNA Procedure
+## 9. Design DNA Procedure
 
 For any user-facing UI:
 
@@ -188,7 +224,7 @@ For any user-facing UI:
 
 Frontend work is blocked before Design DNA approval.
 
-## 9. PRD Procedure
+## 10. PRD Procedure
 
 Each PRD must include:
 
@@ -215,25 +251,26 @@ Validate plans with:
 npm run verify-plan -- docs/prd/[file].md
 ```
 
-## 10. Execution Procedure
+## 11. Execution Procedure
 
 Codex executes one task at a time:
 
 1. Read state.
 2. Read current PRD.
 3. Select unblocked task.
-4. Check dirty worktree.
-5. Implement.
-6. Run checks.
-7. Review diff.
-8. Update task status.
-9. Capture task record.
-10. Consider lessons.
-11. Stop.
+4. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
+5. Check dirty worktree.
+6. Implement.
+7. Run checks.
+8. Review diff.
+9. Update task status.
+10. Capture task record.
+11. Consider lessons.
+12. Stop.
 
 Parallel execution requires explicit task assignment or task claiming.
 
-## 11. Review Procedure
+## 12. Review Procedure
 
 Use specialist roles:
 
@@ -249,7 +286,7 @@ Use specialist roles:
 
 Full mode cannot ship with unresolved critical/high findings.
 
-## 12. Ship Procedure
+## 13. Ship Procedure
 
 Ship only when:
 
@@ -262,7 +299,7 @@ Ship only when:
 - user approves launch
 - lesson capture is ready
 
-## 13. Learning Procedure
+## 14. Learning Procedure
 
 At project end:
 
@@ -271,7 +308,7 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
-## 13.5 Context Procedure
+## 14.5 Context Procedure
 
 At session start, phase changes, and major decisions:
 
@@ -288,7 +325,7 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
-## 13.6 Session Close Procedure
+## 14.6 Session Close Procedure
 
 At the end of every meaningful session, save context.
 
@@ -314,7 +351,7 @@ This creates `.codex-brain/sessions/session-[timestamp].json`, updates active co
 
 Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
 
-## 14. Downgrade Protocol
+## 15. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
 
@@ -327,7 +364,7 @@ Codex must state:
 
 For high-risk projects, Codex should strongly recommend against downgrading.
 
-## 15. Glory Rule
+## 16. Glory Rule
 
 If the user says the goal is world-class, unicorn-level, top-ten, enterprise-grade, or no-corners-cut:
 

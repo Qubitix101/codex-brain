@@ -14,6 +14,7 @@ const gateByPhase = {
   classify: "classification",
   validate: "validation",
   research: "research",
+  "capability-access": "capability_access",
   plan: "plan",
   "design-dna": "design_dna",
   decompose: "decomposition",
@@ -35,7 +36,7 @@ function workflowForPhase(phase, mode) {
 }
 
 function nextPhase(phase) {
-  const order = ["classify", "validate", "research", "plan", "design-dna", "decompose", "execute", "review", "ship", "learn"];
+  const order = ["classify", "validate", "research", "capability-access", "plan", "design-dna", "decompose", "execute", "review", "ship", "learn"];
   const index = order.indexOf(phase);
   return index >= 0 && index < order.length - 1 ? order[index + 1] : null;
 }
@@ -120,4 +121,3 @@ console.log(JSON.stringify({
   blocked_actions: Array.from(blocked),
   warnings
 }, null, 2));
-

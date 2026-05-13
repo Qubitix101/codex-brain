@@ -36,6 +36,16 @@ This file is the implementation constitution for future Codex sessions.
 - Testing:
 - Styling/design system:
 
+## Capability and Access Rules
+
+- Capability/access map:
+- Product runtime integration surfaces:
+- Codex/agent implementation surfaces:
+- Required credentials/accounts:
+- Mocked capabilities:
+- First live verification commands/tools:
+- Destructive/external/paid action approval boundaries:
+
 ## Architecture Rules
 
 - System boundaries:
@@ -112,4 +122,3 @@ This file is the implementation constitution for future Codex sessions.
 
 - Date:
 - Updated by:
-

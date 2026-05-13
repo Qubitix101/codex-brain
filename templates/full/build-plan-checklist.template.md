@@ -32,6 +32,11 @@
 - [ ] Service boundaries
 - [ ] Background jobs
 - [ ] Integrations
+- [ ] Capability/access map referenced
+- [ ] Product runtime surfaces selected
+- [ ] Agent implementation surfaces selected
+- [ ] Required credentials, scopes, webhooks, and sandbox accounts listed
+- [ ] Mock and first live verification plan defined
 
 ## Data
 
@@ -131,4 +136,5 @@
 - [ ] Large research or Build Plan artifacts have distillation plan
 - [ ] Next allowed action identified
 - [ ] Blocked actions documented
+- [ ] Required-now access blockers documented
 - [ ] Mode downgrade risks documented if applicable

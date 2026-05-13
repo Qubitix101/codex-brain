@@ -9,17 +9,18 @@ One task. One focused change. One verification pass. One state update.
 1. Read current state.
 2. Read current PRD.
 3. Select next unblocked task.
-4. Confirm allowed files and forbidden files.
-5. Check Git branch and working tree.
-6. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
-7. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
-8. Implement only that task.
-9. Run relevant checks.
-10. Review the diff.
-11. Run local Codex review with `/review` when available before PR handoff.
-12. Update task state.
-13. Capture lessons.
-14. Stop.
+4. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
+5. Confirm allowed files and forbidden files.
+6. Check Git branch and working tree.
+7. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
+8. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
+9. Implement only that task.
+10. Run relevant checks.
+11. Review the diff.
+12. Run local Codex review with `/review` when available before PR handoff.
+13. Update task state.
+14. Capture lessons.
+15. Stop.
 
 ## Task Requirements
 
@@ -41,6 +42,7 @@ A task is complete only when:
 - tests/checks pass or failures are documented with reason
 - no unrelated files changed
 - Git branch/worktree choice was appropriate for the risk
+- execution surface was appropriate for the task and permission boundary
 - local review was run or intentionally skipped with reason
 - state is updated
 - lesson capture was considered
@@ -54,6 +56,8 @@ A task is complete only when:
 - merging or pushing directly to `main` without explicit user approval
 - marking a task complete because code was written but not verified
 - loading entire huge specs when task references are enough
+- using a heavyweight MCP/tool surface when a deterministic CLI/API path is sufficient
+- using raw CLI/browser automation when auth, governance, or rendered state requires a better surface
 
 ## Parallel Execution
 

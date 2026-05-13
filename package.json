@@ -16,7 +16,9 @@
     "verify-plan": "node scripts/verify-plan.mjs",
     "distill-context": "node scripts/distill-context.mjs",
     "save-context": "node scripts/save-context.mjs",
-    "context-health": "node scripts/context-health.mjs"
+    "context-health": "node scripts/context-health.mjs",
+    "route-tool": "node scripts/route-tool.mjs",
+    "plan-capabilities": "node scripts/plan-capabilities.mjs"
   },
   "engines": {
     "node": ">=18"

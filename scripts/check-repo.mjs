@@ -22,6 +22,8 @@ const required = [
   "frameworks/learning-loop.md",
   "frameworks/competitive-benchmark.md",
   "frameworks/context-routing-and-help.md",
+  "frameworks/capability-access-readiness.md",
+  "frameworks/tool-surface-routing.md",
   "frameworks/quick-flow.md",
   "frameworks/vertical-slice-planning.md",
   "frameworks/context-distillation.md",
@@ -34,15 +36,22 @@ const required = [
   "schemas/project-classification.schema.json",
   "schemas/lesson.schema.json",
   "schemas/full-mode-coverage-catalog.schema.json",
+  "schemas/capability-access-catalog.schema.json",
+  "schemas/tool-surface-routing-matrix.schema.json",
   "schemas/workflow-manifest.schema.json",
   "schemas/session-brief.schema.json",
   "schemas/session-record.schema.json",
   "catalogs/full-mode-coverage-catalog.json",
+  "catalogs/capability-access-catalog.json",
+  "catalogs/tool-surface-routing-matrix.json",
   "catalogs/workflow-manifest.json",
   "workflows/README.md",
   "workflows/context-routing/step-01-load-state.md",
   "workflows/context-routing/step-02-compute-next-action.md",
   "workflows/context-routing/step-03-report-brief.md",
+  "workflows/capability-access/step-01-inventory.md",
+  "workflows/capability-access/step-02-map-surfaces.md",
+  "workflows/capability-access/step-03-readiness-gate.md",
   "workflows/quick-flow/step-01-clarify.md",
   "workflows/quick-flow/step-02-write-quick-spec.md",
   "workflows/quick-flow/step-03-implement-slice.md",
@@ -56,6 +65,7 @@ const required = [
   "workflows/session-close/step-03-health-check.md",
   "templates/shared/project-state.template.json",
   "templates/shared/session-record.template.json",
+  "templates/shared/capability-access-map.template.md",
   "templates/shared/project-codex.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
@@ -80,6 +90,8 @@ const required = [
   "scripts/capture-lesson.mjs",
   "scripts/next-action.mjs",
   "scripts/session-brief.mjs",
+  "scripts/plan-capabilities.mjs",
+  "scripts/route-tool.mjs",
   "scripts/verify-plan.mjs",
   "scripts/distill-context.mjs",
   "scripts/context-utils.mjs",
@@ -88,7 +100,9 @@ const required = [
 ];
 
 const missing = required.filter((path) => !existsSync(join(root, path)));
-const jsonFiles = listFilesRecursive(join(root, "schemas")).concat(listFilesRecursive(join(root, "templates")).filter((p) => p.endsWith(".json")));
+const jsonFiles = listFilesRecursive(join(root, "schemas"))
+  .concat(listFilesRecursive(join(root, "templates")).filter((p) => p.endsWith(".json")))
+  .concat(listFilesRecursive(join(root, "catalogs")).filter((p) => p.endsWith(".json")));
 const jsonErrors = [];
 
 for (const file of jsonFiles) {

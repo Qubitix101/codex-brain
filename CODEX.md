@@ -11,6 +11,7 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
+6. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -44,6 +45,7 @@ At the start of any project session:
 If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
 If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
+If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
 
@@ -84,6 +86,7 @@ The lifecycle is:
 0. Classify
 1. Validate
 2. Research
+2.5. Capability and Access
 3. Plan
 3.5. Design DNA
 4. Decompose
@@ -172,12 +175,34 @@ Forbidden:
 - writing Build Plan without evidence
 - skipping security/privacy/database thinking for user-facing products
 
+### Gate 2.5 - Capability and Access
+
+Required when the product depends on external systems, APIs, SDKs, CLIs, MCP servers, browser automation, desktop apps, paid vendors, media generation, AI tools, authenticated SaaS, deployment platforms, or user-provided credentials.
+
+Requires:
+
+- `docs/capability-access-map.md`
+- required capability inventory
+- production runtime surface decisions
+- Codex/agent implementation surface decisions
+- credential, OAuth, webhook, scope, billing, and sandbox requirements
+- mock strategy and first live verification path
+- destructive, externally visible, paid, or permission-sensitive action boundaries
+- user action checklist for required-now access
+
+Forbidden:
+
+- approving Build Plan with an unknown critical access path
+- decomposing PRDs that assume missing API keys, OAuth apps, webhooks, accounts, or billing setup
+- treating Browser or Computer Use as a production integration without accepted risk
+
 ### Gate 3 - Plan
 
 Requires:
 
 - Build Plan
 - architecture decisions
+- capability and access map
 - data model
 - API contracts or module contracts
 - auth model if applicable

@@ -10,6 +10,7 @@ All modes:
 - target user
 - core workflows
 - technical approach
+- capability and access map reference
 - data model
 - task phases
 - verification plan
@@ -20,6 +21,7 @@ Standard:
 - database choice
 - auth model
 - API/module contracts
+- integration access surface decisions
 - security baseline
 - privacy baseline
 - deployment plan
@@ -38,6 +40,7 @@ Full:
 - reliability/SLO plan
 - observability
 - AI orchestration and eval plan if applicable
+- capability/access blockers and mock/live verification plan
 - narrative promise list
 - launch plan
 
@@ -46,4 +49,3 @@ Full:
 An engineer who has never heard of the project should be able to build the correct product from the Build Plan and PRDs.
 
 If that is not true, planning is not done.
-

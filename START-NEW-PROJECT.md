@@ -3,7 +3,7 @@
 Use this exact instruction when starting a new project:
 
 ```text
-Use Codex Brain. Follow the Codex Brain repo at https://github.com/Qubitix101/codex-brain. Read its CODEX.md first, bootstrap this project if needed, classify the project as Light, Standard, or Full, and tell me the next allowed action before building.
+Use Codex Brain. Follow the Codex Brain repo at https://github.com/Qubitix101/codex-brain. Read its CODEX.md first, bootstrap this project if needed, classify the project as Light, Standard, or Full, map required capabilities/access if this depends on external systems, and tell me the next allowed action before building.
 ```
 
 After bootstrap, the new project should contain:

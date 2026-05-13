@@ -4,6 +4,8 @@ Verify:
 
 - Build Plan exists
 - ADRs exist for major decisions
+- `docs/capability-access-map.md` exists when external systems or integrations are involved
+- critical capabilities have production runtime surfaces, agent surfaces, credentials, mocks, and live verification paths
 - database scale model exists
 - security and GDPR plans exist
 - Design DNA is approved when UI exists
@@ -13,4 +15,3 @@ Verify:
 - next allowed action is clear
 
 If a P0/P1 gap exists, do not decompose into PRDs yet.
-

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/capability-access-catalog.schema.json",
+  "title": "Codex Brain Capability Access Catalog",
+  "type": "object",
+  "required": ["version", "principle", "capabilities"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "principle": { "type": "string", "minLength": 1 },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "keywords", "production_surfaces", "agent_surfaces", "required_access", "readiness_questions", "mock_strategy", "risks"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "keywords": { "type": "array", "items": { "type": "string" } },
+          "always_consider": { "type": "boolean" },
+          "production_surfaces": { "type": "array", "items": { "type": "string" } },
+          "agent_surfaces": { "type": "array", "items": { "type": "string" } },
+          "required_access": { "type": "array", "items": { "type": "string" } },
+          "readiness_questions": { "type": "array", "items": { "type": "string" } },
+          "mock_strategy": { "type": "string" },
+          "risks": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

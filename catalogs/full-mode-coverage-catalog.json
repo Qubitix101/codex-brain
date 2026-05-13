@@ -313,6 +313,33 @@
       "review_roles": ["architect", "security-gdpr-reviewer"]
     },
     {
+      "id": "capability-access-readiness",
+      "name": "Capability and Access Readiness",
+      "purpose": "Ensure required external capabilities, access surfaces, credentials, mocks, and live verification paths are explicit before Build Plan and PRDs.",
+      "required_questions": [
+        "Which external capabilities are required for the product?",
+        "Which official APIs, SDKs, CLIs, MCP servers, generated harnesses, browser workflows, or Computer Use paths exist?",
+        "Which surface should the production product use?",
+        "Which surface should Codex or another agent use while building and verifying?",
+        "What credentials, scopes, OAuth apps, webhooks, billing setup, sandbox accounts, and local tools are required?",
+        "What can be mocked safely, and what must be verified live?",
+        "What actions are destructive, externally visible, paid, or permission-sensitive?",
+        "What must the user provide before planning or execution can continue?"
+      ],
+      "required_artifacts": [
+        "docs/capability-access-map.md",
+        "catalogs/capability-access-catalog.json",
+        "catalogs/tool-surface-routing-matrix.json"
+      ],
+      "p0_blockers": [
+        "Critical external capability with unknown access path.",
+        "Production integration depends on Browser or Computer Use without accepted risk.",
+        "Authenticated or paid vendor integration without credential, scope, sandbox, cost, or live verification plan.",
+        "AI tool-use product without explicit tool surface and permission boundary."
+      ],
+      "review_roles": ["architecture-strategist", "security-gdpr-reviewer", "ai-orchestration-reviewer"]
+    },
+    {
       "id": "reliability-observability",
       "name": "Reliability, Observability, and Operations",
       "purpose": "Make the product operable after launch.",
@@ -540,7 +567,12 @@
     "templates/full/build-plan-checklist.template.md",
     "templates/full/test-strategy.template.md",
     "templates/full/traceability-matrix.template.md",
+    "templates/shared/capability-access-map.template.md",
+    "frameworks/capability-access-readiness.md",
+    "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
+    "catalogs/capability-access-catalog.json",
+    "catalogs/tool-surface-routing-matrix.json",
     "schemas/project-state.schema.json",
     "schemas/session-record.schema.json"
   ]

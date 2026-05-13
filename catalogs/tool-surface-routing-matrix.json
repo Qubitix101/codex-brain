@@ -1,0 +1,135 @@
+{
+  "$schema": "../schemas/tool-surface-routing-matrix.schema.json",
+  "version": "0.1.0",
+  "principle": "Choose the least-context, least-permission, most reliable surface that satisfies the task.",
+  "surfaces": [
+    {
+      "id": "native_cli",
+      "name": "Native CLI",
+      "best_for": ["local files", "repo history", "git operations", "tests", "builds", "logs", "batch asset jobs"],
+      "avoid_for": ["managed OAuth", "rendered JavaScript pages", "enterprise audit requirements", "human UI workflows"]
+    },
+    {
+      "id": "official_api_sdk",
+      "name": "Official API or SDK",
+      "best_for": ["production runtime integration", "webhooks", "typed application code", "customer-facing features"],
+      "avoid_for": ["one-off local repo operations", "visual QA", "setup tasks already covered by official CLI"]
+    },
+    {
+      "id": "mcp_connector",
+      "name": "MCP or Connector",
+      "best_for": ["managed auth", "per-user permissions", "auditability", "structured remote objects", "hosted agents without shell", "cross-app workflows"],
+      "avoid_for": ["two-command local tasks", "broad unscoped write toolsets", "pure local deterministic work"]
+    },
+    {
+      "id": "generated_cli_harness",
+      "name": "Generated CLI Harness",
+      "best_for": ["GUI apps without official automation", "repeatable local creative workflows", "project-owned automation wrappers"],
+      "avoid_for": ["official API/CLI exists", "untestable visual workflows", "fragile one-off UI state"]
+    },
+    {
+      "id": "browser_automation",
+      "name": "Browser Automation",
+      "best_for": ["rendered web state", "screenshots", "visual QA", "authenticated web flows", "E2E user journeys"],
+      "avoid_for": ["local file operations", "stable API reads", "repo history"]
+    },
+    {
+      "id": "computer_use",
+      "name": "Computer Use",
+      "best_for": ["native desktop apps", "UI-only setup", "visual desktop workflows with no structured interface"],
+      "avoid_for": ["destructive actions without approval", "long-term production integration", "tasks with official API/CLI/MCP"]
+    }
+  ],
+  "decision_order": [
+    "If the product runtime needs the capability, choose the official API or SDK unless there is a documented reason not to.",
+    "If the agent is doing deterministic local developer work, choose native CLI.",
+    "If auth, per-user permissions, audit, no-shell operation, or structured remote objects are central, choose MCP or connector.",
+    "If the result depends on rendered web state or visual layout, choose browser automation.",
+    "If the workflow is a desktop UI with no structured surface, choose Computer Use for one-off work or a generated CLI harness for repeatable work.",
+    "If no official surface exists, consider a generated CLI harness and document fragility plus tests."
+  ],
+  "rules": [
+    {
+      "id": "local_repo_inspection",
+      "keywords": ["git status", "diff", "log", "branch", "commit", "merge", "rebase", "repo", "working tree", "local history"],
+      "preferred_surface": "native_cli",
+      "alternates": ["mcp_connector"],
+      "why": "Local repository state is deterministic and cheap to inspect with git. MCP adds context without improving the result.",
+      "verify_with": ["git status --short --branch", "git diff", "git rev-parse"]
+    },
+    {
+      "id": "github_hosted_operations",
+      "keywords": ["pull request", "pr", "issue", "ci", "github actions", "release", "workflow run", "repository on github"],
+      "preferred_surface": "native_cli",
+      "specific_tool": "gh CLI",
+      "alternates": ["mcp_connector", "official_api_sdk"],
+      "why": "When shell is available, gh CLI is compact and scriptable for GitHub hosted operations. Use MCP for managed user-scoped access or no-shell hosted agents.",
+      "verify_with": ["gh pr view", "gh run list", "gh issue view"]
+    },
+    {
+      "id": "production_github_integration",
+      "keywords": ["github app", "webhook", "oauth", "installations", "runtime github", "product integrates with github"],
+      "preferred_surface": "official_api_sdk",
+      "alternates": ["mcp_connector"],
+      "why": "Production GitHub features should use GitHub APIs, GitHub Apps, OAuth, and webhooks rather than an agent-only control surface.",
+      "verify_with": ["webhook signature test", "API integration test"]
+    },
+    {
+      "id": "authenticated_saas_agent_workflow",
+      "keywords": ["slack", "notion", "gmail", "calendar", "drive", "salesforce", "hubspot", "asana", "jira", "authenticated user", "per-user"],
+      "preferred_surface": "mcp_connector",
+      "alternates": ["official_api_sdk", "native_cli"],
+      "why": "Managed auth, scopes, object IDs, and auditability usually matter more than raw CLI compactness for authenticated SaaS workflows.",
+      "verify_with": ["read-only smoke call", "scope inspection"]
+    },
+    {
+      "id": "production_saas_integration",
+      "keywords": ["production integration", "runtime", "webhook", "oauth client", "customer account", "app integration"],
+      "preferred_surface": "official_api_sdk",
+      "alternates": ["mcp_connector"],
+      "why": "Application runtime behavior should depend on stable vendor APIs/SDKs and webhooks, with explicit error handling.",
+      "verify_with": ["API contract test", "webhook test"]
+    },
+    {
+      "id": "rendered_webpage_fetch",
+      "keywords": ["rendered page", "next.js", "javascript page", "webpage summary", "screenshot", "visual", "browser"],
+      "preferred_surface": "browser_automation",
+      "alternates": ["mcp_connector", "native_cli"],
+      "why": "Rendered JavaScript state and visual layout require a browser or browser-backed MCP. curl is only enough for raw/static HTML.",
+      "verify_with": ["browser screenshot", "DOM text extraction"]
+    },
+    {
+      "id": "image_video_voice_generation",
+      "keywords": ["image generation", "video generation", "voice generation", "text to speech", "tts", "avatar", "render media", "creative asset"],
+      "preferred_surface": "official_api_sdk",
+      "alternates": ["native_cli", "mcp_connector", "generated_cli_harness"],
+      "why": "Use official API/SDK for product runtime, official CLI for local batch generation, MCP when it manages creative assets/auth/job state, and harnesses only when official surfaces are missing.",
+      "verify_with": ["job status check", "artifact exists", "visual/audio QA"]
+    },
+    {
+      "id": "desktop_app_automation",
+      "keywords": ["desktop app", "macos app", "blender", "gimp", "inkscape", "audacity", "native app", "computer use"],
+      "preferred_surface": "generated_cli_harness",
+      "alternates": ["computer_use", "native_cli"],
+      "why": "Repeatable desktop workflows should become command-like harnesses when possible. Use Computer Use for UI-only or one-off steps.",
+      "verify_with": ["harness smoke test", "artifact export check", "screenshot if visual"]
+    },
+    {
+      "id": "deployment_and_hosting",
+      "keywords": ["deploy", "vercel", "netlify", "cloudflare", "environment variables", "preview", "production"],
+      "preferred_surface": "native_cli",
+      "specific_tool": "official hosting CLI",
+      "alternates": ["official_api_sdk", "mcp_connector"],
+      "why": "Official hosting CLIs are compact for setup and deployment checks. Use APIs for product automation and MCP when hosted-agent auth/governance matters.",
+      "verify_with": ["deployment status", "preview URL smoke test"]
+    },
+    {
+      "id": "database_migrations",
+      "keywords": ["migration", "schema", "database", "supabase", "postgres", "sql", "rls"],
+      "preferred_surface": "native_cli",
+      "alternates": ["mcp_connector", "official_api_sdk"],
+      "why": "Local migrations and SQL verification are usually CLI/database-shell tasks. MCP is useful for remote managed database operations when direct connectivity or credentials are constrained.",
+      "verify_with": ["migration status", "SQL smoke query"]
+    }
+  ]
+}

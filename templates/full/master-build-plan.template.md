@@ -143,6 +143,19 @@ Frontend implementation is blocked until this section is approved.
 
 ## 10. Technology Stack Decisions
 
+### Capability and Access Map
+
+- Map:
+- Status:
+- Critical blocked capabilities:
+- Required-now user actions:
+- Mocked capabilities:
+- First live verification commands/tools:
+
+| Capability | Product Runtime Surface | Agent Build Surface | Credentials/Setup | Mock Strategy | Live Verification | Risk |
+| --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | |
+
 | Area | Selected | Alternatives | Why | Risk | Exit Strategy | ADR |
 | --- | --- | --- | --- | --- | --- | --- |
 | Web framework | | | | | | |
@@ -552,6 +565,7 @@ Use only if paid.
 - [ ] All applicable sections complete. Verify: every section has content or an explicit not-applicable justification.
 - [ ] Non-applicable sections justified. Verify: each N/A section states why it does not apply.
 - [ ] Research traceability complete. Verify: evidence ledger links to key decisions.
+- [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.
 - [ ] GDPR complete if relevant. Verify: lawful basis, subprocessors, retention, export, and deletion are documented.

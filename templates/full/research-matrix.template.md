@@ -26,6 +26,7 @@ Use this as the tracking file for Full-mode research.
 | 20 | Test Architecture and Traceability | Not started | | | | |
 | 21 | Context Continuity and Memory | Not started | | | | |
 | 22 | Workflow Routing and Governance | Not started | | | | |
+| 23 | Capability and Access Readiness | Not started | | | | |
 
 ## Gate
 
@@ -37,3 +38,4 @@ Use this as the tracking file for Full-mode research.
 - [ ] Test strategy and traceability requirements generated
 - [ ] Project context and distillation requirements generated
 - [ ] Next-action routing verified
+- [ ] Capability/access map requirements generated

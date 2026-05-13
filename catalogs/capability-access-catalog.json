@@ -1,0 +1,154 @@
+{
+  "$schema": "../schemas/capability-access-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "A project capability is not ready for planning until the production surface, agent surface, credentials, mocks, and live verification path are explicit.",
+  "capabilities": [
+    {
+      "id": "source_control",
+      "name": "Source Control and Issue Tracking",
+      "keywords": ["github", "gitlab", "repo", "repository", "pull request", "issue", "ci", "code review"],
+      "always_consider": true,
+      "production_surfaces": ["official_api_sdk", "webhooks", "github_app_or_oauth_if_runtime_feature"],
+      "agent_surfaces": ["native_cli:git", "native_cli:gh", "mcp_connector_if_hosted_or_user_scoped"],
+      "required_access": ["repo URL", "push permissions", "CI visibility", "PR/review policy"],
+      "readiness_questions": ["Does the product itself integrate with source control, or is this only for building?", "Are PRs, issues, CI, and releases in scope?", "Is GitHub App/OAuth needed for runtime?"],
+      "mock_strategy": "Use local git fixtures or mocked webhook payloads for product integration tests.",
+      "risks": ["overbroad repo permissions", "confusing agent build access with product runtime access", "externally visible PR/issue actions"]
+    },
+    {
+      "id": "auth_identity",
+      "name": "Authentication and Identity",
+      "keywords": ["auth", "login", "signup", "oauth", "sso", "mfa", "identity", "clerk", "auth0", "supabase auth"],
+      "always_consider": true,
+      "production_surfaces": ["official_api_sdk", "oauth", "identity_provider_dashboard"],
+      "agent_surfaces": ["native_cli_if_provider_has_cli", "mcp_connector_if_available", "browser_automation_for_dashboard_setup"],
+      "required_access": ["provider account", "OAuth app", "redirect URLs", "test users", "secret storage"],
+      "readiness_questions": ["Which users can sign in?", "What providers are required?", "Are SSO or MFA required?", "What redirect URLs exist for local, staging, and production?"],
+      "mock_strategy": "Use test users, local auth bypass only for non-production, or provider test mode.",
+      "risks": ["broken redirect setup", "secret leakage", "weak session policy", "missing account deletion path"]
+    },
+    {
+      "id": "database_storage",
+      "name": "Database and Storage",
+      "keywords": ["database", "postgres", "supabase", "storage", "s3", "r2", "bucket", "schema", "migration"],
+      "always_consider": true,
+      "production_surfaces": ["official_api_sdk", "direct_database_connection", "storage_api"],
+      "agent_surfaces": ["native_cli", "sql_client", "mcp_connector_for_managed_remote_operations"],
+      "required_access": ["local database", "dev/staging/prod projects", "migration command", "storage buckets", "service role policy"],
+      "readiness_questions": ["What is the source of truth?", "Can migrations run locally and remotely?", "What storage buckets exist?", "What secrets and RLS policies are required?"],
+      "mock_strategy": "Use local database, fixtures, and storage emulator or test bucket.",
+      "risks": ["schema drift", "RLS gaps", "direct production mutation", "storage privacy leaks"]
+    },
+    {
+      "id": "payments_billing",
+      "name": "Payments and Billing",
+      "keywords": ["payment", "stripe", "subscription", "billing", "checkout", "invoice", "refund", "tax", "vat"],
+      "production_surfaces": ["official_api_sdk", "webhooks"],
+      "agent_surfaces": ["native_cli:stripe", "official_dashboard_for_product_setup"],
+      "required_access": ["test API keys", "webhook signing secret", "products/prices", "tax settings", "customer portal config"],
+      "readiness_questions": ["What plans exist?", "What entitlements exist?", "How are webhooks tested?", "What happens on failed payment, refund, chargeback, downgrade, and cancellation?"],
+      "mock_strategy": "Use Stripe test mode and webhook fixtures.",
+      "risks": ["money movement", "tax mistakes", "entitlement drift", "webhook replay"]
+    },
+    {
+      "id": "email_notifications",
+      "name": "Email and Notifications",
+      "keywords": ["email", "notification", "resend", "sendgrid", "postmark", "smtp", "gmail"],
+      "production_surfaces": ["official_api_sdk", "smtp"],
+      "agent_surfaces": ["mcp_connector_for_user_mailbox", "native_cli_if_available"],
+      "required_access": ["sender domain", "API key", "DNS records", "template strategy", "suppression handling"],
+      "readiness_questions": ["Is the app sending transactional email or operating a user's mailbox?", "Are DNS records ready?", "What emails are externally visible?"],
+      "mock_strategy": "Use local email capture, provider sandbox, or test recipients.",
+      "risks": ["spam reputation", "PII in email", "externally visible sends", "missing unsubscribe/suppression"]
+    },
+    {
+      "id": "calendar_scheduling",
+      "name": "Calendar and Scheduling",
+      "keywords": ["calendar", "schedule", "meeting", "availability", "google calendar", "outlook calendar"],
+      "production_surfaces": ["official_api_sdk", "oauth"],
+      "agent_surfaces": ["mcp_connector", "calendar_cli_if_available"],
+      "required_access": ["OAuth app", "calendar scopes", "test calendar", "timezone policy"],
+      "readiness_questions": ["Is this acting on the user's calendar?", "What scopes are needed?", "Can events be created, modified, or deleted?", "How are time zones handled?"],
+      "mock_strategy": "Use a test calendar and fake event fixtures.",
+      "risks": ["externally visible event changes", "wrong timezone", "overbroad scopes"]
+    },
+    {
+      "id": "media_generation",
+      "name": "Image, Video, and Voice Generation",
+      "keywords": ["image generation", "video generation", "voice generation", "tts", "text to speech", "avatar", "render", "media", "fal", "heygen", "runway", "elevenlabs"],
+      "production_surfaces": ["official_api_sdk"],
+      "agent_surfaces": ["official_cli_if_available", "mcp_connector_if_asset_library_or_job_state_matters", "generated_cli_harness_if_no_official_surface"],
+      "required_access": ["API key", "billing/quota", "model IDs", "output storage", "content policy", "asset licensing"],
+      "readiness_questions": ["Is generation a product feature or build-time asset task?", "Are outputs user-visible?", "What quality, latency, and cost limits exist?", "Where are generated assets stored?"],
+      "mock_strategy": "Use saved fixture assets and provider test jobs where available.",
+      "risks": ["high cost", "slow jobs", "content policy failures", "asset rights", "inconsistent outputs"]
+    },
+    {
+      "id": "ai_models_agents",
+      "name": "AI Models and Agent Tools",
+      "keywords": ["ai", "agent", "llm", "openai", "anthropic", "model", "rag", "tool calling", "eval"],
+      "production_surfaces": ["official_api_sdk", "gateway_if_selected"],
+      "agent_surfaces": ["native_cli_for_eval_scripts", "mcp_connector_for_external_tools", "browser_automation_for_ui_eval"],
+      "required_access": ["API key", "model/provider decision", "eval dataset", "tool permission model", "cost budget"],
+      "readiness_questions": ["What does AI decide?", "What data can it access?", "What tools can it call?", "How are outputs evaluated?", "What is the fallback?"],
+      "mock_strategy": "Use deterministic fixtures, recorded responses, and small eval sets.",
+      "risks": ["hallucination", "prompt injection", "cost runaway", "privacy leakage", "tool misuse"]
+    },
+    {
+      "id": "search_retrieval",
+      "name": "Search, Vector, and Retrieval",
+      "keywords": ["search", "vector", "embedding", "rag", "qdrant", "pinecone", "meilisearch", "opensearch"],
+      "production_surfaces": ["official_api_sdk", "database_extension"],
+      "agent_surfaces": ["native_cli", "sql_client", "mcp_connector_if_managed"],
+      "required_access": ["index/store", "embedding provider", "schema", "ingestion path", "privacy policy"],
+      "readiness_questions": ["What is indexed?", "How is it updated?", "What data is sensitive?", "What retrieval quality is acceptable?"],
+      "mock_strategy": "Use small fixture corpus and deterministic retrieval tests.",
+      "risks": ["stale index", "private data leakage", "weak relevance", "embedding cost"]
+    },
+    {
+      "id": "analytics_observability",
+      "name": "Analytics and Observability",
+      "keywords": ["analytics", "observability", "sentry", "posthog", "datadog", "logs", "metrics", "traces", "alerts"],
+      "production_surfaces": ["official_api_sdk", "client_library", "agent_or_collector"],
+      "agent_surfaces": ["native_cli_if_available", "mcp_connector_for_issue_inspection", "provider_dashboard"],
+      "required_access": ["project/org", "DSN/API key", "event taxonomy", "privacy filter", "alert routing"],
+      "readiness_questions": ["What events are tracked?", "What errors are captured?", "What PII must be filtered?", "Who receives alerts?"],
+      "mock_strategy": "Use local logging, test DSN, and synthetic events.",
+      "risks": ["PII in telemetry", "missing alerts", "unactionable noise", "vendor lock-in"]
+    },
+    {
+      "id": "deployment_environments",
+      "name": "Deployment and Environments",
+      "keywords": ["deploy", "hosting", "vercel", "netlify", "cloudflare", "aws", "environment", "preview", "production"],
+      "always_consider": true,
+      "production_surfaces": ["hosting_platform", "ci_cd"],
+      "agent_surfaces": ["official_cli", "mcp_connector_if_available", "browser_automation_for_preview_verification"],
+      "required_access": ["project/team", "environment variables", "preview URL", "production domain", "rollback path"],
+      "readiness_questions": ["Where does it deploy?", "What env vars are required?", "How are previews verified?", "How is rollback performed?"],
+      "mock_strategy": "Use local dev and preview environments before production.",
+      "risks": ["wrong env vars", "no rollback", "preview/prod drift", "secret exposure"]
+    },
+    {
+      "id": "browser_web_fetch",
+      "name": "Browser Automation and Rendered Web Fetch",
+      "keywords": ["browser", "screenshot", "playwright", "rendered", "webpage", "scrape", "crawl", "next.js", "javascript"],
+      "production_surfaces": ["official_api_sdk_if_available", "browser_service_only_if_accepted"],
+      "agent_surfaces": ["browser_automation", "mcp_connector_browser_fetcher"],
+      "required_access": ["target URL", "auth state if needed", "allowed crawl/scrape policy", "screenshot requirements"],
+      "readiness_questions": ["Is raw HTML enough?", "Does JavaScript render the content?", "Is visual verification required?", "Are robots/legal constraints acceptable?"],
+      "mock_strategy": "Use saved HTML/screenshots and local fixtures.",
+      "risks": ["fragile selectors", "auth/session drift", "legal scraping risk", "visual flakiness"]
+    },
+    {
+      "id": "desktop_app_automation",
+      "name": "Desktop App Automation",
+      "keywords": ["desktop", "macos", "computer use", "blender", "gimp", "inkscape", "audacity", "figma", "capcut"],
+      "production_surfaces": ["official_api_sdk_if_available", "official_cli_if_available"],
+      "agent_surfaces": ["generated_cli_harness", "computer_use"],
+      "required_access": ["installed app", "test file", "automation permissions", "export path", "manual approval for destructive actions"],
+      "readiness_questions": ["Does the app have an official CLI/API?", "Can the workflow be made command-like?", "What visual verification proves success?"],
+      "mock_strategy": "Use fixture files and expected exported artifacts.",
+      "risks": ["UI drift", "permission prompts", "fragile automation", "externally visible actions"]
+    }
+  ]
+}

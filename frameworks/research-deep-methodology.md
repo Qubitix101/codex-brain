@@ -42,6 +42,7 @@ Full research produces:
 ├── 20-test-architecture-and-traceability.md
 ├── 21-context-continuity-and-memory.md
 ├── 22-workflow-routing-and-governance.md
+├── 23-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -443,6 +444,28 @@ Required:
 - failure plan
 - substitution plan
 
+## Capability and Access Readiness
+
+Answer before Build Plan:
+
+- Which external capabilities are required?
+- Which official APIs, SDKs, CLIs, MCP servers, generated harnesses, browser workflows, or Computer Use paths exist?
+- Which surface should the product use at runtime?
+- Which surface should Codex use while building and verifying?
+- What credentials, OAuth apps, scopes, webhooks, sandbox accounts, billing setup, and local tools are required?
+- What can be mocked safely?
+- What requires live verification before PRDs or shipping?
+- What user actions block planning?
+
+Required:
+
+- capability inventory
+- access surface decision for each required capability
+- credential and account checklist
+- mock and first live verification plan
+- destructive/external/paid action boundaries
+- `docs/capability-access-map.md`
+
 ## Category 13 - Billing and Subscription Edge Cases
 
 Required when paid.
@@ -663,8 +686,9 @@ Before planning:
 - Every major claim is evidence-backed or marked assumption.
 - Every risk has owner/mitigation/defer decision.
 - Every architecture decision has enough evidence for the Build Plan.
+- Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

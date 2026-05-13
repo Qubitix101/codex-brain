@@ -20,6 +20,8 @@ const requiredFiles = [
   "frameworks/narrative-validation.md",
   "frameworks/competitive-benchmark.md",
   "frameworks/context-routing-and-help.md",
+  "frameworks/capability-access-readiness.md",
+  "frameworks/tool-surface-routing.md",
   "frameworks/quick-flow.md",
   "frameworks/vertical-slice-planning.md",
   "frameworks/context-distillation.md",
@@ -41,12 +43,16 @@ const requiredFiles = [
   "templates/full/test-strategy.template.md",
   "templates/full/traceability-matrix.template.md",
   "templates/shared/project-codex.template.md",
+  "templates/shared/capability-access-map.template.md",
   "templates/shared/project-context.template.md",
   "templates/shared/distillate.template.md",
   "templates/shared/session-record.template.json",
   "templates/light/quick-spec.template.md",
   "workflows/README.md",
   "workflows/context-routing/step-02-compute-next-action.md",
+  "workflows/capability-access/step-01-inventory.md",
+  "workflows/capability-access/step-02-map-surfaces.md",
+  "workflows/capability-access/step-03-readiness-gate.md",
   "workflows/quick-flow/step-03-implement-slice.md",
   "workflows/full-mode-readiness/step-03-execution-readiness.md",
   "workflows/session-close/step-02-save-record.md",
@@ -130,7 +136,16 @@ const requiredConcepts = [
   "context health",
   "context distillation",
   "expert councils",
-  "session brief"
+  "session brief",
+  "capability access",
+  "tool surface",
+  "official api",
+  "official cli",
+  "mcp",
+  "generated cli harness",
+  "browser automation",
+  "computer use",
+  "live verification"
 ];
 
 const missingConcepts = requiredConcepts.filter((concept) => !corpus.includes(concept));
