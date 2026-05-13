@@ -1,6 +1,6 @@
 ---
 name: tool-surface-router
-description: Use when choosing between CLI, API/SDK, MCP or connector, generated CLI harness, browser automation, Computer Use, or direct shell scripting for a task.
+description: Use when choosing between CLI, API/SDK, MCP or connector, A2A-style agent delegation, generated CLI harness, browser automation, Computer Use, or direct shell scripting for a task.
 version: 0.1.0
 ---
 
@@ -10,7 +10,7 @@ Choose the least-context, least-permission, most reliable way for an agent or pr
 
 ## When to Use
 
-- The same system can be reached through CLI, API, SDK, MCP, connector, browser automation, or desktop UI.
+- The same system can be reached through CLI, API, SDK, MCP, connector, A2A-style agent delegation, browser automation, or desktop UI.
 - The user asks when to use GitHub CLI versus GitHub MCP, or similar choices for any app.
 - A plan needs implementation tooling and production integration surfaces separated.
 - An agent is about to use a brittle or expensive surface for a simple deterministic job.
@@ -30,9 +30,10 @@ Use the cheapest deterministic surface that satisfies the task. Escalate only wh
 1. **Is this local developer work?** Prefer CLI for files, search, git, package managers, tests, migrations, local logs, and deterministic asset transforms.
 2. **Is this production product behavior?** Prefer official API or SDK for runtime integrations, webhooks, customer-facing features, and explicit error handling.
 3. **Does auth, user scoping, or enterprise audit matter more than token cost?** Prefer MCP or connector when managed OAuth, scoped permissions, structured objects, and audit trails are the value.
-4. **Is there no official automation surface but the workflow can be made repeatable?** Consider a generated CLI harness with tests and version pinning.
-5. **Does the result depend on rendered web state?** Use browser automation for JavaScript-rendered pages, screenshots, visual QA, and authenticated web journeys.
-6. **Does the task require a native desktop app?** Use Computer Use only when API, CLI, MCP, browser, or generated harness cannot satisfy the job.
+4. **Is the target another autonomous agent or domain operating system?** Prefer A2A-style delegation with agent cards, task contracts, context boundaries, progress, traces, and approval rules.
+5. **Is there no official automation surface but the workflow can be made repeatable?** Consider a generated CLI harness with tests and version pinning.
+6. **Does the result depend on rendered web state?** Use browser automation for JavaScript-rendered pages, screenshots, visual QA, and authenticated web journeys.
+7. **Does the task require a native desktop app?** Use Computer Use only when API, CLI, MCP, browser, or generated harness cannot satisfy the job.
 
 ## GitHub Routing
 
@@ -47,6 +48,8 @@ Use the cheapest deterministic surface that satisfies the task. Escalate only wh
 MCP is not automatically better because it is structured. It is better when the server abstraction, auth boundary, auditability, or high-level remote objects justify the tool-schema context cost.
 
 CLI is not automatically better because it is cheap. It is worse when the agent must reverse-engineer rendered UI, manually manage OAuth, or perform brittle text scraping.
+
+A2A-style delegation is not a replacement for MCP. Use it when the target is another autonomous agent or domain operating system. Use MCP when the target is a tool, data source, file system, SaaS object, database, or structured resource.
 
 ## Output Contract
 

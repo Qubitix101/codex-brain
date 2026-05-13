@@ -1,6 +1,6 @@
 ---
 name: capability-access-mapper
-description: Use before planning or building when a project depends on APIs, SDKs, CLIs, MCP servers, OAuth, credentials, SaaS accounts, media tools, databases, deployment, or automation.
+description: Use before planning or building when a project depends on APIs, SDKs, CLIs, MCP servers, A2A-style agent surfaces, OAuth, credentials, SaaS accounts, media tools, databases, deployment, or automation.
 version: 0.1.0
 ---
 
@@ -10,7 +10,7 @@ Create the access map before the Build Plan. Use this skill to identify what ext
 
 ## When to Use
 
-- A project uses external services, databases, auth, payments, deployment, AI models, media generation, browser automation, or desktop apps.
+- A project uses external services, databases, auth, payments, deployment, AI models, media generation, browser automation, desktop apps, or remote agent services.
 - The user asks what API keys, accounts, MCPs, CLIs, or setup are needed.
 - A Build Plan risks being blocked by missing credentials, OAuth setup, scopes, test accounts, billing, or sandbox access.
 - The product is AI-core, automation-heavy, workflow-heavy, or integration-heavy.
@@ -34,7 +34,7 @@ Never assume the best agent tool is the best production integration.
 
 1. **List product capabilities.** Include source control, auth, database, storage, payments, email, calendar, files, media generation, models, retrieval, analytics, observability, deployment, browser automation, desktop automation, admin, and support workflows.
 2. **Classify each capability.** Mark read-only, write, paid, destructive, public, private, regulated, or automation-sensitive.
-3. **Map surfaces.** Identify official API/SDK, official CLI, MCP/connector, webhooks, generated harness, browser fallback, and Computer Use fallback.
+3. **Map surfaces.** Identify official API/SDK, official CLI, MCP/connector, A2A-style agent protocol, webhooks, generated harness, browser fallback, and Computer Use fallback.
 4. **Map access.** List accounts, API keys, OAuth clients, scopes, billing plans, test tenants, sandbox mode, local tools, and secrets policy.
 5. **Plan mocks and cutover.** Define what can be mocked, what needs sandbox, and what must be verified live.
 6. **Set approval boundaries.** Require human confirmation for public, destructive, paid, production, or externally visible actions.
@@ -47,6 +47,7 @@ Return a capability map with:
 - capability
 - production runtime surface
 - Codex implementation surface
+- interop surface when another agent or domain OS is the target
 - setup surface
 - mock or sandbox plan
 - required credentials and scopes

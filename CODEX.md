@@ -11,11 +11,12 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, Agent OS runtime, and capability/access planning.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, Agent OS runtime, agent network/interoperability, and capability/access planning.
 7. For AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy projects, select the intelligence architecture before Agent Engineering.
-8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before capability/access planning.
-9. For L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting projects, define the Agent OS runtime before capability/access planning.
-10. For integration-heavy projects, map capability and access needs before Build Plan approval.
+8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before Agent OS runtime, agent network/interoperability, and capability/access planning.
+9. For L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting projects, define the Agent OS runtime before agent network/interoperability and capability/access planning.
+10. For products where agents or domain operating systems collaborate across boundaries, define agent cards, delegation boundaries, task contracts, context sharing, protocol choices, streaming, traces, recovery, and versioning before capability/access planning.
+11. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -53,6 +54,7 @@ If the user asks whether an idea should become agentic, an operating system, or 
 If the user asks whether to use ADK, RAG, structured retrieval, extraction, durable memory, workflow agents, or hybrid AI architecture, read `frameworks/intelligence-architecture-selection.md`.
 If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 If the user asks how agents are scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated, read `frameworks/agent-os-runtime.md`.
+If the user asks how separate agents or domain operating systems discover each other, delegate work, exchange artifacts, share context, stream progress, or choose between MCP and A2A-style protocol boundaries, read `frameworks/agent-network-interop.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
@@ -98,6 +100,7 @@ The lifecycle is:
 2.3. Intelligence Architecture Selection
 2.35. Agent Engineering and Skill Factory
 2.4. Agent OS Runtime
+2.45. Agent Network and Interoperability
 2.5. Capability and Access
 3. Plan
 3.5. Design DNA
@@ -230,7 +233,7 @@ Forbidden:
 - defaulting to RAG, ADK, or a prompt wrapper without documenting alternatives
 - using semantic RAG for exact record state without justification
 - storing extracted fields without schema, provenance, confidence, and correction flow
-- running Agent Engineering or Capability Access before the intelligence substrate is selected
+- running Agent Engineering, Agent Network, or Capability Access before the intelligence substrate is selected
 
 ### Gate 2.35 - Agent Engineering and Skill Factory
 
@@ -251,6 +254,7 @@ Requires:
 Forbidden:
 
 - choosing capability/access surfaces before skill and tool-contract requirements are understood
+- choosing agent network boundaries before skill and tool-contract requirements are understood
 - generating or installing executable skills before trust review
 - approving Build Plan with missing agent reliability, security, observability, or product trust boundaries
 - installing unreviewed public skills because they are popular
@@ -275,11 +279,40 @@ Requires:
 
 Forbidden:
 
-- choosing capability/access surfaces before runtime boundaries are known
+- choosing agent network or capability/access surfaces before runtime boundaries are known
 - approving Build Plan with hidden memory writes
 - approving Build Plan with unsandboxed tools or unattributed external actions
 - allowing autonomous routines without budget, trace, idempotency, and recovery policy
 - calling a workflow graph an operating system without memory, identity, governance, and recovery contracts
+
+### Gate 2.45 - Agent Network and Interoperability
+
+Required when agents or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+
+Requires:
+
+- `docs/agent-network-interop-plan.md`
+- internal versus external agent/OS roster
+- exposed and consumed agent cards with owners, versions, accepted/refused tasks, input/output contracts, modalities, auth, memory policy, approvals, SLA, streaming, traces, and escalation
+- collaboration topology and orchestrator ownership
+- delegation boundaries for allowed scope, forbidden scope, approvals, context shared, memory writes, and audit
+- task, message, artifact, refusal, timeout, retry, and idempotency contracts
+- explicit MCP/tool access versus A2A-style agent delegation versus API/SDK versus internal workflow versus event/queue decisions
+- memory and context-sharing policy with least-context, redaction, provenance, correction/delete/export, and prompt-injection handling
+- identity, auth, trust, scope, token expiry, tenant boundary, impersonation, revocation, and audit attribution model
+- streaming/progress model for long-running delegated tasks
+- cross-agent observability with correlation IDs, downstream tool traces, approvals, cost, latency, and replay path
+- failure, timeout, retry, compensation, fallback, and escalation behavior
+- versioning and compatibility policy
+- first interoperable slice
+
+Forbidden:
+
+- treating MCP/tool access and A2A-style agent delegation as interchangeable
+- exposing agent capabilities without agent cards, owner, version, auth, memory, approval, trace, and compatibility policy
+- sharing raw private memory across domain boundaries when a distilled task payload is enough
+- approving Build Plan with unscoped remote-agent delegation or untraceable cross-agent actions
+- using A2A-style delegation for simple same-runtime function calls
 
 ### Gate 2.5 - Capability and Access
 
@@ -292,6 +325,7 @@ Requires:
 - `docs/intelligence-architecture-decision.md` when AI architecture matters
 - `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agent engineering or procedural skills are relevant
 - `docs/agent-os-runtime-plan.md` when L3+ agentic runtime governance is relevant
+- `docs/agent-network-interop-plan.md` when agent network or inter-OS collaboration is relevant
 - required capability inventory
 - production runtime surface decisions
 - Codex/agent implementation surface decisions

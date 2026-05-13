@@ -5,7 +5,7 @@ This guide explains how to use Codex Brain from first idea to shipped product an
 The short version:
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 The important version:
@@ -111,7 +111,8 @@ Required:
 3. Agentic Opportunity and Intelligence Architecture gates if AI/agentic value is relevant
 4. Agent Engineering gate if production-agent, retrieval, model routing, or procedural skills are relevant
 5. Agent OS Runtime gate if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
-6. Capability and Access Map if external systems are relevant
+6. Agent Network and Interoperability gate if agents or domain operating systems collaborate across boundaries
+7. Capability and Access Map if external systems are relevant
 7. Build Plan
 8. Design DNA if UI exists
 9. PRDs
@@ -145,17 +146,18 @@ Recommended sequence:
 6. Intelligence Architecture Decision if RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant
 7. Agent Engineering Audit and Skill Inventory if agents, retrieval, model routing, or procedural skills are relevant
 8. Agent OS Runtime Plan if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
-9. Capability and Access Map
-10. Design references and Design DNA
-11. Master Build Plan
-12. ADRs for major choices
-13. Test strategy and traceability matrix
-14. Promise-to-spec audit
-15. Phase PRDs with vertical slices
-16. Execution loop
-17. Specialist reviews
-18. Ship gate
-19. Postmortem and lessons
+9. Agent Network and Interoperability Plan if agents or domain operating systems collaborate across boundaries
+10. Capability and Access Map
+11. Design references and Design DNA
+12. Master Build Plan
+13. ADRs for major choices
+14. Test strategy and traceability matrix
+15. Promise-to-spec audit
+16. Phase PRDs with vertical slices
+17. Execution loop
+18. Specialist reviews
+19. Ship gate
+20. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -177,7 +179,7 @@ Silent omission is not allowed.
 
 ## 7. Agentic Opportunity Procedure
 
-Before capability/access planning, audit whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system.
+Before agent network and capability/access planning, audit whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system.
 
 Start with:
 
@@ -204,11 +206,11 @@ Decide:
 - overbuild/underbuild risk
 - deferred agentic layers
 
-Intelligence Architecture, Agent Engineering, Agent OS Runtime, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
+Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
 
 ## 8. Intelligence Architecture Selection Procedure
 
-Before Agent Engineering and capability/access planning, decide the actual intelligence substrate.
+Before Agent Engineering, Agent OS Runtime, Agent Network, and capability/access planning, decide the actual intelligence substrate.
 
 Start with:
 
@@ -237,7 +239,7 @@ Agent Engineering is blocked while an AI-core, retrieval-heavy, extraction-heavy
 
 ## 9. Agent Engineering and Skill Factory Procedure
 
-Before capability/access planning, audit whether the intended agent can survive production.
+Before Agent OS Runtime, Agent Network, and capability/access planning, audit whether the intended agent can survive production.
 
 Start with:
 
@@ -264,11 +266,11 @@ Decide:
 - which skills are instructions-only vs scripted vs externally acting
 - approval, logging, rollback, and eval requirements for T2-T4 skills
 
-Agent OS Runtime and capability/access planning are blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
+Agent OS Runtime, Agent Network, and capability/access planning are blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
 
 ## 10. Agent OS Runtime Procedure
 
-Before capability/access planning, define the runtime kernel when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting.
+Before Agent Network and capability/access planning, define the runtime kernel when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting.
 
 Start with:
 
@@ -295,9 +297,44 @@ Decide:
 - agent registry and role model
 - human control surface for approvals, memory review, traces, pause/stop, rollback, and escalation
 
-Capability/access planning is blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
+Agent Network and capability/access planning are blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
 
-## 11. Capability and Access Procedure
+## 11. Agent Network and Interoperability Procedure
+
+Before capability/access planning, define the network boundary when agents, remote specialists, or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+
+Start with:
+
+```bash
+npm run plan-agent-network -- --brief "[what we are building]" --mode full --markdown
+```
+
+Then copy or fill:
+
+```text
+templates/shared/agent-network-interop-plan.template.md -> docs/agent-network-interop-plan.md
+```
+
+Decide:
+
+- internal versus external agent/OS roster
+- exposed and consumed agent cards
+- collaboration topology
+- delegation boundaries
+- request, response, artifact, refusal, timeout, retry, and idempotency contracts
+- MCP/tool access versus A2A-style agent delegation versus API/SDK versus internal workflow versus event/queue boundaries
+- memory and context-sharing policy
+- identity, auth, trust, scope, tenant, and audit attribution model
+- streaming/progress behavior for long-running delegated work
+- cross-agent observability and correlation IDs
+- failure, compensation, fallback, and escalation behavior
+- versioning and compatibility policy
+- reusable capability and commercialization opportunities
+- first interoperable slice
+
+Capability/access planning is blocked while a federated agentic system has no agent cards, topology, delegation boundaries, task/message contracts, protocol surface decision, context-sharing policy, identity/auth model, progress handling, cross-agent traces, recovery behavior, or versioning policy.
+
+## 12. Capability and Access Procedure
 
 Before Build Plan approval, create the capability/access map when the product touches external systems, authenticated apps, APIs, SDKs, CLIs, MCP servers, media generation providers, deployment platforms, browser automation, desktop apps, or paid vendors.
 
@@ -331,7 +368,7 @@ npm run route-tool -- --task "create a GitHub PR and inspect failing CI"
 
 Build Plan approval is blocked while a critical required-now capability has no access path.
 
-## 12. Build Plan Procedure
+## 13. Build Plan Procedure
 
 For Full mode:
 
@@ -343,10 +380,11 @@ For Full mode:
 6. Reference `docs/intelligence-architecture-decision.md` when RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant.
 7. Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, or procedural skills are relevant.
 8. Reference `docs/agent-os-runtime-plan.md` when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant.
-9. Reference `docs/capability-access-map.md`.
+9. Reference `docs/agent-network-interop-plan.md` when agents or domain operating systems collaborate across boundaries.
+10. Reference `docs/capability-access-map.md`.
 10. Do not create PRDs until P0/P1 plan gaps are resolved.
 
-## 13. Design DNA Procedure
+## 14. Design DNA Procedure
 
 For any user-facing UI:
 
@@ -358,7 +396,7 @@ For any user-facing UI:
 
 Frontend work is blocked before Design DNA approval.
 
-## 14. PRD Procedure
+## 15. PRD Procedure
 
 Each PRD must include:
 
@@ -385,7 +423,7 @@ Validate plans with:
 npm run verify-plan -- docs/prd/[file].md
 ```
 
-## 15. Execution Procedure
+## 16. Execution Procedure
 
 Codex executes one task at a time:
 
@@ -405,7 +443,7 @@ Codex executes one task at a time:
 
 Parallel execution requires explicit task assignment or task claiming.
 
-## 16. Review Procedure
+## 17. Review Procedure
 
 Use specialist roles:
 
@@ -421,7 +459,7 @@ Use specialist roles:
 
 Full mode cannot ship with unresolved critical/high findings.
 
-## 17. Ship Procedure
+## 18. Ship Procedure
 
 Ship only when:
 
@@ -434,7 +472,7 @@ Ship only when:
 - user approves launch
 - lesson capture is ready
 
-## 18. Learning Procedure
+## 19. Learning Procedure
 
 At project end:
 
@@ -443,7 +481,7 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
-## 18.5 Context Procedure
+## 19.5 Context Procedure
 
 At session start, phase changes, and major decisions:
 
@@ -460,7 +498,7 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
-## 18.6 Session Close Procedure
+## 19.6 Session Close Procedure
 
 At the end of every meaningful session, save context.
 
@@ -486,7 +524,7 @@ This creates `.codex-brain/sessions/session-[timestamp].json`, updates active co
 
 Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
 
-## 19. Downgrade Protocol
+## 20. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
 
@@ -499,7 +537,7 @@ Codex must state:
 
 For high-risk projects, Codex should strongly recommend against downgrading.
 
-## 20. Glory Rule
+## 21. Glory Rule
 
 If the user says the goal is world-class, unicorn-level, top-ten, enterprise-grade, or no-corners-cut:
 

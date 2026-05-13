@@ -427,7 +427,7 @@
     {
       "id": "agent-os-runtime",
       "name": "Agent OS Runtime",
-      "purpose": "Ensure L3+ agentic products define the runtime kernel that schedules, remembers, sandboxes, attributes, observes, governs, recovers, budgets, and coordinates agents before access planning and Build Plan approval.",
+      "purpose": "Ensure L3+ agentic products define the runtime kernel that schedules, remembers, sandboxes, attributes, observes, governs, recovers, budgets, and coordinates agents before agent network, access planning, and Build Plan approval.",
       "required_questions": [
         "What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?",
         "What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?",
@@ -453,6 +453,35 @@
         "Autonomous routine without budget, idempotency, trace, and failure recovery."
       ],
       "review_roles": ["agent-os-runtime-reviewer", "architecture-strategist", "security-gdpr-reviewer", "performance-reliability-reviewer", "product-strategist"]
+    },
+    {
+      "id": "agent-network-interoperability",
+      "name": "Agent Network and Interoperability",
+      "purpose": "Ensure federated agentic products define agent cards, topology, delegation boundaries, task contracts, MCP versus A2A-style decisions, context sharing, identity, streaming, traces, recovery, and versioning before access planning and Build Plan approval.",
+      "required_questions": [
+        "Which internal agents, external agents, domain operating systems, remote specialists, deterministic services, and deferred ecosystem layers participate?",
+        "Which agent cards should this product expose or consume?",
+        "What collaboration topology and orchestrator ownership model is required?",
+        "What delegation boundaries define allowed scope, forbidden scope, approvals, context shared, memory writes, and audit?",
+        "What request, response, artifact, refusal, timeout, retry, and idempotency contracts are required?",
+        "Which boundaries are MCP/tool access, A2A-style agent delegation, API/SDK, internal workflow, event/queue, browser automation, or Computer Use exceptions?",
+        "What memory and context-sharing policy prevents cross-domain leakage?",
+        "What identity, auth, trust, token scope, tenant boundary, and audit attribution model is required?",
+        "What streaming/progress, cancellation, timeout, finalization, trace, recovery, and versioning policies are required?"
+      ],
+      "required_artifacts": [
+        "docs/agent-network-interop-plan.md",
+        "frameworks/agent-network-interop.md",
+        "catalogs/agent-network-interop-catalog.json"
+      ],
+      "p0_blockers": [
+        "Federated agentic product without collaboration topology.",
+        "Exposed or consumed agent capability without agent card, owner, version, auth, memory, approval, and trace policy.",
+        "MCP/tool access confused with A2A-style agent delegation.",
+        "Raw private context shared across domain boundaries without least-context, redaction, approval, and audit.",
+        "Delegated public, paid, destructive, or compliance-sensitive action without human approval and recovery."
+      ],
+      "review_roles": ["agent-network-interop-reviewer", "architecture-strategist", "security-gdpr-reviewer", "ai-orchestration-reviewer", "product-strategist"]
     },
     {
       "id": "reliability-observability",
@@ -687,6 +716,7 @@
     "templates/shared/intelligence-architecture-decision.template.md",
     "templates/shared/agent-engineering-audit.template.md",
     "templates/shared/agent-os-runtime-plan.template.md",
+    "templates/shared/agent-network-interop-plan.template.md",
     "templates/shared/skill-inventory.template.md",
     "templates/shared/skill-spec.template.md",
     "templates/shared/capability-access-map.template.md",
@@ -696,6 +726,7 @@
     "frameworks/agent-engineering-skill-stack.md",
     "frameworks/skill-factory.md",
     "frameworks/agent-os-runtime.md",
+    "frameworks/agent-network-interop.md",
     "frameworks/capability-access-readiness.md",
     "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
@@ -703,9 +734,11 @@
     "catalogs/intelligence-architecture-catalog.json",
     "catalogs/agent-engineering-catalog.json",
     "catalogs/agent-os-runtime-catalog.json",
+    "catalogs/agent-network-interop-catalog.json",
     "catalogs/capability-access-catalog.json",
     "catalogs/tool-surface-routing-matrix.json",
     "schemas/project-state.schema.json",
+    "schemas/agent-network-interop-catalog.schema.json",
     "schemas/session-record.schema.json"
   ]
 }

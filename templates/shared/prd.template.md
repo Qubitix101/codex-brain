@@ -21,6 +21,8 @@ Light / Standard / Full
 - Intelligence Architecture: `docs/intelligence-architecture-decision.md` if relevant
 - Agent Engineering: `docs/agent-engineering-audit.md` if relevant
 - Skill Inventory: `docs/skill-inventory.md` if relevant
+- Agent OS Runtime: `docs/agent-os-runtime-plan.md` if relevant
+- Agent Network: `docs/agent-network-interop-plan.md` if relevant
 - Capability Access: `docs/capability-access-map.md` if relevant
 - Design DNA: `design/design-dna.md`
 - State: `.codex-brain/state.json`

@@ -132,6 +132,13 @@ If agent engineering, retrieval, tool contracts, model routing, or procedural sk
 - update `templates/shared/skill-inventory.template.md`
 - update `templates/shared/skill-spec.template.md`
 
+If agent-to-agent or inter-OS boundaries repeatedly fail:
+
+- update `frameworks/agent-network-interop.md`
+- add or revise entries in `catalogs/agent-network-interop-catalog.json`
+- update `templates/shared/agent-network-interop-plan.template.md`
+- update `scripts/plan-agent-network.mjs`
+
 ## Rule
 
 A serious project is not complete until lessons are captured.

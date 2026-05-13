@@ -44,6 +44,8 @@
 - [ ] Seven-discipline readiness, model routing, skill trust levels, and skill evals defined
 - [ ] Agent OS runtime plan referenced if L3+/multi-agent/memory-writing/routine/tool/action behavior is relevant
 - [ ] Scheduler, memory manager, tool sandbox, identity, traces, governance, recovery, budgets, agent registry, and human control defined where relevant
+- [ ] Agent network/interoperability plan referenced if agents or domain operating systems collaborate across boundaries
+- [ ] Agent cards, delegation boundaries, task contracts, context sharing, protocol choices, streaming, cross-agent traces, recovery, and versioning defined where relevant
 - [ ] Capability/access map referenced
 - [ ] Product runtime surfaces selected
 - [ ] Agent implementation surfaces selected

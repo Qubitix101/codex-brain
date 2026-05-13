@@ -45,7 +45,9 @@ Full research produces:
 ├── 23-agentic-opportunity-and-intelligence-system.md
 ├── 24-intelligence-architecture-selection.md
 ├── 25-agent-engineering-and-skill-factory.md
-├── 26-capability-access-readiness.md
+├── 26-agent-os-runtime.md
+├── 27-agent-network-and-interoperability.md
+├── 28-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -431,7 +433,7 @@ Full-mode additions:
 
 Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Intelligence Architecture, Agent Engineering, Agent OS Runtime, and Capability and Access:
+Answer before Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
 
 - Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
 - What agentic maturity level should be built now?
@@ -456,7 +458,7 @@ Required:
 
 Required when AI answers, retrieval, extraction, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Agent Engineering, Agent OS Runtime, and Capability and Access:
+Answer before Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
 
 - For each core loop, is the system answering, deciding, transforming, extracting, remembering, coordinating, acting, or recurring?
 - What is the source of truth for each loop?
@@ -480,7 +482,7 @@ Required:
 
 Required when AI agents, retrieval, tool use, multi-model orchestration, procedural skills, or externally visible actions are relevant.
 
-Answer before Agent OS Runtime and Capability and Access:
+Answer before Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
 
 - What are the production-agent system boundaries, data flows, model routes, state owners, and failure boundaries?
 - What tool contracts, schemas, examples, output contracts, and approval policies are needed?
@@ -504,7 +506,7 @@ Required:
 
 Required when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, externally acting, or operating-system-shaped.
 
-Answer before Capability and Access:
+Answer before Agent Network and Interoperability and Capability and Access:
 
 - What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?
 - What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?
@@ -524,6 +526,33 @@ Required:
 - P0 runtime blockers
 - first runtime slice
 - deferred runtime layers
+
+## Agent Network and Interoperability Plan
+
+Required when agents, remote specialists, or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+
+Answer before Capability and Access:
+
+- Which internal agents, external agents, vertical operating systems, and deterministic services participate?
+- Which agent cards should this product expose or consume?
+- What collaboration topology and orchestrator owner are required?
+- What delegation boundaries define allowed scope, forbidden scope, approvals, context shared, and audit?
+- What task, message, artifact, refusal, timeout, retry, and idempotency contracts are required?
+- Which boundaries are MCP/tool access, A2A-style agent delegation, API/SDK, internal workflow, event/queue, browser automation, or Computer Use exceptions?
+- What memory and context-sharing policy prevents leakage?
+- What identity, auth, trust, scope, tenant, and audit attribution model is required?
+- Do long-running delegated tasks need streaming progress, cancellation, timeout, and finalization rules?
+- What cross-agent traces, correlation IDs, fallback, recovery, versioning, and compatibility policies are required?
+
+Required:
+
+- `docs/agent-network-interop-plan.md`
+- agent/OS roster
+- agent cards to expose and consume
+- protocol surface decision matrix
+- delegation and context-sharing boundaries
+- cross-agent trace and recovery model
+- first interoperable slice
 
 ## Category 12 - Integrations and Vendors
 
@@ -790,9 +819,11 @@ Before planning:
 - Every AI-core, automation-heavy, or operating-system-shaped product has an agentic maturity decision and first closed intelligence loop.
 - Every AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy product has an intelligence architecture decision covering RAG, structured retrieval, extraction, memory, workflow, action, and routine needs.
 - Every L3+ or skill-driven agentic product has agent-engineering readiness, model routing, skill inventory, trust levels, and eval/trace requirements.
+- Every L3+ multi-agent, memory-writing, routine-heavy, tool-using, or externally acting product has an Agent OS runtime plan.
+- Every federated agentic or multi-OS product has an agent network/interoperability plan.
 - Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, intelligence architecture, agent engineering/skill factory, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, intelligence architecture, agent engineering/skill factory, Agent OS runtime, agent network/interoperability, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

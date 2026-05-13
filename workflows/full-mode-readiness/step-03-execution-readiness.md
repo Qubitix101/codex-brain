@@ -10,6 +10,7 @@ Before execution:
 - intelligence architecture substrates, source of truth, retrieval/extraction/memory/workflow/action/routine choices, and eval traces are explicit for AI-core tasks
 - agent-engineering discipline gaps, model routes, required skills, trust levels, and skill evals are explicit for L3+ agentic tasks
 - Agent OS runtime boundaries are explicit for L3+ agentic tasks: scheduler, memory manager, tool sandbox, identity, traces, governance, recovery, budgets, agent registry, and human control
+- agent network/interoperability boundaries are explicit for federated tasks: agent cards, topology, delegation, task contracts, protocol choices, context sharing, streaming, cross-agent traces, recovery, and versioning
 - required access blockers are resolved, mocked, or explicitly deferred
 - execution surface is known for each integration-heavy task
 - security/privacy/database tasks are explicit

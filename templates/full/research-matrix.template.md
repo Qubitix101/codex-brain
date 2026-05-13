@@ -30,7 +30,8 @@ Use this as the tracking file for Full-mode research.
 | 24 | Intelligence Architecture Selection | Not started | | | | |
 | 25 | Agent Engineering and Skill Factory | Not started | | | | |
 | 26 | Agent OS Runtime | Not started | | | | |
-| 27 | Capability and Access Readiness | Not started | | | | |
+| 27 | Agent Network and Interoperability | Not started | | | | |
+| 28 | Capability and Access Readiness | Not started | | | | |
 
 ## Gate
 
@@ -46,4 +47,5 @@ Use this as the tracking file for Full-mode research.
 - [ ] Intelligence-architecture requirements generated
 - [ ] Agent-engineering and skill-factory requirements generated
 - [ ] Agent OS runtime requirements generated
+- [ ] Agent network/interoperability requirements generated
 - [ ] Capability/access map requirements generated

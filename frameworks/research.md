@@ -22,6 +22,7 @@ Research produces decisions, not trivia.
 - intelligence-architecture constraints if RAG, structured retrieval, extraction, memory, workflow, action, or routine automation is relevant
 - agent-engineering and skill-factory constraints if agents/retrieval/model routing/procedural skills are relevant
 - Agent OS runtime constraints if L3+/multi-agent/memory/tool/action/routine behavior is relevant
+- agent network/interoperability constraints if agents or domain operating systems collaborate across boundaries
 - integration constraints
 - capability and access constraints
 
@@ -45,6 +46,7 @@ Research produces decisions, not trivia.
 - intelligence-architecture decision if applicable
 - agent-engineering readiness and skill inventory if applicable
 - Agent OS runtime readiness if applicable
+- agent network/interoperability readiness if applicable
 - capability and access readiness
 - design and interaction references
 

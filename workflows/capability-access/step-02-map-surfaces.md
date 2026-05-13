@@ -6,6 +6,7 @@
 - `docs/intelligence-system-plan.md` if relevant
 - `docs/intelligence-architecture-decision.md` if relevant
 - `docs/skill-inventory.md` if relevant
+- `docs/agent-network-interop-plan.md` if relevant
 - `frameworks/tool-surface-routing.md`
 - `catalogs/tool-surface-routing-matrix.json`
 
@@ -19,6 +20,7 @@ For every required capability, select:
 - mock strategy
 - live verification trigger
 - skill trust-level impact
+- interop impact: MCP/tool access versus A2A-style agent delegation versus API/internal/event boundary
 - architecture substrate impact: semantic RAG, structured retrieval, extraction, memory, workflow, action, or routine automation
 
 ## Surface Rules
@@ -26,6 +28,7 @@ For every required capability, select:
 - Prefer native CLI for local deterministic developer work.
 - Prefer official API/SDK for production runtime behavior.
 - Prefer MCP/connectors when managed auth, scoped permissions, structured remote objects, no-shell environments, or auditability justify the tool context.
+- Prefer A2A-style delegation when the target is another autonomous agent or domain operating system, not a raw tool or data source.
 - Prefer generated CLI harnesses only when official automation surfaces are missing and the harness can be tested.
 - Prefer browser automation for rendered web state and visual QA.
 - Prefer Computer Use for native desktop UI workflows with no structured interface.

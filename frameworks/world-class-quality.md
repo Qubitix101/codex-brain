@@ -52,6 +52,13 @@ Passing tests is necessary. It is not sufficient.
 - Procedural knowledge is captured as reviewed skill candidates, not left in chat.
 - Skills have trust levels, evals, approval requirements, and install/promotion rules.
 
+### 3.65 Agent Network and Interoperability
+
+- Federated agentic products distinguish tools/data from other autonomous agents or domain operating systems.
+- Agent cards define exposed and consumed capabilities with owners, versions, accepted/refused tasks, inputs, outputs, modalities, auth, memory, approvals, traces, and escalation.
+- Cross-agent delegation has typed task contracts, least-context sharing, identity attribution, streaming/progress behavior, recovery, and compatibility policy.
+- MCP, A2A-style delegation, API/SDK, internal workflow, event/queue, browser automation, and Computer Use are chosen intentionally per boundary.
+
 ### 4. Data and Scale
 
 - The database choice matches access patterns.

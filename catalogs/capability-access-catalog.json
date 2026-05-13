@@ -95,6 +95,17 @@
       "risks": ["hallucination", "prompt injection", "cost runaway", "privacy leakage", "tool misuse"]
     },
     {
+      "id": "remote_agent_interop",
+      "name": "Remote Agent and Inter-OS Interoperability",
+      "keywords": ["a2a", "agent to agent", "agent-to-agent", "agent card", "remote agent", "domain os", "operating system", "federated agent", "agent marketplace", "multi-os", "delegation"],
+      "production_surfaces": ["a2a_agent_protocol", "official_api_sdk_if_agent_service_exposes_api", "event_or_queue_for_deterministic_async"],
+      "agent_surfaces": ["a2a_agent_protocol", "mcp_connector_only_for_tool_data_access", "native_cli_for_contract_tests"],
+      "required_access": ["agent card", "endpoint", "auth/token strategy", "scope policy", "test agent or sandbox", "trace/correlation ID path"],
+      "readiness_questions": ["Is the target a tool/data source or an autonomous agent?", "What tasks are accepted and refused?", "What context can cross the boundary?", "How are streaming progress, cancellation, failure, and versioning handled?"],
+      "mock_strategy": "Use contract-test fixtures for request, response, refusal, progress, timeout, and failure payloads before calling live agents.",
+      "risks": ["context leakage", "unscoped delegation", "untraceable downstream actions", "protocol mismatch", "missing fallback"]
+    },
+    {
       "id": "search_retrieval",
       "name": "Search, Vector, and Retrieval",
       "keywords": ["search", "vector", "embedding", "rag", "qdrant", "pinecone", "meilisearch", "opensearch"],

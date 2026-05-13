@@ -98,7 +98,7 @@ const result = {
   routines,
   evals,
   dimensions: catalog.dimensions,
-  next_step: "Create the agentic opportunity audit and intelligence system plan, then run the intelligence architecture selection before the agent-engineering/skill-factory audit and capability/access mapping."
+  next_step: "Create the agentic opportunity audit and intelligence system plan, then run the intelligence architecture selection before the agent-engineering/skill-factory audit, Agent OS runtime, agent network, and capability/access mapping."
 };
 
 if (!markdown) {
@@ -157,6 +157,6 @@ for (const dimension of catalog.dimensions) {
 }
 lines.push("## Next Step");
 lines.push("");
-lines.push("Fill `docs/agentic-opportunity-audit.md`, then `docs/intelligence-system-plan.md`, then run `npm run plan-intelligence-architecture -- --brief \"...\" --mode full --markdown` to decide RAG vs structured retrieval vs extraction vs ADK/workflow before Agent Engineering and Skill Factory.");
+lines.push("Fill `docs/agentic-opportunity-audit.md`, then `docs/intelligence-system-plan.md`, then run `npm run plan-intelligence-architecture -- --brief \"...\" --mode full --markdown` to decide RAG vs structured retrieval vs extraction vs ADK/workflow before Agent Engineering, Skill Factory, Agent OS Runtime, Agent Network, and Capability Access.");
 
 console.log(lines.join("\n"));

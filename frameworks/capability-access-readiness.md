@@ -2,7 +2,7 @@
 
 Codex Brain should identify the powers a project needs before it writes the Build Plan or decomposes PRDs.
 
-This framework turns integrations, credentials, APIs, MCP servers, CLIs, browser workflows, and generated harnesses into a first-class planning gate.
+This framework turns integrations, credentials, APIs, MCP servers, A2A-style agent surfaces, CLIs, browser workflows, and generated harnesses into a first-class planning gate.
 
 ## Purpose
 
@@ -14,16 +14,17 @@ Capability and Access Readiness prevents that by asking, before planning:
 - What should the built product use in production?
 - What should Codex use while implementing and verifying?
 - Which official APIs, SDKs, CLIs, MCP servers, webhooks, or UI automation paths exist?
+- Which agent-to-agent or inter-OS surfaces exist, and are they actually agent delegation rather than tool/data access?
 - What access, credentials, scopes, billing setup, test accounts, or local tools must the user provide?
 - What can be mocked safely, and what must be verified live before execution?
 - What actions are destructive, expensive, externally visible, or permission-sensitive?
 
 ## Gate 2.5
 
-Capability and Access Readiness sits after Agentic Opportunity, Intelligence Architecture, Agent Engineering, and Agent OS Runtime, and before Build Plan.
+Capability and Access Readiness sits after Agentic Opportunity, Intelligence Architecture, Agent Engineering, Agent OS Runtime, and Agent Network and Interoperability, and before Build Plan.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped products, finish these first so the access map is grounded in the intended intelligence loop and procedural skill plan:
@@ -34,6 +35,7 @@ For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-syste
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 - `docs/agent-os-runtime-plan.md`
+- `docs/agent-network-interop-plan.md` when agents or domain operating systems collaborate across boundaries
 
 For Standard and Full projects, `docs/capability-access-map.md` is required before the Build Plan is approved when the product depends on external services, AI tools, media generation, browser automation, authenticated SaaS systems, payments, deployment platforms, databases, file storage, email, calendar, source control, analytics, or observability.
 
@@ -57,6 +59,7 @@ Also read:
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 - `docs/agent-os-runtime-plan.md`
+- `docs/agent-network-interop-plan.md`
 
 Optional helpers:
 
@@ -65,6 +68,7 @@ npm run plan-capabilities -- --brief "[what we are building]" --mode standard
 npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode standard
 npm run plan-agent-skills -- --brief "[what we are building]" --mode standard
 npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode standard
+npm run plan-agent-network -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "create a GitHub issue from a validated bug report"
 ```
 

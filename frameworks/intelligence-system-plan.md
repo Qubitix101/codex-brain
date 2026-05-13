@@ -2,7 +2,7 @@
 
 An Intelligence System Plan describes the high-level operating architecture for products that should become more than a normal app.
 
-It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, the Agent OS Runtime Plan, and the Capability and Access Map.
+It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, the Agent OS Runtime Plan, the Agent Network and Interoperability Plan, and the Capability and Access Map.
 
 ## Purpose
 
@@ -20,6 +20,7 @@ The plan turns an idea into a clear intelligence architecture:
 - what intelligence substrates it needs: model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, and routines
 - what production-agent disciplines must be satisfied
 - what runtime kernel must supervise the agents
+- what other agents or domain operating systems it should expose, consume, or delegate to
 
 ## Required Artifact
 
@@ -33,6 +34,7 @@ Use:
 - `frameworks/agent-engineering-skill-stack.md`
 - `frameworks/skill-factory.md`
 - `frameworks/agent-os-runtime.md`
+- `frameworks/agent-network-interop.md`
 - `catalogs/agent-engineering-catalog.json`
 
 ## System Anatomy
@@ -149,7 +151,23 @@ How the system is supervised:
 
 The detailed runtime kernel belongs in `docs/agent-os-runtime-plan.md`.
 
-### 8. Routine Layer
+### 8. Agent Network and Interoperability Layer
+
+How the system collaborates beyond its own runtime:
+
+- internal versus external agents and operating systems
+- agent cards to expose and consume
+- delegation boundaries
+- task, message, artifact, and refusal contracts
+- MCP/tool access versus A2A-style agent delegation decisions
+- memory and context sharing
+- identity, auth, trust, and tenant boundaries
+- streaming progress and cross-agent traces
+- versioning and compatibility
+
+The detailed interop boundary belongs in `docs/agent-network-interop-plan.md`.
+
+### 9. Routine Layer
 
 What happens repeatedly:
 
@@ -165,7 +183,7 @@ What happens repeatedly:
 
 Routines should define trigger, schedule, owner, inputs, output, approval, and failure behavior.
 
-### 9. Approval and Control Layer
+### 10. Approval and Control Layer
 
 Where humans remain in control:
 

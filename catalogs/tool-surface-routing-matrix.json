@@ -22,6 +22,12 @@
       "avoid_for": ["two-command local tasks", "broad unscoped write toolsets", "pure local deterministic work"]
     },
     {
+      "id": "a2a_agent_protocol",
+      "name": "A2A-Style Agent Protocol",
+      "best_for": ["remote autonomous agents", "domain operating system delegation", "agent cards", "task negotiation", "artifact exchange", "streaming delegated progress", "vendor/framework independent agent collaboration"],
+      "avoid_for": ["raw tool access", "same-runtime function calls", "simple deterministic API calls", "local developer tasks"]
+    },
+    {
       "id": "generated_cli_harness",
       "name": "Generated CLI Harness",
       "best_for": ["GUI apps without official automation", "repeatable local creative workflows", "project-owned automation wrappers"],
@@ -44,6 +50,7 @@
     "If the product runtime needs the capability, choose the official API or SDK unless there is a documented reason not to.",
     "If the agent is doing deterministic local developer work, choose native CLI.",
     "If auth, per-user permissions, audit, no-shell operation, or structured remote objects are central, choose MCP or connector.",
+    "If the target is another autonomous agent or domain operating system, choose an A2A-style agent protocol with agent cards and task contracts.",
     "If the result depends on rendered web state or visual layout, choose browser automation.",
     "If the workflow is a desktop UI with no structured surface, choose Computer Use for one-off work or a generated CLI harness for repeatable work.",
     "If no official surface exists, consider a generated CLI harness and document fragility plus tests."
@@ -81,6 +88,14 @@
       "alternates": ["official_api_sdk", "native_cli"],
       "why": "Managed auth, scopes, object IDs, and auditability usually matter more than raw CLI compactness for authenticated SaaS workflows.",
       "verify_with": ["read-only smoke call", "scope inspection"]
+    },
+    {
+      "id": "agent_to_agent_delegation",
+      "keywords": ["a2a", "agent to agent", "agent-to-agent", "agent card", "remote agent", "domain os", "operating system", "delegate to another agent", "federated agents", "multi-os", "agent marketplace"],
+      "preferred_surface": "a2a_agent_protocol",
+      "alternates": ["official_api_sdk", "mcp_connector", "native_cli"],
+      "why": "When the target is another autonomous agent or vertical operating system, the useful abstraction is delegation through agent cards, task contracts, artifact exchange, progress events, identity, and traces. MCP remains the right surface for tools and data.",
+      "verify_with": ["agent card review", "task contract test", "cross-agent trace", "approval-path smoke test"]
     },
     {
       "id": "production_saas_integration",

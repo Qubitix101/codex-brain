@@ -280,9 +280,30 @@ Define:
 - agent registry and role model
 - human control surface
 
+### Agent Network and Interoperability Plan
+
+Reference `docs/agent-network-interop-plan.md` after `docs/agent-os-runtime-plan.md` when agents, remote specialists, or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+
+Define:
+
+- internal versus external agent/OS roster
+- exposed and consumed agent cards
+- collaboration topology and orchestrator ownership
+- delegation boundaries
+- task, message, artifact, refusal, timeout, retry, and idempotency contracts
+- MCP/tool access versus A2A-style agent delegation versus API/SDK versus internal workflow versus event/queue decisions
+- memory and context-sharing policy
+- identity, auth, trust, tenant, and audit attribution model
+- streaming/progress model
+- cross-agent observability and correlation IDs
+- failure, compensation, fallback, and escalation behavior
+- versioning and compatibility policy
+- reusable capability and commercialization opportunities
+- first interoperable slice
+
 ### Capability and Access Readiness
 
-Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, skill inventory, and Agent OS runtime plan are known, then define:
+Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, skill inventory, Agent OS runtime plan, and agent network/interoperability plan are known, then define:
 
 - production runtime surface for each external capability
 - Codex/agent implementation surface for each capability
@@ -682,6 +703,8 @@ The Build Plan is complete only when:
 - agentic opportunity and intelligence-system plan exist for AI/automation-heavy products
 - intelligence architecture decision exists for AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy products
 - agent-engineering audit and skill inventory exist for L3+ or skill-driven agentic products
+- Agent OS runtime plan exists for L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products
+- agent network/interoperability plan exists for federated agentic or multi-OS products
 - capability/access map exists and all critical required-now access paths are explicit
 - Design DNA is approved if UI exists
 - database plan matches mode

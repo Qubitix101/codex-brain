@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -138,6 +138,28 @@ Codex should map:
 - blockers before capability/access and Build Plan
 
 See `frameworks/agent-os-runtime.md`.
+
+## Phase 2.45 - Agent Network and Interoperability
+
+Answer: should this product collaborate with, expose, or consume other agents or domain operating systems?
+
+Codex should map:
+
+- internal versus external agents and operating systems
+- agent cards to expose and consume
+- collaboration topology
+- delegation boundaries
+- task, message, artifact, and refusal contracts
+- MCP/tool access versus A2A-style agent delegation versus API/internal/event boundaries
+- memory and context-sharing policy
+- identity, auth, trust, and tenant boundaries
+- streaming/progress model for long-running delegated work
+- cross-agent observability and correlation IDs
+- failure, retry, timeout, fallback, and escalation behavior
+- versioning, compatibility, and reusable capability opportunities
+- blockers before capability/access and Build Plan
+
+See `frameworks/agent-network-interop.md`.
 
 ## Phase 2.5 - Capability and Access
 

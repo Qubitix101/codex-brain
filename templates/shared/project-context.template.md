@@ -83,6 +83,21 @@ This file is the implementation constitution for future Codex sessions.
 - Agent registry:
 - Human control surface:
 
+## Agent Network and Interoperability Rules
+
+- Agent network/interoperability plan:
+- Internal versus external agent/OS roster:
+- Exposed agent cards:
+- Consumed agent cards:
+- Delegation boundaries:
+- Task/message/artifact contracts:
+- MCP vs A2A vs API/internal/event decisions:
+- Memory/context sharing policy:
+- Identity/auth/trust model:
+- Streaming/progress model:
+- Cross-agent trace model:
+- Versioning/compatibility:
+
 ## Capability and Access Rules
 
 - Capability/access map:

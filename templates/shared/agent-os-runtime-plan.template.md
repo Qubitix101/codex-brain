@@ -10,6 +10,7 @@
 - Related intelligence architecture decision:
 - Related agent engineering audit:
 - Related skill inventory:
+- Related agent network/interoperability plan:
 - Related capability/access map:
 - Target maturity now:
 - Target maturity later:

@@ -15,6 +15,7 @@ This artifact must be completed before Build Plan approval when the project depe
 - Related agent engineering audit:
 - Related skill inventory:
 - Related Agent OS runtime plan:
+- Related agent network/interoperability plan:
 - Related Build Plan:
 
 ## 2. Capability Inventory

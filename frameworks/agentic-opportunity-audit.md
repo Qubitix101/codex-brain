@@ -2,7 +2,7 @@
 
 Codex Brain should decide whether an idea deserves a normal app, an AI-assisted workflow, or a real agentic operating system before planning the build.
 
-This framework sits before Intelligence Architecture Selection, Agent Engineering, Agent OS Runtime, and Capability and Access Readiness. It answers what kind of intelligence system the product should become; the intelligence architecture decision answers whether each loop needs model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, or routines; the agent-engineering audit answers what production-agent and procedural-skill discipline is required; the Agent OS runtime plan answers what kernel supervises agents; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
+This framework sits before Intelligence Architecture Selection, Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability and Access Readiness. It answers what kind of intelligence system the product should become; the intelligence architecture decision answers whether each loop needs model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, or routines; the agent-engineering audit answers what production-agent and procedural-skill discipline is required; the Agent OS runtime plan answers what kernel supervises agents; the agent network plan answers whether agents or domain operating systems should collaborate across boundaries; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
 
 ## Purpose
 
@@ -17,7 +17,7 @@ The audit prevents both failures.
 Agentic Opportunity sits after Research and before Intelligence Architecture.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifacts for AI-core, automation-heavy, workflow-heavy, content, knowledge-work, multi-tool, or customer-operating-system products:
@@ -31,6 +31,7 @@ After this gate, AI-core or agentic projects must complete:
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 - `docs/agent-os-runtime-plan.md`
+- `docs/agent-network-interop-plan.md` when agents or domain operating systems collaborate across boundaries
 
 Light projects may mark this gate as not applicable only when there is no AI, automation, recurring workflow, memory, external tool, or multi-step user outcome.
 

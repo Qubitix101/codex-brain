@@ -34,6 +34,7 @@ npm run install-global-skills -- --dry-run
 - `intelligence-architecture-selector`
 - `agent-engineering-reviewer`
 - `agent-os-runtime-architect`
+- `agent-network-architect`
 - `capability-access-mapper`
 - `tool-surface-router`
 - `skill-factory`

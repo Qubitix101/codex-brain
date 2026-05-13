@@ -28,7 +28,7 @@ Design the control layer that supervises production agents. Use this skill when 
 3. **Define runtime contracts.** For each required component, define owner, boundary, state, approvals, traces, failure behavior, and first-slice scope.
 4. **Find P0 blockers.** Block plans with hidden memory writes, unsandboxed tools, unattributed actions, missing approval, missing traces, duplicate-prone retries, or unchecked budgets.
 5. **Scope the first slice.** Do not build the whole operating system first. Build the smallest governed loop that proves the runtime.
-6. **Produce the runtime plan.** Make the output concrete enough to drive capability/access mapping and Build Plan approval.
+6. **Produce the runtime plan.** Make the output concrete enough to drive agent network/interoperability, capability/access mapping, and Build Plan approval.
 
 ## Kernel Components
 
@@ -70,6 +70,7 @@ Return:
 - Do not allow memory updates without provenance, review, conflict handling, and delete/export policy.
 - Do not allow autonomous routines without budget, idempotency, trace, and failure recovery.
 - Do not approve multi-agent systems without a role registry.
+- Do not model remote autonomous agents or separate domain operating systems only as tools; route those boundaries to an Agent Network and Interoperability Plan.
 
 ## Examples
 

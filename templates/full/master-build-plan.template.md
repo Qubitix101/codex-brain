@@ -42,6 +42,7 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Intelligence Architecture | | | |
 | Agent Engineering | | | |
 | Agent OS Runtime | | | |
+| Agent Network / Interoperability | | | |
 | Capability and Access | | | |
 | Design DNA | | | |
 | Plan | | | |
@@ -242,6 +243,40 @@ Frontend implementation is blocked until this section is approved.
 | Budget/quota manager | | | |
 | Agent registry | | | |
 | Human control surface | | | |
+
+### Agent Network and Interoperability Plan
+
+- Agent network/interoperability plan:
+- Network thesis:
+- Internal versus external agent/OS roster:
+- Agent cards to expose:
+- Agent cards to consume:
+- Collaboration topology:
+- Delegation boundaries:
+- Task/message/artifact contracts:
+- MCP vs A2A vs API/internal/event decisions:
+- Memory/context sharing policy:
+- Identity/auth/trust model:
+- Streaming/progress model:
+- Cross-agent observability:
+- Failure/recovery plan:
+- Versioning/compatibility:
+- Reuse/commercialization opportunities:
+- First interoperable slice:
+
+| Network Component | Decision | P0 Risk | Verification |
+| --- | --- | --- | --- |
+| Agent cards/discovery | | | |
+| Collaboration topology | | | |
+| Delegation boundaries | | | |
+| Task/message contracts | | | |
+| Protocol surface decision | | | |
+| Memory/context boundary | | | |
+| Identity/auth/trust | | | |
+| Streaming/progress | | | |
+| Cross-agent observability | | | |
+| Versioning/compatibility | | | |
+| Reuse/commercialization | | | |
 
 ### Capability and Access Map
 
@@ -669,6 +704,7 @@ Use only if paid.
 - [ ] Intelligence architecture decision complete if AI architecture matters. Verify: `docs/intelligence-architecture-decision.md` exists and RAG/structured retrieval/extraction/workflow/action choices are explicit.
 - [ ] Agent engineering and skill inventory complete if L3+/agentic/retrieval/tool-use is relevant. Verify: `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist.
 - [ ] Agent OS runtime plan complete if L3+/multi-agent/memory/tool/action/routine behavior is relevant. Verify: `docs/agent-os-runtime-plan.md` exists and runtime kernel boundaries are explicit.
+- [ ] Agent network/interoperability plan complete if agents or domain operating systems collaborate across boundaries. Verify: `docs/agent-network-interop-plan.md` exists and agent cards, delegation boundaries, task contracts, protocol decisions, context sharing, streaming, traces, recovery, and versioning are explicit.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.

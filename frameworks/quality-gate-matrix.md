@@ -70,6 +70,7 @@ These block all modes:
 | Intelligence architecture if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Agent engineering/skill factory if L3+ or skill-driven | Required if relevant | Required if relevant | Deep | P0 |
 | Agent OS runtime if L3+/multi-agent/memory/tool/action/routine behavior is relevant | Required if relevant | Required if relevant | Deep | P0 |
+| Agent network/interoperability if agents or domain operating systems collaborate across boundaries | Required if relevant | Required if relevant | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
 | Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
 | Evidence ledger | Optional | Recommended | Required | P1 |
@@ -128,6 +129,23 @@ These block all modes:
 | Agent registry and role model | Required if multi-agent | Required if multi-agent | Required if multi-agent | P0 |
 | Human control surface | Required if user-facing AI | Required if user-facing AI | Required | P0 |
 
+## Agent Network and Interoperability Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Internal versus external agent/OS roster | Required if cross-agent | Required if relevant | Required if relevant | P0 |
+| Agent cards for exposed and consumed capabilities | Required if exposed/consumed | Required if relevant | Required if relevant | P0 |
+| Collaboration topology and orchestrator owner | Required if cross-agent | Required if relevant | Required if relevant | P0 |
+| Delegation boundaries and approval thresholds | Required if delegation | Required if delegation | Required | P0 |
+| Request/response/artifact/refusal schemas | Required if delegation | Required if delegation | Required | P0 |
+| MCP vs A2A-style vs API/internal/event decision | Required if multiple surfaces | Required if relevant | Required | P0 |
+| Memory/context sharing and redaction policy | Required if context crosses boundary | Required if context crosses boundary | Required | P0 |
+| Identity/auth/trust and audit attribution | Required if remote agent | Required if remote agent | Required | P0 |
+| Streaming/progress model | Required if long-running | Required if long-running | Required if long-running | P1 |
+| Cross-agent observability and correlation IDs | Required if cross-agent | Required if cross-agent | Required | P0 |
+| Failure/retry/timeout/fallback/escalation behavior | Required if delegation | Required if delegation | Required | P0 |
+| Versioning and compatibility policy | Required if exposed/consumed | Required if exposed/consumed | Required | P1 |
+
 ## Capability and Access Gate
 
 | Check | Light | Standard | Full | Severity |
@@ -157,6 +175,8 @@ These block all modes:
 | Agentic/intelligence-system plan linked | Required if AI/automation | Required if AI/automation | Required if AI/automation | P0 |
 | Intelligence-architecture decision linked | Required if AI architecture matters | Required if AI architecture matters | Required if AI architecture matters | P0 |
 | Agent-engineering/skill inventory linked | Required if L3+ or skill-driven | Required if relevant | Required if relevant | P0 |
+| Agent OS runtime linked | Required if L3+ | Required if relevant | Required if relevant | P0 |
+| Agent network/interoperability linked | Required if cross-agent | Required if relevant | Required if relevant | P0 |
 | Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
 | Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |
 | Billing spec | Required if paid | Required if paid | Deep | P0 |

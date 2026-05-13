@@ -8,6 +8,8 @@
 - Related intelligence system plan:
 - Related intelligence architecture decision:
 - Related agent engineering audit:
+- Related Agent OS runtime plan:
+- Related agent network/interoperability plan:
 - Related capability/access map:
 
 ## 2. Skill Strategy

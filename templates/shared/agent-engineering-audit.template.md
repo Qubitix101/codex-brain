@@ -10,6 +10,7 @@
 - Related intelligence architecture decision:
 - Related skill inventory:
 - Related Agent OS runtime plan:
+- Related agent network/interoperability plan:
 - Related capability/access map:
 - Target maturity now:
 - Target maturity later:

@@ -42,14 +42,21 @@
       "required_artifacts": ["docs/agent-engineering-audit.md", "docs/skill-inventory.md"],
       "missing": ["docs/agent-engineering-audit.md", "docs/skill-inventory.md"],
       "approved": false,
-      "notes": "Audit production-agent engineering readiness and map required procedural skills before choosing capability/access surfaces."
+      "notes": "Audit production-agent engineering readiness and map required procedural skills before choosing Agent OS runtime, agent network, or capability/access surfaces."
     },
     "agent_os_runtime": {
       "status": "not-started",
       "required_artifacts": ["docs/agent-os-runtime-plan.md"],
       "missing": ["docs/agent-os-runtime-plan.md"],
       "approved": false,
-      "notes": "Define the Agent OS runtime kernel for L3+ systems before capability/access mapping: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control."
+      "notes": "Define the Agent OS runtime kernel for L3+ systems before agent network/interoperability and capability/access mapping: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control."
+    },
+    "agent_network": {
+      "status": "not-started",
+      "required_artifacts": ["docs/agent-network-interop-plan.md"],
+      "missing": ["docs/agent-network-interop-plan.md"],
+      "approved": false,
+      "notes": "Define agent network and inter-OS boundaries before capability/access mapping when agents or domain operating systems collaborate across runtime, vendor, team, or product boundaries."
     },
     "capability_access": {
       "status": "not-started",
@@ -122,6 +129,7 @@
     "intelligence_architecture": null,
     "agent_engineering": null,
     "agent_os_runtime": null,
+    "agent_network": null,
     "skill_inventory": null,
     "capability_access": null,
     "build_plan": null,

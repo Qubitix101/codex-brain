@@ -23,6 +23,7 @@
     "plan-intelligence-architecture": "node scripts/plan-intelligence-architecture.mjs",
     "plan-agent-skills": "node scripts/plan-agent-skills.mjs",
     "plan-agent-os-runtime": "node scripts/plan-agent-os-runtime.mjs",
+    "plan-agent-network": "node scripts/plan-agent-network.mjs",
     "install-global-skills": "node scripts/install-global-skills.mjs"
   },
   "engines": {

@@ -1,0 +1,132 @@
+{
+  "$schema": "../schemas/agent-network-interop-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "A domain operating system becomes more valuable when it can collaborate with other agentic systems through explicit agent cards, task contracts, memory boundaries, protocol choices, trust controls, streaming progress, traces, and recovery.",
+  "network_components": [
+    {
+      "id": "agent_cards_discovery",
+      "name": "Agent Cards and Discovery",
+      "purpose": "Define which agents or operating systems expose capabilities and how other agents discover, evaluate, version, and call them.",
+      "keywords": ["agent card", "discovery", "capability card", "registry", "marketplace", "catalog", "expose", "published capability", "remote agent"],
+      "required_outputs": ["agent cards to expose", "external agent cards to consume", "owner/version fields", "accepted/refused task list", "discovery path", "compatibility policy"],
+      "p0_blockers": ["agent capability exposed without owner or version", "accepted tasks are not distinguished from refused tasks", "remote agent discovery has no trust or verification path"]
+    },
+    {
+      "id": "collaboration_topology",
+      "name": "Collaboration Topology",
+      "purpose": "Map how internal agents, external agents, vertical operating systems, orchestrators, and event flows relate.",
+      "keywords": ["topology", "orchestrate", "multi-agent", "multi os", "operating systems", "federated", "handoff", "delegate", "coordination", "swarm", "agent to agent", "a2a"],
+      "required_outputs": ["agent/OS roster", "internal versus external boundary", "source/target relationships", "sync/async model", "orchestrator owner", "anti-loop rule"],
+      "p0_blockers": ["multi-agent system has no ownership topology", "delegation can recurse without anti-loop rules", "separate operating systems share responsibilities without boundary"]
+    },
+    {
+      "id": "delegation_boundaries",
+      "name": "Delegation Boundaries",
+      "purpose": "Define what one agent or operating system may ask another to do, what is forbidden, and what requires human approval.",
+      "keywords": ["delegate", "delegation", "handoff", "approval", "public", "publish", "paid", "destructive", "external action", "supplier agent", "specialist"],
+      "required_outputs": ["allowed scopes", "forbidden scopes", "approval thresholds", "least-context rule", "least-permission rule", "audit requirement"],
+      "p0_blockers": ["remote agent can perform public/paid/destructive work without approval", "downstream agent receives broad context it does not need", "delegated action has no audit attribution"]
+    },
+    {
+      "id": "task_message_contracts",
+      "name": "Task and Message Contracts",
+      "purpose": "Define structured request, response, refusal, timeout, idempotency, retry, and validation contracts for inter-agent tasks.",
+      "keywords": ["message", "contract", "json rpc", "schema", "request", "response", "refusal", "artifact", "typed", "idempotency", "timeout", "retry"],
+      "required_outputs": ["request schema", "response schema", "refusal schema", "idempotency key", "timeout/retry policy", "contract tests"],
+      "p0_blockers": ["inter-agent tasks rely on free-form prompts only", "failure/refusal behavior is undefined", "duplicate delegation can create duplicate external action"]
+    },
+    {
+      "id": "protocol_surface_decision",
+      "name": "Protocol Surface Decision",
+      "purpose": "Choose internal workflow, API/SDK, MCP, A2A-style agent protocol, event bus, browser automation, or Computer Use per boundary.",
+      "keywords": ["mcp", "a2a", "api", "sdk", "cli", "event bus", "webhook", "queue", "browser", "computer use", "tool", "protocol", "surface"],
+      "required_outputs": ["boundary surface table", "MCP versus A2A decisions", "rejected surfaces", "product runtime surface", "agent build surface", "verification method"],
+      "p0_blockers": ["MCP/tool access confused with agent delegation", "A2A used for simple internal function calls", "browser or Computer Use selected for production integration without accepted risk"]
+    },
+    {
+      "id": "memory_context_boundary",
+      "name": "Memory and Context Boundary",
+      "purpose": "Control which memory, task payloads, artifacts, and user/domain context may cross agent or OS boundaries.",
+      "keywords": ["memory", "context", "private", "portfolio", "customer data", "tenant", "redaction", "provenance", "shared memory", "data boundary", "leakage"],
+      "required_outputs": ["context sharing table", "raw versus distilled payload rule", "redaction policy", "provenance policy", "delete/export propagation", "prompt-injection handling"],
+      "p0_blockers": ["raw private memory crosses domain boundary without approval", "delete/export/correction does not propagate to shared artifacts", "received context is trusted without prompt-injection handling"]
+    },
+    {
+      "id": "identity_auth_trust",
+      "name": "Identity, Auth, and Trust",
+      "purpose": "Define caller/callee identity, scopes, token lifetime, tenant boundary, authorization event, and audit attribution for inter-agent calls.",
+      "keywords": ["identity", "auth", "authorization", "token", "scope", "tenant", "trust", "impersonation", "principal", "credential", "audit"],
+      "required_outputs": ["caller/callee matrix", "credential model", "scope matrix", "token expiry policy", "authorization event", "revocation path"],
+      "p0_blockers": ["remote agent call cannot be attributed to user and agent", "long-lived broad tokens cross systems", "tenant boundary is unclear"]
+    },
+    {
+      "id": "streaming_progress",
+      "name": "Streaming and Progress Model",
+      "purpose": "Define progressive updates, partial outputs, cancellation, stale job handling, and user-visible state for long-running remote agent work.",
+      "keywords": ["stream", "streaming", "progress", "partial", "long running", "server sent events", "sse", "status", "cancellation", "cancel"],
+      "required_outputs": ["progress events", "partial output rules", "cancellation policy", "timeout/stale job policy", "finalization rule"],
+      "p0_blockers": ["long-running delegated work has no progress visibility", "remote work cannot be cancelled", "partial output can be mistaken for final output"]
+    },
+    {
+      "id": "cross_agent_observability",
+      "name": "Cross-Agent Observability",
+      "purpose": "Trace discovery, delegation, context handoff, downstream tool calls, approvals, failures, retries, cost, and accountability across agents.",
+      "keywords": ["trace", "observability", "log", "audit", "correlation", "distributed", "cost", "latency", "replay", "accountability", "debug"],
+      "required_outputs": ["distributed trace strategy", "correlation ID", "cross-agent event list", "cost attribution", "replay/debug path", "retention policy"],
+      "p0_blockers": ["bad delegated outcome cannot be reconstructed", "downstream tool calls are invisible to the caller", "cost/liability attribution is missing"]
+    },
+    {
+      "id": "versioning_compatibility",
+      "name": "Versioning and Compatibility",
+      "purpose": "Manage evolving agent cards, task contracts, artifact formats, and external agent dependencies without breaking callers.",
+      "keywords": ["version", "compatibility", "deprecation", "contract", "migration", "breaking change", "schema version", "backward compatible"],
+      "required_outputs": ["version field", "compatibility policy", "deprecation policy", "contract migration plan", "fallback/replacement strategy"],
+      "p0_blockers": ["caller depends on unversioned agent behavior", "breaking changes have no migration path", "external agent replacement strategy is missing"]
+    },
+    {
+      "id": "reuse_commercialization",
+      "name": "Reuse and Commercialization Opportunity",
+      "purpose": "Identify which domain capabilities can become reusable internal services, agent cards, APIs, or marketplace surfaces.",
+      "keywords": ["reuse", "commercial", "marketplace", "platform", "ecosystem", "network effect", "productize", "agent service", "capability as a service"],
+      "required_outputs": ["reusable capability list", "internal service candidates", "external exposure candidates", "business value", "risk", "first version"],
+      "p0_blockers": ["core reusable capability is duplicated across products without reason", "public exposure is proposed without governance", "marketplace ambition has no trust/version model"]
+    }
+  ],
+  "network_patterns": [
+    {
+      "id": "social_content_os_network",
+      "name": "Social Content OS Network",
+      "keywords": ["social media", "linkedin", "instagram", "twitter", "x", "content", "personal brand", "authority", "posting", "distribution", "publishing"],
+      "recommended_components": ["agent_cards_discovery", "collaboration_topology", "delegation_boundaries", "task_message_contracts", "protocol_surface_decision", "memory_context_boundary", "identity_auth_trust", "streaming_progress", "cross_agent_observability", "versioning_compatibility", "reuse_commercialization"],
+      "first_interoperable_slice": "domain OS sends approved insight package -> social content OS returns platform-ready draft package -> human approval -> publishing workflow remains governed"
+    },
+    {
+      "id": "market_intelligence_os_network",
+      "name": "Market and Stock Intelligence OS Network",
+      "keywords": ["stock", "trading", "investing", "portfolio", "market", "filing", "earnings", "analyst", "risk", "thesis", "investor"],
+      "recommended_components": ["agent_cards_discovery", "collaboration_topology", "delegation_boundaries", "task_message_contracts", "protocol_surface_decision", "memory_context_boundary", "identity_auth_trust", "cross_agent_observability", "versioning_compatibility"],
+      "first_interoperable_slice": "market intelligence OS produces approved thesis memo -> distribution or research specialist OS transforms it -> original OS records trace and approval outcome"
+    },
+    {
+      "id": "enterprise_ops_network",
+      "name": "Enterprise Operations Agent Network",
+      "keywords": ["enterprise agent network", "operations agent network", "department agent", "support agent delegation", "hr agent", "it agent", "finance agent", "sales ops agent", "ticket delegation", "approval agent", "department os"],
+      "recommended_components": ["agent_cards_discovery", "collaboration_topology", "delegation_boundaries", "task_message_contracts", "protocol_surface_decision", "memory_context_boundary", "identity_auth_trust", "streaming_progress", "cross_agent_observability", "versioning_compatibility"],
+      "first_interoperable_slice": "frontline operations agent delegates a bounded specialist task -> specialist returns traceable decision package -> frontline agent asks for approval before external action"
+    },
+    {
+      "id": "creative_media_network",
+      "name": "Creative Media Agent Network",
+      "keywords": ["image", "video", "voice", "avatar", "media", "generation", "heygen", "fal", "runway", "remotion", "asset"],
+      "recommended_components": ["agent_cards_discovery", "delegation_boundaries", "task_message_contracts", "protocol_surface_decision", "memory_context_boundary", "identity_auth_trust", "streaming_progress", "cross_agent_observability", "versioning_compatibility", "reuse_commercialization"],
+      "first_interoperable_slice": "content or campaign OS sends approved creative brief -> media specialist agent returns generated asset candidates and cost trace -> human selects approved asset"
+    },
+    {
+      "id": "multi_os_ecosystem",
+      "name": "Multi-OS Ecosystem",
+      "keywords": ["operating system", "domain os", "multi-os", "ecosystem", "federated", "agent network", "agent marketplace", "interoperability", "A2A", "agent-to-agent"],
+      "recommended_components": ["agent_cards_discovery", "collaboration_topology", "delegation_boundaries", "task_message_contracts", "protocol_surface_decision", "memory_context_boundary", "identity_auth_trust", "streaming_progress", "cross_agent_observability", "versioning_compatibility", "reuse_commercialization"],
+      "first_interoperable_slice": "one vertical OS exposes one agent card and consumes one external agent card through a typed, traced, approval-gated task contract"
+    }
+  ]
+}

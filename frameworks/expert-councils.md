@@ -153,7 +153,7 @@ Output:
 
 ### Agent OS Runtime Council
 
-Use before capability/access and Build Plan approval for L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products.
+Use before agent network, capability/access, and Build Plan approval for L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products.
 
 Roles:
 
@@ -174,6 +174,29 @@ Output:
 - recovery/resumability gaps
 - budget/quota gaps
 - agent registry and human-control blockers
+
+### Agent Network and Interoperability Council
+
+Use before capability/access and Build Plan approval for federated agentic products, remote-agent delegation, agent-card exposure, or multi-OS collaboration.
+
+Roles:
+
+- agent network interoperability reviewer
+- architecture strategist
+- security/GDPR reviewer
+- performance/reliability reviewer
+- product strategist
+
+Output:
+
+- agent card and discovery gaps
+- topology and delegation-boundary gaps
+- MCP versus A2A-style protocol confusion
+- memory/context-sharing and tenant-boundary risks
+- identity/auth/trust and audit gaps
+- streaming/progress and cancellation gaps
+- cross-agent trace and replay gaps
+- failure/recovery/versioning gaps
 
 ## Council Protocol
 
@@ -196,6 +219,7 @@ Required in Full mode for:
 - intelligence architecture selection for AI-core products
 - agent-engineering readiness for L3+ AI products
 - Agent OS runtime readiness for L3+ AI products
+- Agent Network and Interoperability readiness for federated agentic products
 - launch readiness
 
 Optional in Standard mode.

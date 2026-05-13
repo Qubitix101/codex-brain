@@ -42,6 +42,14 @@
 - Trace/governance/recovery status:
 - Budget/agent-registry/human-control status:
 
+## Agent Network and Interoperability
+
+- Agent network/interoperability plan:
+- Agent card/topology status:
+- Delegation/context-sharing status:
+- Protocol decisions:
+- Cross-agent trace/recovery status:
+
 ## Capability and Access
 
 - Capability/access map:

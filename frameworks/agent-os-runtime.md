@@ -22,10 +22,10 @@ The Agent OS Runtime gate prevents "brilliant but unmanaged" agents from reachin
 
 ## Gate 2.4
 
-Agent OS Runtime sits after Agent Engineering and before Capability and Access.
+Agent OS Runtime sits after Agent Engineering and before Agent Network and Interoperability, then Capability and Access.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required for L3+ agentic products and any product with multi-agent coordination, autonomous routines, external actions, customer-specific memory, tool sandboxing, delegated identity, or public/paid/destructive writes.
@@ -39,6 +39,7 @@ Use:
 - `templates/shared/agent-os-runtime-plan.template.md`
 - `catalogs/agent-os-runtime-catalog.json`
 - `frameworks/agent-engineering-skill-stack.md`
+- `frameworks/agent-network-interop.md`
 - `frameworks/capability-access-readiness.md`
 
 Optional helper:
@@ -46,6 +47,8 @@ Optional helper:
 ```bash
 npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode full --markdown
 ```
+
+This gate defines one product's internal runtime kernel. If the product must collaborate with another autonomous agent, remote specialist, vertical operating system, or externally consumed agent service, continue into `frameworks/agent-network-interop.md` before capability/access mapping.
 
 ## Kernel Components
 

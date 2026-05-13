@@ -107,7 +107,7 @@ const result = {
     required_outputs: component.required_outputs,
     p0_blockers: component.p0_blockers
   })),
-  next_step: "Create docs/agent-os-runtime-plan.md before capability/access mapping. Define runtime ownership, memory/tool/identity/trace/governance/recovery/budget controls for the first agentic slice."
+  next_step: "Create docs/agent-os-runtime-plan.md before agent network and capability/access mapping. Define runtime ownership, memory/tool/identity/trace/governance/recovery/budget controls for the first agentic slice."
 };
 
 if (!markdown) {
@@ -149,6 +149,6 @@ for (const component of result.selected_components) {
 lines.push("");
 lines.push("## Next Step");
 lines.push("");
-lines.push("Fill `docs/agent-os-runtime-plan.md` after `docs/agent-engineering-audit.md` and `docs/skill-inventory.md`. Do not map capability/access or approve the Build Plan for L3+ systems until scheduling, memory, tool sandboxing, identity, traces, governance, recovery, budgets, agent roles, and human control are explicit.");
+lines.push("Fill `docs/agent-os-runtime-plan.md` after `docs/agent-engineering-audit.md` and `docs/skill-inventory.md`. Do not map agent network, capability/access, or approve the Build Plan for L3+ systems until scheduling, memory, tool sandboxing, identity, traces, governance, recovery, budgets, agent roles, and human control are explicit.");
 
 console.log(lines.join("\n"));

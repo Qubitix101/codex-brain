@@ -105,7 +105,25 @@ The detailed runtime kernel belongs in `docs/agent-os-runtime-plan.md`.
 | Agent registry | | | |
 | Human control surface | | | |
 
-## 11. Tool and Harness Layer
+## 11. Agent Network and Interoperability Requirements
+
+The detailed inter-agent boundary belongs in `docs/agent-network-interop-plan.md`.
+
+| Network Component | Required? | First-Slice Scope | Notes |
+| --- | --- | --- | --- |
+| Agent cards/discovery | | | |
+| Collaboration topology | | | |
+| Delegation boundaries | | | |
+| Task/message contracts | | | |
+| MCP vs A2A vs API decisions | | | |
+| Memory/context sharing | | | |
+| Identity/auth/trust | | | |
+| Streaming progress | | | |
+| Cross-agent observability | | | |
+| Versioning/compatibility | | | |
+| Reuse/commercialization | | | |
+
+## 12. Tool and Harness Layer
 
 Final access choices are resolved in `docs/capability-access-map.md`.
 
@@ -118,7 +136,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Browser automation | | | |
 | Computer Use | | | |
 
-## 12. Routine Layer
+## 13. Routine Layer
 
 | Routine | Trigger | Schedule | Inputs | Output | Approval | Recovery |
 | --- | --- | --- | --- | --- | --- | --- |
