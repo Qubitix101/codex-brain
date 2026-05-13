@@ -229,9 +229,25 @@ Define:
 - deferred OS layers
 - overbuild and underbuild risks
 
+### Intelligence Architecture Selection
+
+Reference `docs/intelligence-architecture-decision.md` when AI answers, retrieval, extraction, memory, workflows, actions, or routines are relevant.
+
+Define:
+
+- product loops and source of truth
+- model-only reasoning vs ADK/workflow decisions
+- semantic RAG vs deterministic structured retrieval decisions
+- LLM extraction into structured fields when messy inputs must become reusable facts
+- durable memory or knowledge graph requirements
+- external action and routine automation boundaries
+- rejected architecture alternatives
+- eval and trace requirements for retrieval, extraction, memory, workflow, and actions
+- first vertical slice architecture
+
 ### Agent Engineering and Skill Factory
 
-Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, procedural skills, tool use, or external actions are relevant.
+Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` after `docs/intelligence-architecture-decision.md` when agents, retrieval, model routing, procedural skills, tool use, or external actions are relevant.
 
 Define:
 
@@ -249,7 +265,7 @@ Define:
 
 ### Capability and Access Readiness
 
-Reference `docs/capability-access-map.md` after the agent-engineering and skill inventory are known, then define:
+Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, and skill inventory are known, then define:
 
 - production runtime surface for each external capability
 - Codex/agent implementation surface for each capability
@@ -647,6 +663,7 @@ The Build Plan is complete only when:
 - all required sections exist or are justified as not applicable
 - every major research decision is traced
 - agentic opportunity and intelligence-system plan exist for AI/automation-heavy products
+- intelligence architecture decision exists for AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy products
 - agent-engineering audit and skill inventory exist for L3+ or skill-driven agentic products
 - capability/access map exists and all critical required-now access paths are explicit
 - Design DNA is approved if UI exists

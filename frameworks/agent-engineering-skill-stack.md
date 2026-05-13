@@ -2,7 +2,7 @@
 
 Codex Brain must treat production agents as engineered systems, not prompt collections.
 
-This framework converts agentic ambition into an enterprise readiness audit. It sits after the Agentic Opportunity Audit and Intelligence System Plan, and before Capability and Access Readiness.
+This framework converts agentic ambition into an enterprise readiness audit. It sits after the Agentic Opportunity Audit, Intelligence System Plan, and Intelligence Architecture Decision, and before Capability and Access Readiness.
 
 ## Purpose
 
@@ -22,16 +22,20 @@ The Agent Engineering Skill Stack makes those requirements explicit before Build
 
 ## Gate 2.35
 
-Agent Engineering sits after Agentic Opportunity and before Capability and Access.
+Agent Engineering sits after Intelligence Architecture and before Capability and Access.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifacts for AI-core, agentic, automation-heavy, tool-using, retrieval-heavy, multi-model, or skill-driven products:
 
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
+
+Required input when AI architecture matters:
+
+- `docs/intelligence-architecture-decision.md`
 
 Projects may mark this gate not applicable only when the Agentic Opportunity Audit concludes L0 or simple L1 and the user accepts that the system will not include durable memory, tool use, retrieval, autonomous routines, or generated skills.
 
@@ -223,6 +227,7 @@ The audit must produce:
 - required architecture decisions
 - tool-contract requirements
 - retrieval requirements
+- structured retrieval and extraction requirements
 - reliability controls
 - security and approval boundaries
 - observability and eval plan
@@ -244,6 +249,7 @@ Use a router:
 - long reasoning, planning, critique -> strongest available reasoning model
 - domain facts -> project retrieval/memory
 - structured records -> database/API
+- messy raw inputs that must become durable facts -> extraction pipeline with schema, provenance, confidence, and review
 - governed SaaS actions -> MCP/connector
 - deterministic local work -> CLI
 - rendered visual state -> browser automation
@@ -287,6 +293,7 @@ Bad skill candidates are:
 - Calling prompt polish "agent engineering."
 - Building tool access before contracts and approvals exist.
 - Adding RAG without retrieval evals.
+- Using RAG where deterministic structured retrieval or extraction would be more correct.
 - Adding autonomous routines without observability.
 - Generating executable skills before trust review.
 - Building a chat UI where the real product needs evidence, memory, approvals, and traceability.

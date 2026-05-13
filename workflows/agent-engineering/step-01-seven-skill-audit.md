@@ -4,13 +4,14 @@
 
 - `docs/agentic-opportunity-audit.md`
 - `docs/intelligence-system-plan.md`
+- `docs/intelligence-architecture-decision.md`
 - `frameworks/agent-engineering-skill-stack.md`
 - `catalogs/agent-engineering-catalog.json`
 - `.codex-brain/research/` when present
 
 ## Decide
 
-For every AI-core, agentic, automation-heavy, retrieval-heavy, or tool-using project, score the seven disciplines:
+For every AI-core, agentic, automation-heavy, retrieval-heavy, or tool-using project, score the seven disciplines against the selected intelligence architecture:
 
 1. system design
 2. tool and contract design
@@ -43,6 +44,7 @@ Stop before Capability and Access if:
 
 - the system has tools but no tool-contract policy
 - the system has RAG but no retrieval design
+- the system has structured retrieval or extraction but no source-of-truth, schema, provenance, or validation policy
 - the system has external actions but no approval boundary
 - the system has automation but no reliability and observability plan
 - the system has multiple models/providers but no routing policy

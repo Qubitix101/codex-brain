@@ -4,6 +4,7 @@
 
 - `docs/capability-access-map.md`
 - `docs/intelligence-system-plan.md` if relevant
+- `docs/intelligence-architecture-decision.md` if relevant
 - `docs/skill-inventory.md` if relevant
 - `frameworks/tool-surface-routing.md`
 - `catalogs/tool-surface-routing-matrix.json`
@@ -18,6 +19,7 @@ For every required capability, select:
 - mock strategy
 - live verification trigger
 - skill trust-level impact
+- architecture substrate impact: semantic RAG, structured retrieval, extraction, memory, workflow, action, or routine automation
 
 ## Surface Rules
 

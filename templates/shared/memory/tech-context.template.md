@@ -16,6 +16,16 @@
 - First closed loop:
 - Memory/routine/eval status:
 
+## Intelligence Architecture
+
+- Architecture decision:
+- Source of truth:
+- RAG status:
+- Structured retrieval status:
+- Extraction status:
+- Memory/knowledge graph status:
+- ADK/workflow/action/routine status:
+
 ## Agent Engineering and Skill Factory
 
 - Agent engineering audit:

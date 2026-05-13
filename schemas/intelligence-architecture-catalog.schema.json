@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/intelligence-architecture-catalog.schema.json",
+  "title": "Codex Brain Intelligence Architecture Catalog",
+  "type": "object",
+  "required": ["version", "principle", "substrates", "decision_dimensions", "domain_patterns"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "minLength": 1 },
+    "principle": { "type": "string", "minLength": 1 },
+    "substrates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "keywords", "purpose", "use_when", "avoid_when", "required_outputs", "p0_blockers", "evals"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "keywords": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "purpose": { "type": "string", "minLength": 1 },
+          "use_when": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "avoid_when": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "required_outputs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "p0_blockers": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "evals": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "decision_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "questions"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "questions": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "domain_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "keywords", "recommended_substrates", "source_of_truth", "first_loop"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "keywords": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommended_substrates": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source_of_truth": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "first_loop": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

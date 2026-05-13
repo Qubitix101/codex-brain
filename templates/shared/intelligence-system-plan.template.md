@@ -61,11 +61,19 @@ capture input -> update memory/context -> generate or propose output -> review/a
 
 The detailed skill inventory belongs in `docs/skill-inventory.md`.
 
+The architecture substrate decision belongs in `docs/intelligence-architecture-decision.md`.
+
 | Skill | Purpose | Inputs | Outputs | Quality Gate |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 8. Agent Engineering Requirements
+## 8. Intelligence Architecture Requirements
+
+| Loop | Source Of Truth | Substrate | RAG? | Structured Retrieval? | Extraction? | Memory? | Workflow/Action/Routine? |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
+
+## 9. Agent Engineering Requirements
 
 The production-agent audit belongs in `docs/agent-engineering-audit.md`.
 
@@ -80,7 +88,7 @@ The production-agent audit belongs in `docs/agent-engineering-audit.md`.
 | Product trust UX | | |
 | Model routing | | |
 
-## 9. Tool and Harness Layer
+## 10. Tool and Harness Layer
 
 Final access choices are resolved in `docs/capability-access-map.md`.
 
@@ -93,13 +101,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Browser automation | | | |
 | Computer Use | | | |
 
-## 10. Routine Layer
+## 11. Routine Layer
 
 | Routine | Trigger | Schedule | Inputs | Output | Approval | Recovery |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
-## 11. Approval and Control Layer
+## 12. Approval and Control Layer
 
 | Action | Default | Approval Required | Rollback / Revoke |
 | --- | --- | --- | --- |
@@ -109,13 +117,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Spend money/use quota | Blocked until approved | | |
 | Delete/change durable external state | Blocked until approved | | |
 
-## 12. Evaluation Layer
+## 13. Evaluation Layer
 
 | Eval | Purpose | Dataset / Examples | Frequency | Blocks Release? |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 13. Learning Layer
+## 14. Learning Layer
 
 - User corrections:
 - Accepted/rejected proposals:
@@ -124,7 +132,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 - Skill/routine updates:
 - Promotion into Codex Brain lessons:
 
-## 14. Risk Boundaries
+## 15. Risk Boundaries
 
 | Risk | Boundary | Mitigation |
 | --- | --- | --- |
@@ -135,7 +143,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Cost runaway | | |
 | Automation drift | | |
 
-## 15. Build Sequence
+## 16. Build Sequence
 
 | Slice | Goal | Intelligence Loop | Required Access | Verification |
 | --- | --- | --- | --- | --- |
@@ -143,7 +151,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | 2 | | | | |
 | 3 | | | | |
 
-## 16. Deferred OS Layers
+## 17. Deferred OS Layers
 
 | Layer | Why Deferred | Revisit Trigger |
 | --- | --- | --- |

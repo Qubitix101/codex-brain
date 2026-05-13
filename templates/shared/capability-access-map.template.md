@@ -11,6 +11,7 @@ This artifact must be completed before Build Plan approval when the project depe
 - Related research:
 - Related agentic audit:
 - Related intelligence system plan:
+- Related intelligence architecture decision:
 - Related agent engineering audit:
 - Related skill inventory:
 - Related Build Plan:

@@ -11,9 +11,10 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before agent-engineering and capability/access planning.
-7. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before capability/access planning.
-8. For integration-heavy projects, map capability and access needs before Build Plan approval.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, and capability/access planning.
+7. For AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy projects, select the intelligence architecture before Agent Engineering.
+8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before capability/access planning.
+9. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -48,6 +49,7 @@ If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
 If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
 If the user asks whether an idea should become agentic, an operating system, or a high-level intelligence system, read `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
+If the user asks whether to use ADK, RAG, structured retrieval, extraction, durable memory, workflow agents, or hybrid AI architecture, read `frameworks/intelligence-architecture-selection.md`.
 If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
@@ -91,6 +93,7 @@ The lifecycle is:
 1. Validate
 2. Research
 2.25. Agentic Opportunity
+2.3. Intelligence Architecture Selection
 2.35. Agent Engineering and Skill Factory
 2.5. Capability and Access
 3. Plan
@@ -202,12 +205,37 @@ Forbidden:
 - promising automation without approval, rollback, and eval boundaries
 - building an AI-core product as a prompt box without documenting the tradeoff
 
+### Gate 2.3 - Intelligence Architecture Selection
+
+Required when the product involves AI answers, retrieval, structured records, LLM extraction, durable memory, multi-step workflows, external actions, or routines.
+
+Requires:
+
+- `docs/intelligence-architecture-decision.md`
+- source-of-truth policy per core loop
+- model-only reasoning vs ADK/workflow decision
+- semantic RAG vs deterministic structured retrieval decision
+- LLM extraction into structured fields decision
+- memory or knowledge graph decision
+- external action and routine automation boundaries
+- rejected architecture alternatives
+- eval and trace requirements
+- first vertical slice architecture
+
+Forbidden:
+
+- defaulting to RAG, ADK, or a prompt wrapper without documenting alternatives
+- using semantic RAG for exact record state without justification
+- storing extracted fields without schema, provenance, confidence, and correction flow
+- running Agent Engineering or Capability Access before the intelligence substrate is selected
+
 ### Gate 2.35 - Agent Engineering and Skill Factory
 
 Required when the product is L3 or higher, multi-model, retrieval-heavy, skill-driven, tool-using, automation-heavy, externally acting, or intended to behave like a niche expert agent.
 
 Requires:
 
+- `docs/intelligence-architecture-decision.md` when AI architecture matters
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 - seven-discipline readiness audit: system design, tool contracts, retrieval, reliability, security/safety, evals/observability, and product trust UX
@@ -232,6 +260,7 @@ Requires:
 
 - `docs/capability-access-map.md`
 - `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant
+- `docs/intelligence-architecture-decision.md` when AI architecture matters
 - `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agent engineering or procedural skills are relevant
 - required capability inventory
 - production runtime surface decisions

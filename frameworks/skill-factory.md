@@ -121,7 +121,7 @@ T4 skills must not be generated or installed casually.
 
 ### 1. Discover
 
-Find repeated operating loops in the Intelligence System Plan:
+Find repeated operating loops in the Intelligence System Plan and Intelligence Architecture Decision:
 
 ```text
 capture -> classify -> update memory -> generate/propose -> review -> act -> measure -> learn

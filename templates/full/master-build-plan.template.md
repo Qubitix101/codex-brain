@@ -39,6 +39,7 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Validation | | | |
 | Research | | | |
 | Agentic Opportunity | | | |
+| Intelligence Architecture | | | |
 | Agent Engineering | | | |
 | Capability and Access | | | |
 | Design DNA | | | |
@@ -171,6 +172,25 @@ Frontend implementation is blocked until this section is approved.
 | Approvals | | | |
 | Evals | | | |
 | Learning | | | |
+
+### Intelligence Architecture Selection
+
+- Intelligence architecture decision:
+- Source-of-truth policy:
+- Model-only reasoning use:
+- ADK/workflow use:
+- Semantic RAG use:
+- Structured retrieval use:
+- LLM extraction into structured fields:
+- Durable memory / knowledge graph:
+- External action layer:
+- Routine automation layer:
+- Rejected alternatives:
+- First vertical slice architecture:
+
+| Loop | Source Of Truth | Substrate | Eval | Trace | P0 Risk |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
 
 ### Agent Engineering and Skill Factory
 
@@ -615,6 +635,7 @@ Use only if paid.
 - [ ] Non-applicable sections justified. Verify: each N/A section states why it does not apply.
 - [ ] Research traceability complete. Verify: evidence ledger links to key decisions.
 - [ ] Agentic opportunity audit complete if AI/automation is relevant. Verify: `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` exist.
+- [ ] Intelligence architecture decision complete if AI architecture matters. Verify: `docs/intelligence-architecture-decision.md` exists and RAG/structured retrieval/extraction/workflow/action choices are explicit.
 - [ ] Agent engineering and skill inventory complete if L3+/agentic/retrieval/tool-use is relevant. Verify: `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.

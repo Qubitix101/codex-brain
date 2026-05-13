@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -85,6 +85,23 @@ Codex should map:
 - overbuild and underbuild risks
 
 See `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
+
+## Phase 2.3 - Intelligence Architecture Selection
+
+Answer: what intelligence substrate does each product loop need?
+
+Codex should map:
+
+- model-only reasoning vs ADK-style workflow
+- semantic RAG vs deterministic structured retrieval
+- LLM extraction into structured fields
+- durable memory or knowledge graph
+- external action and routine automation boundaries
+- source-of-truth policy
+- eval and trace requirements
+- first vertical slice architecture
+
+See `frameworks/intelligence-architecture-selection.md`.
 
 ## Phase 2.35 - Agent Engineering and Skill Factory
 

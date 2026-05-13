@@ -90,6 +90,7 @@ Minimum required:
 - observability plan
 - AI orchestration/evals/safety plan if applicable
 - agentic opportunity audit and intelligence system plan if AI/automation is relevant
+- intelligence architecture decision if RAG, structured retrieval, extraction, memory, workflow, action, or routine automation is relevant
 - agent-engineering audit and skill inventory if agents, retrieval, model routing, or procedural skills are relevant
 - Design DNA with references by workflow
 - narrative validation
@@ -115,7 +116,7 @@ Escalate to Full if:
 - the domain is high-impact or regulated
 - the product has enterprise buyers
 - AI decisions affect users materially
-- the product needs agents, retrieval, model routing, external tool action, or reusable procedural skills
+- the product needs agents, retrieval, extraction, memory, model routing, external tool action, automation, or reusable procedural skills
 - the user explicitly asks for world-class, top-ten, unicorn-level, or maximum quality
 
 ## Who Decides

@@ -2,7 +2,7 @@
 
 Codex Brain should decide whether an idea deserves a normal app, an AI-assisted workflow, or a real agentic operating system before planning the build.
 
-This framework sits before Agent Engineering and Capability and Access Readiness. It answers what kind of intelligence system the product should become; the agent-engineering audit answers what production-agent and procedural-skill discipline is required; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
+This framework sits before Intelligence Architecture Selection, Agent Engineering, and Capability and Access Readiness. It answers what kind of intelligence system the product should become; the intelligence architecture decision answers whether each loop needs model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, or routines; the agent-engineering audit answers what production-agent and procedural-skill discipline is required; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
 
 ## Purpose
 
@@ -14,10 +14,10 @@ The audit prevents both failures.
 
 ## Gate 2.25
 
-Agentic Opportunity sits after Research and before Agent Engineering.
+Agentic Opportunity sits after Research and before Intelligence Architecture.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifacts for AI-core, automation-heavy, workflow-heavy, content, knowledge-work, multi-tool, or customer-operating-system products:
@@ -27,6 +27,7 @@ Required artifacts for AI-core, automation-heavy, workflow-heavy, content, knowl
 
 After this gate, AI-core or agentic projects must complete:
 
+- `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 
@@ -169,6 +170,7 @@ The audit must produce:
 - agentic OS version
 - agentic leverage map
 - required memory
+- required intelligence architecture substrates
 - required tools and harness classes
 - required agent-engineering disciplines
 - required procedural skills

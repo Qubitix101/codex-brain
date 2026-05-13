@@ -43,8 +43,9 @@ Full research produces:
 ├── 21-context-continuity-and-memory.md
 ├── 22-workflow-routing-and-governance.md
 ├── 23-agentic-opportunity-and-intelligence-system.md
-├── 24-agent-engineering-and-skill-factory.md
-├── 25-capability-access-readiness.md
+├── 24-intelligence-architecture-selection.md
+├── 25-agent-engineering-and-skill-factory.md
+├── 26-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -430,7 +431,7 @@ Full-mode additions:
 
 Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Agent Engineering and Capability and Access:
+Answer before Intelligence Architecture, Agent Engineering, and Capability and Access:
 
 - Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
 - What agentic maturity level should be built now?
@@ -450,6 +451,30 @@ Required:
 - memory/sensing/tool/routine/approval/eval/learning map
 - deferred agentic layers with revisit triggers
 - overbuild and underbuild risks
+
+## Intelligence Architecture Selection
+
+Required when AI answers, retrieval, extraction, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
+
+Answer before Agent Engineering and Capability and Access:
+
+- For each core loop, is the system answering, deciding, transforming, extracting, remembering, coordinating, acting, or recurring?
+- What is the source of truth for each loop?
+- Does the loop need semantic RAG, deterministic structured retrieval, LLM extraction into structured fields, durable memory, ADK-style workflow, external action, routine automation, or a hybrid?
+- Where would RAG be weaker than exact SQL/API retrieval?
+- Where would structured retrieval be weaker than semantic document retrieval?
+- What raw material must be extracted into typed fields before it becomes reliable memory or automation input?
+- What eval and trace prove the architecture works?
+
+Required:
+
+- `docs/intelligence-architecture-decision.md`
+- source-of-truth map
+- RAG vs structured retrieval vs extraction decision
+- ADK/workflow decision
+- memory/knowledge graph decision
+- external action and routine automation boundaries
+- first vertical slice architecture
 
 ## Agent Engineering and Skill Factory
 
@@ -738,10 +763,11 @@ Before planning:
 - Every risk has owner/mitigation/defer decision.
 - Every architecture decision has enough evidence for the Build Plan.
 - Every AI-core, automation-heavy, or operating-system-shaped product has an agentic maturity decision and first closed intelligence loop.
+- Every AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy product has an intelligence architecture decision covering RAG, structured retrieval, extraction, memory, workflow, action, and routine needs.
 - Every L3+ or skill-driven agentic product has agent-engineering readiness, model routing, skill inventory, trust levels, and eval/trace requirements.
 - Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, agent engineering/skill factory, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, intelligence architecture, agent engineering/skill factory, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

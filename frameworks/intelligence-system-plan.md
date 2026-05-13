@@ -2,7 +2,7 @@
 
 An Intelligence System Plan describes the high-level operating architecture for products that should become more than a normal app.
 
-It is the bridge between the Agentic Opportunity Audit, the Agent Engineering Audit, the Skill Factory, and the Capability and Access Map.
+It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, and the Capability and Access Map.
 
 ## Purpose
 
@@ -17,6 +17,7 @@ The plan turns an idea into a clear intelligence architecture:
 - how it learns
 - what tooling and harnesses it will need
 - what procedural skills it will need
+- what intelligence substrates it needs: model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, and routines
 - what production-agent disciplines must be satisfied
 
 ## Required Artifact
@@ -26,6 +27,8 @@ Use:
 - `docs/intelligence-system-plan.md`
 - `templates/shared/intelligence-system-plan.template.md`
 - `catalogs/agentic-system-patterns.json`
+- `frameworks/intelligence-architecture-selection.md`
+- `catalogs/intelligence-architecture-catalog.json`
 - `frameworks/agent-engineering-skill-stack.md`
 - `frameworks/skill-factory.md`
 - `catalogs/agent-engineering-catalog.json`
@@ -106,6 +109,8 @@ Skills should have inputs, outputs, quality criteria, and failure modes.
 
 The detailed skill inventory belongs in `docs/skill-inventory.md`; this plan should identify the operating loops from which skills will be generated.
 
+The exact intelligence substrate per loop belongs in `docs/intelligence-architecture-decision.md`.
+
 ### 6. Tool and Harness Layer
 
 How the system acts:
@@ -119,7 +124,9 @@ How the system acts:
 - queues and jobs
 - webhooks
 
-The detailed selection belongs in the Capability and Access Map.
+The detailed architecture choice belongs in `docs/intelligence-architecture-decision.md`.
+
+The detailed access selection belongs in the Capability and Access Map.
 
 The production readiness of those tools belongs in `docs/agent-engineering-audit.md`.
 
@@ -187,6 +194,7 @@ Every plan should include:
 - sensing inputs
 - core skills
 - tool/harness needs
+- intelligence architecture substrate needs
 - agent-engineering readiness requirements
 - procedural skill inventory
 - routine map

@@ -41,6 +41,7 @@ At the start of a Codex Brain session:
    - gate status
    - missing artifacts
    - agentic opportunity/intelligence-system status when AI or automation is involved
+   - intelligence-architecture status when RAG, structured retrieval, extraction, memory, workflow, action, or routines are involved
    - agent-engineering/skill-inventory status when agents, retrieval, multi-model routing, or procedural skills are involved
    - capability/access map status when integrations or external tools are involved
    - next allowed action
@@ -85,6 +86,7 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No frontend implementation before Design DNA approval.
 - No serious backend implementation before database, auth, security, and privacy assumptions are documented.
 - No AI-core or automation-heavy Build Plan before agentic opportunity and intelligence-system shape are audited.
+- No AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy Build Plan before intelligence architecture is selected.
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
 - No serious integration-heavy Build Plan before required APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without tenant isolation and authorization model.
@@ -138,6 +140,7 @@ npm run next-action -- --dir .
 npm run session-brief -- --dir .
 npm run verify-plan -- docs/prd/[file].md
 npm run plan-agentic-system -- --brief "[what we are building]" --mode full
+npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode full
 npm run plan-agent-skills -- --brief "[what we are building]" --mode full
 npm run plan-capabilities -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "[specific tool task]"

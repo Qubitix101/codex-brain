@@ -18,6 +18,8 @@ Each PRD includes:
 For agentic products, each PRD also includes:
 
 - intelligence loop touched
+- selected intelligence architecture substrates
+- source of truth and retrieval/extraction/memory shape
 - required skills
 - model/tool routes
 - approval boundaries

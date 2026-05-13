@@ -81,6 +81,7 @@ Promotion criteria:
 | Repeated execution failure | execution loop + PRD template + script |
 | Repeated review failure | agent prompt + quality matrix |
 | Repeated underbuilt/overbuilt AI product | agentic opportunity framework + intelligence system plan template + agentic patterns catalog |
+| Repeated wrong RAG/ADK/structured retrieval/extraction/memory choice | intelligence architecture framework + architecture catalog + decision template + planner |
 | Repeated weak agent/tool/retrieval/skill failure | agent-engineering framework + skill-factory framework + agent-engineering catalog + skill templates |
 | Repeated tool/access failure | capability-access framework + tool routing matrix + capability catalog + workflow gate |
 

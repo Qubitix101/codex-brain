@@ -7,6 +7,7 @@
 - Owner:
 - Related agentic audit:
 - Related intelligence system plan:
+- Related intelligence architecture decision:
 - Related skill inventory:
 - Related capability/access map:
 - Target maturity now:

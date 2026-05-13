@@ -7,6 +7,7 @@ Before execution:
 - every checkbox has verification
 - Design DNA blocks are resolved
 - agentic maturity, first closed loop, approval boundaries, and evals are explicit for AI/automation-heavy tasks
+- intelligence architecture substrates, source of truth, retrieval/extraction/memory/workflow/action/routine choices, and eval traces are explicit for AI-core tasks
 - agent-engineering discipline gaps, model routes, required skills, trust levels, and skill evals are explicit for L3+ agentic tasks
 - required access blockers are resolved, mocked, or explicitly deferred
 - execution surface is known for each integration-heavy task

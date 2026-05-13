@@ -3,6 +3,7 @@
 ## Read
 
 - `docs/intelligence-system-plan.md`
+- `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `frameworks/skill-factory.md`
 - `catalogs/agent-engineering-catalog.json`
@@ -10,7 +11,7 @@
 
 ## Decide
 
-Map repeatable operating loops into skill candidates.
+Map repeatable operating loops and selected intelligence substrates into skill candidates.
 
 For each candidate decide:
 

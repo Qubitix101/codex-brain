@@ -28,7 +28,14 @@
       "required_artifacts": ["docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md"],
       "missing": ["docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md"],
       "approved": false,
-      "notes": "Decide whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded operator, or domain operating system before mapping access."
+      "notes": "Decide whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded operator, or domain operating system before choosing the intelligence architecture."
+    },
+    "intelligence_architecture": {
+      "status": "not-started",
+      "required_artifacts": ["docs/intelligence-architecture-decision.md"],
+      "missing": ["docs/intelligence-architecture-decision.md"],
+      "approved": false,
+      "notes": "Choose model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, external action, and routine architecture per product loop before Agent Engineering."
     },
     "agent_engineering": {
       "status": "not-started",
@@ -105,6 +112,7 @@
     "research": null,
     "agentic_opportunity": null,
     "intelligence_system": null,
+    "intelligence_architecture": null,
     "agent_engineering": null,
     "skill_inventory": null,
     "capability_access": null,

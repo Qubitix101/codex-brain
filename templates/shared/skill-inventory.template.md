@@ -6,6 +6,7 @@
 - Date:
 - Owner:
 - Related intelligence system plan:
+- Related intelligence architecture decision:
 - Related agent engineering audit:
 - Related capability/access map:
 

@@ -27,8 +27,9 @@ Use this as the tracking file for Full-mode research.
 | 21 | Context Continuity and Memory | Not started | | | | |
 | 22 | Workflow Routing and Governance | Not started | | | | |
 | 23 | Agentic Opportunity and Intelligence System | Not started | | | | |
-| 24 | Agent Engineering and Skill Factory | Not started | | | | |
-| 25 | Capability and Access Readiness | Not started | | | | |
+| 24 | Intelligence Architecture Selection | Not started | | | | |
+| 25 | Agent Engineering and Skill Factory | Not started | | | | |
+| 26 | Capability and Access Readiness | Not started | | | | |
 
 ## Gate
 
@@ -41,5 +42,6 @@ Use this as the tracking file for Full-mode research.
 - [ ] Project context and distillation requirements generated
 - [ ] Next-action routing verified
 - [ ] Agentic opportunity and intelligence-system requirements generated
+- [ ] Intelligence-architecture requirements generated
 - [ ] Agent-engineering and skill-factory requirements generated
 - [ ] Capability/access map requirements generated

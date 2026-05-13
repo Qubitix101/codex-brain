@@ -1,6 +1,6 @@
 {
   "$schema_note": "Machine-readable Full-mode coverage catalog for Codex Brain. Future sessions should use this to prevent skipped product, engineering, design, security, privacy, scale, and operating concerns.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "mode": "full",
   "principle": "If a project has unicorn-level ambition, enterprise risk, multi-tenancy, payments, AI-core workflows, EU personal data, or public users, every applicable domain must be addressed or explicitly justified as not applicable.",
   "domains": [
@@ -340,6 +340,34 @@
       "review_roles": ["ai-orchestration-reviewer", "architecture-strategist", "product-strategist"]
     },
     {
+      "id": "intelligence-architecture-selection",
+      "name": "Intelligence Architecture Selection",
+      "purpose": "Ensure AI-core products choose the correct substrate per loop before agent engineering, access planning, and Build Plan approval.",
+      "required_questions": [
+        "For each core loop, is the system answering, deciding, transforming, extracting, remembering, coordinating, acting, or recurring?",
+        "What is the source of truth for each loop?",
+        "Does the loop need semantic RAG, deterministic structured retrieval, LLM extraction into structured fields, durable memory, ADK-style workflow, external action, routine automation, or a hybrid?",
+        "Where is semantic retrieval useful, and where would exact records, SQL, APIs, filters, statuses, counts, permissions, or analytics be safer?",
+        "What raw inputs must be extracted into typed fields before retrieval or action?",
+        "What memory or knowledge graph should compound over time, and how can users inspect, correct, export, or delete it?",
+        "What eval and trace prove retrieval, extraction, workflow, memory, and external action correctness?",
+        "What first vertical slice proves the architecture without overbuilding the full operating system?"
+      ],
+      "required_artifacts": [
+        "docs/intelligence-architecture-decision.md",
+        "frameworks/intelligence-architecture-selection.md",
+        "catalogs/intelligence-architecture-catalog.json"
+      ],
+      "p0_blockers": [
+        "AI-core product defaulting to RAG, ADK, or generic prompt architecture without substrate decision.",
+        "Semantic RAG used for exact records, statuses, counts, permissions, or analytics without justification.",
+        "Structured retrieval used for broad semantic document questions without justification.",
+        "LLM extraction stored without schema, provenance, confidence, or correction flow.",
+        "External action or routine automation without preview, approval, audit, rollback, job state, or failure handling."
+      ],
+      "review_roles": ["ai-orchestration-reviewer", "architecture-strategist", "security-gdpr-reviewer", "product-strategist"]
+    },
+    {
       "id": "capability-access-readiness",
       "name": "Capability and Access Readiness",
       "purpose": "Ensure required external capabilities, access surfaces, credentials, mocks, and live verification paths are explicit before Build Plan and PRDs.",
@@ -626,18 +654,21 @@
     "templates/full/traceability-matrix.template.md",
     "templates/shared/agentic-opportunity-audit.template.md",
     "templates/shared/intelligence-system-plan.template.md",
+    "templates/shared/intelligence-architecture-decision.template.md",
     "templates/shared/agent-engineering-audit.template.md",
     "templates/shared/skill-inventory.template.md",
     "templates/shared/skill-spec.template.md",
     "templates/shared/capability-access-map.template.md",
     "frameworks/agentic-opportunity-audit.md",
     "frameworks/intelligence-system-plan.md",
+    "frameworks/intelligence-architecture-selection.md",
     "frameworks/agent-engineering-skill-stack.md",
     "frameworks/skill-factory.md",
     "frameworks/capability-access-readiness.md",
     "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
     "catalogs/agentic-system-patterns.json",
+    "catalogs/intelligence-architecture-catalog.json",
     "catalogs/agent-engineering-catalog.json",
     "catalogs/capability-access-catalog.json",
     "catalogs/tool-surface-routing-matrix.json",

@@ -5,7 +5,7 @@ This guide explains how to use Codex Brain from first idea to shipped product an
 The short version:
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 The important version:
@@ -108,15 +108,16 @@ Required:
 
 1. Validation
 2. Focused research
-3. Agentic Opportunity and Agent Engineering gates if AI/agentic value is relevant
-4. Capability and Access Map if external systems are relevant
-5. Build Plan
-6. Design DNA if UI exists
-7. PRDs
-8. Execution loop
-9. Security/privacy/accessibility review where relevant
-10. Ship checklist
-11. Lessons
+3. Agentic Opportunity and Intelligence Architecture gates if AI/agentic value is relevant
+4. Agent Engineering gate if production-agent, retrieval, model routing, or procedural skills are relevant
+5. Capability and Access Map if external systems are relevant
+6. Build Plan
+7. Design DNA if UI exists
+8. PRDs
+9. Execution loop
+10. Security/privacy/accessibility review where relevant
+11. Ship checklist
+12. Lessons
 
 ## 5. Full Mode Flow
 
@@ -140,18 +141,19 @@ Recommended sequence:
 3. Deep research using the Full-mode coverage catalog
 4. Evidence ledger
 5. Agentic Opportunity Audit and Intelligence System Plan if AI/automation/workflow OS value is relevant
-6. Agent Engineering Audit and Skill Inventory if agents, retrieval, model routing, or procedural skills are relevant
-7. Capability and Access Map
-8. Design references and Design DNA
-9. Master Build Plan
-10. ADRs for major choices
-11. Test strategy and traceability matrix
-12. Promise-to-spec audit
-13. Phase PRDs with vertical slices
-14. Execution loop
-15. Specialist reviews
-16. Ship gate
-17. Postmortem and lessons
+6. Intelligence Architecture Decision if RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant
+7. Agent Engineering Audit and Skill Inventory if agents, retrieval, model routing, or procedural skills are relevant
+8. Capability and Access Map
+9. Design references and Design DNA
+10. Master Build Plan
+11. ADRs for major choices
+12. Test strategy and traceability matrix
+13. Promise-to-spec audit
+14. Phase PRDs with vertical slices
+15. Execution loop
+16. Specialist reviews
+17. Ship gate
+18. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -200,9 +202,38 @@ Decide:
 - overbuild/underbuild risk
 - deferred agentic layers
 
-Agent Engineering and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
+Intelligence Architecture, Agent Engineering, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
 
-## 8. Agent Engineering and Skill Factory Procedure
+## 8. Intelligence Architecture Selection Procedure
+
+Before Agent Engineering and capability/access planning, decide the actual intelligence substrate.
+
+Start with:
+
+```bash
+npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode full --markdown
+```
+
+Then copy or fill:
+
+```text
+templates/shared/intelligence-architecture-decision.template.md -> docs/intelligence-architecture-decision.md
+```
+
+Decide per loop:
+
+- source of truth
+- model-only reasoning vs ADK/workflow
+- semantic RAG vs deterministic structured retrieval
+- LLM extraction into structured fields
+- durable memory or knowledge graph
+- external action and routine automation boundaries
+- eval and trace requirements
+- first vertical slice architecture
+
+Agent Engineering is blocked while an AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy product has no intelligence architecture decision.
+
+## 9. Agent Engineering and Skill Factory Procedure
 
 Before capability/access planning, audit whether the intended agent can survive production.
 
@@ -233,7 +264,7 @@ Decide:
 
 Capability/access planning is blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
 
-## 9. Capability and Access Procedure
+## 10. Capability and Access Procedure
 
 Before Build Plan approval, create the capability/access map when the product touches external systems, authenticated apps, APIs, SDKs, CLIs, MCP servers, media generation providers, deployment platforms, browser automation, desktop apps, or paid vendors.
 
@@ -267,7 +298,7 @@ npm run route-tool -- --task "create a GitHub PR and inspect failing CI"
 
 Build Plan approval is blocked while a critical required-now capability has no access path.
 
-## 10. Build Plan Procedure
+## 11. Build Plan Procedure
 
 For Full mode:
 
@@ -276,11 +307,12 @@ For Full mode:
 3. Create ADRs from `templates/full/adr.template.md`.
 4. Run the Build Plan checklist.
 5. Reference `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant.
-6. Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, or procedural skills are relevant.
-7. Reference `docs/capability-access-map.md`.
-8. Do not create PRDs until P0/P1 plan gaps are resolved.
+6. Reference `docs/intelligence-architecture-decision.md` when RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant.
+7. Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, or procedural skills are relevant.
+8. Reference `docs/capability-access-map.md`.
+9. Do not create PRDs until P0/P1 plan gaps are resolved.
 
-## 11. Design DNA Procedure
+## 12. Design DNA Procedure
 
 For any user-facing UI:
 
@@ -292,7 +324,7 @@ For any user-facing UI:
 
 Frontend work is blocked before Design DNA approval.
 
-## 12. PRD Procedure
+## 13. PRD Procedure
 
 Each PRD must include:
 
@@ -319,26 +351,27 @@ Validate plans with:
 npm run verify-plan -- docs/prd/[file].md
 ```
 
-## 13. Execution Procedure
+## 14. Execution Procedure
 
 Codex executes one task at a time:
 
 1. Read state.
 2. Read current PRD.
 3. Select unblocked task.
-4. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
-5. Check dirty worktree.
-6. Implement.
-7. Run checks.
-8. Review diff.
-9. Update task status.
-10. Capture task record.
-11. Consider lessons.
-12. Stop.
+4. If AI behavior is touched, read the intelligence architecture decision for the loop.
+5. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
+6. Check dirty worktree.
+7. Implement.
+8. Run checks.
+9. Review diff.
+10. Update task status.
+11. Capture task record.
+12. Consider lessons.
+13. Stop.
 
 Parallel execution requires explicit task assignment or task claiming.
 
-## 14. Review Procedure
+## 15. Review Procedure
 
 Use specialist roles:
 
@@ -354,7 +387,7 @@ Use specialist roles:
 
 Full mode cannot ship with unresolved critical/high findings.
 
-## 15. Ship Procedure
+## 16. Ship Procedure
 
 Ship only when:
 
@@ -367,7 +400,7 @@ Ship only when:
 - user approves launch
 - lesson capture is ready
 
-## 16. Learning Procedure
+## 17. Learning Procedure
 
 At project end:
 
@@ -376,7 +409,7 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
-## 16.5 Context Procedure
+## 17.5 Context Procedure
 
 At session start, phase changes, and major decisions:
 
@@ -393,7 +426,7 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
-## 16.6 Session Close Procedure
+## 17.6 Session Close Procedure
 
 At the end of every meaningful session, save context.
 
@@ -419,7 +452,7 @@ This creates `.codex-brain/sessions/session-[timestamp].json`, updates active co
 
 Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
 
-## 17. Downgrade Protocol
+## 18. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
 
@@ -432,7 +465,7 @@ Codex must state:
 
 For high-risk projects, Codex should strongly recommend against downgrading.
 
-## 18. Glory Rule
+## 19. Glory Rule
 
 If the user says the goal is world-class, unicorn-level, top-ten, enterprise-grade, or no-corners-cut:
 

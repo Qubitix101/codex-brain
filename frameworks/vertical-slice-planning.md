@@ -45,6 +45,12 @@ For agentic products, the slice should include one observable intelligence loop:
 input/context -> skill/tool/model route -> output/proposal -> eval/trace -> approval or learning update
 ```
 
+For AI-core slices, the slice must also name the intelligence architecture substrate:
+
+```text
+source of truth -> RAG/structured retrieval/extraction/memory/workflow/action/routine -> eval/trace
+```
+
 Layer-first work is allowed only when:
 
 - a foundational migration is required before any slice can run
@@ -69,6 +75,8 @@ Each slice must include:
 For agentic slices, also include:
 
 - required procedural skills
+- selected intelligence architecture substrates
+- source-of-truth and retrieval/extraction/memory contracts
 - skill trust levels
 - model/tool route
 - eval and trace evidence

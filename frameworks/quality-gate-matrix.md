@@ -21,6 +21,7 @@ These block all modes:
 - no current phase
 - coding before allowed phase
 - AI-core or automation-heavy product without agentic opportunity audit
+- AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy product without intelligence architecture decision
 - L3+ agentic or skill-driven product without agent engineering and skill inventory audit
 - frontend implementation before required Design DNA approval
 - missing acceptance criteria for execution task
@@ -65,6 +66,7 @@ These block all modes:
 | Billing research if paid | Optional | Required | Deep | P0 |
 | AI eval research if AI-core | Optional | Required | Deep | P0 |
 | Agentic opportunity if AI/automation/workflow OS | Required if relevant | Required if relevant | Deep | P0 |
+| Intelligence architecture if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Agent engineering/skill factory if L3+ or skill-driven | Required if relevant | Required if relevant | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
 | Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
@@ -80,6 +82,19 @@ These block all modes:
 | Memory/sensing/tool/routine/approval/eval/learning map | Required if relevant | Required if relevant | Deep | P0 |
 | Overbuild and underbuild risks documented | Recommended | Required | Required | P1 |
 | Deferred agentic layers with revisit triggers | Optional | Required if relevant | Required | P1 |
+
+## Intelligence Architecture Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Source of truth explicit per loop | Required if AI-core | Required if relevant | Required | P0 |
+| Semantic RAG vs structured retrieval decision | Required if retrieval | Required if retrieval | Required if retrieval | P0 |
+| Extraction schema/provenance/confidence/correction path | Required if extraction | Required if extraction | Required if extraction | P0 |
+| ADK/workflow graph and state model | Required if workflow | Required if workflow | Required if workflow | P0 |
+| Memory/knowledge graph read/write/delete/export policy | Required if memory | Required if memory | Required if memory | P0 |
+| External action preview/approval/audit/rollback | Required if action | Required if action | Required if action | P0 |
+| Routine trigger/job state/failure recovery | Required if routine | Required if routine | Required if routine | P0 |
+| Eval and trace per selected substrate | Required if AI-core | Required if AI-core | Required | P0 |
 
 ## Agent Engineering and Skill Factory Gate
 
@@ -123,6 +138,7 @@ These block all modes:
 | Security plan | Basic | Required | Deep | P0 |
 | Privacy/GDPR plan | Required if relevant | Required if relevant | Deep | P0 |
 | Agentic/intelligence-system plan linked | Required if AI/automation | Required if AI/automation | Required if AI/automation | P0 |
+| Intelligence-architecture decision linked | Required if AI architecture matters | Required if AI architecture matters | Required if AI architecture matters | P0 |
 | Agent-engineering/skill inventory linked | Required if L3+ or skill-driven | Required if relevant | Required if relevant | P0 |
 | Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
 | Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |

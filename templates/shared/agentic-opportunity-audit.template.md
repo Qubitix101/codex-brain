@@ -88,7 +88,7 @@ This audit decides whether the idea should be a normal app, AI-assisted workflow
 
 ## 7. Tool and Harness Hypotheses
 
-This is a hypothesis list. Final access choices belong in `docs/capability-access-map.md`.
+This is a hypothesis list. Final architecture choices belong in `docs/intelligence-architecture-decision.md`; final access choices belong in `docs/capability-access-map.md`.
 
 | Tool / Harness Class | Purpose | Product Runtime? | Agent Build Surface? | Required Now? |
 | --- | --- | --- | --- | --- |
@@ -135,4 +135,4 @@ This is a hypothesis list. Final access choices belong in `docs/capability-acces
 - First closed loop:
 - Defer:
 - Blockers:
-- Next artifacts: `docs/intelligence-system-plan.md`, then `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when L3+ or skill-driven
+- Next artifacts: `docs/intelligence-system-plan.md`, then `docs/intelligence-architecture-decision.md`, then `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when L3+ or skill-driven

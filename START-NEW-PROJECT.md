@@ -3,7 +3,7 @@
 Use this exact instruction when starting a new project:
 
 ```text
-Use Codex Brain. Follow the Codex Brain repo at https://github.com/Qubitix101/codex-brain. Read its CODEX.md first, bootstrap this project if needed, classify the project as Light, Standard, or Full, audit whether this should become an agentic intelligence system if AI/automation is relevant, audit production-agent engineering and procedural skills if agents/retrieval/multi-model orchestration are relevant, map required capabilities/access if this depends on external systems, and tell me the next allowed action before building.
+Use Codex Brain. Follow the Codex Brain repo at https://github.com/Qubitix101/codex-brain. Read its CODEX.md first, bootstrap this project if needed, classify the project as Light, Standard, or Full, audit whether this should become an agentic intelligence system if AI/automation is relevant, select the intelligence architecture if RAG/structured retrieval/extraction/memory/workflow/action/routines are relevant, audit production-agent engineering and procedural skills if agents/retrieval/multi-model orchestration are relevant, map required capabilities/access if this depends on external systems, and tell me the next allowed action before building.
 ```
 
 After bootstrap, the new project should contain:

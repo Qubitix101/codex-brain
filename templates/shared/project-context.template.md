@@ -46,6 +46,18 @@ This file is the implementation constitution for future Codex sessions.
 - Memory/sensing/routine/approval/eval model:
 - Deferred OS layers:
 
+## Intelligence Architecture Rules
+
+- Intelligence architecture decision:
+- Source-of-truth policy:
+- RAG decision:
+- Structured retrieval decision:
+- Extraction-to-structured-fields decision:
+- Memory/knowledge graph decision:
+- ADK/workflow decision:
+- External action/routine automation boundaries:
+- Eval/trace requirements:
+
 ## Agent Engineering and Skill Factory Rules
 
 - Agent engineering audit:

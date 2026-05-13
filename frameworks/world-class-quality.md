@@ -36,6 +36,15 @@ Passing tests is necessary. It is not sufficient.
 - Memory, sensing, routines, approvals, evals, and learning are designed when relevant.
 - Autonomy is bounded by permissions, rollback, and quality gates.
 
+### 3.55 Intelligence Architecture Fit
+
+- Each core loop has a source of truth.
+- Semantic RAG is used for document-grounded semantic questions, not exact record state.
+- Deterministic structured retrieval is used for exact fields, statuses, counts, permissions, dates, ownership, and analytics.
+- LLM extraction into structured fields is designed when messy inputs must become reusable memory or automation inputs.
+- ADK-style workflow is used when steps, tools, branches, approvals, jobs, or retries matter.
+- External action and routine automation have approval, audit, rollback, job state, and failure recovery.
+
 ### 3.6 Agent Engineering and Skill System
 
 - Production agents have explicit system design, tool contracts, retrieval design, reliability controls, security/safety boundaries, evals/observability, and product trust UX.

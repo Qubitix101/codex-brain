@@ -1,0 +1,187 @@
+{
+  "$schema": "../schemas/intelligence-architecture-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "Choose the intelligence substrate per loop: model reasoning, ADK-style workflow, semantic RAG, deterministic structured retrieval, extraction into structured fields, durable memory, external action, routine automation, or a hybrid.",
+  "substrates": [
+    {
+      "id": "model_only_reasoning",
+      "name": "Model-Only Reasoning",
+      "keywords": ["rewrite", "summarize", "classify", "critique", "brainstorm", "draft", "transform text", "provided context"],
+      "purpose": "Use the model for reasoning or transformation when all needed context is already provided.",
+      "use_when": ["short provided context", "low-stakes generation", "rubric critique", "no durable source of truth required"],
+      "avoid_when": ["private changing data", "citations required", "external writes", "durable memory required"],
+      "required_outputs": ["prompt/context boundary", "quality rubric", "fallback when context is missing"],
+      "p0_blockers": ["answers depend on data not provided", "no way to detect missing source context"],
+      "evals": ["rubric fit", "format fit", "hallucination check"]
+    },
+    {
+      "id": "adk_workflow",
+      "name": "ADK-Style Workflow or Agent",
+      "keywords": ["adk", "agent", "workflow", "multi-step", "tool use", "triage", "orchestration", "approval", "process", "coordinate"],
+      "purpose": "Coordinate steps, tools, branches, approvals, and decisions through an agent/workflow architecture.",
+      "use_when": ["multi-step work", "tool calls", "branching decisions", "repeatable procedures", "approval paths"],
+      "avoid_when": ["single grounded answer", "no state", "no tools", "no failure handling"],
+      "required_outputs": ["workflow graph", "state model", "tool/action boundaries", "approval points", "failure handling"],
+      "p0_blockers": ["agent has no state model", "tools can mutate externally without approval", "no retry or timeout model"],
+      "evals": ["workflow success rate", "step trace completeness", "approval correctness"]
+    },
+    {
+      "id": "semantic_rag",
+      "name": "Semantic RAG",
+      "keywords": ["rag", "vector", "semantic", "documents", "pdf", "pdfs", "manual", "policy", "knowledge base", "citations", "docs", "search"],
+      "purpose": "Retrieve relevant unstructured or semi-structured passages for grounded answers.",
+      "use_when": ["document-heavy knowledge", "broad questions", "semantic similarity useful", "citations required"],
+      "avoid_when": ["exact record lookup", "counts/status/dates", "permissions", "unmodeled freshness requirements"],
+      "required_outputs": ["corpus inventory", "chunking strategy", "metadata strategy", "citation policy", "retrieval eval set"],
+      "p0_blockers": ["RAG with no source inventory", "no citation policy", "no freshness or deletion policy"],
+      "evals": ["retrieval precision", "citation validity", "answer groundedness"]
+    },
+    {
+      "id": "structured_retrieval",
+      "name": "Deterministic Structured Retrieval",
+      "keywords": ["database", "sql", "records", "crm", "analytics", "status", "count", "filter", "date", "owner", "permission", "api read"],
+      "purpose": "Fetch exact facts from structured stores, APIs, indexes, and permission-scoped records.",
+      "use_when": ["exact fields exist", "record state matters", "permission checks matter", "downstream actions depend on correctness"],
+      "avoid_when": ["messy prose is the source", "broad conceptual document questions", "fields are not modeled"],
+      "required_outputs": ["source-of-truth table/API map", "query contract", "permission boundary", "freshness guarantee"],
+      "p0_blockers": ["semantic search used for exact record state", "no tenant/user scope on retrieval", "no contract for returned fields"],
+      "evals": ["query correctness", "permission correctness", "freshness accuracy"]
+    },
+    {
+      "id": "llm_extraction",
+      "name": "LLM Extraction Into Structured Fields",
+      "keywords": ["extract", "parse", "schema", "structured fields", "entities", "claims", "preferences", "story", "proof", "transcript", "email", "ingest"],
+      "purpose": "Convert messy source material into durable structured records for retrieval, memory, reporting, or automation.",
+      "use_when": ["messy raw input", "facts will be reused", "personalization depends on extracted fields", "automation needs typed data"],
+      "avoid_when": ["schema is unknown", "no review/correction flow", "one-off extraction with no reuse"],
+      "required_outputs": ["extraction schema", "provenance fields", "confidence fields", "review/correction path", "conflict policy"],
+      "p0_blockers": ["extracted facts stored without provenance", "no validation or correction flow", "schema fields owned by nobody"],
+      "evals": ["field accuracy", "confidence calibration", "conflict detection"]
+    },
+    {
+      "id": "durable_memory",
+      "name": "Durable Memory and Knowledge Graph",
+      "keywords": ["memory", "profile", "preferences", "history", "knowledge graph", "relationships", "personalization", "learn", "voice", "examples"],
+      "purpose": "Persist user-specific or domain-specific context that compounds over time.",
+      "use_when": ["personalization matters", "history matters", "relationships matter", "outcome feedback should improve future work"],
+      "avoid_when": ["user cannot inspect memory", "delete/export not defined", "tenant boundary unclear"],
+      "required_outputs": ["memory schema", "read/write policy", "approval policy", "delete/export policy", "conflict policy"],
+      "p0_blockers": ["hidden memory writes", "no tenant boundary", "no deletion/export path"],
+      "evals": ["memory precision", "memory usefulness", "privacy compliance"]
+    },
+    {
+      "id": "external_action",
+      "name": "External Action Layer",
+      "keywords": ["publish", "send", "schedule", "delete", "purchase", "deploy", "update external", "post", "mutate", "write"],
+      "purpose": "Safely perform externally visible, paid, destructive, or production-mutating actions.",
+      "use_when": ["system changes external state", "public or paid action exists", "user expects done-for-me operation"],
+      "avoid_when": ["approval model missing", "rollback impossible and risk unaccepted", "permissions unclear"],
+      "required_outputs": ["action preview", "approval gate", "audit log", "rollback or compensating action", "permission scope"],
+      "p0_blockers": ["public/send/delete/spend action without approval", "no audit trail", "no rollback or accepted irreversibility"],
+      "evals": ["destination correctness", "approval completeness", "rollback viability"]
+    },
+    {
+      "id": "routine_automation",
+      "name": "Routine and Automation Layer",
+      "keywords": ["daily", "weekly", "monthly", "recurring", "monitor", "watch", "automation", "cron", "routine", "scheduled"],
+      "purpose": "Run bounded repeated work with triggers, state, budgets, outputs, and failure recovery.",
+      "use_when": ["work recurs", "monitoring needed", "scheduled reports", "periodic learning updates", "event-triggered jobs"],
+      "avoid_when": ["scope unbounded", "no job state", "no owner for failures", "no notification policy"],
+      "required_outputs": ["trigger model", "job state", "budget", "idempotency policy", "failure recovery", "notification policy"],
+      "p0_blockers": ["unbounded autonomous routine", "no idempotency", "failures are silent"],
+      "evals": ["completion rate", "timeliness", "cost", "failure recovery"]
+    }
+  ],
+  "decision_dimensions": [
+    {
+      "id": "loop_intent",
+      "name": "Loop Intent",
+      "questions": ["Is this loop answering, deciding, transforming, extracting, remembering, coordinating, or acting?", "Is the user asking for knowledge, action, or both?"]
+    },
+    {
+      "id": "source_of_truth",
+      "name": "Source of Truth",
+      "questions": ["Where must correct answers come from?", "Is the source unstructured documents, structured records, user memory, live APIs, or web research?"]
+    },
+    {
+      "id": "retrieval_shape",
+      "name": "Retrieval Shape",
+      "questions": ["Does the loop need semantic similarity, exact lookup, filtered records, or a hybrid?", "Are citations, freshness, and permission scopes required?"]
+    },
+    {
+      "id": "extraction_shape",
+      "name": "Extraction Shape",
+      "questions": ["Does raw material need to become typed records?", "What schema, provenance, confidence, and correction path are required?"]
+    },
+    {
+      "id": "workflow_shape",
+      "name": "Workflow Shape",
+      "questions": ["Does the system need steps, branches, tools, jobs, approvals, retries, or escalation?", "Which steps are deterministic and which require model judgment?"]
+    },
+    {
+      "id": "memory_shape",
+      "name": "Memory Shape",
+      "questions": ["What should compound over time?", "Who can inspect, correct, export, or delete memory?"]
+    },
+    {
+      "id": "action_risk",
+      "name": "Action Risk",
+      "questions": ["Can the system write, publish, send, delete, spend, deploy, or mutate production data?", "What preview, approval, audit, and rollback are required?"]
+    },
+    {
+      "id": "evaluation_trace",
+      "name": "Evaluation and Trace",
+      "questions": ["What eval proves this architecture works?", "What trace must be captured for retrieval, extraction, workflow steps, memory changes, and external actions?"]
+    }
+  ],
+  "domain_patterns": [
+    {
+      "id": "social_content_os",
+      "name": "Social Content Operating System",
+      "keywords": ["linkedin", "instagram", "twitter", "x", "social media", "content", "personal brand", "authority", "voice", "posts"],
+      "recommended_substrates": ["llm_extraction", "structured_retrieval", "semantic_rag", "durable_memory", "adk_workflow", "external_action", "routine_automation"],
+      "source_of_truth": ["user-approved memory", "content examples", "platform records", "analytics", "approval state"],
+      "first_loop": "capture proof/story -> extract structured memory -> retrieve relevant examples -> generate draft -> score -> approve"
+    },
+    {
+      "id": "research_intelligence_copilot",
+      "name": "Research Intelligence Copilot",
+      "keywords": ["research", "latest", "market", "competitor", "newsletter", "brief", "analysis", "synthesis", "perplexity"],
+      "recommended_substrates": ["semantic_rag", "structured_retrieval", "llm_extraction", "adk_workflow", "routine_automation"],
+      "source_of_truth": ["cited web sources", "research library", "source metadata", "analyst notes"],
+      "first_loop": "define question -> gather cited sources -> extract claims -> synthesize -> critique citations -> publish internal brief"
+    },
+    {
+      "id": "enterprise_knowledge_assistant",
+      "name": "Enterprise Knowledge Assistant",
+      "keywords": ["knowledge base", "policy", "policies", "manual", "manuals", "pdf", "pdfs", "docs", "support docs", "internal search", "legal", "medical", "compliance"],
+      "recommended_substrates": ["semantic_rag", "structured_retrieval", "durable_memory"],
+      "source_of_truth": ["approved documents", "document metadata", "access control records"],
+      "first_loop": "receive question -> retrieve scoped passages -> answer with citations -> log gaps"
+    },
+    {
+      "id": "operations_workflow_agent",
+      "name": "Operations Workflow Agent",
+      "keywords": ["ops", "workflow", "ticket", "triage", "crm", "customer", "support", "hr", "it", "follow up"],
+      "recommended_substrates": ["structured_retrieval", "adk_workflow", "external_action", "routine_automation", "durable_memory"],
+      "source_of_truth": ["workflow records", "tickets", "CRM data", "permissions", "approval state"],
+      "first_loop": "intake item -> classify -> retrieve account/context -> propose action -> approve/write -> log outcome"
+    },
+    {
+      "id": "creative_media_agent",
+      "name": "Creative Media Agent",
+      "keywords": ["image", "video", "voice", "avatar", "heygen", "fal", "runway", "media", "creative asset", "generate assets"],
+      "recommended_substrates": ["llm_extraction", "structured_retrieval", "adk_workflow", "external_action", "routine_automation"],
+      "source_of_truth": ["creative brief", "brand memory", "asset library", "job state", "approval state"],
+      "first_loop": "capture brief -> extract asset requirements -> generate option -> review output -> approve export"
+    },
+    {
+      "id": "data_analyst_agent",
+      "name": "Data Analyst Agent",
+      "keywords": ["analytics", "metrics", "dashboard", "sql", "database", "reporting", "kpi", "cohort", "revenue"],
+      "recommended_substrates": ["structured_retrieval", "llm_extraction", "model_only_reasoning", "routine_automation"],
+      "source_of_truth": ["database", "warehouse", "metric definitions", "reporting tables"],
+      "first_loop": "select metric -> query structured data -> explain result -> flag anomaly -> save report"
+    }
+  ]
+}

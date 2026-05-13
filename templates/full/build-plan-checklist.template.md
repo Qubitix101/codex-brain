@@ -36,6 +36,9 @@
 - [ ] Intelligence system plan referenced if AI/automation is relevant
 - [ ] First closed intelligence loop defined
 - [ ] Memory, routine, approval, eval, and learning model defined
+- [ ] Intelligence architecture decision referenced if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant
+- [ ] RAG vs structured retrieval vs extraction vs ADK/workflow decision defined
+- [ ] Source-of-truth, eval, and trace requirements defined for each AI loop
 - [ ] Agent engineering audit referenced if L3+/agentic/retrieval/tool-use is relevant
 - [ ] Skill inventory referenced if procedural skills are relevant
 - [ ] Seven-discipline readiness, model routing, skill trust levels, and skill evals defined

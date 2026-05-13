@@ -20,16 +20,17 @@ Capability and Access Readiness prevents that by asking, before planning:
 
 ## Gate 2.5
 
-Capability and Access Readiness sits after Agentic Opportunity and Agent Engineering, and before Build Plan.
+Capability and Access Readiness sits after Agentic Opportunity, Intelligence Architecture, and Agent Engineering, and before Build Plan.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped products, finish these first so the access map is grounded in the intended intelligence loop and procedural skill plan:
 
 - `docs/agentic-opportunity-audit.md`
 - `docs/intelligence-system-plan.md`
+- `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 
@@ -51,6 +52,7 @@ Use:
 
 Also read:
 
+- `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 
@@ -58,6 +60,7 @@ Optional helpers:
 
 ```bash
 npm run plan-capabilities -- --brief "[what we are building]" --mode standard
+npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode standard
 npm run plan-agent-skills -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "create a GitHub issue from a validated bug report"
 ```

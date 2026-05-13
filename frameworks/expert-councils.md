@@ -107,6 +107,28 @@ Output:
 - unresolved P0/P1 risks
 - monitoring and rollback gaps
 
+### Intelligence Architecture Council
+
+Use before Agent Engineering for AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy products.
+
+Roles:
+
+- intelligence architecture reviewer
+- AI orchestration reviewer
+- architecture strategist
+- data/retrieval reviewer
+- security/GDPR reviewer
+- product strategist
+
+Output:
+
+- RAG vs structured retrieval vs extraction findings
+- source-of-truth gaps
+- memory/knowledge graph risks
+- workflow/action/routine boundary gaps
+- missing eval/trace requirements
+- first-slice architecture recommendation
+
 ### Agent Engineering Council
 
 Use before capability/access and Build Plan approval for L3+ agentic, retrieval-heavy, multi-model, tool-using, or skill-driven products.
@@ -147,6 +169,7 @@ Required in Full mode for:
 - major architecture/database decision
 - security/privacy plan
 - Design DNA approval
+- intelligence architecture selection for AI-core products
 - agent-engineering readiness for L3+ AI products
 - launch readiness
 

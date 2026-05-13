@@ -9,19 +9,20 @@ One task. One focused change. One verification pass. One state update.
 1. Read current state.
 2. Read current PRD.
 3. Select next unblocked task.
-4. If agentic behavior is involved, read the relevant skill inventory entry and trust level.
-5. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
-6. Confirm allowed files and forbidden files.
-7. Check Git branch and working tree.
-8. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
-9. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
-10. Implement only that task.
-11. Run relevant checks.
-12. Review the diff.
-13. Run local Codex review with `/review` when available before PR handoff.
-14. Update task state.
-15. Capture lessons.
-16. Stop.
+4. If AI behavior is involved, read the intelligence architecture decision for the loop being touched.
+5. If agentic behavior is involved, read the relevant skill inventory entry and trust level.
+6. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
+7. Confirm allowed files and forbidden files.
+8. Check Git branch and working tree.
+9. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
+10. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
+11. Implement only that task.
+12. Run relevant checks.
+13. Review the diff.
+14. Run local Codex review with `/review` when available before PR handoff.
+15. Update task state.
+16. Capture lessons.
+17. Stop.
 
 ## Task Requirements
 
@@ -34,6 +35,7 @@ A task must have:
 - dependencies
 - verification commands
 - allowed files or modules when possible
+- selected intelligence architecture substrate when AI behavior is touched
 - required skills, trust levels, approval gates, and eval traces when agentic behavior is touched
 
 ## Completion Requirements
@@ -45,6 +47,7 @@ A task is complete only when:
 - no unrelated files changed
 - Git branch/worktree choice was appropriate for the risk
 - execution surface was appropriate for the task and permission boundary
+- RAG, structured retrieval, extraction, memory, workflow, action, and routine choices followed the intelligence architecture decision
 - skill trust level and approval boundary were respected
 - local review was run or intentionally skipped with reason
 - state is updated

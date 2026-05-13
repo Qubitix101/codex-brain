@@ -240,11 +240,12 @@ Codex Brain should be the Codex-native high-rigor product brain:
 - TracerKit-level vertical slices
 - Memory Bank-level continuity
 - Spec Kit-level spec-first discipline
+- intelligence-architecture selection across model-only, ADK/workflow, RAG, structured retrieval, extraction, memory, action, and routines
 - agent-runtime-level orchestration awareness without locking into one runtime
 - Agent Skills-style procedural memory with stricter trust gates
 - CLI-Anything-style generated harness awareness with stricter surface-routing and trust review
 - Full-mode product, scale, design, security, GDPR, testing, and launch discipline
-- agentic-opportunity, agent-engineering, skill-factory, and capability-access gates before Build Plan
+- agentic-opportunity, intelligence-architecture, agent-engineering, skill-factory, and capability-access gates before Build Plan
 - JSON-backed state and audit scripts
 - structured learning promotion
 

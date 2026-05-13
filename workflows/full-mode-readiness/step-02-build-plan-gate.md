@@ -5,6 +5,7 @@ Verify:
 - Build Plan exists
 - ADRs exist for major decisions
 - `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` exist when AI, automation, memory, routines, or operating-system ambition are involved
+- `docs/intelligence-architecture-decision.md` exists when RAG, structured retrieval, extraction, memory, workflows, actions, or routines are involved
 - `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist when agents, retrieval, tool use, model routing, or procedural skills are involved
 - `docs/capability-access-map.md` exists when external systems or integrations are involved
 - critical capabilities have production runtime surfaces, agent surfaces, credentials, mocks, and live verification paths

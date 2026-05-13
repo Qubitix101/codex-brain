@@ -2,6 +2,7 @@
 
 ## Read
 
+- `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
 - `frameworks/skill-factory.md`
@@ -11,6 +12,7 @@
 Approve the Agent Engineering gate only when:
 
 - all seven disciplines are scored
+- RAG, structured retrieval, extraction, memory, workflow, action, and routine requirements from the intelligence architecture decision are reflected
 - P0 blockers are resolved or explicitly accepted as deferred with a safe first slice
 - required first-slice skills are named
 - trust levels are assigned
