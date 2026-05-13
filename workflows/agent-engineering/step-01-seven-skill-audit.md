@@ -40,7 +40,7 @@ Use:
 
 ## Blockers
 
-Stop before Capability and Access if:
+Stop before Agent OS Runtime and Capability and Access if:
 
 - the system has tools but no tool-contract policy
 - the system has RAG but no retrieval design

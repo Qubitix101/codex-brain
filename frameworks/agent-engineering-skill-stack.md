@@ -2,7 +2,7 @@
 
 Codex Brain must treat production agents as engineered systems, not prompt collections.
 
-This framework converts agentic ambition into an enterprise readiness audit. It sits after the Agentic Opportunity Audit, Intelligence System Plan, and Intelligence Architecture Decision, and before Capability and Access Readiness.
+This framework converts agentic ambition into an enterprise readiness audit. It sits after the Agentic Opportunity Audit, Intelligence System Plan, and Intelligence Architecture Decision, and before the Agent OS Runtime Plan and Capability and Access Readiness.
 
 ## Purpose
 
@@ -22,10 +22,10 @@ The Agent Engineering Skill Stack makes those requirements explicit before Build
 
 ## Gate 2.35
 
-Agent Engineering sits after Intelligence Architecture and before Capability and Access.
+Agent Engineering sits after Intelligence Architecture and before Agent OS Runtime and Capability and Access.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifacts for AI-core, agentic, automation-heavy, tool-using, retrieval-heavy, multi-model, or skill-driven products:
@@ -237,6 +237,7 @@ The audit must produce:
 - skill trust levels
 - skills that must be generated now
 - skills that are deferred
+- runtime requirements for the Agent OS Runtime Plan
 
 ## Model Routing Principle
 

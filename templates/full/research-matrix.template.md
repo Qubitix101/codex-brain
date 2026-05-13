@@ -29,7 +29,8 @@ Use this as the tracking file for Full-mode research.
 | 23 | Agentic Opportunity and Intelligence System | Not started | | | | |
 | 24 | Intelligence Architecture Selection | Not started | | | | |
 | 25 | Agent Engineering and Skill Factory | Not started | | | | |
-| 26 | Capability and Access Readiness | Not started | | | | |
+| 26 | Agent OS Runtime | Not started | | | | |
+| 27 | Capability and Access Readiness | Not started | | | | |
 
 ## Gate
 
@@ -44,4 +45,5 @@ Use this as the tracking file for Full-mode research.
 - [ ] Agentic opportunity and intelligence-system requirements generated
 - [ ] Intelligence-architecture requirements generated
 - [ ] Agent-engineering and skill-factory requirements generated
+- [ ] Agent OS runtime requirements generated
 - [ ] Capability/access map requirements generated

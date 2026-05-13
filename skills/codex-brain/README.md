@@ -33,6 +33,7 @@ npm run install-global-skills -- --dry-run
 - `agentic-opportunity-auditor`
 - `intelligence-architecture-selector`
 - `agent-engineering-reviewer`
+- `agent-os-runtime-architect`
 - `capability-access-mapper`
 - `tool-surface-router`
 - `skill-factory`

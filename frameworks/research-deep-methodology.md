@@ -431,7 +431,7 @@ Full-mode additions:
 
 Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Intelligence Architecture, Agent Engineering, and Capability and Access:
+Answer before Intelligence Architecture, Agent Engineering, Agent OS Runtime, and Capability and Access:
 
 - Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
 - What agentic maturity level should be built now?
@@ -456,7 +456,7 @@ Required:
 
 Required when AI answers, retrieval, extraction, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Agent Engineering and Capability and Access:
+Answer before Agent Engineering, Agent OS Runtime, and Capability and Access:
 
 - For each core loop, is the system answering, deciding, transforming, extracting, remembering, coordinating, acting, or recurring?
 - What is the source of truth for each loop?
@@ -480,7 +480,7 @@ Required:
 
 Required when AI agents, retrieval, tool use, multi-model orchestration, procedural skills, or externally visible actions are relevant.
 
-Answer before Capability and Access:
+Answer before Agent OS Runtime and Capability and Access:
 
 - What are the production-agent system boundaries, data flows, model routes, state owners, and failure boundaries?
 - What tool contracts, schemas, examples, output contracts, and approval policies are needed?
@@ -499,6 +499,31 @@ Required:
 - model/provider routing policy
 - skill trust levels and T2-T4 review requirements
 - skill eval and approval requirements
+
+## Agent OS Runtime Plan
+
+Required when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, externally acting, or operating-system-shaped.
+
+Answer before Capability and Access:
+
+- What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?
+- What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?
+- What tool manager and sandbox boundaries are required?
+- What identity and delegation model attributes every action?
+- What observability and trace schema can reconstruct behavior?
+- What guardrails and governance enforcement blocks unsafe work?
+- What recovery, idempotency, duplicate prevention, rollback, and resumability model is required?
+- What budget, quota, rate-limit, and spend thresholds apply?
+- What agent registry and role model controls multi-agent authority?
+- What human control surface lets users approve, inspect, pause, revoke, or escalate?
+
+Required:
+
+- `docs/agent-os-runtime-plan.md`
+- runtime kernel component map
+- P0 runtime blockers
+- first runtime slice
+- deferred runtime layers
 
 ## Category 12 - Integrations and Vendors
 

@@ -263,9 +263,26 @@ Define:
 - skill trust levels and T2-T4 review requirements
 - skill evals and failure handling
 
+### Agent OS Runtime Plan
+
+Reference `docs/agent-os-runtime-plan.md` after `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant.
+
+Define:
+
+- scheduler/orchestrator policy
+- memory manager policy
+- tool manager and sandbox boundary
+- identity and delegation model
+- observability and trace schema
+- guardrails and governance policy
+- recovery and resumability plan
+- budget and quota plan
+- agent registry and role model
+- human control surface
+
 ### Capability and Access Readiness
 
-Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, and skill inventory are known, then define:
+Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, skill inventory, and Agent OS runtime plan are known, then define:
 
 - production runtime surface for each external capability
 - Codex/agent implementation surface for each capability

@@ -397,7 +397,7 @@
     {
       "id": "agent-engineering-skill-factory",
       "name": "Agent Engineering and Skill Factory",
-      "purpose": "Ensure agentic products have production-grade system design, tool contracts, retrieval, reliability, security, evals, observability, product trust, and procedural skills before access planning and Build Plan approval.",
+      "purpose": "Ensure agentic products have production-grade system design, tool contracts, retrieval, reliability, security, evals, observability, product trust, and procedural skills before Agent OS runtime, access planning, and Build Plan approval.",
       "required_questions": [
         "What are the system boundaries, data flows, model routes, state owners, and failure boundaries?",
         "What strict tool contracts, schemas, examples, output contracts, and approval policies are required?",
@@ -423,6 +423,36 @@
         "Multi-provider or multi-model system without routing policy and fallback."
       ],
       "review_roles": ["ai-orchestration-reviewer", "architecture-strategist", "security-gdpr-reviewer", "performance-reliability-reviewer", "product-strategist"]
+    },
+    {
+      "id": "agent-os-runtime",
+      "name": "Agent OS Runtime",
+      "purpose": "Ensure L3+ agentic products define the runtime kernel that schedules, remembers, sandboxes, attributes, observes, governs, recovers, budgets, and coordinates agents before access planning and Build Plan approval.",
+      "required_questions": [
+        "What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?",
+        "What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?",
+        "What tool manager and sandbox boundaries are required?",
+        "What identity and delegation model attributes every action?",
+        "What observability and trace schema can reconstruct behavior?",
+        "What guardrails and governance enforcement blocks unsafe work?",
+        "What recovery, idempotency, duplicate prevention, rollback, and resumability model is required?",
+        "What budget, quota, rate-limit, and spend thresholds apply?",
+        "What agent registry and role model controls multi-agent authority?",
+        "What human control surface lets users approve, inspect, pause, revoke, or escalate?"
+      ],
+      "required_artifacts": [
+        "docs/agent-os-runtime-plan.md",
+        "frameworks/agent-os-runtime.md",
+        "catalogs/agent-os-runtime-catalog.json"
+      ],
+      "p0_blockers": [
+        "L3+ agentic product without runtime owner and kernel component map.",
+        "Memory-writing product without memory manager and review/delete/export policy.",
+        "Tool-using product without sandbox and action classification.",
+        "External action without identity attribution, approval, audit, and recovery.",
+        "Autonomous routine without budget, idempotency, trace, and failure recovery."
+      ],
+      "review_roles": ["agent-os-runtime-reviewer", "architecture-strategist", "security-gdpr-reviewer", "performance-reliability-reviewer", "product-strategist"]
     },
     {
       "id": "reliability-observability",
@@ -656,6 +686,7 @@
     "templates/shared/intelligence-system-plan.template.md",
     "templates/shared/intelligence-architecture-decision.template.md",
     "templates/shared/agent-engineering-audit.template.md",
+    "templates/shared/agent-os-runtime-plan.template.md",
     "templates/shared/skill-inventory.template.md",
     "templates/shared/skill-spec.template.md",
     "templates/shared/capability-access-map.template.md",
@@ -664,12 +695,14 @@
     "frameworks/intelligence-architecture-selection.md",
     "frameworks/agent-engineering-skill-stack.md",
     "frameworks/skill-factory.md",
+    "frameworks/agent-os-runtime.md",
     "frameworks/capability-access-readiness.md",
     "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
     "catalogs/agentic-system-patterns.json",
     "catalogs/intelligence-architecture-catalog.json",
     "catalogs/agent-engineering-catalog.json",
+    "catalogs/agent-os-runtime-catalog.json",
     "catalogs/capability-access-catalog.json",
     "catalogs/tool-surface-routing-matrix.json",
     "schemas/project-state.schema.json",

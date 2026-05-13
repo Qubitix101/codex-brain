@@ -42,6 +42,8 @@
 - [ ] Agent engineering audit referenced if L3+/agentic/retrieval/tool-use is relevant
 - [ ] Skill inventory referenced if procedural skills are relevant
 - [ ] Seven-discipline readiness, model routing, skill trust levels, and skill evals defined
+- [ ] Agent OS runtime plan referenced if L3+/multi-agent/memory-writing/routine/tool/action behavior is relevant
+- [ ] Scheduler, memory manager, tool sandbox, identity, traces, governance, recovery, budgets, agent registry, and human control defined where relevant
 - [ ] Capability/access map referenced
 - [ ] Product runtime surfaces selected
 - [ ] Agent implementation surfaces selected

@@ -22,6 +22,7 @@
     "plan-agentic-system": "node scripts/plan-agentic-system.mjs",
     "plan-intelligence-architecture": "node scripts/plan-intelligence-architecture.mjs",
     "plan-agent-skills": "node scripts/plan-agent-skills.mjs",
+    "plan-agent-os-runtime": "node scripts/plan-agent-os-runtime.mjs",
     "install-global-skills": "node scripts/install-global-skills.mjs"
   },
   "engines": {

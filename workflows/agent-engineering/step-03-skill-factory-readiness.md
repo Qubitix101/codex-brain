@@ -30,7 +30,7 @@ Update:
 
 ## Approval
 
-User approval is required before moving to Capability and Access when:
+User approval is required before moving to Agent OS Runtime when:
 
 - the product is L3 or higher
 - any skill is T3 or T4
@@ -44,7 +44,7 @@ If approved:
 - `gates.agent_engineering.status`: `complete`
 - `gates.agent_engineering.approved`: `true`
 - `gates.agent_engineering.missing`: `[]`
-- `phase`: `capability-access`
+- `phase`: `agent-os-runtime`
 
 If blocked:
 
@@ -54,4 +54,4 @@ If blocked:
 
 ## Next
 
-After approval, run Capability and Access Readiness with `docs/skill-inventory.md` as a required input so tool/API/CLI/MCP choices are grounded in actual procedures.
+After approval, run Agent OS Runtime with `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` as required inputs so runtime kernel choices are grounded in actual procedures. Capability and Access follows after the runtime boundary is explicit.

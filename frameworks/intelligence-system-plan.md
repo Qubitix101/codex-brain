@@ -2,7 +2,7 @@
 
 An Intelligence System Plan describes the high-level operating architecture for products that should become more than a normal app.
 
-It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, and the Capability and Access Map.
+It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, the Agent OS Runtime Plan, and the Capability and Access Map.
 
 ## Purpose
 
@@ -19,6 +19,7 @@ The plan turns an idea into a clear intelligence architecture:
 - what procedural skills it will need
 - what intelligence substrates it needs: model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, and routines
 - what production-agent disciplines must be satisfied
+- what runtime kernel must supervise the agents
 
 ## Required Artifact
 
@@ -31,6 +32,7 @@ Use:
 - `catalogs/intelligence-architecture-catalog.json`
 - `frameworks/agent-engineering-skill-stack.md`
 - `frameworks/skill-factory.md`
+- `frameworks/agent-os-runtime.md`
 - `catalogs/agent-engineering-catalog.json`
 
 ## System Anatomy
@@ -130,7 +132,24 @@ The detailed access selection belongs in the Capability and Access Map.
 
 The production readiness of those tools belongs in `docs/agent-engineering-audit.md`.
 
-### 7. Routine Layer
+### 7. Agent OS Runtime Layer
+
+How the system is supervised:
+
+- scheduler/orchestrator
+- memory manager
+- tool manager and sandbox
+- identity and delegation
+- observability and traces
+- guardrails and governance
+- recovery and resumability
+- budget and quota controls
+- agent registry
+- human control surface
+
+The detailed runtime kernel belongs in `docs/agent-os-runtime-plan.md`.
+
+### 8. Routine Layer
 
 What happens repeatedly:
 
@@ -146,7 +165,7 @@ What happens repeatedly:
 
 Routines should define trigger, schedule, owner, inputs, output, approval, and failure behavior.
 
-### 8. Approval and Control Layer
+### 9. Approval and Control Layer
 
 Where humans remain in control:
 
@@ -158,7 +177,7 @@ Where humans remain in control:
 - approve publish/send/delete
 - rollback or revoke
 
-### 9. Evaluation Layer
+### 10. Evaluation Layer
 
 How quality is proven:
 
@@ -171,7 +190,7 @@ How quality is proven:
 - regression tests
 - outcome metrics
 
-### 10. Learning Layer
+### 11. Learning Layer
 
 How the system improves:
 
@@ -196,6 +215,7 @@ Every plan should include:
 - tool/harness needs
 - intelligence architecture substrate needs
 - agent-engineering readiness requirements
+- agent OS runtime requirements
 - procedural skill inventory
 - routine map
 - approval map

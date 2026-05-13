@@ -103,7 +103,7 @@ const result = {
   source_of_truth: sourceOfTruth,
   first_loop: firstLoop,
   decision_dimensions: catalog.decision_dimensions,
-  next_step: "Create docs/intelligence-architecture-decision.md, then run the agent-engineering/skill-factory audit before capability/access mapping."
+  next_step: "Create docs/intelligence-architecture-decision.md, then run the agent-engineering/skill-factory audit and Agent OS Runtime Plan before capability/access mapping."
 };
 
 if (!markdown) {
@@ -163,6 +163,6 @@ for (const dimension of result.decision_dimensions) {
 
 lines.push("## Next Step");
 lines.push("");
-lines.push("Fill `docs/intelligence-architecture-decision.md`. Do not run Agent Engineering, Skill Factory, or Capability Access until each core product loop has an explicit choice between model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, durable memory, external action, and routine automation.");
+lines.push("Fill `docs/intelligence-architecture-decision.md`. Do not run Agent Engineering, Skill Factory, Agent OS Runtime, or Capability Access until each core product loop has an explicit choice between model-only reasoning, ADK/workflow, semantic RAG, structured retrieval, extraction, durable memory, external action, and routine automation.");
 
 console.log(lines.join("\n"));

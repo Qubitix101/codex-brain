@@ -43,6 +43,7 @@ At the start of a Codex Brain session:
    - agentic opportunity/intelligence-system status when AI or automation is involved
    - intelligence-architecture status when RAG, structured retrieval, extraction, memory, workflow, action, or routines are involved
    - agent-engineering/skill-inventory status when agents, retrieval, multi-model routing, or procedural skills are involved
+   - Agent OS runtime status when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is involved
    - capability/access map status when integrations or external tools are involved
    - next allowed action
    - blocked actions
@@ -88,6 +89,7 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No AI-core or automation-heavy Build Plan before agentic opportunity and intelligence-system shape are audited.
 - No AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy Build Plan before intelligence architecture is selected.
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
+- No L3+ agentic, multi-agent, routine-heavy, tool-using, memory-writing, or externally acting Build Plan before the Agent OS runtime kernel is defined.
 - No serious integration-heavy Build Plan before required APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without tenant isolation and authorization model.
 - No paid product without billing and entitlement edge cases.
@@ -142,6 +144,7 @@ npm run verify-plan -- docs/prd/[file].md
 npm run plan-agentic-system -- --brief "[what we are building]" --mode full
 npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode full
 npm run plan-agent-skills -- --brief "[what we are building]" --mode full
+npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode full
 npm run plan-capabilities -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "[specific tool task]"
 npm run save-context -- --dir . --summary "what happened" --next "next allowed action"

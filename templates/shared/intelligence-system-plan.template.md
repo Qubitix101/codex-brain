@@ -88,7 +88,24 @@ The production-agent audit belongs in `docs/agent-engineering-audit.md`.
 | Product trust UX | | |
 | Model routing | | |
 
-## 10. Tool and Harness Layer
+## 10. Agent OS Runtime Requirements
+
+The detailed runtime kernel belongs in `docs/agent-os-runtime-plan.md`.
+
+| Kernel Component | Required? | First-Slice Scope | Notes |
+| --- | --- | --- | --- |
+| Scheduler/orchestrator | | | |
+| Memory manager | | | |
+| Tool manager/sandbox | | | |
+| Identity/delegation | | | |
+| Observability/trace | | | |
+| Guardrails/governance | | | |
+| Recovery/resumability | | | |
+| Budget/quota manager | | | |
+| Agent registry | | | |
+| Human control surface | | | |
+
+## 11. Tool and Harness Layer
 
 Final access choices are resolved in `docs/capability-access-map.md`.
 
@@ -101,13 +118,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Browser automation | | | |
 | Computer Use | | | |
 
-## 11. Routine Layer
+## 12. Routine Layer
 
 | Routine | Trigger | Schedule | Inputs | Output | Approval | Recovery |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
-## 12. Approval and Control Layer
+## 13. Approval and Control Layer
 
 | Action | Default | Approval Required | Rollback / Revoke |
 | --- | --- | --- | --- |
@@ -117,13 +134,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Spend money/use quota | Blocked until approved | | |
 | Delete/change durable external state | Blocked until approved | | |
 
-## 13. Evaluation Layer
+## 14. Evaluation Layer
 
 | Eval | Purpose | Dataset / Examples | Frequency | Blocks Release? |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 14. Learning Layer
+## 15. Learning Layer
 
 - User corrections:
 - Accepted/rejected proposals:
@@ -132,7 +149,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 - Skill/routine updates:
 - Promotion into Codex Brain lessons:
 
-## 15. Risk Boundaries
+## 16. Risk Boundaries
 
 | Risk | Boundary | Mitigation |
 | --- | --- | --- |
@@ -143,7 +160,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Cost runaway | | |
 | Automation drift | | |
 
-## 16. Build Sequence
+## 17. Build Sequence
 
 | Slice | Goal | Intelligence Loop | Required Access | Verification |
 | --- | --- | --- | --- | --- |
@@ -151,7 +168,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | 2 | | | | |
 | 3 | | | | |
 
-## 17. Deferred OS Layers
+## 18. Deferred OS Layers
 
 | Layer | Why Deferred | Revisit Trigger |
 | --- | --- | --- |

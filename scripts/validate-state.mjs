@@ -22,6 +22,7 @@ if (!state.phase) errors.push("state.phase is required.");
 if (!state.gates?.agentic_opportunity) warnings.push("state.gates.agentic_opportunity is missing; bootstrap from the latest Codex Brain template when agentic planning matters.");
 if (!state.gates?.intelligence_architecture) warnings.push("state.gates.intelligence_architecture is missing; bootstrap from the latest Codex Brain template when AI architecture selection matters.");
 if (!state.gates?.agent_engineering) warnings.push("state.gates.agent_engineering is missing; bootstrap from the latest Codex Brain template when agent engineering or skills matter.");
+if (!state.gates?.agent_os_runtime) warnings.push("state.gates.agent_os_runtime is missing; bootstrap from the latest Codex Brain template when Agent OS runtime planning matters.");
 if (!state.gates?.capability_access) warnings.push("state.gates.capability_access is missing; bootstrap from the latest Codex Brain template when capability planning matters.");
 
 for (const [gateName, gate] of Object.entries(state.gates || {})) {
@@ -55,6 +56,7 @@ if (state.mode === "full") {
     "docs/intelligence-architecture-decision.md",
     "docs/agent-engineering-audit.md",
     "docs/skill-inventory.md",
+    "docs/agent-os-runtime-plan.md",
     "docs/capability-access-map.md",
     "docs/build-plan.md",
     "design/design-dna.md"

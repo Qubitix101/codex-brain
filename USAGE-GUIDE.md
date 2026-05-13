@@ -5,7 +5,7 @@ This guide explains how to use Codex Brain from first idea to shipped product an
 The short version:
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 The important version:
@@ -110,14 +110,15 @@ Required:
 2. Focused research
 3. Agentic Opportunity and Intelligence Architecture gates if AI/agentic value is relevant
 4. Agent Engineering gate if production-agent, retrieval, model routing, or procedural skills are relevant
-5. Capability and Access Map if external systems are relevant
-6. Build Plan
-7. Design DNA if UI exists
-8. PRDs
-9. Execution loop
-10. Security/privacy/accessibility review where relevant
-11. Ship checklist
-12. Lessons
+5. Agent OS Runtime gate if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
+6. Capability and Access Map if external systems are relevant
+7. Build Plan
+8. Design DNA if UI exists
+9. PRDs
+10. Execution loop
+11. Security/privacy/accessibility review where relevant
+12. Ship checklist
+13. Lessons
 
 ## 5. Full Mode Flow
 
@@ -143,17 +144,18 @@ Recommended sequence:
 5. Agentic Opportunity Audit and Intelligence System Plan if AI/automation/workflow OS value is relevant
 6. Intelligence Architecture Decision if RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant
 7. Agent Engineering Audit and Skill Inventory if agents, retrieval, model routing, or procedural skills are relevant
-8. Capability and Access Map
-9. Design references and Design DNA
-10. Master Build Plan
-11. ADRs for major choices
-12. Test strategy and traceability matrix
-13. Promise-to-spec audit
-14. Phase PRDs with vertical slices
-15. Execution loop
-16. Specialist reviews
-17. Ship gate
-18. Postmortem and lessons
+8. Agent OS Runtime Plan if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
+9. Capability and Access Map
+10. Design references and Design DNA
+11. Master Build Plan
+12. ADRs for major choices
+13. Test strategy and traceability matrix
+14. Promise-to-spec audit
+15. Phase PRDs with vertical slices
+16. Execution loop
+17. Specialist reviews
+18. Ship gate
+19. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -202,7 +204,7 @@ Decide:
 - overbuild/underbuild risk
 - deferred agentic layers
 
-Intelligence Architecture, Agent Engineering, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
+Intelligence Architecture, Agent Engineering, Agent OS Runtime, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
 
 ## 8. Intelligence Architecture Selection Procedure
 
@@ -262,9 +264,40 @@ Decide:
 - which skills are instructions-only vs scripted vs externally acting
 - approval, logging, rollback, and eval requirements for T2-T4 skills
 
-Capability/access planning is blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
+Agent OS Runtime and capability/access planning are blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
 
-## 10. Capability and Access Procedure
+## 10. Agent OS Runtime Procedure
+
+Before capability/access planning, define the runtime kernel when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting.
+
+Start with:
+
+```bash
+npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode full --markdown
+```
+
+Then copy or fill:
+
+```text
+templates/shared/agent-os-runtime-plan.template.md -> docs/agent-os-runtime-plan.md
+```
+
+Decide:
+
+- scheduler/orchestrator priorities, queues, concurrency, cancellation, and escalation
+- memory manager read/write/review/delete/export policy
+- tool manager and sandbox boundary
+- identity and delegation model
+- observability and trace schema
+- guardrails and governance enforcement
+- recovery, idempotency, duplicate prevention, rollback, and resumability
+- budget, quota, rate-limit, and spend thresholds
+- agent registry and role model
+- human control surface for approvals, memory review, traces, pause/stop, rollback, and escalation
+
+Capability/access planning is blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
+
+## 11. Capability and Access Procedure
 
 Before Build Plan approval, create the capability/access map when the product touches external systems, authenticated apps, APIs, SDKs, CLIs, MCP servers, media generation providers, deployment platforms, browser automation, desktop apps, or paid vendors.
 
@@ -298,7 +331,7 @@ npm run route-tool -- --task "create a GitHub PR and inspect failing CI"
 
 Build Plan approval is blocked while a critical required-now capability has no access path.
 
-## 11. Build Plan Procedure
+## 12. Build Plan Procedure
 
 For Full mode:
 
@@ -309,10 +342,11 @@ For Full mode:
 5. Reference `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant.
 6. Reference `docs/intelligence-architecture-decision.md` when RAG, structured retrieval, extraction, memory, workflow, action, or routines are relevant.
 7. Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, or procedural skills are relevant.
-8. Reference `docs/capability-access-map.md`.
-9. Do not create PRDs until P0/P1 plan gaps are resolved.
+8. Reference `docs/agent-os-runtime-plan.md` when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant.
+9. Reference `docs/capability-access-map.md`.
+10. Do not create PRDs until P0/P1 plan gaps are resolved.
 
-## 12. Design DNA Procedure
+## 13. Design DNA Procedure
 
 For any user-facing UI:
 
@@ -324,7 +358,7 @@ For any user-facing UI:
 
 Frontend work is blocked before Design DNA approval.
 
-## 13. PRD Procedure
+## 14. PRD Procedure
 
 Each PRD must include:
 
@@ -351,7 +385,7 @@ Validate plans with:
 npm run verify-plan -- docs/prd/[file].md
 ```
 
-## 14. Execution Procedure
+## 15. Execution Procedure
 
 Codex executes one task at a time:
 
@@ -371,7 +405,7 @@ Codex executes one task at a time:
 
 Parallel execution requires explicit task assignment or task claiming.
 
-## 15. Review Procedure
+## 16. Review Procedure
 
 Use specialist roles:
 
@@ -387,7 +421,7 @@ Use specialist roles:
 
 Full mode cannot ship with unresolved critical/high findings.
 
-## 16. Ship Procedure
+## 17. Ship Procedure
 
 Ship only when:
 
@@ -400,7 +434,7 @@ Ship only when:
 - user approves launch
 - lesson capture is ready
 
-## 17. Learning Procedure
+## 18. Learning Procedure
 
 At project end:
 
@@ -409,7 +443,7 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
-## 17.5 Context Procedure
+## 18.5 Context Procedure
 
 At session start, phase changes, and major decisions:
 
@@ -426,7 +460,7 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
-## 17.6 Session Close Procedure
+## 18.6 Session Close Procedure
 
 At the end of every meaningful session, save context.
 
@@ -452,7 +486,7 @@ This creates `.codex-brain/sessions/session-[timestamp].json`, updates active co
 
 Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
 
-## 18. Downgrade Protocol
+## 19. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
 
@@ -465,7 +499,7 @@ Codex must state:
 
 For high-risk projects, Codex should strongly recommend against downgrading.
 
-## 19. Glory Rule
+## 20. Glory Rule
 
 If the user says the goal is world-class, unicorn-level, top-ten, enterprise-grade, or no-corners-cut:
 

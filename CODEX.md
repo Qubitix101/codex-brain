@@ -11,10 +11,11 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, and capability/access planning.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, Agent OS runtime, and capability/access planning.
 7. For AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy projects, select the intelligence architecture before Agent Engineering.
 8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before capability/access planning.
-9. For integration-heavy projects, map capability and access needs before Build Plan approval.
+9. For L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting projects, define the Agent OS runtime before capability/access planning.
+10. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -51,6 +52,7 @@ If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
 If the user asks whether an idea should become agentic, an operating system, or a high-level intelligence system, read `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
 If the user asks whether to use ADK, RAG, structured retrieval, extraction, durable memory, workflow agents, or hybrid AI architecture, read `frameworks/intelligence-architecture-selection.md`.
 If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
+If the user asks how agents are scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated, read `frameworks/agent-os-runtime.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
@@ -95,6 +97,7 @@ The lifecycle is:
 2.25. Agentic Opportunity
 2.3. Intelligence Architecture Selection
 2.35. Agent Engineering and Skill Factory
+2.4. Agent OS Runtime
 2.5. Capability and Access
 3. Plan
 3.5. Design DNA
@@ -252,6 +255,32 @@ Forbidden:
 - approving Build Plan with missing agent reliability, security, observability, or product trust boundaries
 - installing unreviewed public skills because they are popular
 
+### Gate 2.4 - Agent OS Runtime
+
+Required when the product is L3 or higher, multi-agent, memory-writing, routine-heavy, tool-using, externally acting, or intended to behave like a managed agent operating system.
+
+Requires:
+
+- `docs/agent-os-runtime-plan.md`
+- scheduler/orchestrator policy for priority, queues, background work, concurrency, cancellation, and escalation
+- memory manager policy for short-term, long-term, episodic, semantic, procedural, private, reviewable, deleteable, and tenant-bound memory
+- tool manager and sandbox policy for read/write/destructive/public/paid tools, dry runs, fixtures, file/network boundaries, and tool-output trust
+- identity and delegation model for user, tenant, service account, scopes, token expiry, impersonation, and audit attribution
+- observability and trace schema for prompts, context, retrieval, tool calls, model routes, approvals, memory changes, external actions, cost, latency, and failures
+- guardrails and governance policy for input/output controls, prompt injection, human-in-the-loop thresholds, exceptions, and abuse cases
+- recovery and resumability policy for job state, retries, idempotency, duplicate prevention, rollback, compensating actions, and resume points
+- budget and quota limits for model usage, provider APIs, routines, paid vendors, media generation, and per-user or per-tenant usage
+- agent registry with roles, owners, allowed tools, allowed memory, allowed actions, escalation paths, and review cadence
+- human control surface for approval queues, pending actions, memory review, trace inspection, pause/stop, rollback/revoke, and escalation
+
+Forbidden:
+
+- choosing capability/access surfaces before runtime boundaries are known
+- approving Build Plan with hidden memory writes
+- approving Build Plan with unsandboxed tools or unattributed external actions
+- allowing autonomous routines without budget, trace, idempotency, and recovery policy
+- calling a workflow graph an operating system without memory, identity, governance, and recovery contracts
+
 ### Gate 2.5 - Capability and Access
 
 Required when the product depends on external systems, APIs, SDKs, CLIs, MCP servers, browser automation, desktop apps, paid vendors, media generation, AI tools, authenticated SaaS, deployment platforms, or user-provided credentials.
@@ -262,6 +291,7 @@ Requires:
 - `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant
 - `docs/intelligence-architecture-decision.md` when AI architecture matters
 - `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agent engineering or procedural skills are relevant
+- `docs/agent-os-runtime-plan.md` when L3+ agentic runtime governance is relevant
 - required capability inventory
 - production runtime surface decisions
 - Codex/agent implementation surface decisions

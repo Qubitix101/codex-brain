@@ -80,7 +80,7 @@
       "required_inputs": ["docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", ".codex-brain/research/", "project brief", "first closed intelligence loop"],
       "produces": ["docs/intelligence-architecture-decision.md"],
       "allowed_actions": ["map product loops", "choose intelligence substrates", "decide RAG vs structured retrieval vs extraction", "define source-of-truth policy", "define eval and trace requirements", "defer overbuilt architecture layers"],
-      "blocked_actions": ["run agent-engineering audit before architecture substrate is selected", "choose capability/access surfaces before source-of-truth and retrieval shape are known", "default to RAG or ADK without documenting alternatives"],
+      "blocked_actions": ["run agent-engineering audit before architecture substrate is selected", "choose agent-os runtime or capability/access surfaces before source-of-truth and retrieval shape are known", "default to RAG or ADK without documenting alternatives"],
       "approval_required": true,
       "escalation_triggers": ["AI-core", "RAG", "structured retrieval", "database records", "LLM extraction", "durable memory", "knowledge graph", "multi-step workflow", "external action", "routine automation"],
       "next": ["agent-engineering-audit"]
@@ -90,13 +90,27 @@
       "name": "Agent Engineering Audit and Skill Factory",
       "phase": "agent-engineering",
       "modes": ["light", "standard", "full"],
-      "purpose": "Convert the intelligence-system plan and intelligence architecture decision into production-agent readiness requirements, model-routing policy, and a reviewed procedural skill inventory before capability/access mapping.",
+      "purpose": "Convert the intelligence-system plan and intelligence architecture decision into production-agent readiness requirements, model-routing policy, and a reviewed procedural skill inventory before Agent OS runtime and capability/access mapping.",
       "required_inputs": ["docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", ".codex-brain/research/", "project brief", "first closed intelligence loop"],
       "produces": ["docs/agent-engineering-audit.md", "docs/skill-inventory.md"],
       "allowed_actions": ["score the seven agent engineering disciplines", "define model/provider routing policy", "map tool contracts/retrieval/reliability/security/evals/product trust gaps", "inventory required procedural skills", "assign skill trust levels", "defer unsafe executable skills"],
-      "blocked_actions": ["choose access surfaces before skill/tool contracts are understood", "generate executable skills before trust review", "approve Build Plan with missing agent eval/observability/security boundaries", "install unreviewed public skills"],
+      "blocked_actions": ["choose runtime kernel or access surfaces before skill/tool contracts are understood", "generate executable skills before trust review", "approve Build Plan with missing agent eval/observability/security boundaries", "install unreviewed public skills"],
       "approval_required": true,
       "escalation_triggers": ["L3+ agentic maturity", "multi-model orchestration", "RAG", "external tool action", "public/send/delete/spend action", "T3 or T4 skill", "customer-specific memory", "autonomous routine"],
+      "next": ["agent-os-runtime-plan"]
+    },
+    {
+      "id": "agent-os-runtime-plan",
+      "name": "Agent OS Runtime Plan",
+      "phase": "agent-os-runtime",
+      "modes": ["light", "standard", "full"],
+      "purpose": "Define the runtime kernel that supervises agents: scheduler, memory manager, tool sandbox, identity/delegation, observability, governance, recovery, budgets, agent registry, and human control before access mapping.",
+      "required_inputs": ["docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", "docs/agent-engineering-audit.md", "docs/skill-inventory.md", ".codex-brain/research/", "project brief", "first closed intelligence loop"],
+      "produces": ["docs/agent-os-runtime-plan.md"],
+      "allowed_actions": ["map runtime kernel components", "define scheduler/memory/tool/identity/trace/governance/recovery/budget contracts", "define agent registry", "define human control surface", "defer overbuilt runtime layers"],
+      "blocked_actions": ["choose capability/access surfaces before runtime boundaries are known", "approve Build Plan with hidden memory writes", "approve Build Plan with unsandboxed tools or unattributed external actions", "allow autonomous routines without budget and recovery policy"],
+      "approval_required": true,
+      "escalation_triggers": ["L3+ agentic maturity", "multi-agent", "autonomous routine", "memory writes", "external action", "delegated identity", "tool sandbox", "public/send/delete/spend action", "customer-specific memory"],
       "next": ["capability-access-map"]
     },
     {
@@ -105,7 +119,7 @@
       "phase": "capability-access",
       "modes": ["light", "standard", "full"],
       "purpose": "Identify required external capabilities, choose access surfaces, list credentials/scopes/accounts, define mocks, and block planning until critical access is explicit.",
-      "required_inputs": [".codex-brain/research/", "docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", "docs/agent-engineering-audit.md", "docs/skill-inventory.md", "project brief", "integration assumptions"],
+      "required_inputs": [".codex-brain/research/", "docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", "docs/agent-engineering-audit.md", "docs/skill-inventory.md", "docs/agent-os-runtime-plan.md", "project brief", "integration assumptions"],
       "produces": ["docs/capability-access-map.md"],
       "allowed_actions": ["inventory required capabilities", "compare CLI/API/SDK/MCP/browser/computer-use/generated harness surfaces", "define mock and live verification plan", "ask user for required-now access"],
       "blocked_actions": ["approve Build Plan with unknown critical access path", "create PRDs that assume missing credentials", "use browser/computer-use as production integration without accepted risk"],
@@ -119,9 +133,9 @@
       "phase": "plan",
       "modes": ["standard", "full"],
       "purpose": "Turn evidence into product, intelligence-system, intelligence-architecture, agent-engineering, skill, architecture, database, security, privacy, test, launch, and delivery decisions.",
-      "required_inputs": [".codex-brain/research/", "evidence ledger", "docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", "docs/agent-engineering-audit.md", "docs/skill-inventory.md", "docs/capability-access-map.md"],
+      "required_inputs": [".codex-brain/research/", "evidence ledger", "docs/agentic-opportunity-audit.md", "docs/intelligence-system-plan.md", "docs/intelligence-architecture-decision.md", "docs/agent-engineering-audit.md", "docs/skill-inventory.md", "docs/agent-os-runtime-plan.md", "docs/capability-access-map.md"],
       "produces": ["docs/build-plan.md", "docs/adr/"],
-      "allowed_actions": ["write architecture", "write intelligence-system plan section", "write intelligence-architecture section", "write agent-engineering and skill requirements", "write database ADR", "write auth model", "write capability-aware integration plan", "write test strategy", "write launch plan"],
+      "allowed_actions": ["write architecture", "write intelligence-system plan section", "write intelligence-architecture section", "write agent-engineering and skill requirements", "write Agent OS runtime section", "write database ADR", "write auth model", "write capability-aware integration plan", "write test strategy", "write launch plan"],
       "blocked_actions": ["application implementation", "PRD decomposition before P0/P1 plan gaps are resolved"],
       "approval_required": true,
       "escalation_triggers": ["major decision without ADR", "database without scale model", "AI-core without agentic maturity/eval plan", "paid product without billing edge cases"],
@@ -209,7 +223,7 @@
       "blocked_actions": ["ending meaningful session without context save", "saving vague next action", "mixing ordinary progress with reusable lessons"],
       "approval_required": false,
       "escalation_triggers": ["missing next action", "missing active context", "failed context health", "unrecorded blocker"],
-      "next": ["classify-project", "validate-idea", "deep-research", "agentic-opportunity-audit", "intelligence-architecture-selection", "agent-engineering-audit", "capability-access-map", "build-plan", "execute-task"]
+      "next": ["classify-project", "validate-idea", "deep-research", "agentic-opportunity-audit", "intelligence-architecture-selection", "agent-engineering-audit", "agent-os-runtime-plan", "capability-access-map", "build-plan", "execute-task"]
     },
     {
       "id": "learn",

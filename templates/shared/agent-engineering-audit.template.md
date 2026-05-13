@@ -9,6 +9,7 @@
 - Related intelligence system plan:
 - Related intelligence architecture decision:
 - Related skill inventory:
+- Related Agent OS runtime plan:
 - Related capability/access map:
 - Target maturity now:
 - Target maturity later:
@@ -142,6 +143,7 @@ List the requirements the Build Plan must include because of this audit.
 - Evals/observability:
 - Product UX:
 - Skills:
+- Agent OS runtime requirements:
 
 ## 7. Gate Decision
 

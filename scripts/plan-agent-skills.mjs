@@ -99,7 +99,8 @@ const result = {
   artifacts_to_create: [
     "docs/intelligence-architecture-decision.md",
     "docs/agent-engineering-audit.md",
-    "docs/skill-inventory.md"
+    "docs/skill-inventory.md",
+    "docs/agent-os-runtime-plan.md"
   ],
   matched_patterns: patternMatches.map((pattern) => ({
     id: pattern.id,
@@ -124,7 +125,7 @@ const result = {
     matched_keywords: skill.matched_keywords || []
   })),
   trust_levels: catalog.skill_trust_levels,
-  next_step: "Create docs/intelligence-architecture-decision.md first when AI architecture is not already selected, then create docs/agent-engineering-audit.md and docs/skill-inventory.md before capability/access mapping."
+  next_step: "Create docs/intelligence-architecture-decision.md first when AI architecture is not already selected, then create docs/agent-engineering-audit.md and docs/skill-inventory.md. For L3+ systems, create docs/agent-os-runtime-plan.md before capability/access mapping."
 };
 
 if (!markdown) {
@@ -174,6 +175,6 @@ for (const level of result.trust_levels) {
 lines.push("");
 lines.push("## Next Step");
 lines.push("");
-lines.push("Confirm `docs/intelligence-architecture-decision.md` first when AI architecture is not already selected. Then fill `docs/agent-engineering-audit.md` and `docs/skill-inventory.md`. Do not generate or install executable skills until T2-T4 trust review requirements are explicit.");
+lines.push("Confirm `docs/intelligence-architecture-decision.md` first when AI architecture is not already selected. Then fill `docs/agent-engineering-audit.md` and `docs/skill-inventory.md`. For L3+ systems, fill `docs/agent-os-runtime-plan.md` before capability/access mapping. Do not generate or install executable skills until T2-T4 trust review requirements are explicit.");
 
 console.log(lines.join("\n"));

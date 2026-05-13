@@ -1,0 +1,124 @@
+{
+  "$schema": "../schemas/agent-os-runtime-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "A production agentic product needs a runtime kernel for scheduling, memory, tools, identity, observability, governance, recovery, budgets, roles, and human control.",
+  "kernel_components": [
+    {
+      "id": "scheduler_orchestrator",
+      "name": "Scheduler and Orchestrator",
+      "purpose": "Prioritize foreground work, background routines, queues, concurrency, cancellation, and escalation.",
+      "keywords": ["schedule", "scheduler", "orchestrator", "queue", "priority", "background", "parallel", "routine", "job", "cron", "workflow"],
+      "required_outputs": ["priority matrix", "queue ownership", "concurrency policy", "cancellation policy", "escalation triggers"],
+      "p0_blockers": ["no priority model for live versus background work", "routines can overlap unsafely", "no queue or job owner"]
+    },
+    {
+      "id": "memory_manager",
+      "name": "Memory Manager",
+      "purpose": "Govern short-term, long-term, episodic, semantic, procedural, and tenant-specific memory.",
+      "keywords": ["memory", "remember", "profile", "preferences", "episodic", "semantic", "procedural", "knowledge graph", "history", "learn"],
+      "required_outputs": ["memory store inventory", "read/write policy", "approval policy", "provenance/confidence policy", "delete/export/retention policy"],
+      "p0_blockers": ["hidden memory writes", "no memory owner", "unclear tenant or user boundary", "no correction or deletion path"]
+    },
+    {
+      "id": "tool_manager_sandbox",
+      "name": "Tool Manager and Sandbox",
+      "purpose": "Define tool registry, action classification, sandbox boundaries, dry-run mode, fixtures, and approval requirements.",
+      "keywords": ["tool", "sandbox", "mcp", "api", "cli", "browser", "computer use", "execute", "code", "file", "network", "database"],
+      "required_outputs": ["tool registry", "read/write/destructive/public/paid classification", "sandbox policy", "dry-run policy", "tool output trust policy"],
+      "p0_blockers": ["agent can mutate systems without approval", "code execution has broad file or network access", "tools can access secrets unnecessarily"]
+    },
+    {
+      "id": "identity_delegation",
+      "name": "Identity and Delegation Manager",
+      "purpose": "Define who an agent acts for, which credentials and scopes are used, and how actions are attributed.",
+      "keywords": ["identity", "auth", "oauth", "permission", "scope", "token", "service account", "delegation", "impersonation", "user"],
+      "required_outputs": ["delegation model", "credential model", "scope matrix", "token expiry policy", "audit attribution"],
+      "p0_blockers": ["external actions cannot be attributed to user and agent", "tokens are long-lived without scope limits", "service account can cross tenant boundaries"]
+    },
+    {
+      "id": "observability_trace",
+      "name": "Observability and Trace Layer",
+      "purpose": "Capture model routes, prompts, context, retrieval, tool calls, approvals, memory changes, external actions, cost, latency, and failures.",
+      "keywords": ["observability", "trace", "log", "audit", "metrics", "replay", "debug", "cost", "latency", "failure"],
+      "required_outputs": ["trace schema", "correlation ID strategy", "tool-call log", "memory-change log", "cost/latency metrics", "failure reconstruction rule"],
+      "p0_blockers": ["bad outcome cannot be reproduced", "tool inputs or retrieved context are not logged", "approvals are not traceable"]
+    },
+    {
+      "id": "guardrails_governance",
+      "name": "Guardrails and Governance",
+      "purpose": "Enforce input, output, policy, prompt-injection, approval, escalation, and public/paid/destructive action rules.",
+      "keywords": ["guardrail", "governance", "policy", "approval", "human in the loop", "prompt injection", "safety", "public", "paid", "delete", "publish", "send"],
+      "required_outputs": ["policy map", "input guardrails", "output guardrails", "approval thresholds", "exception process", "abuse cases"],
+      "p0_blockers": ["policy exists only in prompts", "public/paid/destructive actions lack approval", "untrusted tool output is accepted blindly"]
+    },
+    {
+      "id": "recovery_resumability",
+      "name": "Recovery and Resumability",
+      "purpose": "Handle crashes, retries, partial completion, duplicate prevention, rollback, compensation, and resume points.",
+      "keywords": ["recover", "resume", "retry", "backoff", "idempotent", "rollback", "compensating", "duplicate", "crash", "partial"],
+      "required_outputs": ["job-state model", "retry/backoff policy", "idempotency policy", "duplicate-action prevention", "rollback/compensation plan", "resume points"],
+      "p0_blockers": ["external actions can duplicate after retry", "routine failure loses state", "partial writes have no recovery path"]
+    },
+    {
+      "id": "budget_quota_manager",
+      "name": "Budget and Quota Manager",
+      "purpose": "Enforce cost ceilings, token budgets, model quotas, API rate limits, routine budgets, and spend approvals.",
+      "keywords": ["budget", "quota", "cost", "rate limit", "tokens", "spend", "billing", "usage", "limit", "throttle"],
+      "required_outputs": ["cost budget", "rate-limit policy", "provider quota policy", "routine budget", "per-user/tenant limits", "spend approval thresholds"],
+      "p0_blockers": ["autonomous routine has no budget ceiling", "paid vendor usage can run unchecked", "no rate-limit fallback"]
+    },
+    {
+      "id": "agent_registry",
+      "name": "Agent Registry and Role Model",
+      "purpose": "Define agent roles, owners, allowed models, tools, memory, actions, escalation paths, and review cadence.",
+      "keywords": ["agent", "sub-agent", "role", "registry", "owner", "multi-agent", "specialist", "handoff", "swarm"],
+      "required_outputs": ["agent roster", "role boundaries", "allowed tools", "allowed memory", "allowed actions", "owner/review cadence"],
+      "p0_blockers": ["agents have overlapping authority without owner", "agent can access tools outside its role", "no escalation path"]
+    },
+    {
+      "id": "human_control_surface",
+      "name": "Human Control Surface",
+      "purpose": "Expose approvals, pending actions, memory review, traces, pause/stop, rollback/revoke, and escalation controls.",
+      "keywords": ["approval queue", "pending", "review", "control", "pause", "stop", "rollback", "revoke", "escalate", "inspect"],
+      "required_outputs": ["approval queue", "pending-action surface", "memory review surface", "trace/evidence view", "pause/stop controls", "rollback/revoke controls"],
+      "p0_blockers": ["user cannot inspect important actions", "no stop control for autonomous work", "memory or external actions are invisible"]
+    }
+  ],
+  "domain_runtime_patterns": [
+    {
+      "id": "social_content_os",
+      "name": "Social Content Operating System",
+      "keywords": ["linkedin", "instagram", "twitter", "x", "social media", "content", "personal brand", "authority", "publish", "schedule"],
+      "recommended_components": ["scheduler_orchestrator", "memory_manager", "tool_manager_sandbox", "identity_delegation", "observability_trace", "guardrails_governance", "recovery_resumability", "budget_quota_manager", "human_control_surface"],
+      "first_runtime_slice": "capture idea -> retrieve voice/proof memory -> draft post -> score -> approval queue -> record outcome"
+    },
+    {
+      "id": "customer_ops_agent",
+      "name": "Customer Operations Agent",
+      "keywords": ["support", "customer", "ticket", "crm", "refund", "inbox", "case", "escalation"],
+      "recommended_components": ["scheduler_orchestrator", "memory_manager", "tool_manager_sandbox", "identity_delegation", "observability_trace", "guardrails_governance", "recovery_resumability", "human_control_surface"],
+      "first_runtime_slice": "ingest ticket -> retrieve account context -> draft response or action -> approval threshold -> trace resolution"
+    },
+    {
+      "id": "research_intelligence_agent",
+      "name": "Research Intelligence Agent",
+      "keywords": ["research", "latest", "monitor", "brief", "newsletter", "market", "competitor", "perplexity", "web"],
+      "recommended_components": ["scheduler_orchestrator", "memory_manager", "tool_manager_sandbox", "observability_trace", "guardrails_governance", "recovery_resumability", "budget_quota_manager", "agent_registry"],
+      "first_runtime_slice": "scheduled research -> source retrieval -> synthesis -> citation trace -> review queue -> learning update"
+    },
+    {
+      "id": "creative_media_agent",
+      "name": "Creative Media Agent",
+      "keywords": ["image", "video", "voice", "avatar", "media", "asset", "generation", "heygen", "fal", "runway"],
+      "recommended_components": ["scheduler_orchestrator", "tool_manager_sandbox", "identity_delegation", "observability_trace", "guardrails_governance", "recovery_resumability", "budget_quota_manager", "human_control_surface"],
+      "first_runtime_slice": "creative brief -> generate asset -> quality review -> cost trace -> approval -> export"
+    },
+    {
+      "id": "multi_agent_build_system",
+      "name": "Multi-Agent Build System",
+      "keywords": ["multi-agent", "sub-agent", "coding agent", "build agent", "orchestrate", "worker", "reviewer", "automation"],
+      "recommended_components": ["scheduler_orchestrator", "tool_manager_sandbox", "identity_delegation", "observability_trace", "guardrails_governance", "recovery_resumability", "budget_quota_manager", "agent_registry"],
+      "first_runtime_slice": "plan task -> assign worker -> sandbox execution -> review trace -> merge approval"
+    }
+  ]
+}

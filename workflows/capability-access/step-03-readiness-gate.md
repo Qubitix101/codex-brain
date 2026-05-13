@@ -14,6 +14,7 @@
 - Are official APIs, SDKs, CLIs, MCP servers, generated harnesses, Browser, and Computer Use considered where relevant?
 - Are required credentials, scopes, OAuth apps, webhooks, billing setup, and sandbox accounts listed?
 - Are secret handling, audit, cost, rate limit, and destructive-action boundaries explicit?
+- Do selected capability surfaces satisfy Agent OS runtime sandbox, identity, trace, approval, recovery, and budget boundaries?
 - Is there a safe mock plan for anything not live yet?
 - Are user-provided blockers listed plainly?
 

@@ -109,15 +109,19 @@ Route to `capability-access-map`. Produce the missing access map before Build Pl
 
 ### User asks whether an idea should be agentic
 
-Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before intelligence-architecture, agent-engineering, and capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
+Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before intelligence-architecture, agent-engineering, Agent OS runtime, and capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
 
 ### User asks whether to use RAG, ADK, structured retrieval, extraction, memory, or workflows
 
-Route to `intelligence-architecture-selection`. Produce the missing intelligence architecture decision before agent-engineering and capability/access mapping if the product depends on AI answers, retrieval, structured records, LLM extraction, durable memory, multi-step workflows, external actions, or routines.
+Route to `intelligence-architecture-selection`. Produce the missing intelligence architecture decision before agent-engineering, Agent OS runtime, and capability/access mapping if the product depends on AI answers, retrieval, structured records, LLM extraction, durable memory, multi-step workflows, external actions, or routines.
 
 ### User asks how the agent should be engineered or skilled
 
-Route to `agent-engineering-audit`. Produce the missing agent-engineering audit and skill inventory after the intelligence architecture decision and before capability/access mapping if the product is L3+, retrieval-heavy, tool-using, multi-model, skill-driven, or expected to act externally.
+Route to `agent-engineering-audit`. Produce the missing agent-engineering audit and skill inventory after the intelligence architecture decision and before Agent OS runtime and capability/access mapping if the product is L3+, retrieval-heavy, tool-using, multi-model, skill-driven, or expected to act externally.
+
+### User asks how agents should be scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated
+
+Route to `agent-os-runtime-plan`. Produce the missing Agent OS runtime plan after agent-engineering and skill inventory, and before capability/access mapping, if the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or expected to act externally.
 
 ### User asks which tool surface to use
 

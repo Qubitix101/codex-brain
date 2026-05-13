@@ -69,6 +69,20 @@ This file is the implementation constitution for future Codex sessions.
 - T2-T4 review requirements:
 - Eval/trace requirements:
 
+## Agent OS Runtime Rules
+
+- Agent OS runtime plan:
+- Scheduler/orchestrator model:
+- Memory manager policy:
+- Tool manager/sandbox policy:
+- Identity/delegation model:
+- Observability/trace schema:
+- Guardrails/governance policy:
+- Recovery/resumability model:
+- Budget/quota limits:
+- Agent registry:
+- Human control surface:
+
 ## Capability and Access Rules
 
 - Capability/access map:

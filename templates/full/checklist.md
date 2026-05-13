@@ -14,6 +14,7 @@
 - [ ] Agentic opportunity audit and intelligence system plan complete if AI/automation is relevant
 - [ ] Intelligence architecture decision complete if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant
 - [ ] Agent engineering audit and skill inventory complete if agents/retrieval/model routing/procedural skills are relevant
+- [ ] Agent OS runtime plan complete if L3+/multi-agent/memory-writing/routine/tool/action behavior is relevant
 - [ ] Capability/access map complete if integrations or external tools are relevant
 - [ ] Design DNA with references by workflow approved
 - [ ] Build Plan approved

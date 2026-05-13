@@ -9,6 +9,7 @@ Before execution:
 - agentic maturity, first closed loop, approval boundaries, and evals are explicit for AI/automation-heavy tasks
 - intelligence architecture substrates, source of truth, retrieval/extraction/memory/workflow/action/routine choices, and eval traces are explicit for AI-core tasks
 - agent-engineering discipline gaps, model routes, required skills, trust levels, and skill evals are explicit for L3+ agentic tasks
+- Agent OS runtime boundaries are explicit for L3+ agentic tasks: scheduler, memory manager, tool sandbox, identity, traces, governance, recovery, budgets, agent registry, and human control
 - required access blockers are resolved, mocked, or explicitly deferred
 - execution surface is known for each integration-heavy task
 - security/privacy/database tasks are explicit

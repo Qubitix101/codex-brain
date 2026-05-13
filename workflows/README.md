@@ -21,7 +21,8 @@ Use them with:
 - `context-routing/` - determine the next allowed action
 - `agentic-opportunity/` - decide normal app vs AI workflow vs agentic/domain operating system and write the intelligence system plan
 - `intelligence-architecture/` - choose model-only, ADK/workflow, semantic RAG, structured retrieval, extraction, memory, action, and routine substrates per loop
-- `agent-engineering/` - audit production-agent readiness and map procedural skill candidates before access planning
+- `agent-engineering/` - audit production-agent readiness and map procedural skill candidates before Agent OS runtime and access planning
+- `agent-os-runtime/` - define scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control before access planning
 - `capability-access/` - map APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification before planning
 - `quick-flow/` - low-risk fast path
 - `full-mode-readiness/` - Full-mode evidence, plan, and readiness checks

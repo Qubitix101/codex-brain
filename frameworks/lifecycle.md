@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -118,6 +118,26 @@ Codex should map:
 - blockers before capability/access and Build Plan
 
 See `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
+
+## Phase 2.4 - Agent OS Runtime
+
+Answer: what runtime kernel supervises the agents?
+
+Codex should map:
+
+- scheduler/orchestrator priority, queues, concurrency, and cancellation
+- memory manager policy for short-term, long-term, episodic, semantic, procedural, and tenant-specific memory
+- tool manager and sandbox boundaries
+- identity and delegation model
+- observability and trace schema
+- guardrails and governance policy
+- recovery and resumability model
+- budget and quota limits
+- agent registry and role boundaries
+- human control surface
+- blockers before capability/access and Build Plan
+
+See `frameworks/agent-os-runtime.md`.
 
 ## Phase 2.5 - Capability and Access
 

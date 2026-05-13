@@ -35,6 +35,13 @@
 - Skill trust levels:
 - Eval/trace status:
 
+## Agent OS Runtime
+
+- Agent OS runtime plan:
+- Scheduler/memory/tool/identity status:
+- Trace/governance/recovery status:
+- Budget/agent-registry/human-control status:
+
 ## Capability and Access
 
 - Capability/access map:

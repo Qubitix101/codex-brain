@@ -41,6 +41,7 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Agentic Opportunity | | | |
 | Intelligence Architecture | | | |
 | Agent Engineering | | | |
+| Agent OS Runtime | | | |
 | Capability and Access | | | |
 | Design DNA | | | |
 | Plan | | | |
@@ -211,6 +212,36 @@ Frontend implementation is blocked until this section is approved.
 | Skill | Trigger | Trust Level | Tools | Memory | Approval | Evals | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | |
+
+### Agent OS Runtime Plan
+
+- Agent OS runtime plan:
+- Runtime thesis:
+- Scheduler/orchestrator model:
+- Memory manager policy:
+- Tool manager/sandbox policy:
+- Identity/delegation model:
+- Observability/trace schema:
+- Guardrails/governance policy:
+- Recovery/resumability plan:
+- Budget/quota plan:
+- Agent registry:
+- Human control surface:
+- First runtime slice:
+- Deferred runtime layers:
+
+| Kernel Component | Decision | P0 Risk | Verification |
+| --- | --- | --- | --- |
+| Scheduler/orchestrator | | | |
+| Memory manager | | | |
+| Tool manager/sandbox | | | |
+| Identity/delegation | | | |
+| Observability/trace | | | |
+| Guardrails/governance | | | |
+| Recovery/resumability | | | |
+| Budget/quota manager | | | |
+| Agent registry | | | |
+| Human control surface | | | |
 
 ### Capability and Access Map
 
@@ -637,6 +668,7 @@ Use only if paid.
 - [ ] Agentic opportunity audit complete if AI/automation is relevant. Verify: `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` exist.
 - [ ] Intelligence architecture decision complete if AI architecture matters. Verify: `docs/intelligence-architecture-decision.md` exists and RAG/structured retrieval/extraction/workflow/action choices are explicit.
 - [ ] Agent engineering and skill inventory complete if L3+/agentic/retrieval/tool-use is relevant. Verify: `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist.
+- [ ] Agent OS runtime plan complete if L3+/multi-agent/memory/tool/action/routine behavior is relevant. Verify: `docs/agent-os-runtime-plan.md` exists and runtime kernel boundaries are explicit.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.

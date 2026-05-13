@@ -20,10 +20,10 @@ Capability and Access Readiness prevents that by asking, before planning:
 
 ## Gate 2.5
 
-Capability and Access Readiness sits after Agentic Opportunity, Intelligence Architecture, and Agent Engineering, and before Build Plan.
+Capability and Access Readiness sits after Agentic Opportunity, Intelligence Architecture, Agent Engineering, and Agent OS Runtime, and before Build Plan.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped products, finish these first so the access map is grounded in the intended intelligence loop and procedural skill plan:
@@ -33,6 +33,7 @@ For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-syste
 - `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
+- `docs/agent-os-runtime-plan.md`
 
 For Standard and Full projects, `docs/capability-access-map.md` is required before the Build Plan is approved when the product depends on external services, AI tools, media generation, browser automation, authenticated SaaS systems, payments, deployment platforms, databases, file storage, email, calendar, source control, analytics, or observability.
 
@@ -55,6 +56,7 @@ Also read:
 - `docs/intelligence-architecture-decision.md`
 - `docs/agent-engineering-audit.md`
 - `docs/skill-inventory.md`
+- `docs/agent-os-runtime-plan.md`
 
 Optional helpers:
 
@@ -62,6 +64,7 @@ Optional helpers:
 npm run plan-capabilities -- --brief "[what we are building]" --mode standard
 npm run plan-intelligence-architecture -- --brief "[what we are building]" --mode standard
 npm run plan-agent-skills -- --brief "[what we are building]" --mode standard
+npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "create a GitHub issue from a validated bug report"
 ```
 

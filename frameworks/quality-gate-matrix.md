@@ -23,6 +23,7 @@ These block all modes:
 - AI-core or automation-heavy product without agentic opportunity audit
 - AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy product without intelligence architecture decision
 - L3+ agentic or skill-driven product without agent engineering and skill inventory audit
+- L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting product without Agent OS runtime plan
 - frontend implementation before required Design DNA approval
 - missing acceptance criteria for execution task
 - marking task complete without verification
@@ -68,6 +69,7 @@ These block all modes:
 | Agentic opportunity if AI/automation/workflow OS | Required if relevant | Required if relevant | Deep | P0 |
 | Intelligence architecture if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Agent engineering/skill factory if L3+ or skill-driven | Required if relevant | Required if relevant | Deep | P0 |
+| Agent OS runtime if L3+/multi-agent/memory/tool/action/routine behavior is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
 | Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
 | Evidence ledger | Optional | Recommended | Required | P1 |
@@ -110,6 +112,21 @@ These block all modes:
 | Product trust UX surfaces | Required if user-facing AI | Required if user-facing AI | Required | P1 |
 | Skill inventory with trust levels | Required if skill-driven | Required if relevant | Required if relevant | P0 |
 | T2-T4 skill review controls | Required if relevant | Required if relevant | Required | P0 |
+
+## Agent OS Runtime Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Scheduler/orchestrator priority and queue model | Required if routines/tools | Required if relevant | Required if relevant | P0 |
+| Memory manager read/write/review/delete/export policy | Required if memory | Required if memory | Required if memory | P0 |
+| Tool manager and sandbox policy | Required if tools | Required if tools | Required if tools | P0 |
+| Identity and delegation attribution | Required if external action | Required if external action | Required if external action | P0 |
+| Observability and trace schema | Required if AI-core | Required if AI-core | Required | P0 |
+| Guardrails and governance enforcement | Required if AI-core | Required if AI-core | Required | P0 |
+| Recovery, idempotency, and resumability | Required if routines/actions | Required if routines/actions | Required | P0 |
+| Budget and quota limits | Required if paid/autonomous | Required if paid/autonomous | Required if AI-core | P0 |
+| Agent registry and role model | Required if multi-agent | Required if multi-agent | Required if multi-agent | P0 |
+| Human control surface | Required if user-facing AI | Required if user-facing AI | Required | P0 |
 
 ## Capability and Access Gate
 
@@ -218,6 +235,7 @@ These are P0/P1 for Full mode:
 - AI-core product without evals and fallback behavior.
 - AI-core or automation-heavy product without agentic maturity decision, first closed loop, approval boundaries, and eval model.
 - L3+ agentic product without production-agent readiness audit, model routing, skill inventory, trust levels, and trace/eval plan.
+- L3+ agentic product without scheduler, memory manager, tool sandbox, identity, trace, governance, recovery, budget, agent registry, and human-control plan.
 - EU personal data without GDPR data inventory and deletion/export plan.
 - Enterprise product without trust/security communication.
 - User-facing product without Design DNA.

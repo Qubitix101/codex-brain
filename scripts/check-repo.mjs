@@ -27,6 +27,7 @@ const required = [
   "frameworks/intelligence-architecture-selection.md",
   "frameworks/agent-engineering-skill-stack.md",
   "frameworks/skill-factory.md",
+  "frameworks/agent-os-runtime.md",
   "frameworks/capability-access-readiness.md",
   "frameworks/tool-surface-routing.md",
   "frameworks/quick-flow.md",
@@ -44,6 +45,7 @@ const required = [
   "schemas/agentic-system-patterns.schema.json",
   "schemas/intelligence-architecture-catalog.schema.json",
   "schemas/agent-engineering-catalog.schema.json",
+  "schemas/agent-os-runtime-catalog.schema.json",
   "schemas/capability-access-catalog.schema.json",
   "schemas/tool-surface-routing-matrix.schema.json",
   "schemas/workflow-manifest.schema.json",
@@ -53,6 +55,7 @@ const required = [
   "catalogs/agentic-system-patterns.json",
   "catalogs/intelligence-architecture-catalog.json",
   "catalogs/agent-engineering-catalog.json",
+  "catalogs/agent-os-runtime-catalog.json",
   "catalogs/capability-access-catalog.json",
   "catalogs/tool-surface-routing-matrix.json",
   "catalogs/workflow-manifest.json",
@@ -69,6 +72,9 @@ const required = [
   "workflows/agent-engineering/step-01-seven-skill-audit.md",
   "workflows/agent-engineering/step-02-skill-gap-map.md",
   "workflows/agent-engineering/step-03-skill-factory-readiness.md",
+  "workflows/agent-os-runtime/step-01-kernel-map.md",
+  "workflows/agent-os-runtime/step-02-runtime-contracts.md",
+  "workflows/agent-os-runtime/step-03-readiness-gate.md",
   "workflows/capability-access/step-01-inventory.md",
   "workflows/capability-access/step-02-map-surfaces.md",
   "workflows/capability-access/step-03-readiness-gate.md",
@@ -89,6 +95,7 @@ const required = [
   "templates/shared/intelligence-system-plan.template.md",
   "templates/shared/intelligence-architecture-decision.template.md",
   "templates/shared/agent-engineering-audit.template.md",
+  "templates/shared/agent-os-runtime-plan.template.md",
   "templates/shared/skill-inventory.template.md",
   "templates/shared/skill-spec.template.md",
   "templates/shared/capability-access-map.template.md",
@@ -119,6 +126,7 @@ const required = [
   "scripts/plan-agentic-system.mjs",
   "scripts/plan-intelligence-architecture.mjs",
   "scripts/plan-agent-skills.mjs",
+  "scripts/plan-agent-os-runtime.mjs",
   "scripts/plan-capabilities.mjs",
   "scripts/route-tool.mjs",
   "scripts/verify-plan.mjs",
@@ -127,7 +135,8 @@ const required = [
   "scripts/save-context.mjs",
   "scripts/context-health.mjs",
   "agents/intelligence-architecture-reviewer.md",
-  "agents/agent-engineering-reviewer.md"
+  "agents/agent-engineering-reviewer.md",
+  "agents/agent-os-runtime-reviewer.md"
 ];
 
 const missing = required.filter((path) => !existsSync(join(root, path)));

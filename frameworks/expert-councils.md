@@ -131,7 +131,7 @@ Output:
 
 ### Agent Engineering Council
 
-Use before capability/access and Build Plan approval for L3+ agentic, retrieval-heavy, multi-model, tool-using, or skill-driven products.
+Use before Agent OS runtime, capability/access, and Build Plan approval for L3+ agentic, retrieval-heavy, multi-model, tool-using, or skill-driven products.
 
 Roles:
 
@@ -150,6 +150,30 @@ Output:
 - unsafe skill trust levels
 - missing eval/trace requirements
 - product trust UX blockers
+
+### Agent OS Runtime Council
+
+Use before capability/access and Build Plan approval for L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products.
+
+Roles:
+
+- agent OS runtime reviewer
+- security/GDPR reviewer
+- performance/reliability reviewer
+- architecture strategist
+- product strategist
+
+Output:
+
+- scheduler/orchestrator gaps
+- memory manager gaps
+- tool sandbox gaps
+- identity/delegation gaps
+- observability/trace gaps
+- guardrails/governance gaps
+- recovery/resumability gaps
+- budget/quota gaps
+- agent registry and human-control blockers
 
 ## Council Protocol
 
@@ -171,6 +195,7 @@ Required in Full mode for:
 - Design DNA approval
 - intelligence architecture selection for AI-core products
 - agent-engineering readiness for L3+ AI products
+- Agent OS runtime readiness for L3+ AI products
 - launch readiness
 
 Optional in Standard mode.

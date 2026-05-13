@@ -44,6 +44,13 @@
       "approved": false,
       "notes": "Audit production-agent engineering readiness and map required procedural skills before choosing capability/access surfaces."
     },
+    "agent_os_runtime": {
+      "status": "not-started",
+      "required_artifacts": ["docs/agent-os-runtime-plan.md"],
+      "missing": ["docs/agent-os-runtime-plan.md"],
+      "approved": false,
+      "notes": "Define the Agent OS runtime kernel for L3+ systems before capability/access mapping: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control."
+    },
     "capability_access": {
       "status": "not-started",
       "required_artifacts": ["docs/capability-access-map.md"],
@@ -114,6 +121,7 @@
     "intelligence_system": null,
     "intelligence_architecture": null,
     "agent_engineering": null,
+    "agent_os_runtime": null,
     "skill_inventory": null,
     "capability_access": null,
     "build_plan": null,
