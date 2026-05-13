@@ -21,7 +21,8 @@
     "plan-capabilities": "node scripts/plan-capabilities.mjs",
     "plan-agentic-system": "node scripts/plan-agentic-system.mjs",
     "plan-intelligence-architecture": "node scripts/plan-intelligence-architecture.mjs",
-    "plan-agent-skills": "node scripts/plan-agent-skills.mjs"
+    "plan-agent-skills": "node scripts/plan-agent-skills.mjs",
+    "install-global-skills": "node scripts/install-global-skills.mjs"
   },
   "engines": {
     "node": ">=18"

@@ -104,6 +104,7 @@ codex-brain/
 │   └── world-class-quality.md        # Top-tier product quality bar
 ├── schemas/                          # Machine-readable state and lesson contracts
 ├── catalogs/                         # Full-mode and workflow routing catalogs
+├── skills/                           # Portable global Codex skills extracted from the brain
 ├── templates/                        # Light / Standard / Full project templates
 ├── workflows/                        # Small executable workflow step guides
 ├── scripts/                          # Local validators and helpers
@@ -145,10 +146,23 @@ npm run plan-intelligence-architecture -- --brief "what we are building" --mode 
 npm run plan-agent-skills -- --brief "what we are building" --mode full
 npm run plan-capabilities -- --brief "what we are building" --mode standard
 npm run route-tool -- --task "inspect the last failed GitHub Actions run"
+npm run install-global-skills
 npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brain/research
 npm run save-context -- --dir /path/to/project --summary "what happened" --next "next allowed action"
 npm run context-health -- --dir /path/to/project
 ```
+
+## Global Codex Skills
+
+Codex Brain also ships a portable skills pack under `skills/codex-brain/`. These are instruction-only global Codex skills for focused reuse across chats and projects without loading the full project harness.
+
+Install or refresh them with:
+
+```bash
+npm run install-global-skills
+```
+
+The installer validates each skill and writes it to `~/.codex/skills` by default.
 
 ## Non-Negotiables
 
