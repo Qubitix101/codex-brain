@@ -89,7 +89,7 @@ Run the next-action protocol and return one recommended next step.
 
 ### User asks to build before gates are done
 
-State the blocking gate and produce the missing artifact instead.
+State the blocking gate, run or mentally apply `verify-lifecycle` for the requested target phase, and produce the missing artifact instead.
 
 ### User asks for maximum quality
 

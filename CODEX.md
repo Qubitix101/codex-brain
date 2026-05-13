@@ -42,11 +42,12 @@ At the start of any project session:
    - project `CODEX.md` or `CLAUDE.md` if present
 2. If state is missing, initialize from `templates/shared/project-state.template.json`.
 3. Run or mentally apply `scripts/next-action.mjs`.
-4. Classify the project as Light, Standard, or Full if classification is pending.
-5. Identify the current phase.
-6. Check the gate requirements for that phase.
-7. State the next allowed action.
-8. Do not perform forbidden actions.
+4. Before moving into a later phase, run or mentally apply `scripts/verify-lifecycle.mjs --phase [target-phase]`.
+5. Classify the project as Light, Standard, or Full if classification is pending.
+6. Identify the current phase.
+7. Check the gate requirements for that phase.
+8. State the next allowed action.
+9. Do not perform forbidden actions.
 
 If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.

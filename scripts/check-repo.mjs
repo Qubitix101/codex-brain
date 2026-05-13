@@ -134,6 +134,7 @@ const required = [
   "scripts/classify-project.mjs",
   "scripts/bootstrap-project.mjs",
   "scripts/validate-state.mjs",
+  "scripts/verify-lifecycle.mjs",
   "scripts/capture-lesson.mjs",
   "scripts/next-action.mjs",
   "scripts/session-brief.mjs",

@@ -40,6 +40,20 @@ To let the repo compute the next action:
 npm run next-action -- --dir "[project-root]"
 ```
 
+To hard-check that a project is allowed to enter a target phase:
+
+```bash
+npm run verify-lifecycle -- --dir "[project-root]" --phase plan
+```
+
+Use `--require-current` when approving exit from the current gate:
+
+```bash
+npm run verify-lifecycle -- --dir "[project-root]" --phase agentic-zero-trust --require-current
+```
+
+The verify lifecycle command returns the checked phase and fails when prior gates are not complete, approved, and artifact-backed.
+
 Codex should:
 
 1. Read `.codex-brain/state.json`.
@@ -49,6 +63,7 @@ Codex should:
 5. Explain the mode recommendation.
 6. Ask for approval if Standard or Full.
 7. Refuse to implement until the active gate allows implementation.
+8. Refuse to jump phases if `verify-lifecycle` reports incomplete, unapproved, artifact-missing, or still-declared-missing prior gates.
 
 ## 2. Classification
 

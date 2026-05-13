@@ -10,6 +10,7 @@
     "classify": "node scripts/classify-project.mjs",
     "bootstrap": "node scripts/bootstrap-project.mjs",
     "validate-state": "node scripts/validate-state.mjs",
+    "verify-lifecycle": "node scripts/verify-lifecycle.mjs",
     "capture-lesson": "node scripts/capture-lesson.mjs",
     "next-action": "node scripts/next-action.mjs",
     "session-brief": "node scripts/session-brief.mjs",

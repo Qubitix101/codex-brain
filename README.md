@@ -145,6 +145,7 @@ Useful commands:
 
 ```bash
 npm run next-action -- --dir /path/to/project
+npm run verify-lifecycle -- --dir /path/to/project --phase plan
 npm run session-brief -- --dir /path/to/project
 npm run verify-plan -- /path/to/project/docs/prd/some-prd.md
 npm run plan-agentic-system -- --brief "what we are building" --mode full
@@ -160,6 +161,8 @@ npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brai
 npm run save-context -- --dir /path/to/project --summary "what happened" --next "next allowed action"
 npm run context-health -- --dir /path/to/project
 ```
+
+The verify lifecycle command reports the checked phase and hard-fails when required earlier gates are incomplete, unapproved, still declare missing items, or lack required artifacts.
 
 ## Global Codex Skills
 
@@ -184,6 +187,7 @@ The installer validates each skill and writes it to `~/.codex/skills` by default
 - No agentic external access before Agentic Zero Trust defines identity, JIT credentials, per-action authorization, trusted registries, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response.
 - No federated agentic or multi-OS Build Plan before agent cards, delegation boundaries, task contracts, protocol decisions, context sharing, identity, streaming, traces, recovery, and versioning are defined.
 - No serious integration-heavy Build Plan before required capabilities, access surfaces, credentials, mocks, and live verification are mapped.
+- No phase jump without `npm run verify-lifecycle -- --dir /path/to/project --phase [target-phase]`; this hard-fails when earlier gates are incomplete, unapproved, still declare missing items, or lack required artifacts.
 - No multi-tenant product without an isolation model.
 - No paid product without billing edge cases.
 - No European user data without GDPR analysis.

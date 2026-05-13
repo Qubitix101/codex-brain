@@ -51,6 +51,7 @@ At the start of a Codex Brain session:
    - blocked actions
 
 8. Do not write product code until the active gate allows it.
+9. Before entering plan, decompose, execute, review, ship, or learn, run or mentally apply `npm run verify-lifecycle -- --dir . --phase [target-phase]`. Treat failures as hard blockers.
 
 ## Required Session Close
 
