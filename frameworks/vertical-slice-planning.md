@@ -39,6 +39,12 @@ Use vertical slices for:
 - multi-step product flows
 - anything with database plus backend plus frontend
 
+For agentic products, the slice should include one observable intelligence loop:
+
+```text
+input/context -> skill/tool/model route -> output/proposal -> eval/trace -> approval or learning update
+```
+
 Layer-first work is allowed only when:
 
 - a foundational migration is required before any slice can run
@@ -59,6 +65,14 @@ Each slice must include:
 - verification commands
 - expected artifact changes
 - risk notes
+
+For agentic slices, also include:
+
+- required procedural skills
+- skill trust levels
+- model/tool route
+- eval and trace evidence
+- approval boundary
 
 Good slice title:
 
@@ -125,6 +139,7 @@ For Full mode, every vertical slice should map to:
 - test strategy row
 - privacy/security/database/design gate when relevant
 - launch or observability consideration when user-impacting
+- agent-engineering and skill-inventory row when agentic behavior is touched
 
 This mapping is required for traceability and enterprise-quality review.
 
@@ -148,4 +163,3 @@ Human judgment still matters, but the script catches common planning defects.
 - Creating a slice that cannot be tested.
 - Hiding security, privacy, or database work in generic implementation tasks.
 - Marking a slice complete because code exists but behavior is not verified.
-

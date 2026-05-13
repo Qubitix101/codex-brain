@@ -98,7 +98,7 @@ const result = {
   routines,
   evals,
   dimensions: catalog.dimensions,
-  next_step: "Create the agentic opportunity audit and intelligence system plan before capability/access mapping."
+  next_step: "Create the agentic opportunity audit and intelligence system plan, then run the agent-engineering/skill-factory audit before capability/access mapping."
 };
 
 if (!markdown) {
@@ -157,6 +157,6 @@ for (const dimension of catalog.dimensions) {
 }
 lines.push("## Next Step");
 lines.push("");
-lines.push("Fill `docs/agentic-opportunity-audit.md`, then `docs/intelligence-system-plan.md`, then use Capability and Access Readiness to map the exact APIs, SDKs, CLIs, MCPs, browser flows, Computer Use workflows, and generated harnesses.");
+lines.push("Fill `docs/agentic-opportunity-audit.md`, then `docs/intelligence-system-plan.md`, then run `npm run plan-agent-skills -- --brief \"...\" --mode full --markdown` to produce the agent-engineering audit and skill inventory before capability/access mapping.");
 
 console.log(lines.join("\n"));

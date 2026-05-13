@@ -39,6 +39,7 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Validation | | | |
 | Research | | | |
 | Agentic Opportunity | | | |
+| Agent Engineering | | | |
 | Capability and Access | | | |
 | Design DNA | | | |
 | Plan | | | |
@@ -170,6 +171,26 @@ Frontend implementation is blocked until this section is approved.
 | Approvals | | | |
 | Evals | | | |
 | Learning | | | |
+
+### Agent Engineering and Skill Factory
+
+- Agent engineering audit:
+- Skill inventory:
+- System design readiness:
+- Tool-contract readiness:
+- Retrieval readiness:
+- Reliability readiness:
+- Security/safety readiness:
+- Eval/observability readiness:
+- Product trust UX readiness:
+- Model/provider routing policy:
+- Required first-slice skills:
+- T2-T4 skill review requirements:
+- Deferred skills:
+
+| Skill | Trigger | Trust Level | Tools | Memory | Approval | Evals | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
 
 ### Capability and Access Map
 
@@ -594,6 +615,7 @@ Use only if paid.
 - [ ] Non-applicable sections justified. Verify: each N/A section states why it does not apply.
 - [ ] Research traceability complete. Verify: evidence ledger links to key decisions.
 - [ ] Agentic opportunity audit complete if AI/automation is relevant. Verify: `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` exist.
+- [ ] Agent engineering and skill inventory complete if L3+/agentic/retrieval/tool-use is relevant. Verify: `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.

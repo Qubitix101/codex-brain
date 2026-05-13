@@ -28,6 +28,7 @@ Codex should inspect:
 - `.codex-brain/memory/progress.md`
 - `catalogs/workflow-manifest.json`
 - `catalogs/agentic-system-patterns.json`
+- `catalogs/agent-engineering-catalog.json`
 - `catalogs/tool-surface-routing-matrix.json`
 - `catalogs/capability-access-catalog.json`
 - `catalogs/full-mode-coverage-catalog.json` for Full mode
@@ -44,6 +45,7 @@ Every help response should include:
 - missing required artifacts
 - next recommended workflow
 - agentic opportunity/intelligence-system status
+- agent-engineering/skill-inventory status
 - required capability/access map status
 - allowed actions
 - blocked actions
@@ -105,7 +107,11 @@ Route to `capability-access-map`. Produce the missing access map before Build Pl
 
 ### User asks whether an idea should be agentic
 
-Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
+Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before agent-engineering and capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
+
+### User asks how the agent should be engineered or skilled
+
+Route to `agent-engineering-audit`. Produce the missing agent-engineering audit and skill inventory before capability/access mapping if the product is L3+, retrieval-heavy, tool-using, multi-model, skill-driven, or expected to act externally.
 
 ### User asks which tool surface to use
 

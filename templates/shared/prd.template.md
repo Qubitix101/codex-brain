@@ -16,8 +16,22 @@ Light / Standard / Full
 ## References
 
 - Build Plan: `docs/build-plan.md`
+- Agentic Opportunity: `docs/agentic-opportunity-audit.md` if relevant
+- Intelligence System: `docs/intelligence-system-plan.md` if relevant
+- Agent Engineering: `docs/agent-engineering-audit.md` if relevant
+- Skill Inventory: `docs/skill-inventory.md` if relevant
+- Capability Access: `docs/capability-access-map.md` if relevant
 - Design DNA: `design/design-dna.md`
 - State: `.codex-brain/state.json`
+
+## Agentic / Skill Context
+
+- Intelligence loop touched:
+- Required skills:
+- Skill trust levels changed:
+- Model/tool routes:
+- Approval boundaries:
+- Evals/traces required:
 
 ## Allowed Scope
 
@@ -45,4 +59,3 @@ Forbidden:
 - [ ] Accessibility checked if UI
 - [ ] Security/privacy checked if relevant
 - [ ] Lessons considered
-

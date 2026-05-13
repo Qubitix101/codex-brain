@@ -43,7 +43,8 @@ Full research produces:
 ├── 21-context-continuity-and-memory.md
 ├── 22-workflow-routing-and-governance.md
 ├── 23-agentic-opportunity-and-intelligence-system.md
-├── 24-capability-access-readiness.md
+├── 24-agent-engineering-and-skill-factory.md
+├── 25-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -429,7 +430,7 @@ Full-mode additions:
 
 Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Capability and Access:
+Answer before Agent Engineering and Capability and Access:
 
 - Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
 - What agentic maturity level should be built now?
@@ -449,6 +450,30 @@ Required:
 - memory/sensing/tool/routine/approval/eval/learning map
 - deferred agentic layers with revisit triggers
 - overbuild and underbuild risks
+
+## Agent Engineering and Skill Factory
+
+Required when AI agents, retrieval, tool use, multi-model orchestration, procedural skills, or externally visible actions are relevant.
+
+Answer before Capability and Access:
+
+- What are the production-agent system boundaries, data flows, model routes, state owners, and failure boundaries?
+- What tool contracts, schemas, examples, output contracts, and approval policies are needed?
+- What retrieval sources, ranking, citations, freshness, and evals are needed?
+- What timeouts, retries, fallbacks, circuit breakers, job states, and rollback paths are needed?
+- What security/safety boundaries protect against prompt injection, overbroad permissions, secret leakage, tenant bleed, and unsafe external action?
+- What traces, logs, golden examples, evals, latency/cost metrics, and drift checks are needed?
+- What product trust surfaces expose confidence, evidence, memory changes, approvals, escalation, and rollback?
+- What procedural skills should be reused, generated, deferred, or rejected?
+
+Required:
+
+- `docs/agent-engineering-audit.md`
+- `docs/skill-inventory.md`
+- seven-discipline readiness score
+- model/provider routing policy
+- skill trust levels and T2-T4 review requirements
+- skill eval and approval requirements
 
 ## Category 12 - Integrations and Vendors
 
@@ -713,9 +738,10 @@ Before planning:
 - Every risk has owner/mitigation/defer decision.
 - Every architecture decision has enough evidence for the Build Plan.
 - Every AI-core, automation-heavy, or operating-system-shaped product has an agentic maturity decision and first closed intelligence loop.
+- Every L3+ or skill-driven agentic product has agent-engineering readiness, model routing, skill inventory, trust levels, and eval/trace requirements.
 - Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, agent engineering/skill factory, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

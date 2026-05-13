@@ -46,6 +46,17 @@ This file is the implementation constitution for future Codex sessions.
 - Memory/sensing/routine/approval/eval model:
 - Deferred OS layers:
 
+## Agent Engineering and Skill Factory Rules
+
+- Agent engineering audit:
+- Skill inventory:
+- Seven-discipline readiness:
+- Model/provider routing policy:
+- Required procedural skills:
+- Skill trust levels:
+- T2-T4 review requirements:
+- Eval/trace requirements:
+
 ## Capability and Access Rules
 
 - Capability/access map:

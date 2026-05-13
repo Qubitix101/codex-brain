@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -85,6 +85,22 @@ Codex should map:
 - overbuild and underbuild risks
 
 See `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
+
+## Phase 2.35 - Agent Engineering and Skill Factory
+
+Answer: what production-agent discipline and procedural memory must exist before the product can be built safely?
+
+Codex should map:
+
+- seven-discipline readiness: system design, tool contracts, retrieval, reliability, security/safety, evals/observability, and product trust UX
+- model/provider routing policy for multi-brain orchestration
+- procedural skill inventory
+- skill trust levels
+- skill evals and approval gates
+- skills to reuse, generate, defer, or reject
+- blockers before capability/access and Build Plan
+
+See `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 
 ## Phase 2.5 - Capability and Access
 

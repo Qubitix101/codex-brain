@@ -20,6 +20,7 @@ if (!state.project) errors.push("state.project is required.");
 if (!["light", "standard", "full", "pending"].includes(state.mode)) errors.push("state.mode must be light, standard, full, or pending.");
 if (!state.phase) errors.push("state.phase is required.");
 if (!state.gates?.agentic_opportunity) warnings.push("state.gates.agentic_opportunity is missing; bootstrap from the latest Codex Brain template when agentic planning matters.");
+if (!state.gates?.agent_engineering) warnings.push("state.gates.agent_engineering is missing; bootstrap from the latest Codex Brain template when agent engineering or skills matter.");
 if (!state.gates?.capability_access) warnings.push("state.gates.capability_access is missing; bootstrap from the latest Codex Brain template when capability planning matters.");
 
 for (const [gateName, gate] of Object.entries(state.gates || {})) {
@@ -50,6 +51,8 @@ if (state.mode === "full") {
   const fullExpected = [
     "docs/agentic-opportunity-audit.md",
     "docs/intelligence-system-plan.md",
+    "docs/agent-engineering-audit.md",
+    "docs/skill-inventory.md",
     "docs/capability-access-map.md",
     "docs/build-plan.md",
     "design/design-dna.md"

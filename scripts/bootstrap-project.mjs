@@ -26,6 +26,7 @@ mkdirSync(join(codexDir, "research"), { recursive: true });
 mkdirSync(join(root, "docs", "prd"), { recursive: true });
 mkdirSync(join(root, "docs", "plans"), { recursive: true });
 mkdirSync(join(root, "docs", "ship"), { recursive: true });
+mkdirSync(join(root, "docs", "skills"), { recursive: true });
 mkdirSync(join(root, "design", "references"), { recursive: true });
 
 const statePath = join(codexDir, "state.json");

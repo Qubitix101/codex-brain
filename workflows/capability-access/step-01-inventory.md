@@ -8,6 +8,8 @@
 - `.codex-brain/research/`
 - `docs/agentic-opportunity-audit.md` if relevant
 - `docs/intelligence-system-plan.md` if relevant
+- `docs/agent-engineering-audit.md` if relevant
+- `docs/skill-inventory.md` if relevant
 - `frameworks/capability-access-readiness.md`
 - `catalogs/capability-access-catalog.json`
 
@@ -15,6 +17,7 @@
 
 - Which product capabilities require outside systems?
 - Which capabilities are required by the first closed intelligence loop?
+- Which capabilities are required by approved T2-T4 skill candidates?
 - Which are required now, mockable, deferred, or not applicable?
 - Which capabilities are production runtime dependencies versus agent implementation aids?
 
@@ -32,6 +35,7 @@ Optional starter:
 
 ```bash
 npm run plan-capabilities -- --brief "[project brief]" --mode [light|standard|full]
+npm run plan-agent-skills -- --brief "[project brief]" --mode [light|standard|full]
 ```
 
 ## Stop If

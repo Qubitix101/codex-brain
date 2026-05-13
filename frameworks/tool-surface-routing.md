@@ -4,6 +4,8 @@ Codex Brain should help agents choose the right way to reach the outside world.
 
 The question is not CLI versus MCP. The question is which surface gives the least-context, least-permission, most reliable path for the specific task.
 
+For agentic products, surface routing should be grounded in `docs/agent-engineering-audit.md` and `docs/skill-inventory.md`; the required procedures and skill trust levels determine whether a surface is safe enough.
+
 ## Purpose
 
 Agents can often reach the same system through multiple surfaces:
@@ -15,6 +17,7 @@ Agents can often reach the same system through multiple surfaces:
 - browser automation
 - computer use
 - direct shell scripting
+- procedural skills that orchestrate the above
 
 Without a routing policy, agents may pick a surface that is technically possible but operationally bad. The wrong choice wastes context, leaks permissions, creates brittle workflows, or sends the agent into avoidable loops.
 
@@ -217,6 +220,17 @@ Before using MCP, ask:
 - Is managed auth or governance important?
 - Does the MCP server return a higher-level result than raw CLI/API?
 - Would CLI require brittle parsing or reverse engineering?
+
+## Skill Surface Guardrail
+
+Before generating or using a skill that calls tools, ask:
+
+- Is this T0/T1/T2/T3/T4?
+- Does the skill need scripts, references, assets, or only instructions?
+- Does it call external systems?
+- Does it read secrets?
+- Does it write, publish, spend, delete, or run unattended?
+- Is approval, logging, rollback, and eval coverage explicit?
 
 If the answer is no, prefer CLI/API.
 

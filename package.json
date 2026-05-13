@@ -2,7 +2,7 @@
   "name": "codex-brain",
   "version": "0.1.0",
   "private": true,
-  "description": "Codex-native project brain for adaptive rigor, phase gates, Design DNA, and learning loops.",
+  "description": "Codex-native project brain for adaptive rigor, agentic intelligence planning, skill-factory gates, Design DNA, and learning loops.",
   "type": "module",
   "scripts": {
     "check": "node scripts/check-repo.mjs",
@@ -19,7 +19,8 @@
     "context-health": "node scripts/context-health.mjs",
     "route-tool": "node scripts/route-tool.mjs",
     "plan-capabilities": "node scripts/plan-capabilities.mjs",
-    "plan-agentic-system": "node scripts/plan-agentic-system.mjs"
+    "plan-agentic-system": "node scripts/plan-agentic-system.mjs",
+    "plan-agent-skills": "node scripts/plan-agent-skills.mjs"
   },
   "engines": {
     "node": ">=18"

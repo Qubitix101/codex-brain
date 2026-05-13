@@ -36,6 +36,13 @@ Passing tests is necessary. It is not sufficient.
 - Memory, sensing, routines, approvals, evals, and learning are designed when relevant.
 - Autonomy is bounded by permissions, rollback, and quality gates.
 
+### 3.6 Agent Engineering and Skill System
+
+- Production agents have explicit system design, tool contracts, retrieval design, reliability controls, security/safety boundaries, evals/observability, and product trust UX.
+- Multi-model systems have a routing policy with fallbacks, cost/latency expectations, and data-sensitivity boundaries.
+- Procedural knowledge is captured as reviewed skill candidates, not left in chat.
+- Skills have trust levels, evals, approval requirements, and install/promotion rules.
+
 ### 4. Data and Scale
 
 - The database choice matches access patterns.
@@ -100,6 +107,7 @@ For Full mode, Codex should ask:
 - Would a security reviewer know where to look?
 - Would a designer see a real aesthetic direction?
 - Would an enterprise buyer understand trust and compliance?
+- Would an agent engineer trust the tool contracts, retrieval, reliability, evals, traces, and skill trust levels?
 - Would a future team be able to maintain this?
 - Would the product survive 10x more users?
 

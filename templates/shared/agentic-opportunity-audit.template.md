@@ -135,4 +135,4 @@ This is a hypothesis list. Final access choices belong in `docs/capability-acces
 - First closed loop:
 - Defer:
 - Blockers:
-- Next artifact: `docs/intelligence-system-plan.md`
+- Next artifacts: `docs/intelligence-system-plan.md`, then `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when L3+ or skill-driven

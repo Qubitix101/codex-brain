@@ -19,6 +19,7 @@ Expert councils force disagreement across:
 - accessibility
 - reliability
 - AI safety
+- agent engineering and procedural skills
 - launch readiness
 
 ## Council Types
@@ -106,6 +107,28 @@ Output:
 - unresolved P0/P1 risks
 - monitoring and rollback gaps
 
+### Agent Engineering Council
+
+Use before capability/access and Build Plan approval for L3+ agentic, retrieval-heavy, multi-model, tool-using, or skill-driven products.
+
+Roles:
+
+- agent engineering reviewer
+- AI orchestration reviewer
+- architecture strategist
+- security/GDPR reviewer
+- performance/reliability reviewer
+- product strategist
+
+Output:
+
+- seven-discipline readiness findings
+- tool-contract and retrieval gaps
+- model-routing and fallback gaps
+- unsafe skill trust levels
+- missing eval/trace requirements
+- product trust UX blockers
+
 ## Council Protocol
 
 1. Define the decision under review.
@@ -124,6 +147,7 @@ Required in Full mode for:
 - major architecture/database decision
 - security/privacy plan
 - Design DNA approval
+- agent-engineering readiness for L3+ AI products
 - launch readiness
 
 Optional in Standard mode.
@@ -137,4 +161,3 @@ Avoid in Light mode unless the user explicitly asks or the risk escalates.
 - Producing long generic commentary.
 - Letting councils override evidence.
 - Skipping artifact updates after a council finds a real gap.
-

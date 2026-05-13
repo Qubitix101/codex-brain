@@ -116,6 +116,15 @@ If agentic product shape is repeatedly misjudged:
 - add or revise patterns in `catalogs/agentic-system-patterns.json`
 - update the audit and intelligence-system templates
 
+If agent engineering, retrieval, tool contracts, model routing, or procedural skills repeatedly fail:
+
+- update `frameworks/agent-engineering-skill-stack.md`
+- update `frameworks/skill-factory.md`
+- add or revise entries in `catalogs/agent-engineering-catalog.json`
+- update `templates/shared/agent-engineering-audit.template.md`
+- update `templates/shared/skill-inventory.template.md`
+- update `templates/shared/skill-spec.template.md`
+
 ## Rule
 
 A serious project is not complete until lessons are captured.

@@ -59,11 +59,28 @@ capture input -> update memory/context -> generate or propose output -> review/a
 
 ## 7. Skill Layer
 
+The detailed skill inventory belongs in `docs/skill-inventory.md`.
+
 | Skill | Purpose | Inputs | Outputs | Quality Gate |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 8. Tool and Harness Layer
+## 8. Agent Engineering Requirements
+
+The production-agent audit belongs in `docs/agent-engineering-audit.md`.
+
+| Discipline | Required? | Notes |
+| --- | --- | --- |
+| System design | | |
+| Tool contracts | | |
+| Retrieval engineering | | |
+| Reliability engineering | | |
+| Security and safety | | |
+| Evaluation and observability | | |
+| Product trust UX | | |
+| Model routing | | |
+
+## 9. Tool and Harness Layer
 
 Final access choices are resolved in `docs/capability-access-map.md`.
 
@@ -76,13 +93,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Browser automation | | | |
 | Computer Use | | | |
 
-## 9. Routine Layer
+## 10. Routine Layer
 
 | Routine | Trigger | Schedule | Inputs | Output | Approval | Recovery |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
-## 10. Approval and Control Layer
+## 11. Approval and Control Layer
 
 | Action | Default | Approval Required | Rollback / Revoke |
 | --- | --- | --- | --- |
@@ -92,13 +109,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Spend money/use quota | Blocked until approved | | |
 | Delete/change durable external state | Blocked until approved | | |
 
-## 11. Evaluation Layer
+## 12. Evaluation Layer
 
 | Eval | Purpose | Dataset / Examples | Frequency | Blocks Release? |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 12. Learning Layer
+## 13. Learning Layer
 
 - User corrections:
 - Accepted/rejected proposals:
@@ -107,7 +124,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 - Skill/routine updates:
 - Promotion into Codex Brain lessons:
 
-## 13. Risk Boundaries
+## 14. Risk Boundaries
 
 | Risk | Boundary | Mitigation |
 | --- | --- | --- |
@@ -118,7 +135,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Cost runaway | | |
 | Automation drift | | |
 
-## 14. Build Sequence
+## 15. Build Sequence
 
 | Slice | Goal | Intelligence Loop | Required Access | Verification |
 | --- | --- | --- | --- | --- |
@@ -126,7 +143,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | 2 | | | | |
 | 3 | | | | |
 
-## 15. Deferred OS Layers
+## 16. Deferred OS Layers
 
 | Layer | Why Deferred | Revisit Trigger |
 | --- | --- | --- |

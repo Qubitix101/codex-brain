@@ -9,18 +9,19 @@ One task. One focused change. One verification pass. One state update.
 1. Read current state.
 2. Read current PRD.
 3. Select next unblocked task.
-4. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
-5. Confirm allowed files and forbidden files.
-6. Check Git branch and working tree.
-7. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
-8. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
-9. Implement only that task.
-10. Run relevant checks.
-11. Review the diff.
-12. Run local Codex review with `/review` when available before PR handoff.
-13. Update task state.
-14. Capture lessons.
-15. Stop.
+4. If agentic behavior is involved, read the relevant skill inventory entry and trust level.
+5. Select the execution surface: CLI, API/SDK, MCP, generated harness, browser, or Computer Use.
+6. Confirm allowed files and forbidden files.
+7. Check Git branch and working tree.
+8. Create or recommend a `codex/...` branch for meaningful work unless already on an appropriate task branch.
+9. Recommend a separate worktree when the task is risky, experimental, long-running, or the current tree has unrelated user changes.
+10. Implement only that task.
+11. Run relevant checks.
+12. Review the diff.
+13. Run local Codex review with `/review` when available before PR handoff.
+14. Update task state.
+15. Capture lessons.
+16. Stop.
 
 ## Task Requirements
 
@@ -33,6 +34,7 @@ A task must have:
 - dependencies
 - verification commands
 - allowed files or modules when possible
+- required skills, trust levels, approval gates, and eval traces when agentic behavior is touched
 
 ## Completion Requirements
 
@@ -43,6 +45,7 @@ A task is complete only when:
 - no unrelated files changed
 - Git branch/worktree choice was appropriate for the risk
 - execution surface was appropriate for the task and permission boundary
+- skill trust level and approval boundary were respected
 - local review was run or intentionally skipped with reason
 - state is updated
 - lesson capture was considered

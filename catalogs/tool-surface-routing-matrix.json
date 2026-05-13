@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/tool-surface-routing-matrix.schema.json",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "principle": "Choose the least-context, least-permission, most reliable surface that satisfies the task.",
   "surfaces": [
     {
@@ -89,6 +89,14 @@
       "alternates": ["mcp_connector"],
       "why": "Application runtime behavior should depend on stable vendor APIs/SDKs and webhooks, with explicit error handling.",
       "verify_with": ["API contract test", "webhook test"]
+    },
+    {
+      "id": "fresh_web_research",
+      "keywords": ["latest", "current", "recent", "news", "market research", "competitor research", "web research", "cited research", "sources", "perplexity"],
+      "preferred_surface": "mcp_connector",
+      "alternates": ["official_api_sdk", "browser_automation", "native_cli"],
+      "why": "Fresh web-grounded research benefits from a research/search provider or MCP connector that returns sourced results and handles web retrieval. Use browser automation when rendered pages or authenticated research flows matter; use native CLI only for stable HTTP/API fetches.",
+      "verify_with": ["source list", "publication dates checked", "citation coverage", "contradiction scan"]
     },
     {
       "id": "rendered_webpage_fetch",

@@ -2,7 +2,7 @@
 
 An Intelligence System Plan describes the high-level operating architecture for products that should become more than a normal app.
 
-It is the bridge between the Agentic Opportunity Audit and the Capability and Access Map.
+It is the bridge between the Agentic Opportunity Audit, the Agent Engineering Audit, the Skill Factory, and the Capability and Access Map.
 
 ## Purpose
 
@@ -16,6 +16,8 @@ The plan turns an idea into a clear intelligence architecture:
 - how it evaluates quality
 - how it learns
 - what tooling and harnesses it will need
+- what procedural skills it will need
+- what production-agent disciplines must be satisfied
 
 ## Required Artifact
 
@@ -24,6 +26,9 @@ Use:
 - `docs/intelligence-system-plan.md`
 - `templates/shared/intelligence-system-plan.template.md`
 - `catalogs/agentic-system-patterns.json`
+- `frameworks/agent-engineering-skill-stack.md`
+- `frameworks/skill-factory.md`
+- `catalogs/agent-engineering-catalog.json`
 
 ## System Anatomy
 
@@ -99,6 +104,8 @@ Reusable domain abilities:
 
 Skills should have inputs, outputs, quality criteria, and failure modes.
 
+The detailed skill inventory belongs in `docs/skill-inventory.md`; this plan should identify the operating loops from which skills will be generated.
+
 ### 6. Tool and Harness Layer
 
 How the system acts:
@@ -113,6 +120,8 @@ How the system acts:
 - webhooks
 
 The detailed selection belongs in the Capability and Access Map.
+
+The production readiness of those tools belongs in `docs/agent-engineering-audit.md`.
 
 ### 7. Routine Layer
 
@@ -178,6 +187,8 @@ Every plan should include:
 - sensing inputs
 - core skills
 - tool/harness needs
+- agent-engineering readiness requirements
+- procedural skill inventory
 - routine map
 - approval map
 - eval and quality plan

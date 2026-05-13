@@ -36,6 +36,9 @@
 - [ ] Intelligence system plan referenced if AI/automation is relevant
 - [ ] First closed intelligence loop defined
 - [ ] Memory, routine, approval, eval, and learning model defined
+- [ ] Agent engineering audit referenced if L3+/agentic/retrieval/tool-use is relevant
+- [ ] Skill inventory referenced if procedural skills are relevant
+- [ ] Seven-discipline readiness, model routing, skill trust levels, and skill evals defined
 - [ ] Capability/access map referenced
 - [ ] Product runtime surfaces selected
 - [ ] Agent implementation surfaces selected

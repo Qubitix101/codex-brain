@@ -1,6 +1,6 @@
 {
   "$schema_note": "Machine-readable Full-mode coverage catalog for Codex Brain. Future sessions should use this to prevent skipped product, engineering, design, security, privacy, scale, and operating concerns.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "mode": "full",
   "principle": "If a project has unicorn-level ambition, enterprise risk, multi-tenancy, payments, AI-core workflows, EU personal data, or public users, every applicable domain must be addressed or explicitly justified as not applicable.",
   "domains": [
@@ -367,6 +367,36 @@
       "review_roles": ["architecture-strategist", "security-gdpr-reviewer", "ai-orchestration-reviewer"]
     },
     {
+      "id": "agent-engineering-skill-factory",
+      "name": "Agent Engineering and Skill Factory",
+      "purpose": "Ensure agentic products have production-grade system design, tool contracts, retrieval, reliability, security, evals, observability, product trust, and procedural skills before access planning and Build Plan approval.",
+      "required_questions": [
+        "What are the system boundaries, data flows, model routes, state owners, and failure boundaries?",
+        "What strict tool contracts, schemas, examples, output contracts, and approval policies are required?",
+        "What retrieval sources, chunking, ranking, citations, freshness, and evals are required?",
+        "What timeouts, retries, fallbacks, circuit breakers, job states, and rollback paths are required?",
+        "What prompt-injection, least-privilege, tenant-boundary, secret-handling, and external-action controls are required?",
+        "What traces, tool-call logs, retrieved-context logs, golden examples, quality metrics, latency, cost, and drift checks are required?",
+        "What product trust surfaces expose confidence, evidence, memory changes, approvals, escalation, and rollback?",
+        "What procedural skills should be reused, generated, deferred, or rejected, and what trust level does each skill have?"
+      ],
+      "required_artifacts": [
+        "docs/agent-engineering-audit.md",
+        "docs/skill-inventory.md",
+        "frameworks/agent-engineering-skill-stack.md",
+        "frameworks/skill-factory.md",
+        "catalogs/agent-engineering-catalog.json"
+      ],
+      "p0_blockers": [
+        "L3+ agentic product without seven-discipline readiness audit.",
+        "Tool-using agent without strict tool contract and approval policy.",
+        "Retrieval-backed agent without retrieval evals and source policy.",
+        "Autonomous or external-action skill without trust level, approval, logging, and rollback.",
+        "Multi-provider or multi-model system without routing policy and fallback."
+      ],
+      "review_roles": ["ai-orchestration-reviewer", "architecture-strategist", "security-gdpr-reviewer", "performance-reliability-reviewer", "product-strategist"]
+    },
+    {
       "id": "reliability-observability",
       "name": "Reliability, Observability, and Operations",
       "purpose": "Make the product operable after launch.",
@@ -596,13 +626,19 @@
     "templates/full/traceability-matrix.template.md",
     "templates/shared/agentic-opportunity-audit.template.md",
     "templates/shared/intelligence-system-plan.template.md",
+    "templates/shared/agent-engineering-audit.template.md",
+    "templates/shared/skill-inventory.template.md",
+    "templates/shared/skill-spec.template.md",
     "templates/shared/capability-access-map.template.md",
     "frameworks/agentic-opportunity-audit.md",
     "frameworks/intelligence-system-plan.md",
+    "frameworks/agent-engineering-skill-stack.md",
+    "frameworks/skill-factory.md",
     "frameworks/capability-access-readiness.md",
     "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
     "catalogs/agentic-system-patterns.json",
+    "catalogs/agent-engineering-catalog.json",
     "catalogs/capability-access-catalog.json",
     "catalogs/tool-surface-routing-matrix.json",
     "schemas/project-state.schema.json",

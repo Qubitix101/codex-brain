@@ -1,0 +1,217 @@
+{
+  "$schema": "../schemas/agent-engineering-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "Production agents require system design, tool contracts, retrieval, reliability, security, evals, observability, product trust, and procedural skills before implementation.",
+  "disciplines": [
+    {
+      "id": "system_design",
+      "name": "System Design",
+      "purpose": "Define components, ownership, data flow, orchestration, model routing, state, jobs, approvals, and failure boundaries.",
+      "signals": ["architecture", "system", "orchestration", "multi-model", "sub-agent", "workflow", "state", "queue", "job"],
+      "required_outputs": ["component map", "data-flow map", "model-routing policy", "state ownership", "failure boundary"],
+      "p0_blockers": ["multi-tool agent with no system diagram", "no owner for state or memory", "no routing policy for multiple models or providers"]
+    },
+    {
+      "id": "tool_contract_design",
+      "name": "Tool and Contract Design",
+      "purpose": "Make every tool callable through strict schemas, examples, output contracts, validation, permissions, and failure behavior.",
+      "signals": ["tool", "api", "mcp", "cli", "sdk", "contract", "schema", "function", "integration"],
+      "required_outputs": ["tool contract inventory", "read/write/destructive classification", "input examples", "output contracts", "approval policy"],
+      "p0_blockers": ["write tools with no approval policy", "vague tool inputs", "no output contract for downstream steps"]
+    },
+    {
+      "id": "retrieval_engineering",
+      "name": "Retrieval Engineering",
+      "purpose": "Design source inventory, chunking, embeddings, metadata, reranking, citations, freshness, and retrieval evals.",
+      "signals": ["rag", "retrieval", "knowledge base", "documents", "search", "citations", "sources", "semantic", "embedding"],
+      "required_outputs": ["source inventory", "chunking strategy", "ranking strategy", "citation policy", "retrieval eval set"],
+      "p0_blockers": ["RAG assumed without corpus design", "no relevance metric", "no stale-data handling for fresh-answer use cases"]
+    },
+    {
+      "id": "reliability_engineering",
+      "name": "Reliability Engineering",
+      "purpose": "Control failure through timeouts, retries, backoff, circuit breakers, job state, idempotency, fallbacks, and rollback.",
+      "signals": ["retries", "timeout", "fallback", "failure", "rate limit", "queue", "webhook", "job", "automation"],
+      "required_outputs": ["timeout policy", "retry/backoff policy", "fallback plan", "job-state model", "rollback path"],
+      "p0_blockers": ["unbounded retries", "no timeout policy", "no rollback path for external writes"]
+    },
+    {
+      "id": "security_safety",
+      "name": "Security and Safety",
+      "purpose": "Bound prompt injection, input validation, output filtering, least privilege, tenant isolation, secret handling, and external action controls.",
+      "signals": ["security", "safety", "permission", "approval", "secret", "tenant", "prompt injection", "public", "delete", "send"],
+      "required_outputs": ["threat model", "permission matrix", "approval gates", "prompt-injection controls", "audit log plan"],
+      "p0_blockers": ["public/send/delete/spend action without approval", "tool output trusted blindly", "no tenant boundary for memory or retrieval"]
+    },
+    {
+      "id": "evaluation_observability",
+      "name": "Evaluation and Observability",
+      "purpose": "Make behavior measurable through traces, tool-call logs, retrieved-context logs, evals, golden examples, metrics, and drift detection.",
+      "signals": ["eval", "observability", "trace", "metrics", "log", "monitor", "quality", "latency", "cost", "regression"],
+      "required_outputs": ["trace schema", "eval set", "quality metrics", "latency/cost budget", "drift detection"],
+      "p0_blockers": ["no way to reproduce bad answers", "no eval set for core workflows", "no trace of tool inputs or retrieval context"]
+    },
+    {
+      "id": "product_trust_ux",
+      "name": "Product Trust and UX",
+      "purpose": "Design confidence, uncertainty, memory visibility, evidence trails, approval surfaces, escalation, graceful errors, and rollback affordances.",
+      "signals": ["ux", "trust", "confidence", "approval", "review", "explain", "evidence", "memory", "escalate", "rollback"],
+      "required_outputs": ["trust surface map", "approval UX", "evidence trail", "memory visibility", "escalation rules"],
+      "p0_blockers": ["user cannot inspect why the agent answered or acted", "memory changes are hidden", "no escalation path for low confidence"]
+    }
+  ],
+  "skill_trust_levels": [
+    {
+      "id": "T0",
+      "name": "Spec Only",
+      "description": "Skill candidate only; no installed instructions or executable code.",
+      "requires": ["skill spec", "owner", "review status"]
+    },
+    {
+      "id": "T1",
+      "name": "Instructions Only",
+      "description": "SKILL.md instructions with no executable scripts.",
+      "requires": ["trigger description", "inputs", "outputs", "steps", "evals"]
+    },
+    {
+      "id": "T2",
+      "name": "Read-Only Scripted",
+      "description": "Scripts may read local files or validate artifacts, but must not mutate external systems.",
+      "requires": ["script review", "no secret access", "fixtures or examples", "read-only guarantee"]
+    },
+    {
+      "id": "T3",
+      "name": "Controlled External Tooling",
+      "description": "Skill may call APIs, CLIs, MCP tools, browser flows, or Computer Use inside strict boundaries.",
+      "requires": ["capability-access map", "credential policy", "scopes", "audit log", "test mode", "write approval boundary"]
+    },
+    {
+      "id": "T4",
+      "name": "Public, Paid, Destructive, or Autonomous",
+      "description": "Skill can publish, send, delete, spend, mutate production data, or run unattended.",
+      "requires": ["human approval gate", "rollback path", "monitoring", "eval gate", "threat review", "production owner"]
+    }
+  ],
+  "skill_archetypes": [
+    {
+      "id": "capture_signal",
+      "name": "Capture Signal",
+      "keywords": ["capture", "intake", "upload", "inbox", "source", "proof", "signal", "idea"],
+      "default_trust": "T1",
+      "purpose": "Turn raw user, file, browser, or platform inputs into classified domain signals.",
+      "inputs": ["raw input", "source metadata", "tenant/user context"],
+      "outputs": ["classified signal", "source trail", "memory-update proposal"],
+      "evals": ["classification accuracy", "source completeness", "duplicate detection"]
+    },
+    {
+      "id": "update_memory",
+      "name": "Update Memory",
+      "keywords": ["memory", "profile", "voice", "preference", "proof", "history", "learning"],
+      "default_trust": "T3",
+      "purpose": "Propose and apply durable memory changes with approval and audit history.",
+      "inputs": ["candidate memory item", "evidence", "existing memory"],
+      "outputs": ["approved memory change", "rejected change", "audit entry"],
+      "evals": ["evidence support", "privacy compliance", "duplicate/conflict check"]
+    },
+    {
+      "id": "retrieve_context",
+      "name": "Retrieve Context",
+      "keywords": ["retrieve", "rag", "knowledge base", "documents", "citations", "search", "sources"],
+      "default_trust": "T2",
+      "purpose": "Fetch, rank, cite, and package relevant knowledge for downstream reasoning.",
+      "inputs": ["query", "filters", "freshness requirement", "tenant/user scope"],
+      "outputs": ["ranked context pack", "citations", "relevance scores"],
+      "evals": ["precision", "recall proxy", "citation validity", "staleness"]
+    },
+    {
+      "id": "generate_artifact",
+      "name": "Generate Artifact",
+      "keywords": ["generate", "draft", "write", "create", "report", "post", "content", "image", "video", "voice"],
+      "default_trust": "T1",
+      "purpose": "Create a user-visible artifact from a brief, retrieved context, and memory.",
+      "inputs": ["brief", "memory/context pack", "format constraints", "quality bar"],
+      "outputs": ["draft artifact", "rationale", "quality notes"],
+      "evals": ["factuality", "style fit", "format fit", "policy/safety"]
+    },
+    {
+      "id": "critique_score",
+      "name": "Critique and Score",
+      "keywords": ["score", "audit", "review", "quality", "eval", "check", "grade", "validate"],
+      "default_trust": "T1",
+      "purpose": "Evaluate an output against rubrics, evidence, safety, policy, and product-specific quality bars.",
+      "inputs": ["artifact", "rubric", "evidence", "policy"],
+      "outputs": ["scores", "findings", "fix recommendations", "approval recommendation"],
+      "evals": ["rubric consistency", "false-pass rate", "actionability"]
+    },
+    {
+      "id": "prepare_external_action",
+      "name": "Prepare External Action",
+      "keywords": ["send", "publish", "schedule", "post", "delete", "purchase", "update", "external"],
+      "default_trust": "T4",
+      "purpose": "Prepare public, paid, destructive, or externally visible actions for explicit approval.",
+      "inputs": ["approved artifact", "destination", "permission scope", "rollback plan"],
+      "outputs": ["action preview", "risk note", "approval request", "audit entry"],
+      "evals": ["approval completeness", "destination correctness", "rollback viability"]
+    },
+    {
+      "id": "run_routine",
+      "name": "Run Routine",
+      "keywords": ["routine", "weekly", "daily", "recurring", "monitor", "watch", "automation", "cron"],
+      "default_trust": "T3",
+      "purpose": "Run recurring or event-triggered work with bounded inputs, outputs, approvals, and failure handling.",
+      "inputs": ["trigger", "schedule", "state", "scope", "budget"],
+      "outputs": ["routine result", "pending approvals", "trace", "next run state"],
+      "evals": ["timeliness", "completion rate", "cost", "failure recovery"]
+    },
+    {
+      "id": "research_latest",
+      "name": "Research Latest Information",
+      "keywords": ["latest", "current", "recent", "news", "research", "market", "competitor", "web"],
+      "default_trust": "T3",
+      "purpose": "Route fresh-information tasks to web-grounded research providers, browser research, or approved search tools with citations.",
+      "inputs": ["research question", "recency requirement", "source constraints"],
+      "outputs": ["sourced answer", "source list", "confidence notes"],
+      "evals": ["source quality", "date relevance", "citation coverage", "contradiction handling"]
+    },
+    {
+      "id": "orchestrate_model_route",
+      "name": "Orchestrate Model Route",
+      "keywords": ["model", "opus", "perplexity", "codex", "gpt", "route", "orchestrate", "multi-brain"],
+      "default_trust": "T2",
+      "purpose": "Choose the right model, provider, or tool surface for a task based on freshness, coding, reasoning, cost, latency, and governance needs.",
+      "inputs": ["task", "freshness need", "coding need", "data sensitivity", "latency/cost budget"],
+      "outputs": ["route decision", "fallback route", "evaluation plan"],
+      "evals": ["route correctness", "cost/latency fit", "fallback success"]
+    }
+  ],
+  "domain_skill_patterns": [
+    {
+      "id": "social_content_agent",
+      "name": "Social Content Agent",
+      "keywords": ["linkedin", "instagram", "twitter", "x", "social media", "content", "personal brand", "authority"],
+      "recommended_skills": ["capture_signal", "update_memory", "retrieve_context", "generate_artifact", "critique_score", "prepare_external_action", "run_routine"],
+      "required_disciplines": ["system_design", "tool_contract_design", "retrieval_engineering", "security_safety", "evaluation_observability", "product_trust_ux"]
+    },
+    {
+      "id": "research_agent",
+      "name": "Research Intelligence Agent",
+      "keywords": ["research", "latest", "market", "competitor", "newsletter", "analyst", "brief", "synthesis"],
+      "recommended_skills": ["research_latest", "retrieve_context", "critique_score", "generate_artifact", "run_routine", "orchestrate_model_route"],
+      "required_disciplines": ["system_design", "retrieval_engineering", "reliability_engineering", "evaluation_observability", "product_trust_ux"]
+    },
+    {
+      "id": "customer_ops_agent",
+      "name": "Customer Operations Agent",
+      "keywords": ["support", "customer", "ticket", "crm", "inbox", "sales", "ops", "follow up"],
+      "recommended_skills": ["capture_signal", "retrieve_context", "generate_artifact", "critique_score", "prepare_external_action", "run_routine"],
+      "required_disciplines": ["system_design", "tool_contract_design", "reliability_engineering", "security_safety", "evaluation_observability", "product_trust_ux"]
+    },
+    {
+      "id": "creative_media_agent",
+      "name": "Creative Media Agent",
+      "keywords": ["image", "video", "voice", "avatar", "heygen", "fal", "runway", "media", "creative", "asset"],
+      "recommended_skills": ["capture_signal", "generate_artifact", "critique_score", "prepare_external_action", "run_routine"],
+      "required_disciplines": ["system_design", "tool_contract_design", "reliability_engineering", "security_safety", "evaluation_observability", "product_trust_ux"]
+    }
+  ]
+}

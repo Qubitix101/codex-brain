@@ -67,7 +67,7 @@ if (!markdown) {
     catalog_version: catalog.version,
     artifact_to_create: "docs/capability-access-map.md",
     capabilities: planned,
-    next_step: "Fill templates/shared/capability-access-map.template.md and ask the user only for required-now access."
+    next_step: "Fill templates/shared/capability-access-map.template.md after agent-engineering and skill requirements are known; ask the user only for required-now access."
   }, null, 2));
   process.exit(0);
 }
@@ -102,6 +102,6 @@ for (const item of planned) {
 
 lines.push("## Next Step");
 lines.push("");
-lines.push("Create `docs/capability-access-map.md`, mark each capability required/mockable/deferred/not applicable, then ask the user only for the required-now credentials, accounts, scopes, or setup information.");
+lines.push("Create `docs/capability-access-map.md` after `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` are complete when relevant. Mark each capability required/mockable/deferred/not applicable, then ask the user only for the required-now credentials, accounts, scopes, or setup information.");
 
 console.log(lines.join("\n"));

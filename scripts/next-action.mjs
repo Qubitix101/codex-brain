@@ -15,6 +15,7 @@ const gateByPhase = {
   validate: "validation",
   research: "research",
   "agentic-opportunity": "agentic_opportunity",
+  "agent-engineering": "agent_engineering",
   "capability-access": "capability_access",
   plan: "plan",
   "design-dna": "design_dna",
@@ -37,7 +38,7 @@ function workflowForPhase(phase, mode) {
 }
 
 function nextPhase(phase) {
-  const order = ["classify", "validate", "research", "agentic-opportunity", "capability-access", "plan", "design-dna", "decompose", "execute", "review", "ship", "learn"];
+  const order = ["classify", "validate", "research", "agentic-opportunity", "agent-engineering", "capability-access", "plan", "design-dna", "decompose", "execute", "review", "ship", "learn"];
   const index = order.indexOf(phase);
   return index >= 0 && index < order.length - 1 ? order[index + 1] : null;
 }

@@ -19,6 +19,7 @@ Research produces decisions, not trivia.
 - design references
 - deployment constraints
 - agentic opportunity if AI/automation/workflow OS value is relevant
+- agent-engineering and skill-factory constraints if agents/retrieval/model routing/procedural skills are relevant
 - integration constraints
 - capability and access constraints
 
@@ -39,6 +40,7 @@ Research produces decisions, not trivia.
 - analytics/data strategy
 - AI orchestration/evals if applicable
 - agentic opportunity and intelligence-system shape if applicable
+- agent-engineering readiness and skill inventory if applicable
 - capability and access readiness
 - design and interaction references
 

@@ -11,8 +11,9 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before capability/access planning.
-7. For integration-heavy projects, map capability and access needs before Build Plan approval.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before agent-engineering and capability/access planning.
+7. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before capability/access planning.
+8. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -47,6 +48,7 @@ If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
 If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
 If the user asks whether an idea should become agentic, an operating system, or a high-level intelligence system, read `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
+If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
@@ -89,6 +91,7 @@ The lifecycle is:
 1. Validate
 2. Research
 2.25. Agentic Opportunity
+2.35. Agent Engineering and Skill Factory
 2.5. Capability and Access
 3. Plan
 3.5. Design DNA
@@ -199,6 +202,28 @@ Forbidden:
 - promising automation without approval, rollback, and eval boundaries
 - building an AI-core product as a prompt box without documenting the tradeoff
 
+### Gate 2.35 - Agent Engineering and Skill Factory
+
+Required when the product is L3 or higher, multi-model, retrieval-heavy, skill-driven, tool-using, automation-heavy, externally acting, or intended to behave like a niche expert agent.
+
+Requires:
+
+- `docs/agent-engineering-audit.md`
+- `docs/skill-inventory.md`
+- seven-discipline readiness audit: system design, tool contracts, retrieval, reliability, security/safety, evals/observability, and product trust UX
+- model/provider routing policy for research, coding, reasoning, domain retrieval, database/API reads, external actions, visual verification, and desktop workflows
+- procedural skill inventory with reuse/generate/defer/reject decisions
+- skill trust levels T0-T4
+- T2-T4 review requirements for scripts, external tools, secrets, writes, public actions, paid actions, destructive actions, and autonomous routines
+- eval and trace requirements for core skills
+
+Forbidden:
+
+- choosing capability/access surfaces before skill and tool-contract requirements are understood
+- generating or installing executable skills before trust review
+- approving Build Plan with missing agent reliability, security, observability, or product trust boundaries
+- installing unreviewed public skills because they are popular
+
 ### Gate 2.5 - Capability and Access
 
 Required when the product depends on external systems, APIs, SDKs, CLIs, MCP servers, browser automation, desktop apps, paid vendors, media generation, AI tools, authenticated SaaS, deployment platforms, or user-provided credentials.
@@ -207,6 +232,7 @@ Requires:
 
 - `docs/capability-access-map.md`
 - `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant
+- `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agent engineering or procedural skills are relevant
 - required capability inventory
 - production runtime surface decisions
 - Codex/agent implementation surface decisions

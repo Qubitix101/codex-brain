@@ -15,6 +15,15 @@ Each PRD includes:
 - verification commands
 - completion criteria
 
+For agentic products, each PRD also includes:
+
+- intelligence loop touched
+- required skills
+- model/tool routes
+- approval boundaries
+- evals/traces proving the agent behavior
+- skill trust level changes if any
+
 ## Atomic Task Shape
 
 Good:
@@ -38,4 +47,3 @@ Bad:
 ## Rule
 
 If a task cannot be verified in one focused loop, split it.
-

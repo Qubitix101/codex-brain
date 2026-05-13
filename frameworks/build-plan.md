@@ -11,6 +11,7 @@ All modes:
 - core workflows
 - technical approach
 - agentic opportunity/intelligence-system reference if AI or automation is relevant
+- agent-engineering/skill-inventory reference if agents, retrieval, model routing, or procedural skills are relevant
 - capability and access map reference
 - data model
 - task phases
@@ -20,6 +21,7 @@ Standard:
 
 - architecture
 - intelligence-system architecture if applicable
+- agent-engineering discipline and skill plan if applicable
 - database choice
 - auth model
 - API/module contracts
@@ -43,6 +45,7 @@ Full:
 - observability
 - AI orchestration and eval plan if applicable
 - agentic maturity, first closed loop, memory/routine/approval/eval model if applicable
+- seven-discipline agent-engineering readiness, model routing, skill trust levels, and skill eval plan if applicable
 - capability/access blockers and mock/live verification plan
 - narrative promise list
 - launch plan

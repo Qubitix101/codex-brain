@@ -16,6 +16,15 @@
 - First closed loop:
 - Memory/routine/eval status:
 
+## Agent Engineering and Skill Factory
+
+- Agent engineering audit:
+- Skill inventory:
+- Model routing:
+- Required skills:
+- Skill trust levels:
+- Eval/trace status:
+
 ## Capability and Access
 
 - Capability/access map:

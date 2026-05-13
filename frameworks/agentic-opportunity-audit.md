@@ -2,7 +2,7 @@
 
 Codex Brain should decide whether an idea deserves a normal app, an AI-assisted workflow, or a real agentic operating system before planning the build.
 
-This framework sits before Capability and Access Readiness. It answers what kind of intelligence system the product should become; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
+This framework sits before Agent Engineering and Capability and Access Readiness. It answers what kind of intelligence system the product should become; the agent-engineering audit answers what production-agent and procedural-skill discipline is required; the capability/access map answers which APIs, CLIs, MCPs, credentials, and harnesses are required to build it.
 
 ## Purpose
 
@@ -14,16 +14,21 @@ The audit prevents both failures.
 
 ## Gate 2.25
 
-Agentic Opportunity sits after Research and before Capability and Access.
+Agentic Opportunity sits after Research and before Agent Engineering.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Agent Engineering -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifacts for AI-core, automation-heavy, workflow-heavy, content, knowledge-work, multi-tool, or customer-operating-system products:
 
 - `docs/agentic-opportunity-audit.md`
 - `docs/intelligence-system-plan.md`
+
+After this gate, AI-core or agentic projects must complete:
+
+- `docs/agent-engineering-audit.md`
+- `docs/skill-inventory.md`
 
 Light projects may mark this gate as not applicable only when there is no AI, automation, recurring workflow, memory, external tool, or multi-step user outcome.
 
@@ -165,6 +170,8 @@ The audit must produce:
 - agentic leverage map
 - required memory
 - required tools and harness classes
+- required agent-engineering disciplines
+- required procedural skills
 - recurring routines
 - approval gates
 - evals and quality checks

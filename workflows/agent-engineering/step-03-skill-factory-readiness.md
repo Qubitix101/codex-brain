@@ -1,0 +1,55 @@
+# Step 03 - Skill Factory Readiness Gate
+
+## Read
+
+- `docs/agent-engineering-audit.md`
+- `docs/skill-inventory.md`
+- `frameworks/skill-factory.md`
+
+## Decide
+
+Approve the Agent Engineering gate only when:
+
+- all seven disciplines are scored
+- P0 blockers are resolved or explicitly accepted as deferred with a safe first slice
+- required first-slice skills are named
+- trust levels are assigned
+- T2-T4 skills have review requirements
+- skill generation does not bypass capability/access planning
+- model routing policy is documented when multiple models/providers are expected
+
+## Write
+
+Update:
+
+- `docs/agent-engineering-audit.md#gate-decision`
+- `docs/skill-inventory.md#gate-decision`
+- `.codex-brain/state.json`
+
+## Approval
+
+User approval is required before moving to Capability and Access when:
+
+- the product is L3 or higher
+- any skill is T3 or T4
+- any external action, public action, paid action, destructive action, or unattended routine is in scope
+- model routing includes user/private/customer data across providers
+
+## State
+
+If approved:
+
+- `gates.agent_engineering.status`: `complete`
+- `gates.agent_engineering.approved`: `true`
+- `gates.agent_engineering.missing`: `[]`
+- `phase`: `capability-access`
+
+If blocked:
+
+- keep `phase`: `agent-engineering`
+- set `gates.agent_engineering.status`: `blocked`
+- record blockers in `gates.agent_engineering.notes`
+
+## Next
+
+After approval, run Capability and Access Readiness with `docs/skill-inventory.md` as a required input so tool/API/CLI/MCP choices are grounded in actual procedures.

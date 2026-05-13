@@ -16,7 +16,7 @@
 - Are memory, sensing, tools, routines, approval, evals, and learning considered?
 - Are deferred agentic layers listed with revisit triggers?
 - Are overbuild and underbuild risks documented?
-- Is the next step clear for Capability and Access Readiness?
+- Is the next step clear for Agent Engineering and Skill Factory?
 
 ## Pass Criteria
 
@@ -26,7 +26,7 @@ The gate can pass when:
 - `docs/intelligence-system-plan.md` exists
 - the product has a recommended maturity level
 - the first closed loop is explicit
-- tool and harness needs are framed as hypotheses for the capability/access map
+- production-agent, procedural-skill, tool, and harness needs are framed as hypotheses for the agent-engineering audit and skill inventory
 
 ## State Update
 
@@ -35,7 +35,7 @@ If pass:
 - set `.codex-brain/state.json#gates.agentic_opportunity.status` to `complete`
 - clear missing artifacts for `agentic_opportunity`
 - set `approved` according to user/project policy
-- next workflow: `capability-access-map`
+- next workflow: `agent-engineering-audit`
 
 If blocked:
 

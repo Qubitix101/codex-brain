@@ -4,6 +4,7 @@
 
 - `docs/capability-access-map.md`
 - `docs/intelligence-system-plan.md` if relevant
+- `docs/skill-inventory.md` if relevant
 - `frameworks/tool-surface-routing.md`
 - `catalogs/tool-surface-routing-matrix.json`
 
@@ -16,6 +17,7 @@ For every required capability, select:
 - setup/testing surface
 - mock strategy
 - live verification trigger
+- skill trust-level impact
 
 ## Surface Rules
 
@@ -47,3 +49,4 @@ npm run route-tool -- --task "[specific task]"
 - a production runtime path depends on Browser or Computer Use without explicit accepted risk
 - an MCP server would be loaded broadly when a scoped CLI/API path is sufficient
 - a destructive or externally visible action lacks an approval boundary
+- a T3/T4 skill lacks credentials, audit logging, rollback, or eval requirements
