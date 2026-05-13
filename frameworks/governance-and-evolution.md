@@ -80,6 +80,7 @@ Promotion criteria:
 | Missed database scale issue | database framework + ADR template |
 | Repeated execution failure | execution loop + PRD template + script |
 | Repeated review failure | agent prompt + quality matrix |
+| Repeated underbuilt/overbuilt AI product | agentic opportunity framework + intelligence system plan template + agentic patterns catalog |
 | Repeated tool/access failure | capability-access framework + tool routing matrix + capability catalog + workflow gate |
 
 ## Versioning

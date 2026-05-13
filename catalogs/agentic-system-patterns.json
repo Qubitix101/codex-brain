@@ -1,0 +1,160 @@
+{
+  "$schema": "../schemas/agentic-system-patterns.schema.json",
+  "version": "0.1.0",
+  "principle": "An idea should become agentic only when sensing, memory, tools, routines, approvals, evals, or learning loops create real user value beyond simple generation.",
+  "maturity_levels": [
+    {
+      "id": "L0",
+      "name": "Normal App",
+      "description": "Deterministic product with no AI core loop.",
+      "signals": ["crud", "dashboard", "form", "static site", "directory"],
+      "requires": ["clear workflow", "data model if persistent"],
+      "avoid": ["unnecessary agents", "tool automation without user value"]
+    },
+    {
+      "id": "L1",
+      "name": "AI Generation",
+      "description": "User prompts the model and receives generated output.",
+      "signals": ["generate", "write", "summarize", "draft", "caption", "copy"],
+      "requires": ["prompt pattern", "output review", "basic quality criteria"],
+      "avoid": ["claiming automation without memory or tools"]
+    },
+    {
+      "id": "L2",
+      "name": "AI Plus Tools",
+      "description": "AI uses tools to retrieve data or create artifacts inside a user-driven task.",
+      "signals": ["tool", "api", "mcp", "cli", "upload", "search", "render", "analyze"],
+      "requires": ["tool boundary", "credential plan", "verification"],
+      "avoid": ["broad unscoped tool access"]
+    },
+    {
+      "id": "L3",
+      "name": "Memory-Backed Copilot",
+      "description": "The system uses durable private context to improve recommendations and outputs.",
+      "signals": ["memory", "profile", "voice", "preferences", "history", "knowledge base", "examples", "proof"],
+      "requires": ["memory model", "update policy", "privacy/deletion policy", "approval for durable updates"],
+      "avoid": ["hidden memory mutation"]
+    },
+    {
+      "id": "L4",
+      "name": "Workflow Agent With Approvals",
+      "description": "The system runs multi-step workflows and asks for approval at defined gates.",
+      "signals": ["workflow", "approval", "review", "proposal", "multi-step", "brief", "calendar", "content plan"],
+      "requires": ["workflow states", "approval gates", "audit log", "failure behavior"],
+      "avoid": ["external writes before approval"]
+    },
+    {
+      "id": "L5",
+      "name": "Bounded Autonomous Operator",
+      "description": "The system runs recurring or event-triggered work within strict permissions and policies.",
+      "signals": ["automation", "monitor", "recurring", "schedule", "watch", "notify", "routine", "agent"],
+      "requires": ["trigger model", "permission policy", "budget/cost controls", "rollback", "monitoring"],
+      "avoid": ["unbounded autonomy"]
+    },
+    {
+      "id": "L6",
+      "name": "Domain Operating System",
+      "description": "The product becomes the user's operating layer for a domain with memory, tools, routines, evals, and learning.",
+      "signals": ["operating system", "authority os", "command center", "blueprint", "system of record", "continuous learning", "agentic system"],
+      "requires": ["domain model", "private memory", "skill library", "routine engine", "tool governance", "evals", "learning loop"],
+      "avoid": ["building the full OS before proving the first closed loop"]
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "sensing",
+      "name": "Sensing and Inputs",
+      "questions": ["What must the system see, read, hear, watch, ingest, or monitor?", "Are inputs manual, connected, scheduled, event-driven, or external?"]
+    },
+    {
+      "id": "memory",
+      "name": "Memory and Knowledge Base",
+      "questions": ["What should the system remember?", "What examples, proofs, preferences, stories, assets, or outcomes make future work better?"]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning and Decisioning",
+      "questions": ["What can the system decide?", "What should it recommend?", "What requires approval?"]
+    },
+    {
+      "id": "creation",
+      "name": "Creation and Transformation",
+      "questions": ["What artifacts should the system create?", "What quality bar and evals are required?"]
+    },
+    {
+      "id": "action",
+      "name": "Action and Tool Use",
+      "questions": ["What external systems should it act inside?", "Which actions are read-only, write, paid, destructive, public, or externally visible?"]
+    },
+    {
+      "id": "routines",
+      "name": "Routines and Automation",
+      "questions": ["What should recur?", "What should wake up later?", "What should monitor for changes?"]
+    },
+    {
+      "id": "approval",
+      "name": "Human Approval and Control",
+      "questions": ["Where must the user approve?", "What are stop buttons, rollback paths, and escalation rules?"]
+    },
+    {
+      "id": "evaluation",
+      "name": "Evaluation and Quality",
+      "questions": ["How do we know outputs are good?", "What is unacceptable?", "What scorecards or golden examples are needed?"]
+    },
+    {
+      "id": "learning",
+      "name": "Learning Loop and Moat",
+      "questions": ["What feedback improves the system?", "What private context compounds?", "What outcome data becomes defensible?"]
+    }
+  ],
+  "domain_patterns": [
+    {
+      "id": "social_content_os",
+      "name": "Social Content Operating System",
+      "keywords": ["linkedin", "instagram", "twitter", "x", "social media", "content", "posts", "personal brand", "authority"],
+      "recommended_level": "L4",
+      "highest_level": "L6",
+      "first_closed_loop": "capture proof/story -> update voice/proof memory -> generate weekly content brief -> approve direction -> draft platform post -> score voice/proof/platform fit",
+      "memory": ["voice profile", "proof bank", "story bank", "expertise map", "audience map", "brand boundaries", "performance history"],
+      "tools": ["social platform APIs or schedulers", "analytics", "image/video/voice generation", "browser verification", "file storage"],
+      "routines": ["weekly brief", "content calendar", "idea capture", "performance review", "memory update review"],
+      "evals": ["voice match", "factuality", "proof support", "platform fit", "brand safety", "repetition check"]
+    },
+    {
+      "id": "research_intelligence_engine",
+      "name": "Research Intelligence Engine",
+      "keywords": ["research", "intelligence", "market", "monitor", "brief", "newsletter", "synthesis", "analyst"],
+      "recommended_level": "L4",
+      "highest_level": "L6",
+      "first_closed_loop": "collect sources -> score evidence -> synthesize brief -> audit quality -> approve publication candidate -> update research memory",
+      "memory": ["source library", "thesis map", "entity profiles", "claim ledger", "editorial agenda", "quality notes"],
+      "tools": ["web research", "document parsing", "search APIs", "notebook/vault", "citation tools"],
+      "routines": ["daily source radar", "weekly synthesis", "quality audit", "monthly strategy memo"],
+      "evals": ["source quality", "claim support", "novelty", "confidence labels", "drift detection"]
+    },
+    {
+      "id": "customer_ops_agent",
+      "name": "Customer Operations Agent",
+      "keywords": ["support", "customer", "ticket", "crm", "inbox", "sales", "ops", "follow up"],
+      "recommended_level": "L4",
+      "highest_level": "L5",
+      "first_closed_loop": "ingest customer message -> classify intent/risk -> draft response/action -> approve send/update -> track outcome",
+      "memory": ["customer profile", "account history", "support policy", "tone rules", "resolution history"],
+      "tools": ["email/helpdesk/CRM APIs", "calendar", "knowledge base", "ticketing", "analytics"],
+      "routines": ["triage", "follow-up reminders", "SLA monitor", "weekly escalation review"],
+      "evals": ["policy compliance", "tone", "resolution quality", "SLA risk", "hallucination check"]
+    },
+    {
+      "id": "creative_media_agent",
+      "name": "Creative Media Agent",
+      "keywords": ["image", "video", "voice", "avatar", "heygen", "fal", "runway", "media", "creative", "asset"],
+      "recommended_level": "L3",
+      "highest_level": "L5",
+      "first_closed_loop": "capture creative brief -> generate concept variants -> review/select -> render asset -> quality check -> store approved asset",
+      "memory": ["brand style", "asset library", "voice/avatar consent", "creative references", "approved outputs"],
+      "tools": ["media generation APIs", "official CLIs", "asset storage", "browser visual QA", "generated CLI harnesses"],
+      "routines": ["asset refresh", "campaign variant generation", "quality review", "rights/consent check"],
+      "evals": ["brand fit", "visual quality", "voice/avatar consent", "content policy", "artifact defects"]
+    }
+  ]
+}

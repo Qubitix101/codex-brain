@@ -8,6 +8,14 @@
 
 - 
 
+## Agentic Opportunity and Intelligence System
+
+- Agentic audit:
+- Intelligence system plan:
+- Maturity level:
+- First closed loop:
+- Memory/routine/eval status:
+
 ## Capability and Access
 
 - Capability/access map:

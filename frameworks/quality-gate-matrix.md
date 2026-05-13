@@ -20,6 +20,7 @@ These block all modes:
 - no project classification
 - no current phase
 - coding before allowed phase
+- AI-core or automation-heavy product without agentic opportunity audit
 - frontend implementation before required Design DNA approval
 - missing acceptance criteria for execution task
 - marking task complete without verification
@@ -62,9 +63,21 @@ These block all modes:
 | Design references if UI | Required | Required | Deep | P0 |
 | Billing research if paid | Optional | Required | Deep | P0 |
 | AI eval research if AI-core | Optional | Required | Deep | P0 |
+| Agentic opportunity if AI/automation/workflow OS | Required if relevant | Required if relevant | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
 | Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
 | Evidence ledger | Optional | Recommended | Required | P1 |
+
+## Agentic Opportunity Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Maturity level selected | Required if AI/automation | Required if relevant | Required if relevant | P0 |
+| First closed intelligence loop defined | Required if AI/automation | Required if relevant | Required if relevant | P0 |
+| Normal app vs AI vs agentic OS tradeoff documented | Recommended | Required if relevant | Required | P1 |
+| Memory/sensing/tool/routine/approval/eval/learning map | Required if relevant | Required if relevant | Deep | P0 |
+| Overbuild and underbuild risks documented | Recommended | Required | Required | P1 |
+| Deferred agentic layers with revisit triggers | Optional | Required if relevant | Required | P1 |
 
 ## Capability and Access Gate
 
@@ -92,6 +105,7 @@ These block all modes:
 | API/module contracts | Basic | Required | Deep | P1 |
 | Security plan | Basic | Required | Deep | P0 |
 | Privacy/GDPR plan | Required if relevant | Required if relevant | Deep | P0 |
+| Agentic/intelligence-system plan linked | Required if AI/automation | Required if AI/automation | Required if AI/automation | P0 |
 | Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
 | Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |
 | Billing spec | Required if paid | Required if paid | Deep | P0 |
@@ -168,6 +182,7 @@ These are P0/P1 for Full mode:
 - Multi-tenant product without tenant isolation tests.
 - Paid product without billing edge cases.
 - AI-core product without evals and fallback behavior.
+- AI-core or automation-heavy product without agentic maturity decision, first closed loop, approval boundaries, and eval model.
 - EU personal data without GDPR data inventory and deletion/export plan.
 - Enterprise product without trust/security communication.
 - User-facing product without Design DNA.

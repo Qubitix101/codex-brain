@@ -11,7 +11,8 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For integration-heavy projects, map capability and access needs before Build Plan approval.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before capability/access planning.
+7. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -45,6 +46,7 @@ At the start of any project session:
 If the user asks how to operate the system end to end, read `USAGE-GUIDE.md`.
 If the user asks whether the brain itself should evolve, read `frameworks/governance-and-evolution.md`.
 If the user asks what to do next, read `frameworks/context-routing-and-help.md`.
+If the user asks whether an idea should become agentic, an operating system, or a high-level intelligence system, read `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
@@ -86,6 +88,7 @@ The lifecycle is:
 0. Classify
 1. Validate
 2. Research
+2.25. Agentic Opportunity
 2.5. Capability and Access
 3. Plan
 3.5. Design DNA
@@ -175,6 +178,27 @@ Forbidden:
 - writing Build Plan without evidence
 - skipping security/privacy/database thinking for user-facing products
 
+### Gate 2.25 - Agentic Opportunity
+
+Required when the product is AI-core, automation-heavy, workflow-heavy, content-heavy, memory-backed, multi-tool, recurring, monitoring-based, or framed as an operating system.
+
+Requires:
+
+- `docs/agentic-opportunity-audit.md`
+- `docs/intelligence-system-plan.md`
+- agentic maturity level now
+- highest plausible maturity level later
+- first closed intelligence loop
+- sensing, memory, reasoning, creation, action, routine, approval, eval, and learning analysis
+- overbuild and underbuild risks
+- deferred agentic layers with revisit triggers
+
+Forbidden:
+
+- mapping tool access before the maturity level and first intelligence loop are known
+- promising automation without approval, rollback, and eval boundaries
+- building an AI-core product as a prompt box without documenting the tradeoff
+
 ### Gate 2.5 - Capability and Access
 
 Required when the product depends on external systems, APIs, SDKs, CLIs, MCP servers, browser automation, desktop apps, paid vendors, media generation, AI tools, authenticated SaaS, deployment platforms, or user-provided credentials.
@@ -182,6 +206,7 @@ Required when the product depends on external systems, APIs, SDKs, CLIs, MCP ser
 Requires:
 
 - `docs/capability-access-map.md`
+- `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI/automation is relevant
 - required capability inventory
 - production runtime surface decisions
 - Codex/agent implementation surface decisions

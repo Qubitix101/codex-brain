@@ -18,7 +18,8 @@
     "save-context": "node scripts/save-context.mjs",
     "context-health": "node scripts/context-health.mjs",
     "route-tool": "node scripts/route-tool.mjs",
-    "plan-capabilities": "node scripts/plan-capabilities.mjs"
+    "plan-capabilities": "node scripts/plan-capabilities.mjs",
+    "plan-agentic-system": "node scripts/plan-agentic-system.mjs"
   },
   "engines": {
     "node": ">=18"

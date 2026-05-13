@@ -15,8 +15,17 @@ if (!task) {
 const matrix = readJson(join(root, "catalogs", "tool-surface-routing-matrix.json"));
 const taskLower = task.toLowerCase();
 
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function keywordMatches(text, keyword) {
+  const pattern = escapeRegex(String(keyword).toLowerCase().trim()).replace(/\\ /g, "\\s+");
+  return new RegExp(`(^|[^a-z0-9])${pattern}($|[^a-z0-9])`).test(text);
+}
+
 function keywordHits(rule) {
-  return (rule.keywords || []).filter((keyword) => taskLower.includes(String(keyword).toLowerCase()));
+  return (rule.keywords || []).filter((keyword) => keywordMatches(taskLower, keyword));
 }
 
 const ranked = matrix.rules

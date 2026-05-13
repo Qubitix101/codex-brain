@@ -9,6 +9,8 @@ This artifact must be completed before Build Plan approval when the project depe
 - Date:
 - Owner:
 - Related research:
+- Related agentic audit:
+- Related intelligence system plan:
 - Related Build Plan:
 
 ## 2. Capability Inventory

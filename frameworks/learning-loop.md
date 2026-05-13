@@ -14,6 +14,7 @@ Capture a structured lesson when:
 - a project fails or almost fails
 - an implementation decision was non-obvious
 - a security/privacy/database/design lesson emerges
+- an AI product was underbuilt as a prompt box or overbuilt with premature autonomy
 - a tool or workflow breaks
 - a CLI/API/MCP/browser/computer-use routing choice causes waste, risk, or rework
 - a shortcut causes rework
@@ -107,6 +108,13 @@ If tool surface selection repeatedly causes waste or blockers:
 - add or revise rules in `catalogs/tool-surface-routing-matrix.json`
 - update `frameworks/capability-access-readiness.md`
 - add capability entries to `catalogs/capability-access-catalog.json`
+
+If agentic product shape is repeatedly misjudged:
+
+- update `frameworks/agentic-opportunity-audit.md`
+- update `frameworks/intelligence-system-plan.md`
+- add or revise patterns in `catalogs/agentic-system-patterns.json`
+- update the audit and intelligence-system templates
 
 ## Rule
 

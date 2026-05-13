@@ -3,6 +3,7 @@
 ## Read
 
 - `docs/capability-access-map.md`
+- `docs/intelligence-system-plan.md` if relevant
 - `frameworks/tool-surface-routing.md`
 - `catalogs/tool-surface-routing-matrix.json`
 

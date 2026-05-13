@@ -17,7 +17,7 @@ The goal is not more process for its own sake. The goal is adaptive rigor: light
 
 Every project runs through four loops:
 
-1. Build Loop: classify, validate, research, map capabilities and access, plan, design, decompose, execute, review, ship.
+1. Build Loop: classify, validate, research, audit agentic opportunity, map capabilities and access, plan, design, decompose, execute, review, ship.
 2. Execution Loop: one task, one patch, one verification pass, one state update.
 3. Learning Loop: project lessons become reusable rules, gates, templates, and checklists.
 4. Context Loop: state, memory, distillates, and project context keep future Codex sessions aligned.
@@ -44,6 +44,7 @@ The user approves or overrides it.
 | 0 | Classify | Light, Standard, or Full mode selected and approved |
 | 1 | Validate | Go, conditional go, pivot, or no-go decision |
 | 2 | Research | Evidence collected for the required mode |
+| 2.25 | Agentic Opportunity | Decide normal app vs AI workflow vs memory-backed copilot vs agentic/domain operating system |
 | 2.5 | Capability and Access | Map required APIs, SDKs, CLIs, MCP servers, browser/computer-use paths, credentials, mocks, and live verification |
 | 3 | Plan | Build Plan with architecture, data, product, security, integrations, access, and delivery decisions |
 | 3.5 | Design DNA | User-approved aesthetics before frontend implementation |
@@ -68,6 +69,8 @@ codex-brain/
 │   ├── validation.md                 # Idea and product validation
 │   ├── research.md                   # Evidence requirements by mode
 │   ├── build-plan.md                 # Build Plan requirements
+│   ├── agentic-opportunity-audit.md   # Gate 2.25 agentic/system opportunity audit
+│   ├── intelligence-system-plan.md    # High-level intelligence system architecture
 │   ├── capability-access-readiness.md # Gate 2.5 access and integration readiness
 │   ├── tool-surface-routing.md        # CLI / API / MCP / browser / computer-use routing
 │   ├── design-dna.md                 # Frontend aesthetics gate
@@ -130,6 +133,7 @@ Useful commands:
 npm run next-action -- --dir /path/to/project
 npm run session-brief -- --dir /path/to/project
 npm run verify-plan -- /path/to/project/docs/prd/some-prd.md
+npm run plan-agentic-system -- --brief "what we are building" --mode full
 npm run plan-capabilities -- --brief "what we are building" --mode standard
 npm run route-tool -- --task "inspect the last failed GitHub Actions run"
 npm run distill-context -- --dir /path/to/project docs/build-plan.md .codex-brain/research
@@ -141,6 +145,7 @@ npm run context-health -- --dir /path/to/project
 
 - No frontend implementation before Design DNA is approved.
 - No serious backend implementation before database, auth, security, and privacy assumptions are documented.
+- No AI-core or automation-heavy Build Plan before agentic opportunity and intelligence-system shape are audited.
 - No serious integration-heavy Build Plan before required capabilities, access surfaces, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without an isolation model.
 - No paid product without billing edge cases.

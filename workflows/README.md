@@ -19,6 +19,7 @@ Use them with:
 ## Workflows
 
 - `context-routing/` - determine the next allowed action
+- `agentic-opportunity/` - decide normal app vs AI workflow vs agentic/domain operating system and write the intelligence system plan
 - `capability-access/` - map APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification before planning
 - `quick-flow/` - low-risk fast path
 - `full-mode-readiness/` - Full-mode evidence, plan, and readiness checks

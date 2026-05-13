@@ -20,11 +20,13 @@ Capability and Access Readiness prevents that by asking, before planning:
 
 ## Gate 2.5
 
-Capability and Access Readiness sits after Research and before Build Plan.
+Capability and Access Readiness sits after Agentic Opportunity and before Build Plan.
 
 ```text
-Classify -> Validate -> Research -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
+
+For AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped products, finish `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` first so the access map is grounded in the intended intelligence loop.
 
 For Standard and Full projects, `docs/capability-access-map.md` is required before the Build Plan is approved when the product depends on external services, AI tools, media generation, browser automation, authenticated SaaS systems, payments, deployment platforms, databases, file storage, email, calendar, source control, analytics, or observability.
 

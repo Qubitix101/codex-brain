@@ -209,6 +209,26 @@ For every major choice:
 - risks
 - exit strategy
 
+### Agentic Opportunity and Intelligence System
+
+Reference `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` when AI, automation, memory, recurring workflows, or operating-system ambition is relevant.
+
+Define:
+
+- agentic maturity level now
+- highest plausible maturity level later
+- first closed intelligence loop
+- normal app vs AI-assisted vs agentic OS tradeoff
+- memory model
+- sensing/input model
+- reasoning and skill model
+- routine and automation model
+- human approval/control model
+- eval and quality model
+- learning flywheel and moat
+- deferred OS layers
+- overbuild and underbuild risks
+
 ### Capability and Access Readiness
 
 Reference `docs/capability-access-map.md` and define:
@@ -608,6 +628,7 @@ The Build Plan is complete only when:
 
 - all required sections exist or are justified as not applicable
 - every major research decision is traced
+- agentic opportunity and intelligence-system plan exist for AI/automation-heavy products
 - capability/access map exists and all critical required-now access paths are explicit
 - Design DNA is approved if UI exists
 - database plan matches mode

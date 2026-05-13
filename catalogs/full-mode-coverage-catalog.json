@@ -313,6 +313,33 @@
       "review_roles": ["architect", "security-gdpr-reviewer"]
     },
     {
+      "id": "agentic-opportunity-intelligence-system",
+      "name": "Agentic Opportunity and Intelligence System",
+      "purpose": "Decide whether the product should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system before tool access is planned.",
+      "required_questions": [
+        "What agentic maturity level should be built now?",
+        "What is the highest plausible maturity level later?",
+        "What is the first closed intelligence loop?",
+        "What should the system sense, remember, reason about, create, act on, evaluate, and learn from?",
+        "Which human approval gates and rollback boundaries are required?",
+        "What would be underbuilt if this stayed a simple AI prompt box?",
+        "What would be overbuilt if autonomy is added too early?",
+        "What private memory, routines, outcomes, or data flywheel become defensible?"
+      ],
+      "required_artifacts": [
+        "docs/agentic-opportunity-audit.md",
+        "docs/intelligence-system-plan.md",
+        "catalogs/agentic-system-patterns.json"
+      ],
+      "p0_blockers": [
+        "AI-core or automation-heavy product without agentic maturity decision.",
+        "Agentic product without first closed intelligence loop.",
+        "Automation promised without approval, rollback, or eval boundaries.",
+        "Memory-backed product without memory update and deletion policy."
+      ],
+      "review_roles": ["ai-orchestration-reviewer", "architecture-strategist", "product-strategist"]
+    },
+    {
       "id": "capability-access-readiness",
       "name": "Capability and Access Readiness",
       "purpose": "Ensure required external capabilities, access surfaces, credentials, mocks, and live verification paths are explicit before Build Plan and PRDs.",
@@ -567,10 +594,15 @@
     "templates/full/build-plan-checklist.template.md",
     "templates/full/test-strategy.template.md",
     "templates/full/traceability-matrix.template.md",
+    "templates/shared/agentic-opportunity-audit.template.md",
+    "templates/shared/intelligence-system-plan.template.md",
     "templates/shared/capability-access-map.template.md",
+    "frameworks/agentic-opportunity-audit.md",
+    "frameworks/intelligence-system-plan.md",
     "frameworks/capability-access-readiness.md",
     "frameworks/tool-surface-routing.md",
     "catalogs/workflow-manifest.json",
+    "catalogs/agentic-system-patterns.json",
     "catalogs/capability-access-catalog.json",
     "catalogs/tool-surface-routing-matrix.json",
     "schemas/project-state.schema.json",

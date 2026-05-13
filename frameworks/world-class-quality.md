@@ -29,6 +29,13 @@ Passing tests is necessary. It is not sufficient.
 - The system can evolve without rewrite.
 - Complexity is intentional.
 
+### 3.5 Intelligence System Shape
+
+- AI-core products are not reduced to prompt boxes unless that is the right maturity level.
+- The first closed intelligence loop is explicit.
+- Memory, sensing, routines, approvals, evals, and learning are designed when relevant.
+- Autonomy is bounded by permissions, rollback, and quality gates.
+
 ### 4. Data and Scale
 
 - The database choice matches access patterns.
@@ -89,6 +96,7 @@ For Full mode, Codex should ask:
 
 - Would a serious investor believe the plan?
 - Would a senior engineer trust the architecture?
+- Would the agentic maturity level match the real user job?
 - Would a security reviewer know where to look?
 - Would a designer see a real aesthetic direction?
 - Would an enterprise buyer understand trust and compliance?
@@ -108,4 +116,3 @@ If the answer is no, the gap must be documented before execution.
 - "Users will understand once they try it."
 
 These sentences usually mean the brain is being bypassed.
-

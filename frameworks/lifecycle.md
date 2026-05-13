@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -69,6 +69,22 @@ Answer: what must be true for this to work?
 Research should not become an endless archive. It should produce decisions, risks, and requirements.
 
 See `frameworks/research.md`.
+
+## Phase 2.25 - Agentic Opportunity
+
+Answer: should the idea become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
+
+Codex should map:
+
+- agentic maturity level now
+- highest plausible maturity level later
+- first closed intelligence loop
+- memory and sensing needs
+- tool/action/routine/approval/eval needs
+- learning loop and moat
+- overbuild and underbuild risks
+
+See `frameworks/agentic-opportunity-audit.md` and `frameworks/intelligence-system-plan.md`.
 
 ## Phase 2.5 - Capability and Access
 

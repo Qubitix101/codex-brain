@@ -32,6 +32,10 @@
 - [ ] Service boundaries
 - [ ] Background jobs
 - [ ] Integrations
+- [ ] Agentic opportunity audit referenced if AI/automation is relevant
+- [ ] Intelligence system plan referenced if AI/automation is relevant
+- [ ] First closed intelligence loop defined
+- [ ] Memory, routine, approval, eval, and learning model defined
 - [ ] Capability/access map referenced
 - [ ] Product runtime surfaces selected
 - [ ] Agent implementation surfaces selected

@@ -89,6 +89,7 @@ Minimum required:
 - reliability/SLO plan
 - observability plan
 - AI orchestration/evals/safety plan if applicable
+- agentic opportunity audit and intelligence system plan if AI/automation is relevant
 - Design DNA with references by workflow
 - narrative validation
 - review swarm
@@ -127,4 +128,3 @@ Codex should provide:
 - what the mode adds
 - what is saved by choosing a lower mode
 - risks of choosing a lower mode
-

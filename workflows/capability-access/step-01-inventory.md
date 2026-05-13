@@ -6,12 +6,15 @@
 - `.codex-brain/classification.json`
 - `.codex-brain/validation.md`
 - `.codex-brain/research/`
+- `docs/agentic-opportunity-audit.md` if relevant
+- `docs/intelligence-system-plan.md` if relevant
 - `frameworks/capability-access-readiness.md`
 - `catalogs/capability-access-catalog.json`
 
 ## Decide
 
 - Which product capabilities require outside systems?
+- Which capabilities are required by the first closed intelligence loop?
 - Which are required now, mockable, deferred, or not applicable?
 - Which capabilities are production runtime dependencies versus agent implementation aids?
 

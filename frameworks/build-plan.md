@@ -10,6 +10,7 @@ All modes:
 - target user
 - core workflows
 - technical approach
+- agentic opportunity/intelligence-system reference if AI or automation is relevant
 - capability and access map reference
 - data model
 - task phases
@@ -18,6 +19,7 @@ All modes:
 Standard:
 
 - architecture
+- intelligence-system architecture if applicable
 - database choice
 - auth model
 - API/module contracts
@@ -40,6 +42,7 @@ Full:
 - reliability/SLO plan
 - observability
 - AI orchestration and eval plan if applicable
+- agentic maturity, first closed loop, memory/routine/approval/eval model if applicable
 - capability/access blockers and mock/live verification plan
 - narrative promise list
 - launch plan

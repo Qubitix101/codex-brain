@@ -17,8 +17,17 @@ if (!brief) {
 const catalog = readJson(join(root, "catalogs", "capability-access-catalog.json"));
 const briefLower = brief.toLowerCase();
 
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function keywordMatches(text, keyword) {
+  const pattern = escapeRegex(String(keyword).toLowerCase().trim()).replace(/\\ /g, "\\s+");
+  return new RegExp(`(^|[^a-z0-9])${pattern}($|[^a-z0-9])`).test(text);
+}
+
 function scoreCapability(capability) {
-  const hits = (capability.keywords || []).filter((keyword) => briefLower.includes(String(keyword).toLowerCase()));
+  const hits = (capability.keywords || []).filter((keyword) => keywordMatches(briefLower, keyword));
   const score = hits.reduce((total, hit) => total + Math.max(1, hit.split(/\s+/).length), 0);
   return { capability, hits, score };
 }

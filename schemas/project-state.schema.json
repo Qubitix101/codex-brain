@@ -24,6 +24,7 @@
         "classify",
         "validate",
         "research",
+        "agentic-opportunity",
         "capability-access",
         "plan",
         "design-dna",
@@ -41,6 +42,7 @@
         "classification": { "$ref": "#/$defs/gate" },
         "validation": { "$ref": "#/$defs/gate" },
         "research": { "$ref": "#/$defs/gate" },
+        "agentic_opportunity": { "$ref": "#/$defs/gate" },
         "capability_access": { "$ref": "#/$defs/gate" },
         "plan": { "$ref": "#/$defs/gate" },
         "design_dna": { "$ref": "#/$defs/gate" },
@@ -79,6 +81,8 @@
       "properties": {
         "project": { "type": ["string", "null"] },
         "research": { "type": ["string", "null"] },
+        "agentic_opportunity": { "type": ["string", "null"] },
+        "intelligence_system": { "type": ["string", "null"] },
         "capability_access": { "type": ["string", "null"] },
         "build_plan": { "type": ["string", "null"] },
         "execution": { "type": ["string", "null"] }

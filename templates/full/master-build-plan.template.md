@@ -38,6 +38,8 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Classification | | | |
 | Validation | | | |
 | Research | | | |
+| Agentic Opportunity | | | |
+| Capability and Access | | | |
 | Design DNA | | | |
 | Plan | | | |
 
@@ -142,6 +144,32 @@ Frontend implementation is blocked until this section is approved.
 ### Integrations
 
 ## 10. Technology Stack Decisions
+
+### Agentic Opportunity and Intelligence System
+
+- Agentic audit:
+- Intelligence system plan:
+- Maturity now:
+- Highest plausible maturity later:
+- First closed loop:
+- Memory model:
+- Sensing/input model:
+- Routine/automation model:
+- Approval/control model:
+- Eval/quality model:
+- Learning flywheel:
+- Deferred OS layers:
+
+| Intelligence Layer | Decision | Risk | Verification |
+| --- | --- | --- | --- |
+| Sensing | | | |
+| Memory | | | |
+| Reasoning/skills | | | |
+| Tools/actions | | | |
+| Routines | | | |
+| Approvals | | | |
+| Evals | | | |
+| Learning | | | |
 
 ### Capability and Access Map
 
@@ -565,6 +593,7 @@ Use only if paid.
 - [ ] All applicable sections complete. Verify: every section has content or an explicit not-applicable justification.
 - [ ] Non-applicable sections justified. Verify: each N/A section states why it does not apply.
 - [ ] Research traceability complete. Verify: evidence ledger links to key decisions.
+- [ ] Agentic opportunity audit complete if AI/automation is relevant. Verify: `docs/agentic-opportunity-audit.md` and `docs/intelligence-system-plan.md` exist.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.

@@ -18,6 +18,7 @@ Research produces decisions, not trivia.
 - security/privacy baseline
 - design references
 - deployment constraints
+- agentic opportunity if AI/automation/workflow OS value is relevant
 - integration constraints
 - capability and access constraints
 
@@ -37,6 +38,7 @@ Research produces decisions, not trivia.
 - reliability/SLOs
 - analytics/data strategy
 - AI orchestration/evals if applicable
+- agentic opportunity and intelligence-system shape if applicable
 - capability and access readiness
 - design and interaction references
 

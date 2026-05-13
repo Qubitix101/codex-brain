@@ -42,7 +42,8 @@ Full research produces:
 ├── 20-test-architecture-and-traceability.md
 ├── 21-context-continuity-and-memory.md
 ├── 22-workflow-routing-and-governance.md
-├── 23-capability-access-readiness.md
+├── 23-agentic-opportunity-and-intelligence-system.md
+├── 24-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -424,6 +425,31 @@ Full-mode additions:
 - customer-facing AI disclosure
 - model/provider fallback
 
+## Agentic Opportunity and Intelligence System
+
+Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
+
+Answer before Capability and Access:
+
+- Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
+- What agentic maturity level should be built now?
+- What is the highest plausible maturity level later?
+- What is the first closed intelligence loop?
+- What should the system sense, remember, reason about, create, act on, evaluate, and learn from?
+- What human approval gates and rollback boundaries are required?
+- What is overbuilt now, and what would be underbuilt?
+- What becomes the private data flywheel or moat?
+
+Required:
+
+- `docs/agentic-opportunity-audit.md`
+- `docs/intelligence-system-plan.md`
+- maturity decision
+- first closed loop
+- memory/sensing/tool/routine/approval/eval/learning map
+- deferred agentic layers with revisit triggers
+- overbuild and underbuild risks
+
 ## Category 12 - Integrations and Vendors
 
 Answer:
@@ -686,9 +712,10 @@ Before planning:
 - Every major claim is evidence-backed or marked assumption.
 - Every risk has owner/mitigation/defer decision.
 - Every architecture decision has enough evidence for the Build Plan.
+- Every AI-core, automation-heavy, or operating-system-shaped product has an agentic maturity decision and first closed intelligence loop.
 - Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

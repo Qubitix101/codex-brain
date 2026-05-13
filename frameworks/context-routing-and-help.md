@@ -27,6 +27,7 @@ Codex should inspect:
 - `.codex-brain/memory/active-context.md`
 - `.codex-brain/memory/progress.md`
 - `catalogs/workflow-manifest.json`
+- `catalogs/agentic-system-patterns.json`
 - `catalogs/tool-surface-routing-matrix.json`
 - `catalogs/capability-access-catalog.json`
 - `catalogs/full-mode-coverage-catalog.json` for Full mode
@@ -42,6 +43,7 @@ Every help response should include:
 - current gate status
 - missing required artifacts
 - next recommended workflow
+- agentic opportunity/intelligence-system status
 - required capability/access map status
 - allowed actions
 - blocked actions
@@ -100,6 +102,10 @@ Check Design DNA first.
 ### User asks for APIs, CLIs, MCPs, or app access
 
 Route to `capability-access-map`. Produce the missing access map before Build Plan or PRD execution if the project depends on external systems.
+
+### User asks whether an idea should be agentic
+
+Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
 
 ### User asks which tool surface to use
 

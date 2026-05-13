@@ -36,6 +36,16 @@ This file is the implementation constitution for future Codex sessions.
 - Testing:
 - Styling/design system:
 
+## Agentic Opportunity and Intelligence System Rules
+
+- Agentic opportunity audit:
+- Intelligence system plan:
+- Maturity level now:
+- Highest plausible maturity later:
+- First closed intelligence loop:
+- Memory/sensing/routine/approval/eval model:
+- Deferred OS layers:
+
 ## Capability and Access Rules
 
 - Capability/access map:

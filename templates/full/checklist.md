@@ -11,6 +11,8 @@
 - [ ] Reliability/SLO plan complete
 - [ ] Observability plan complete
 - [ ] AI orchestration/eval/safety plan complete if AI-core
+- [ ] Agentic opportunity audit and intelligence system plan complete if AI/automation is relevant
+- [ ] Capability/access map complete if integrations or external tools are relevant
 - [ ] Design DNA with references by workflow approved
 - [ ] Build Plan approved
 - [ ] Narrative validation complete
@@ -20,4 +22,3 @@
 - [ ] Ship gate passed
 - [ ] Post-launch learning loop active
 - [ ] Lessons captured and promotion candidates identified
-
