@@ -2,7 +2,7 @@
 
 Serious agentic products should not be designed as isolated prompt boxes. A domain operating system can become more valuable when it can collaborate with other domain operating systems through explicit contracts.
 
-Agent Network and Interoperability defines the network plane between autonomous agents, vertical operating systems, and specialized agent services. It sits above single-product runtime governance and before capability/access mapping.
+Agent Network and Interoperability defines the network plane between autonomous agents, vertical operating systems, and specialized agent services. It sits above single-product runtime governance and before Agentic Zero Trust and capability/access mapping.
 
 ## Purpose
 
@@ -19,10 +19,10 @@ Without this layer, teams tend to overbuild one giant agent, duplicate capabilit
 
 ## Gate 2.45
 
-Agent Network and Interoperability sits after Agent OS Runtime and before Capability and Access.
+Agent Network and Interoperability sits after Agent OS Runtime and before Agentic Zero Trust and Capability and Access.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Agentic Zero Trust -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required when any of these are true:
@@ -43,6 +43,7 @@ Use:
 - `templates/shared/agent-network-interop-plan.template.md`
 - `catalogs/agent-network-interop-catalog.json`
 - `frameworks/agent-os-runtime.md`
+- `frameworks/agentic-zero-trust.md`
 - `frameworks/capability-access-readiness.md`
 - `frameworks/tool-surface-routing.md`
 
@@ -163,7 +164,7 @@ An Agent Network and Interoperability Plan must include:
 
 ## P0 Blockers
 
-Block Capability and Access and Build Plan when:
+Block Agentic Zero Trust, Capability and Access, and Build Plan when:
 
 - separate agents or operating systems need to collaborate but no topology exists
 - another agent can receive private context without a sharing policy

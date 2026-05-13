@@ -32,7 +32,7 @@ Design the inter-agent network plane for products that should collaborate with o
 5. **Define task contracts.** Specify request, response, artifact, refusal, timeout, retry, idempotency, error, and validation behavior.
 6. **Control memory and identity.** Share distilled task payloads by default, not raw domain memory. Define caller/callee identity, scopes, tokens, tenant boundary, and audit attribution.
 7. **Govern and observe.** Define approval thresholds, progress events, cross-agent traces, failure recovery, version compatibility, and first interoperable slice.
-8. **Block unsafe plans.** Stop before capability/access or Build Plan if context leaks, unscoped delegation, untraceable action, missing approval, or protocol confusion remains.
+8. **Block unsafe plans.** Stop before Agentic Zero Trust, capability/access, or Build Plan if context leaks, unscoped delegation, untraceable action, missing approval, or protocol confusion remains.
 
 ## Decision Rules
 

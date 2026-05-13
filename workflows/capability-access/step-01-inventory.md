@@ -13,6 +13,7 @@
 - `docs/skill-inventory.md` if relevant
 - `docs/agent-os-runtime-plan.md` if relevant
 - `docs/agent-network-interop-plan.md` if relevant
+- `docs/agentic-zero-trust-plan.md` if relevant
 - `frameworks/capability-access-readiness.md`
 - `catalogs/capability-access-catalog.json`
 
@@ -24,6 +25,7 @@
 - Which capabilities are required by approved T2-T4 skill candidates?
 - Which capabilities are required by the Agent OS runtime: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, or human control?
 - Which capabilities are required by the agent network: agent cards, remote agent calls, A2A-style delegation, MCP/tool access, streaming, cross-agent traces, or version compatibility?
+- Which capabilities are required by Agentic Zero Trust: identity provider, vault/broker, policy engine, AI gateway/firewall, immutable logs, kill switches, throttles, adversarial eval tooling, or incident response?
 - Which are required now, mockable, deferred, or not applicable?
 - Which capabilities are production runtime dependencies versus agent implementation aids?
 
@@ -45,6 +47,7 @@ npm run plan-intelligence-architecture -- --brief "[project brief]" --mode [ligh
 npm run plan-agent-skills -- --brief "[project brief]" --mode [light|standard|full]
 npm run plan-agent-os-runtime -- --brief "[project brief]" --mode [light|standard|full]
 npm run plan-agent-network -- --brief "[project brief]" --mode [light|standard|full]
+npm run plan-agentic-zero-trust -- --brief "[project brief]" --mode [light|standard|full]
 ```
 
 ## Stop If

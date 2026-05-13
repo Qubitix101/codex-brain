@@ -20,7 +20,7 @@ Use one:
 
 - `approved`: runtime is sufficient for the current build scope.
 - `conditional`: current first slice may proceed, but named runtime gaps must be closed before launch or higher autonomy.
-- `blocked`: Agent Network, Capability and Access, and Build Plan cannot proceed.
+- `blocked`: Agent Network, Agentic Zero Trust, Capability and Access, and Build Plan cannot proceed.
 - `not applicable`: product is L0/L1 and does not use memory, tools, routines, external actions, or multi-agent behavior.
 
 ## Output

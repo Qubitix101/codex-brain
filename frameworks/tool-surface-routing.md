@@ -4,7 +4,7 @@ Codex Brain should help agents choose the right way to reach the outside world.
 
 The question is not CLI versus MCP. The question is which surface gives the least-context, least-permission, most reliable path for the specific task.
 
-For agentic products, surface routing should be grounded in `docs/intelligence-architecture-decision.md`, `docs/agent-engineering-audit.md`, `docs/skill-inventory.md`, `docs/agent-os-runtime-plan.md`, and `docs/agent-network-interop-plan.md`; the selected architecture defines what must be reached, the required procedures and skill trust levels determine whether a surface is safe enough, the runtime plan defines sandbox, identity, trace, approval, recovery, and budget boundaries, and the network plan separates MCP/tool access from A2A-style agent delegation.
+For agentic products, surface routing should be grounded in `docs/intelligence-architecture-decision.md`, `docs/agent-engineering-audit.md`, `docs/skill-inventory.md`, `docs/agent-os-runtime-plan.md`, `docs/agent-network-interop-plan.md`, and `docs/agentic-zero-trust-plan.md`; the selected architecture defines what must be reached, the required procedures and skill trust levels determine whether a surface is safe enough, the runtime plan defines sandbox, identity, trace, approval, recovery, and budget boundaries, the network plan separates MCP/tool access from A2A-style agent delegation, and the zero-trust plan defines which identities, credentials, policy checks, registries, traces, kill switches, and adversarial evals are mandatory before access is granted.
 
 ## Purpose
 

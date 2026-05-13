@@ -43,6 +43,7 @@ This template is intentionally exhaustive. Delete sections only when the deletio
 | Agent Engineering | | | |
 | Agent OS Runtime | | | |
 | Agent Network / Interoperability | | | |
+| Agentic Zero Trust | | | |
 | Capability and Access | | | |
 | Design DNA | | | |
 | Plan | | | |
@@ -277,6 +278,42 @@ Frontend implementation is blocked until this section is approved.
 | Cross-agent observability | | | |
 | Versioning/compatibility | | | |
 | Reuse/commercialization | | | |
+
+### Agentic Zero Trust Plan
+
+- Agentic zero-trust plan:
+- Zero-trust thesis:
+- Asset and actor-chain inventory:
+- Trust boundaries:
+- Threat model:
+- Non-human identity model:
+- JIT credential/vault plan:
+- Per-action authorization:
+- Trusted registry:
+- AI gateway/firewall and policy enforcement:
+- Data/memory/retrieval/model integrity:
+- Sandbox and segmentation:
+- Immutable trace/forensic evidence:
+- Human control, kill switch, throttles, and canaries:
+- Continuous verification:
+- Adversarial eval suite:
+- Incident response and blast-radius plan:
+- First secure autonomous slice:
+
+| Control | Decision | P0 Risk | Verification |
+| --- | --- | --- | --- |
+| Non-human identity | | | |
+| JIT credentials/vault | | | |
+| Per-action authorization | | | |
+| Trusted registry | | | |
+| AI gateway/firewall | | | |
+| Memory/retrieval/model integrity | | | |
+| Sandbox/segmentation | | | |
+| Immutable trace | | | |
+| Human control/kill switch | | | |
+| Continuous verification | | | |
+| Adversarial evals | | | |
+| Incident response | | | |
 
 ### Capability and Access Map
 
@@ -705,6 +742,7 @@ Use only if paid.
 - [ ] Agent engineering and skill inventory complete if L3+/agentic/retrieval/tool-use is relevant. Verify: `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` exist.
 - [ ] Agent OS runtime plan complete if L3+/multi-agent/memory/tool/action/routine behavior is relevant. Verify: `docs/agent-os-runtime-plan.md` exists and runtime kernel boundaries are explicit.
 - [ ] Agent network/interoperability plan complete if agents or domain operating systems collaborate across boundaries. Verify: `docs/agent-network-interop-plan.md` exists and agent cards, delegation boundaries, task contracts, protocol decisions, context sharing, streaming, traces, recovery, and versioning are explicit.
+- [ ] Agentic Zero Trust plan complete if agents use tools, MCP, memory/retrieval, credentials, external action, sensitive data, or autonomous routines. Verify: `docs/agentic-zero-trust-plan.md` exists and identity, JIT credentials, per-action authorization, registry trust, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response are explicit.
 - [ ] Capability and access map complete. Verify: `docs/capability-access-map.md` exists and critical access paths are explicit.
 - [ ] Design DNA approved. Verify: `design/design-dna.md` is approved when UI exists.
 - [ ] Database and security plans complete. Verify: database ADR and threat model exist when applicable.

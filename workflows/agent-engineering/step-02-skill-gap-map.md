@@ -40,7 +40,7 @@ Use:
 
 ## Blockers
 
-Stop before Agent OS Runtime, Agent Network and Interoperability, and Capability and Access if:
+Stop before Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability and Access if:
 
 - skill candidates require external tools but those tools are not named
 - a T3/T4 skill lacks approval, logging, or rollback requirements

@@ -98,6 +98,21 @@ This file is the implementation constitution for future Codex sessions.
 - Cross-agent trace model:
 - Versioning/compatibility:
 
+## Agentic Zero Trust Rules
+
+- Agentic zero-trust plan:
+- Non-human identity / actor chain:
+- JIT credential / vault policy:
+- Per-action authorization:
+- Trusted tool/MCP/skill/model/agent registry:
+- AI gateway/firewall/policy enforcement:
+- Memory/retrieval/model integrity:
+- Sandbox/segmentation:
+- Immutable trace model:
+- Human control / kill switch / throttles:
+- Adversarial evals:
+- Incident response:
+
 ## Capability and Access Rules
 
 - Capability/access map:

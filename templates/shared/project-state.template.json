@@ -42,21 +42,28 @@
       "required_artifacts": ["docs/agent-engineering-audit.md", "docs/skill-inventory.md"],
       "missing": ["docs/agent-engineering-audit.md", "docs/skill-inventory.md"],
       "approved": false,
-      "notes": "Audit production-agent engineering readiness and map required procedural skills before choosing Agent OS runtime, agent network, or capability/access surfaces."
+      "notes": "Audit production-agent engineering readiness and map required procedural skills before choosing Agent OS runtime, agent network, Agentic Zero Trust, or capability/access surfaces."
     },
     "agent_os_runtime": {
       "status": "not-started",
       "required_artifacts": ["docs/agent-os-runtime-plan.md"],
       "missing": ["docs/agent-os-runtime-plan.md"],
       "approved": false,
-      "notes": "Define the Agent OS runtime kernel for L3+ systems before agent network/interoperability and capability/access mapping: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control."
+      "notes": "Define the Agent OS runtime kernel for L3+ systems before agent network/interoperability, Agentic Zero Trust, and capability/access mapping: scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control."
     },
     "agent_network": {
       "status": "not-started",
       "required_artifacts": ["docs/agent-network-interop-plan.md"],
       "missing": ["docs/agent-network-interop-plan.md"],
       "approved": false,
-      "notes": "Define agent network and inter-OS boundaries before capability/access mapping when agents or domain operating systems collaborate across runtime, vendor, team, or product boundaries."
+      "notes": "Define agent network and inter-OS boundaries before Agentic Zero Trust and capability/access mapping when agents or domain operating systems collaborate across runtime, vendor, team, or product boundaries."
+    },
+    "agentic_zero_trust": {
+      "status": "not-started",
+      "required_artifacts": ["docs/agentic-zero-trust-plan.md"],
+      "missing": ["docs/agentic-zero-trust-plan.md"],
+      "approved": false,
+      "notes": "Define agentic zero-trust controls before capability/access mapping: non-human identity, JIT credentials, per-action authorization, trusted tool/MCP/skill/model registry, policy enforcement, memory/retrieval integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response."
     },
     "capability_access": {
       "status": "not-started",
@@ -130,6 +137,7 @@
     "agent_engineering": null,
     "agent_os_runtime": null,
     "agent_network": null,
+    "agentic_zero_trust": null,
     "skill_inventory": null,
     "capability_access": null,
     "build_plan": null,

@@ -16,6 +16,7 @@ This artifact must be completed before Build Plan approval when the project depe
 - Related skill inventory:
 - Related Agent OS runtime plan:
 - Related agent network/interoperability plan:
+- Related Agentic Zero Trust plan:
 - Related Build Plan:
 
 ## 2. Capability Inventory
@@ -33,6 +34,7 @@ This artifact must be completed before Build Plan approval when the project depe
 | Video generation | | Required / Optional / Deferred | Not applicable? | | |
 | Voice/audio generation | | Required / Optional / Deferred | Not applicable? | | |
 | AI model/tool use | | Required / Optional / Deferred | Not applicable? | | |
+| Agentic Zero Trust controls | | Required / Optional / Deferred | Not applicable? | | |
 | Search/vector/retrieval | | Required / Optional / Deferred | Not applicable? | | |
 | Analytics | | Required / Optional / Deferred | Not applicable? | | |
 | Observability | | Required / Optional / Deferred | Not applicable? | | |
@@ -56,6 +58,7 @@ Repeat this block for each required capability.
 - Browser automation:
 - Computer Use:
 - Selected path:
+- Zero-trust requirements satisfied:
 - Why selected:
 - Why rejected alternatives are weaker:
 
@@ -86,6 +89,9 @@ Repeat this block for each required capability.
 | Externally visible action | | | | |
 | Paid/quota-limited action | | | | |
 | Personal data transfer | | | | |
+| Static or overbroad credential | | | | |
+| Missing policy enforcement | | | | |
+| Missing kill switch/throttle | | | | |
 | Vendor outage | | | | |
 
 ## 8. User Action Checklist

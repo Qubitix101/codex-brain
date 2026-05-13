@@ -109,23 +109,27 @@ Route to `capability-access-map`. Produce the missing access map before Build Pl
 
 ### User asks about A2A, agent cards, remote agents, or inter-OS collaboration
 
-Route to `agent-network-interop-plan`. Produce the missing agent network/interoperability plan after Agent OS runtime and before capability/access mapping when agents or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+Route to `agent-network-interop-plan`. Produce the missing agent network/interoperability plan after Agent OS runtime and before Agentic Zero Trust and capability/access mapping when agents or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
+
+### User asks about cyberattackers, zero trust, prompt injection, tool poisoning, credentials, or agentic security
+
+Route to `agentic-zero-trust-plan`. Produce the missing Agentic Zero Trust plan after Agent OS runtime and agent network/interoperability when relevant, and before capability/access mapping if the product uses tools, MCP, memory/retrieval, credentials, external action, sensitive data, autonomous routines, sub-agents, or remote agents.
 
 ### User asks whether an idea should be agentic
 
-Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before intelligence-architecture, agent-engineering, Agent OS runtime, agent network/interoperability, and capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
+Route to `agentic-opportunity-audit`. Produce the missing audit and intelligence system plan before intelligence-architecture, agent-engineering, Agent OS runtime, agent network/interoperability, Agentic Zero Trust, and capability/access mapping if the product is AI-core, automation-heavy, memory-backed, workflow-heavy, or operating-system-shaped.
 
 ### User asks whether to use RAG, ADK, structured retrieval, extraction, memory, or workflows
 
-Route to `intelligence-architecture-selection`. Produce the missing intelligence architecture decision before agent-engineering, Agent OS runtime, agent network/interoperability, and capability/access mapping if the product depends on AI answers, retrieval, structured records, LLM extraction, durable memory, multi-step workflows, external actions, or routines.
+Route to `intelligence-architecture-selection`. Produce the missing intelligence architecture decision before agent-engineering, Agent OS runtime, agent network/interoperability, Agentic Zero Trust, and capability/access mapping if the product depends on AI answers, retrieval, structured records, LLM extraction, durable memory, multi-step workflows, external actions, or routines.
 
 ### User asks how the agent should be engineered or skilled
 
-Route to `agent-engineering-audit`. Produce the missing agent-engineering audit and skill inventory after the intelligence architecture decision and before Agent OS runtime, agent network/interoperability, and capability/access mapping if the product is L3+, retrieval-heavy, tool-using, multi-model, skill-driven, or expected to act externally.
+Route to `agent-engineering-audit`. Produce the missing agent-engineering audit and skill inventory after the intelligence architecture decision and before Agent OS runtime, agent network/interoperability, Agentic Zero Trust, and capability/access mapping if the product is L3+, retrieval-heavy, tool-using, multi-model, skill-driven, or expected to act externally.
 
 ### User asks how agents should be scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated
 
-Route to `agent-os-runtime-plan`. Produce the missing Agent OS runtime plan after agent-engineering and skill inventory, and before agent network/interoperability and capability/access mapping, if the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or expected to act externally.
+Route to `agent-os-runtime-plan`. Produce the missing Agent OS runtime plan after agent-engineering and skill inventory, and before agent network/interoperability, Agentic Zero Trust, and capability/access mapping, if the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or expected to act externally.
 
 ### User asks which tool surface to use
 

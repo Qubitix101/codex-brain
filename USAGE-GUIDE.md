@@ -5,7 +5,7 @@ This guide explains how to use Codex Brain from first idea to shipped product an
 The short version:
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Agentic Zero Trust -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 The important version:
@@ -112,14 +112,15 @@ Required:
 4. Agent Engineering gate if production-agent, retrieval, model routing, or procedural skills are relevant
 5. Agent OS Runtime gate if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
 6. Agent Network and Interoperability gate if agents or domain operating systems collaborate across boundaries
-7. Capability and Access Map if external systems are relevant
-7. Build Plan
-8. Design DNA if UI exists
-9. PRDs
-10. Execution loop
-11. Security/privacy/accessibility review where relevant
-12. Ship checklist
-13. Lessons
+7. Agentic Zero Trust gate if agents use tools, MCP, memory/retrieval, credentials, external action, sensitive data, or autonomous routines
+8. Capability and Access Map if external systems are relevant
+9. Build Plan
+10. Design DNA if UI exists
+11. PRDs
+12. Execution loop
+13. Security/privacy/accessibility review where relevant
+14. Ship checklist
+15. Lessons
 
 ## 5. Full Mode Flow
 
@@ -147,17 +148,18 @@ Recommended sequence:
 7. Agent Engineering Audit and Skill Inventory if agents, retrieval, model routing, or procedural skills are relevant
 8. Agent OS Runtime Plan if L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant
 9. Agent Network and Interoperability Plan if agents or domain operating systems collaborate across boundaries
-10. Capability and Access Map
-11. Design references and Design DNA
-12. Master Build Plan
-13. ADRs for major choices
-14. Test strategy and traceability matrix
-15. Promise-to-spec audit
-16. Phase PRDs with vertical slices
-17. Execution loop
-18. Specialist reviews
-19. Ship gate
-20. Postmortem and lessons
+10. Agentic Zero Trust Plan if agents use tools, MCP, memory/retrieval, credentials, external action, sensitive data, or autonomous routines
+11. Capability and Access Map
+12. Design references and Design DNA
+13. Master Build Plan
+14. ADRs for major choices
+15. Test strategy and traceability matrix
+16. Promise-to-spec audit
+17. Phase PRDs with vertical slices
+18. Execution loop
+19. Specialist reviews
+20. Ship gate
+21. Postmortem and lessons
 ```
 
 ## 6. Research Procedure
@@ -179,7 +181,7 @@ Silent omission is not allowed.
 
 ## 7. Agentic Opportunity Procedure
 
-Before agent network and capability/access planning, audit whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system.
+Before agent network, Agentic Zero Trust, and capability/access planning, audit whether the idea should become a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system.
 
 Start with:
 
@@ -206,11 +208,11 @@ Decide:
 - overbuild/underbuild risk
 - deferred agentic layers
 
-Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
+Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network, Agentic Zero Trust, and capability/access planning are blocked while an AI-core or automation-heavy product has no maturity decision or first closed loop.
 
 ## 8. Intelligence Architecture Selection Procedure
 
-Before Agent Engineering, Agent OS Runtime, Agent Network, and capability/access planning, decide the actual intelligence substrate.
+Before Agent Engineering, Agent OS Runtime, Agent Network, Agentic Zero Trust, and capability/access planning, decide the actual intelligence substrate.
 
 Start with:
 
@@ -239,7 +241,7 @@ Agent Engineering is blocked while an AI-core, retrieval-heavy, extraction-heavy
 
 ## 9. Agent Engineering and Skill Factory Procedure
 
-Before Agent OS Runtime, Agent Network, and capability/access planning, audit whether the intended agent can survive production.
+Before Agent OS Runtime, Agent Network, Agentic Zero Trust, and capability/access planning, audit whether the intended agent can survive production.
 
 Start with:
 
@@ -266,11 +268,11 @@ Decide:
 - which skills are instructions-only vs scripted vs externally acting
 - approval, logging, rollback, and eval requirements for T2-T4 skills
 
-Agent OS Runtime, Agent Network, and capability/access planning are blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
+Agent OS Runtime, Agent Network, Agentic Zero Trust, and capability/access planning are blocked while an L3+ agent has no agent-engineering audit, model-routing policy, or skill inventory.
 
 ## 10. Agent OS Runtime Procedure
 
-Before Agent Network and capability/access planning, define the runtime kernel when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting.
+Before Agent Network, Agentic Zero Trust, and capability/access planning, define the runtime kernel when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting.
 
 Start with:
 
@@ -297,7 +299,7 @@ Decide:
 - agent registry and role model
 - human control surface for approvals, memory review, traces, pause/stop, rollback, and escalation
 
-Agent Network and capability/access planning are blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
+Agent Network, Agentic Zero Trust, and capability/access planning are blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
 
 ## 11. Agent Network and Interoperability Procedure
 
@@ -332,9 +334,41 @@ Decide:
 - reusable capability and commercialization opportunities
 - first interoperable slice
 
-Capability/access planning is blocked while a federated agentic system has no agent cards, topology, delegation boundaries, task/message contracts, protocol surface decision, context-sharing policy, identity/auth model, progress handling, cross-agent traces, recovery behavior, or versioning policy.
+Agentic Zero Trust and capability/access planning are blocked while a federated agentic system has no agent cards, topology, delegation boundaries, task/message contracts, protocol surface decision, context-sharing policy, identity/auth model, progress handling, cross-agent traces, recovery behavior, or versioning policy.
 
-## 12. Capability and Access Procedure
+## 12. Agentic Zero Trust Procedure
+
+Before capability/access planning, define zero-trust controls when agents use tools, MCP servers, skills, memory/retrieval, credentials, external systems, sensitive data, autonomous routines, sub-agents, or remote agents.
+
+Start with:
+
+```bash
+npm run plan-agentic-zero-trust -- --brief "[what we are building]" --mode full --markdown
+```
+
+Then copy or fill:
+
+```text
+templates/shared/agentic-zero-trust-plan.template.md -> docs/agentic-zero-trust-plan.md
+```
+
+Decide:
+
+- non-human identity and actor-chain attribution
+- JIT credentials, vaulting, rotation, revocation, and secret scanning
+- per-action authorization and human approval thresholds
+- trusted registry for tools, MCP servers, connectors, skills, generated harnesses, agent cards, models, prompts, policies, and eval sets
+- AI gateway/firewall, DLP, egress, and policy enforcement boundaries
+- memory, retrieval, embedding, policy, preference, eval, and model integrity controls
+- sandboxing, segmentation, tenant isolation, browser/desktop isolation, and production mutation boundaries
+- immutable trace and forensic replay requirements
+- human control surface: approval queue, kill switch, pause/stop, revoke, throttles, spend limits, canaries, rollback, and incident response
+- adversarial evals for prompt injection, indirect prompt injection, tool poisoning, MCP compromise, skill supply chain, credential misuse, exfiltration, memory poisoning, data/model poisoning, excessive agency, sub-agent escalation, A2A spoofing, and cost runaway
+- first secure autonomous slice
+
+Capability/access planning is blocked while an agentic system has no identity model, JIT credential plan, per-action authorization, registry trust, policy enforcement, memory/retrieval integrity, sandboxing, immutable traces, human controls, adversarial evals, or incident response.
+
+## 13. Capability and Access Procedure
 
 Before Build Plan approval, create the capability/access map when the product touches external systems, authenticated apps, APIs, SDKs, CLIs, MCP servers, media generation providers, deployment platforms, browser automation, desktop apps, or paid vendors.
 
@@ -368,7 +402,7 @@ npm run route-tool -- --task "create a GitHub PR and inspect failing CI"
 
 Build Plan approval is blocked while a critical required-now capability has no access path.
 
-## 13. Build Plan Procedure
+## 14. Build Plan Procedure
 
 For Full mode:
 
@@ -381,10 +415,11 @@ For Full mode:
 7. Reference `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agents, retrieval, model routing, or procedural skills are relevant.
 8. Reference `docs/agent-os-runtime-plan.md` when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is relevant.
 9. Reference `docs/agent-network-interop-plan.md` when agents or domain operating systems collaborate across boundaries.
-10. Reference `docs/capability-access-map.md`.
-10. Do not create PRDs until P0/P1 plan gaps are resolved.
+10. Reference `docs/agentic-zero-trust-plan.md` when agentic security controls are relevant.
+11. Reference `docs/capability-access-map.md`.
+12. Do not create PRDs until P0/P1 plan gaps are resolved.
 
-## 14. Design DNA Procedure
+## 15. Design DNA Procedure
 
 For any user-facing UI:
 
@@ -396,7 +431,7 @@ For any user-facing UI:
 
 Frontend work is blocked before Design DNA approval.
 
-## 15. PRD Procedure
+## 16. PRD Procedure
 
 Each PRD must include:
 
@@ -423,7 +458,7 @@ Validate plans with:
 npm run verify-plan -- docs/prd/[file].md
 ```
 
-## 16. Execution Procedure
+## 17. Execution Procedure
 
 Codex executes one task at a time:
 
@@ -443,7 +478,7 @@ Codex executes one task at a time:
 
 Parallel execution requires explicit task assignment or task claiming.
 
-## 17. Review Procedure
+## 18. Review Procedure
 
 Use specialist roles:
 
@@ -459,7 +494,7 @@ Use specialist roles:
 
 Full mode cannot ship with unresolved critical/high findings.
 
-## 18. Ship Procedure
+## 19. Ship Procedure
 
 Ship only when:
 
@@ -472,7 +507,7 @@ Ship only when:
 - user approves launch
 - lesson capture is ready
 
-## 19. Learning Procedure
+## 20. Learning Procedure
 
 At project end:
 
@@ -481,7 +516,7 @@ At project end:
 3. Decide whether lessons should update frameworks, schemas, templates, scripts, or agent prompts.
 4. Promote proven lessons back into Codex Brain.
 
-## 19.5 Context Procedure
+## 20.5 Context Procedure
 
 At session start, phase changes, and major decisions:
 
@@ -498,7 +533,7 @@ npm run session-brief -- --dir "[project-root]"
 npm run distill-context -- --dir "[project-root]" docs/build-plan.md .codex-brain/research
 ```
 
-## 19.6 Session Close Procedure
+## 20.6 Session Close Procedure
 
 At the end of every meaningful session, save context.
 
@@ -524,7 +559,7 @@ This creates `.codex-brain/sessions/session-[timestamp].json`, updates active co
 
 Reusable learning still belongs in `.codex-brain/lessons/*.json`. Ordinary session progress belongs in `.codex-brain/sessions/*.json`.
 
-## 20. Downgrade Protocol
+## 21. Downgrade Protocol
 
 If the user asks to downgrade from Full to Standard or Light:
 
@@ -537,7 +572,7 @@ Codex must state:
 
 For high-risk projects, Codex should strongly recommend against downgrading.
 
-## 21. Glory Rule
+## 22. Glory Rule
 
 If the user says the goal is world-class, unicorn-level, top-ten, enterprise-grade, or no-corners-cut:
 

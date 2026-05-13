@@ -1,0 +1,159 @@
+{
+  "$schema": "../schemas/agentic-zero-trust-catalog.schema.json",
+  "version": "0.1.0",
+  "principle": "Agentic systems earn trust continuously through verified identity, just-in-time credentials, least privilege, registry trust, policy enforcement, sandboxing, immutable traces, human control, adversarial evaluation, and incident response.",
+  "zero_trust_controls": [
+    {
+      "id": "agent_nhi_registry",
+      "name": "Agent and Non-Human Identity Registry",
+      "purpose": "Assign every agent, sub-agent, routine, service account, and tool runner a unique identity with actor-chain attribution.",
+      "keywords": ["identity", "non-human identity", "nhi", "agent identity", "service account", "sub-agent", "actor chain", "impersonation", "principal", "tenant"],
+      "threats": ["unattributed action", "agent impersonation", "sub-agent escalation", "tenant-boundary confusion"],
+      "required_outputs": ["agent identity inventory", "service account inventory", "actor-chain schema", "tenant/workspace boundary", "impersonation rule", "revocation rule"],
+      "p0_blockers": ["agentic action cannot be attributed to user, tenant, agent, and credential", "sub-agents can act without registered identity", "tenant boundary is unclear"]
+    },
+    {
+      "id": "jit_vault_credentials",
+      "name": "JIT Credential Broker and Vault",
+      "purpose": "Issue short-lived scoped credentials from a vault or broker only at the moment a verified action needs them.",
+      "keywords": ["credential", "secret", "api key", "oauth", "token", "vault", "broker", "just in time", "jit", "rotation", "revocation", "scope", "expiry"],
+      "threats": ["credential theft", "overbroad token", "static secret leakage", "privilege escalation"],
+      "required_outputs": ["vault or broker choice", "credential checkout flow", "scope and expiry matrix", "rotation policy", "revocation policy", "secret scanning policy"],
+      "p0_blockers": ["long-lived broad credentials are available to agents", "secrets are stored in prompts, skill files, repo config, or client code", "credential revocation path is missing"]
+    },
+    {
+      "id": "per_action_authorization",
+      "name": "Per-Action Authorization and Intent Verification",
+      "purpose": "Authorize every sensitive action against user intent, task scope, agent role, policy, risk, credential scope, and approval threshold.",
+      "keywords": ["authorization", "intent", "policy", "approval", "public", "paid", "destructive", "send", "publish", "delete", "spend", "confused deputy"],
+      "threats": ["excessive agency", "confused deputy", "unauthorized action", "policy bypass"],
+      "required_outputs": ["action authorization matrix", "risk thresholds", "policy decision owner", "approval event schema", "denial/refusal behavior", "confused-deputy control"],
+      "p0_blockers": ["public, paid, destructive, or compliance-sensitive actions can run without per-action authorization", "approval thresholds are undefined", "agent can act outside current user intent"]
+    },
+    {
+      "id": "trusted_registry",
+      "name": "Tool, MCP, Skill, Agent Card, and Model Registry",
+      "purpose": "Vett and version the supply chain of tools, MCP servers, connectors, skills, harnesses, agent cards, models, prompts, and policy bundles.",
+      "keywords": ["tool registry", "mcp", "connector", "plugin", "skill", "agent card", "model", "prompt", "supply chain", "version", "checksum", "pinning", "provenance"],
+      "threats": ["tool poisoning", "MCP server compromise", "skill malware", "agent-card spoofing", "model supply-chain compromise"],
+      "required_outputs": ["approved capability registry", "owner/version fields", "allowed operations", "provenance or pinning policy", "review cadence", "quarantine/removal path"],
+      "p0_blockers": ["unreviewed tools, MCP servers, skills, models, or agent cards can be used in launch-critical flows", "tool capabilities are broader than the agent task", "no owner or version exists for privileged tool surfaces"]
+    },
+    {
+      "id": "ai_gateway_policy",
+      "name": "AI Gateway, Firewall, and Policy Enforcement",
+      "purpose": "Enforce deterministic checks around model inputs, retrieved context, tool inputs, model outputs, egress, and delegated payloads.",
+      "keywords": ["ai gateway", "ai firewall", "policy enforcement", "guardrail", "prompt injection", "indirect prompt injection", "output filter", "dlp", "egress", "validation"],
+      "threats": ["prompt injection", "indirect prompt injection", "data exfiltration", "unsafe tool input", "policy bypass"],
+      "required_outputs": ["input controls", "retrieved-context labeling", "tool input validation", "output DLP filters", "egress allowlist", "unsafe action refusal path"],
+      "p0_blockers": ["model output directly drives privileged tool calls without validation", "untrusted retrieved content is not labeled or constrained", "sensitive output can leave through uncontrolled egress"]
+    },
+    {
+      "id": "data_memory_model_integrity",
+      "name": "Data, Memory, Retrieval, and Model Integrity",
+      "purpose": "Protect the sources that shape decisions: memories, RAG indexes, embeddings, policies, preferences, eval sets, fine-tuning data, and model artifacts.",
+      "keywords": ["memory", "rag", "retrieval", "embedding", "vector", "policy", "preference", "poisoning", "data poisoning", "model poisoning", "provenance", "quarantine", "eval set"],
+      "threats": ["memory poisoning", "data poisoning", "model poisoning", "vector weakness", "stale or forged source", "policy tampering"],
+      "required_outputs": ["source provenance model", "ingestion trust tiers", "quarantine workflow", "memory correction/delete/export propagation", "index rebuild policy", "eval-set integrity checks"],
+      "p0_blockers": ["retrieved context or memory can be trusted without provenance", "policies or preferences can be tampered with silently", "poisoned sources cannot be quarantined or rolled back"]
+    },
+    {
+      "id": "micro_sandbox_segmentation",
+      "name": "Micro-Sandboxing and Segmentation",
+      "purpose": "Constrain agents by file path, network destination, database scope, tenant data, tool operation, subprocess, browser state, and production mutation boundary.",
+      "keywords": ["sandbox", "segmentation", "egress", "allowlist", "file", "network", "database", "rls", "tenant isolation", "browser state", "computer use", "subprocess"],
+      "threats": ["lateral movement", "tenant escape", "production mutation", "unbounded file access", "network exfiltration"],
+      "required_outputs": ["per-agent sandbox policy", "file/network/database allowlists", "tenant segmentation rule", "egress filtering", "local execution boundary", "production mutation boundary"],
+      "p0_blockers": ["agents can access broad filesystem, network, or tenant scopes without need", "tool runners can mutate production without boundary", "browser or Computer Use state is not isolated for sensitive workflows"]
+    },
+    {
+      "id": "immutable_observability",
+      "name": "Immutable Observability and Forensic Trace",
+      "purpose": "Record tamper-evident evidence for prompts, context, retrieval, memory, model route, policy, credential checkout, tool calls, approvals, and external actions.",
+      "keywords": ["immutable", "observability", "trace", "audit", "forensic", "tamper", "log", "correlation", "replay", "credential checkout", "approval", "tool call"],
+      "threats": ["missing forensic evidence", "log tampering", "unreconstructable action", "repudiation"],
+      "required_outputs": ["trace event taxonomy", "correlation ID strategy", "tamper-evident log target", "retention policy", "sensitive-log redaction", "replay/debug path"],
+      "p0_blockers": ["bad agent outcome cannot be reconstructed", "credential checkout or approval events are not logged", "privileged logs are mutable without tamper controls"]
+    },
+    {
+      "id": "human_control_kill_switch",
+      "name": "Human Control, Kill Switch, Throttles, and Canaries",
+      "purpose": "Give humans practical controls to approve, pause, stop, revoke, throttle, canary, roll back, and investigate agentic behavior.",
+      "keywords": ["human in the loop", "kill switch", "pause", "stop", "revoke", "throttle", "rate limit", "spend limit", "canary", "rollback", "approval queue"],
+      "threats": ["runaway autonomy", "cost runaway", "rapid repeated harm", "unsafe rollout"],
+      "required_outputs": ["kill switch", "pause/stop/revoke controls", "rate/spend/action limits", "approval queue", "canary rollout plan", "rollback playbook"],
+      "p0_blockers": ["no kill switch exists for autonomous routines", "paid or public actions have no throttle", "unsafe rollout cannot be paused or rolled back"]
+    },
+    {
+      "id": "continuous_verification",
+      "name": "Continuous Verification and Scanning",
+      "purpose": "Continuously verify secrets, dependencies, MCP servers, skills, tool schemas, memory sources, retrieval indexes, policy drift, access scopes, logs, and deployed surfaces.",
+      "keywords": ["scan", "scanning", "continuous verification", "drift", "secret scan", "dependency", "mcp scan", "policy drift", "access review", "red team"],
+      "threats": ["security drift", "new vulnerable dependency", "stale access", "unreviewed tool change"],
+      "required_outputs": ["scan schedule", "drift checks", "red-team cadence", "model/tool/memory change review", "credential hygiene checks", "incident review trigger"],
+      "p0_blockers": ["privileged agentic system has no periodic access review", "tool or policy changes bypass review", "secret scanning is missing for repos with credentials"]
+    },
+    {
+      "id": "adversarial_evals",
+      "name": "Adversarial Evaluation and Attack Simulation",
+      "purpose": "Test launch-critical agentic flows against prompt injection, tool poisoning, credential misuse, exfiltration, memory poisoning, excessive agency, and A2A spoofing.",
+      "keywords": ["adversarial", "red team", "attack simulation", "prompt injection", "tool poisoning", "exfiltration", "memory poisoning", "excessive agency", "a2a spoofing", "system prompt leakage", "unbounded consumption"],
+      "threats": ["untested attacker path", "false security confidence", "launch-critical bypass"],
+      "required_outputs": ["attack scenario list", "eval fixtures", "expected refusal/approval outcomes", "pass/fail thresholds", "regression cadence", "launch blocker mapping"],
+      "p0_blockers": ["prompt injection and excessive-agency tests are missing for launch-critical flows", "adversarial failures do not block release", "no regression test guards fixed attacks"]
+    },
+    {
+      "id": "incident_response_blast_radius",
+      "name": "Incident Response and Blast-Radius Reduction",
+      "purpose": "Define containment, credential rotation, agent freeze, poisoned-source removal, memory rollback, trace replay, notification, and postmortem paths.",
+      "keywords": ["incident", "blast radius", "containment", "freeze", "rotate", "rollback", "poisoned source", "notification", "postmortem", "forensics"],
+      "threats": ["slow containment", "unbounded damage", "irreversible poisoning", "no customer notification path"],
+      "required_outputs": ["incident classes", "containment actions", "credential rotation path", "agent/tool freeze path", "memory rollback path", "poisoned-source removal path", "trace replay path", "notification trigger"],
+      "p0_blockers": ["privileged agentic product has no containment plan", "compromised credentials cannot be rotated quickly", "memory or retrieval poisoning cannot be repaired"]
+    }
+  ],
+  "risk_patterns": [
+    {
+      "id": "social_content_autopublisher",
+      "name": "Social Content Autopublisher",
+      "keywords": ["social media", "linkedin", "instagram", "twitter", "x", "publish", "post", "content", "brand", "voice", "approval"],
+      "recommended_controls": ["agent_nhi_registry", "jit_vault_credentials", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "human_control_kill_switch", "adversarial_evals", "incident_response_blast_radius"],
+      "first_secure_slice": "draft-only social workflow: retrieve approved voice/proof memory, produce draft, run policy/evidence checks, record trace, require human approval before any platform write"
+    },
+    {
+      "id": "financial_market_agent",
+      "name": "Financial or Market Intelligence Agent",
+      "keywords": ["stock", "trading", "investing", "portfolio", "market", "finance", "fund", "analyst", "thesis", "risk"],
+      "recommended_controls": ["agent_nhi_registry", "jit_vault_credentials", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "human_control_kill_switch", "continuous_verification", "adversarial_evals", "incident_response_blast_radius"],
+      "first_secure_slice": "read-only market thesis workflow: pull verified sources, separate advice from analysis, trace citations, block trading or external messages until explicit human approval and compliance policy exist"
+    },
+    {
+      "id": "enterprise_ops_agent",
+      "name": "Enterprise Operations Agent",
+      "keywords": ["enterprise", "hr", "it", "support", "customer service", "refund", "ticket", "salesforce", "slack", "gmail", "calendar", "drive", "jira"],
+      "recommended_controls": ["agent_nhi_registry", "jit_vault_credentials", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "human_control_kill_switch", "continuous_verification", "adversarial_evals", "incident_response_blast_radius"],
+      "first_secure_slice": "single low-risk ticket workflow: read scoped case data, propose action, record policy decision, require approval for external send/delete/refund, then replay trace in review"
+    },
+    {
+      "id": "creative_media_agent",
+      "name": "Creative Media Generation Agent",
+      "keywords": ["image", "video", "voice", "avatar", "tts", "media", "generation", "heygen", "fal", "runway", "elevenlabs", "asset"],
+      "recommended_controls": ["agent_nhi_registry", "jit_vault_credentials", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "human_control_kill_switch", "continuous_verification", "adversarial_evals"],
+      "first_secure_slice": "quota-limited media job: generate from approved prompt and licensed assets, store output in sandbox, record cost/content-policy trace, require human approval before publication"
+    },
+    {
+      "id": "multi_agent_network",
+      "name": "Multi-Agent or Inter-OS Network",
+      "keywords": ["a2a", "agent card", "agent-to-agent", "remote agent", "domain os", "operating system", "multi-os", "federated", "agent marketplace", "delegate"],
+      "recommended_controls": ["agent_nhi_registry", "jit_vault_credentials", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "human_control_kill_switch", "continuous_verification", "adversarial_evals", "incident_response_blast_radius"],
+      "first_secure_slice": "one traced delegation: verify agent card, exchange least-context task payload, require scoped token, record correlation ID, reject unauthorized downstream tool use, and require approval before external action"
+    },
+    {
+      "id": "memory_rag_agent",
+      "name": "Memory or RAG-Backed Agent",
+      "keywords": ["memory", "rag", "retrieval", "embedding", "vector", "knowledge base", "documents", "policy", "preference", "profile"],
+      "recommended_controls": ["agent_nhi_registry", "per_action_authorization", "trusted_registry", "ai_gateway_policy", "data_memory_model_integrity", "micro_sandbox_segmentation", "immutable_observability", "continuous_verification", "adversarial_evals", "incident_response_blast_radius"],
+      "first_secure_slice": "read-only grounded answer: ingest trusted fixture corpus, label untrusted context, cite sources, block memory writes until provenance, correction, delete/export, and poisoning tests exist"
+    }
+  ]
+}

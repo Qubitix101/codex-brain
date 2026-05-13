@@ -153,7 +153,7 @@ Output:
 
 ### Agent OS Runtime Council
 
-Use before agent network, capability/access, and Build Plan approval for L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products.
+Use before agent network, Agentic Zero Trust, capability/access, and Build Plan approval for L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting products.
 
 Roles:
 
@@ -177,7 +177,7 @@ Output:
 
 ### Agent Network and Interoperability Council
 
-Use before capability/access and Build Plan approval for federated agentic products, remote-agent delegation, agent-card exposure, or multi-OS collaboration.
+Use before Agentic Zero Trust, capability/access, and Build Plan approval for federated agentic products, remote-agent delegation, agent-card exposure, or multi-OS collaboration.
 
 Roles:
 
@@ -197,6 +197,32 @@ Output:
 - streaming/progress and cancellation gaps
 - cross-agent trace and replay gaps
 - failure/recovery/versioning gaps
+
+### Agentic Zero Trust Council
+
+Use before capability/access and Build Plan approval for agentic products with tools, MCP, memory/retrieval, credentials, external action, sensitive data, autonomous routines, sub-agents, or remote agents.
+
+Roles:
+
+- agentic zero trust reviewer
+- security/GDPR reviewer
+- architecture strategist
+- AI orchestration reviewer
+- performance/reliability reviewer
+- product strategist
+
+Output:
+
+- non-human identity and actor-chain gaps
+- JIT credential, vault, scope, rotation, and revocation gaps
+- per-action authorization and approval gaps
+- trusted registry gaps for tools, MCP servers, skills, models, prompts, policies, evals, and agent cards
+- AI gateway/firewall and policy enforcement gaps
+- memory/retrieval/model integrity risks
+- sandbox, segmentation, and egress gaps
+- immutable trace and forensic replay gaps
+- kill switch, throttle, canary, rollback, and incident-response blockers
+- adversarial eval coverage gaps
 
 ## Council Protocol
 

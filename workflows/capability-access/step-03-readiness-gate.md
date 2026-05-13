@@ -3,6 +3,7 @@
 ## Read
 
 - `docs/capability-access-map.md`
+- `docs/agentic-zero-trust-plan.md` if relevant
 - `.codex-brain/state.json`
 - `frameworks/capability-access-readiness.md`
 
@@ -15,6 +16,7 @@
 - Are required credentials, scopes, OAuth apps, webhooks, billing setup, and sandbox accounts listed?
 - Are secret handling, audit, cost, rate limit, and destructive-action boundaries explicit?
 - Do selected capability surfaces satisfy Agent OS runtime sandbox, identity, trace, approval, recovery, and budget boundaries?
+- Do selected capability surfaces satisfy Agentic Zero Trust identity, JIT credential, registry trust, policy enforcement, immutable trace, kill switch, and adversarial-eval requirements?
 - Is there a safe mock plan for anything not live yet?
 - Are user-provided blockers listed plainly?
 

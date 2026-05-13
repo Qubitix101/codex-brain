@@ -54,4 +54,4 @@ If blocked:
 
 ## Next
 
-After approval, run Agent OS Runtime with `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` as required inputs so runtime kernel choices are grounded in actual procedures. Agent Network and Interoperability follows when cross-agent or inter-OS boundaries are relevant; Capability and Access follows after runtime and network boundaries are explicit.
+After approval, run Agent OS Runtime with `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` as required inputs so runtime kernel choices are grounded in actual procedures. Agent Network and Interoperability follows when cross-agent or inter-OS boundaries are relevant; Agentic Zero Trust follows before Capability and Access when agents use tools, MCP, memory, credentials, external action, sensitive data, or autonomous routines.

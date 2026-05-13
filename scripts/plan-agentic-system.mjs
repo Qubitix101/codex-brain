@@ -98,7 +98,7 @@ const result = {
   routines,
   evals,
   dimensions: catalog.dimensions,
-  next_step: "Create the agentic opportunity audit and intelligence system plan, then run the intelligence architecture selection before the agent-engineering/skill-factory audit, Agent OS runtime, agent network, and capability/access mapping."
+  next_step: "Create the agentic opportunity audit and intelligence system plan, then run the intelligence architecture selection before the agent-engineering/skill-factory audit, Agent OS runtime, agent network, Agentic Zero Trust, and capability/access mapping."
 };
 
 if (!markdown) {

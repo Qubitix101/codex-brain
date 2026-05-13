@@ -103,7 +103,7 @@ const result = {
   source_of_truth: sourceOfTruth,
   first_loop: firstLoop,
   decision_dimensions: catalog.decision_dimensions,
-  next_step: "Create docs/intelligence-architecture-decision.md, then run the agent-engineering/skill-factory audit, Agent OS Runtime Plan, and agent network plan before capability/access mapping."
+  next_step: "Create docs/intelligence-architecture-decision.md, then run the agent-engineering/skill-factory audit, Agent OS Runtime Plan, agent network plan, and Agentic Zero Trust plan before capability/access mapping."
 };
 
 if (!markdown) {

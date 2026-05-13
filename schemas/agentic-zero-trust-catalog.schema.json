@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-brain.local/schemas/agentic-zero-trust-catalog.schema.json",
+  "title": "Codex Brain Agentic Zero Trust Catalog",
+  "type": "object",
+  "required": ["version", "principle", "zero_trust_controls", "risk_patterns"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "principle": { "type": "string", "minLength": 1 },
+    "zero_trust_controls": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/zero_trust_control" }
+    },
+    "risk_patterns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/risk_pattern" }
+    }
+  },
+  "$defs": {
+    "zero_trust_control": {
+      "type": "object",
+      "required": ["id", "name", "purpose", "keywords", "threats", "required_outputs", "p0_blockers"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "threats": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "required_outputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "p0_blockers": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "risk_pattern": {
+      "type": "object",
+      "required": ["id", "name", "keywords", "recommended_controls", "first_secure_slice"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "recommended_controls": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "first_secure_slice": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

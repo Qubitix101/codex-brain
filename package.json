@@ -24,6 +24,7 @@
     "plan-agent-skills": "node scripts/plan-agent-skills.mjs",
     "plan-agent-os-runtime": "node scripts/plan-agent-os-runtime.mjs",
     "plan-agent-network": "node scripts/plan-agent-network.mjs",
+    "plan-agentic-zero-trust": "node scripts/plan-agentic-zero-trust.mjs",
     "install-global-skills": "node scripts/install-global-skills.mjs"
   },
   "engines": {

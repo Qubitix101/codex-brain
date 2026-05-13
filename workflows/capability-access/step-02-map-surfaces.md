@@ -7,6 +7,7 @@
 - `docs/intelligence-architecture-decision.md` if relevant
 - `docs/skill-inventory.md` if relevant
 - `docs/agent-network-interop-plan.md` if relevant
+- `docs/agentic-zero-trust-plan.md` if relevant
 - `frameworks/tool-surface-routing.md`
 - `catalogs/tool-surface-routing-matrix.json`
 
@@ -21,6 +22,7 @@ For every required capability, select:
 - live verification trigger
 - skill trust-level impact
 - interop impact: MCP/tool access versus A2A-style agent delegation versus API/internal/event boundary
+- zero-trust impact: identity, JIT credentials, policy enforcement, traces, kill switch, and incident response
 - architecture substrate impact: semantic RAG, structured retrieval, extraction, memory, workflow, action, or routine automation
 
 ## Surface Rules
@@ -54,4 +56,5 @@ npm run route-tool -- --task "[specific task]"
 - a production runtime path depends on Browser or Computer Use without explicit accepted risk
 - an MCP server would be loaded broadly when a scoped CLI/API path is sufficient
 - a destructive or externally visible action lacks an approval boundary
+- selected access surfaces cannot satisfy Agentic Zero Trust identity, credential, policy, trace, throttle, or kill-switch requirements
 - a T3/T4 skill lacks credentials, audit logging, rollback, or eval requirements

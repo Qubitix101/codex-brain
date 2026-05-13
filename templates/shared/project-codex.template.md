@@ -45,6 +45,7 @@ At the start of a Codex Brain session:
    - agent-engineering/skill-inventory status when agents, retrieval, multi-model routing, or procedural skills are involved
    - Agent OS runtime status when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is involved
    - agent network/interoperability status when agents or domain operating systems collaborate across boundaries
+   - Agentic Zero Trust status when agents use tools, MCP, memory/retrieval, credentials, external action, sensitive data, or autonomous routines
    - capability/access map status when integrations or external tools are involved
    - next allowed action
    - blocked actions
@@ -92,6 +93,7 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
 - No L3+ agentic, multi-agent, routine-heavy, tool-using, memory-writing, or externally acting Build Plan before the Agent OS runtime kernel is defined.
 - No federated agentic or multi-OS Build Plan before agent cards, delegation boundaries, task contracts, protocol choices, context sharing, identity, streaming, traces, recovery, and versioning are defined.
+- No agentic external access before Agentic Zero Trust defines identity, JIT credentials, per-action authorization, registry trust, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response.
 - No serious integration-heavy Build Plan before required APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without tenant isolation and authorization model.
 - No paid product without billing and entitlement edge cases.
@@ -148,6 +150,7 @@ npm run plan-intelligence-architecture -- --brief "[what we are building]" --mod
 npm run plan-agent-skills -- --brief "[what we are building]" --mode full
 npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode full
 npm run plan-agent-network -- --brief "[what we are building]" --mode full
+npm run plan-agentic-zero-trust -- --brief "[what we are building]" --mode full
 npm run plan-capabilities -- --brief "[what we are building]" --mode standard
 npm run route-tool -- --task "[specific tool task]"
 npm run save-context -- --dir . --summary "what happened" --next "next allowed action"

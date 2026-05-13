@@ -47,7 +47,8 @@ Full research produces:
 ├── 25-agent-engineering-and-skill-factory.md
 ├── 26-agent-os-runtime.md
 ├── 27-agent-network-and-interoperability.md
-├── 28-capability-access-readiness.md
+├── 28-agentic-zero-trust.md
+├── 29-capability-access-readiness.md
 └── evidence-ledger.json
 ```
 
@@ -433,7 +434,7 @@ Full-mode additions:
 
 Required when AI, automation, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
+Answer before Intelligence Architecture, Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability and Access:
 
 - Is this a normal app, AI-assisted workflow, memory-backed copilot, workflow agent, bounded autonomous operator, or domain operating system?
 - What agentic maturity level should be built now?
@@ -458,7 +459,7 @@ Required:
 
 Required when AI answers, retrieval, extraction, memory, recurring workflows, multi-tool action, or operating-system ambition is relevant.
 
-Answer before Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
+Answer before Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability and Access:
 
 - For each core loop, is the system answering, deciding, transforming, extracting, remembering, coordinating, acting, or recurring?
 - What is the source of truth for each loop?
@@ -482,7 +483,7 @@ Required:
 
 Required when AI agents, retrieval, tool use, multi-model orchestration, procedural skills, or externally visible actions are relevant.
 
-Answer before Agent OS Runtime, Agent Network and Interoperability, and Capability and Access:
+Answer before Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability and Access:
 
 - What are the production-agent system boundaries, data flows, model routes, state owners, and failure boundaries?
 - What tool contracts, schemas, examples, output contracts, and approval policies are needed?
@@ -506,7 +507,7 @@ Required:
 
 Required when the product is L3+, multi-agent, memory-writing, routine-heavy, tool-using, externally acting, or operating-system-shaped.
 
-Answer before Agent Network and Interoperability and Capability and Access:
+Answer before Agent Network and Interoperability, Agentic Zero Trust, and Capability and Access:
 
 - What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?
 - What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?
@@ -531,7 +532,7 @@ Required:
 
 Required when agents, remote specialists, or domain operating systems collaborate across runtime, vendor, team, product, tenant, or ownership boundaries.
 
-Answer before Capability and Access:
+Answer before Agentic Zero Trust and Capability and Access:
 
 - Which internal agents, external agents, vertical operating systems, and deterministic services participate?
 - Which agent cards should this product expose or consume?
@@ -553,6 +554,33 @@ Required:
 - delegation and context-sharing boundaries
 - cross-agent trace and recovery model
 - first interoperable slice
+
+## Agentic Zero Trust Plan
+
+Required when agents use tools, MCP servers, skills, memory/retrieval, credentials, external action, sensitive data, autonomous routines, sub-agents, or remote agents.
+
+Answer before Capability and Access:
+
+- What non-human identities and actor-chain attribution are required?
+- Which credentials require JIT vault/broker checkout, expiry, rotation, and revocation?
+- Which actions need per-action authorization and human approval?
+- Which tools, MCP servers, connectors, skills, generated harnesses, agent cards, models, prompts, policies, and eval sets require registry trust review?
+- Where are AI gateway/firewall, DLP, egress, and policy enforcement controls applied?
+- How are memory, RAG, embeddings, policies, preferences, and model artifacts protected from poisoning or tampering?
+- What sandboxing, segmentation, immutable trace, kill switch, throttles, canaries, adversarial evals, and incident response are required?
+
+Required:
+
+- `docs/agentic-zero-trust-plan.md`
+- non-human identity and actor-chain model
+- JIT credential/vault plan
+- per-action authorization matrix
+- trusted registry
+- policy enforcement plan
+- memory/retrieval/model integrity plan
+- sandbox/trace/human-control plan
+- adversarial eval suite
+- incident response plan
 
 ## Category 12 - Integrations and Vendors
 
@@ -823,7 +851,7 @@ Before planning:
 - Every federated agentic or multi-OS product has an agent network/interoperability plan.
 - Every critical external capability has an explicit access surface, credential plan, mock strategy, and live verification trigger.
 - Every UI product has Design DNA inputs started.
-- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, intelligence architecture, agent engineering/skill factory, Agent OS runtime, agent network/interoperability, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
+- Every Full-mode project has explicit security, database, privacy, reliability, agentic opportunity, intelligence architecture, agent engineering/skill factory, Agent OS runtime, agent network/interoperability, Agentic Zero Trust, capability/access, business-model, test architecture, context continuity, and workflow routing coverage.
 
 ## Anti-Patterns
 

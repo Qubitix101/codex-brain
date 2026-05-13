@@ -57,6 +57,14 @@
   ],
   "rules": [
     {
+      "id": "agentic_zero_trust_controls",
+      "keywords": ["zero trust", "secret", "credential", "vault", "non-human identity", "jit", "just in time", "policy enforcement", "ai firewall", "ai gateway", "kill switch", "throttle", "canary"],
+      "preferred_surface": "official_api_sdk",
+      "alternates": ["native_cli", "mcp_connector"],
+      "why": "Identity, vaulting, policy, and audit controls should be integrated through official APIs/SDKs or provider CLIs. MCP is acceptable only when scopes, audit, and user delegation are explicit; browser or Computer Use should not handle secrets except for manual setup with approval.",
+      "verify_with": ["secret scan", "scope inspection", "policy test", "credential checkout smoke test", "kill switch smoke test"]
+    },
+    {
       "id": "local_repo_inspection",
       "keywords": ["git status", "diff", "log", "branch", "commit", "merge", "rebase", "repo", "working tree", "local history"],
       "preferred_surface": "native_cli",

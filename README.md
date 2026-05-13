@@ -2,7 +2,7 @@
 
 Codex Brain is a Codex-native operating system for building serious software products methodically.
 
-It is especially strict for AI-native products: before implementation, it decides whether the idea should become a normal app, an AI-assisted workflow, a memory-backed copilot, a workflow agent, a bounded autonomous operator, or a full domain operating system, selects the right intelligence architecture, defines the Agent OS runtime kernel, maps whether the product should collaborate with other agents or operating systems, then maps the production-agent skills and access surfaces needed to build it safely.
+It is especially strict for AI-native products: before implementation, it decides whether the idea should become a normal app, an AI-assisted workflow, a memory-backed copilot, a workflow agent, a bounded autonomous operator, or a full domain operating system, selects the right intelligence architecture, defines the Agent OS runtime kernel, maps whether the product should collaborate with other agents or operating systems, locks down Agentic Zero Trust controls, then maps the production-agent skills and access surfaces needed to build it safely.
 
 It exists to stop AI-assisted projects from failing in predictable ways:
 
@@ -19,7 +19,7 @@ The goal is not more process for its own sake. The goal is adaptive rigor: light
 
 Every project runs through four loops:
 
-1. Build Loop: classify, validate, research, audit agentic opportunity, select intelligence architecture, audit agent engineering and skills, define the Agent OS runtime, map agent network/interoperability boundaries, map capabilities and access, plan, design, decompose, execute, review, ship.
+1. Build Loop: classify, validate, research, audit agentic opportunity, select intelligence architecture, audit agent engineering and skills, define the Agent OS runtime, map agent network/interoperability boundaries, lock down Agentic Zero Trust, map capabilities and access, plan, design, decompose, execute, review, ship.
 2. Execution Loop: one task, one patch, one verification pass, one state update.
 3. Learning Loop: project lessons become reusable rules, gates, templates, and checklists.
 4. Context Loop: state, memory, distillates, and project context keep future Codex sessions aligned.
@@ -51,6 +51,7 @@ The user approves or overrides it.
 | 2.35 | Agent Engineering and Skill Factory | Audit production-agent readiness and map procedural skills, trust levels, evals, and model routing |
 | 2.4 | Agent OS Runtime | Define scheduler, memory manager, tool sandbox, identity, observability, governance, recovery, budgets, agent registry, and human control |
 | 2.45 | Agent Network and Interoperability | Define agent cards, topology, delegation boundaries, MCP vs A2A-style decisions, context sharing, streaming, traces, recovery, and versioning |
+| 2.47 | Agentic Zero Trust | Define non-human identity, JIT credentials, per-action authorization, registry trust, policy enforcement, memory integrity, sandboxing, immutable traces, kill switches, adversarial evals, and incident response |
 | 2.5 | Capability and Access | Map required APIs, SDKs, CLIs, MCP servers, browser/computer-use paths, credentials, mocks, and live verification |
 | 3 | Plan | Build Plan with architecture, data, product, security, integrations, access, and delivery decisions |
 | 3.5 | Design DNA | User-approved aesthetics before frontend implementation |
@@ -82,6 +83,7 @@ codex-brain/
 │   ├── skill-factory.md               # Procedural skill inventory, trust, and generation model
 │   ├── agent-os-runtime.md            # Gate 2.4 runtime kernel for production agents
 │   ├── agent-network-interop.md       # Gate 2.45 agent-to-agent and inter-OS boundaries
+│   ├── agentic-zero-trust.md          # Gate 2.47 zero-trust controls for agentic systems
 │   ├── capability-access-readiness.md # Gate 2.5 access and integration readiness
 │   ├── tool-surface-routing.md        # CLI / API / MCP / browser / computer-use routing
 │   ├── design-dna.md                 # Frontend aesthetics gate
@@ -150,6 +152,7 @@ npm run plan-intelligence-architecture -- --brief "what we are building" --mode 
 npm run plan-agent-skills -- --brief "what we are building" --mode full
 npm run plan-agent-os-runtime -- --brief "what we are building" --mode full
 npm run plan-agent-network -- --brief "what we are building" --mode full
+npm run plan-agentic-zero-trust -- --brief "what we are building" --mode full
 npm run plan-capabilities -- --brief "what we are building" --mode standard
 npm run route-tool -- --task "inspect the last failed GitHub Actions run"
 npm run install-global-skills
@@ -178,6 +181,7 @@ The installer validates each skill and writes it to `~/.codex/skills` by default
 - No AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy Build Plan before intelligence architecture is selected.
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
 - No L3+ agentic, multi-agent, routine-heavy, tool-using, or externally acting Build Plan before the Agent OS runtime kernel is defined.
+- No agentic external access before Agentic Zero Trust defines identity, JIT credentials, per-action authorization, trusted registries, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response.
 - No federated agentic or multi-OS Build Plan before agent cards, delegation boundaries, task contracts, protocol decisions, context sharing, identity, streaming, traces, recovery, and versioning are defined.
 - No serious integration-heavy Build Plan before required capabilities, access surfaces, credentials, mocks, and live verification are mapped.
 - No multi-tenant product without an isolation model.

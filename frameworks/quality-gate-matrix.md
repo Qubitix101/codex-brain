@@ -146,6 +146,22 @@ These block all modes:
 | Failure/retry/timeout/fallback/escalation behavior | Required if delegation | Required if delegation | Required | P0 |
 | Versioning and compatibility policy | Required if exposed/consumed | Required if exposed/consumed | Required | P1 |
 
+## Agentic Zero Trust Gate
+
+| Check | Light | Standard | Full | Severity |
+| --- | --- | --- | --- | --- |
+| Non-human identity and actor chain | Required if agentic action | Required if relevant | Required if relevant | P0 |
+| JIT credentials, vaulting, rotation, and revocation | Required if credentials | Required if credentials | Required | P0 |
+| Per-action authorization and approval thresholds | Required if sensitive action | Required if relevant | Required | P0 |
+| Trusted registry for tools, MCP, skills, models, prompts, policies, evals, and agent cards | Required if privileged tools | Required if relevant | Required | P0 |
+| AI gateway/firewall and policy enforcement | Required if tool/action flow | Required if relevant | Required | P0 |
+| Memory/retrieval/model integrity | Required if memory/RAG | Required if relevant | Required | P0 |
+| Sandbox, segmentation, egress, and tenant boundaries | Required if tool execution | Required if relevant | Required | P0 |
+| Immutable trace and forensic replay | Required if external action | Required if relevant | Required | P0 |
+| Human control, kill switch, throttles, canaries, and rollback | Required if autonomous/action | Required if relevant | Required | P0 |
+| Adversarial eval suite | Required if AI action | Required if relevant | Required | P0 |
+| Incident response and blast-radius plan | Required if external action | Required if relevant | Required | P0 |
+
 ## Capability and Access Gate
 
 | Check | Light | Standard | Full | Severity |
@@ -177,6 +193,7 @@ These block all modes:
 | Agent-engineering/skill inventory linked | Required if L3+ or skill-driven | Required if relevant | Required if relevant | P0 |
 | Agent OS runtime linked | Required if L3+ | Required if relevant | Required if relevant | P0 |
 | Agent network/interoperability linked | Required if cross-agent | Required if relevant | Required if relevant | P0 |
+| Agentic Zero Trust linked | Required if agentic action | Required if relevant | Required if relevant | P0 |
 | Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
 | Design DNA linked | Required if UI | Required if UI | Required if UI | P0 |
 | Billing spec | Required if paid | Required if paid | Deep | P0 |

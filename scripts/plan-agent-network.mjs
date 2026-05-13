@@ -126,7 +126,7 @@ const result = {
     required_outputs: component.required_outputs,
     p0_blockers: component.p0_blockers
   })),
-  next_step: notApplicableCandidate ? "Record Agent Network and Interoperability as not applicable for this slice, then continue to capability/access mapping. Reopen this gate if a remote agent, external domain OS, reusable agent service, agent card, or A2A-style delegation appears." : "Create docs/agent-network-interop-plan.md after the Agent OS runtime plan and before capability/access mapping. Separate MCP/tool access from A2A-style agent delegation, define agent cards, task contracts, context boundaries, identity, traces, streaming, recovery, and first interoperable slice."
+  next_step: notApplicableCandidate ? "Record Agent Network and Interoperability as not applicable for this slice, then continue to Agentic Zero Trust and capability/access mapping. Reopen this gate if a remote agent, external domain OS, reusable agent service, agent card, or A2A-style delegation appears." : "Create docs/agent-network-interop-plan.md after the Agent OS runtime plan and before Agentic Zero Trust and capability/access mapping. Separate MCP/tool access from A2A-style agent delegation, define agent cards, task contracts, context boundaries, identity, traces, streaming, recovery, and first interoperable slice."
 };
 
 if (!markdown) {
@@ -174,6 +174,6 @@ for (const component of result.selected_components) {
 lines.push("");
 lines.push("## Next Step");
 lines.push("");
-lines.push("Fill `docs/agent-network-interop-plan.md` after `docs/agent-os-runtime-plan.md`. Do not map capability/access or approve the Build Plan for federated agentic systems until agent cards, topology, delegation boundaries, task contracts, protocol decisions, memory/context sharing, identity, streaming, traces, recovery, versioning, and first interoperable slice are explicit.");
+lines.push("Fill `docs/agent-network-interop-plan.md` after `docs/agent-os-runtime-plan.md`. Do not map Agentic Zero Trust, capability/access, or approve the Build Plan for federated agentic systems until agent cards, topology, delegation boundaries, task contracts, protocol decisions, memory/context sharing, identity, streaming, traces, recovery, versioning, and first interoperable slice are explicit.");
 
 console.log(lines.join("\n"));

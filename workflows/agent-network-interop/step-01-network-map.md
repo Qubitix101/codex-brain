@@ -22,7 +22,7 @@ Create the initial Agent Network and Interoperability map.
    - deterministic external service or tool
    - deferred ecosystem layer
 3. Decide whether each boundary is an internal workflow, API/SDK, MCP/tool access, A2A-style agent delegation, event bus/webhook/queue, browser automation, or Computer Use exception.
-4. Identify P0 interop blockers before capability/access mapping.
+4. Identify P0 interop blockers before Agentic Zero Trust and capability/access mapping.
 
 ## Output
 

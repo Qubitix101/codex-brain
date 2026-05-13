@@ -21,7 +21,7 @@ Use one:
 
 - `approved`: the network boundary is sufficient for the current build scope.
 - `conditional`: the first slice may proceed, but named network gaps must close before launch or wider ecosystem exposure.
-- `blocked`: Capability and Access and Build Plan cannot proceed.
+- `blocked`: Agentic Zero Trust, Capability and Access, and Build Plan cannot proceed.
 - `not applicable`: the product has no cross-agent, cross-OS, remote-agent, or reusable agent-service boundary.
 
 ## Output

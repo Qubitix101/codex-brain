@@ -301,9 +301,26 @@ Define:
 - reusable capability and commercialization opportunities
 - first interoperable slice
 
+### Agentic Zero Trust Plan
+
+Reference `docs/agentic-zero-trust-plan.md` after `docs/agent-network-interop-plan.md` when agents use tools, MCP servers, skills, memory/retrieval, credentials, external action, sensitive data, autonomous routines, sub-agents, or remote agents.
+
+Define:
+
+- non-human identity and actor-chain attribution
+- JIT credential/vault policy
+- per-action authorization and approval thresholds
+- trusted registry for tools, MCP servers, connectors, skills, generated harnesses, agent cards, models, prompts, policies, and eval sets
+- AI gateway/firewall, DLP, egress, and policy enforcement plan
+- memory, retrieval, embedding, policy, preference, eval, and model integrity
+- sandboxing, segmentation, tenant isolation, browser/desktop isolation, and production mutation boundaries
+- immutable trace and forensic replay model
+- human controls: approval queue, kill switch, pause/stop, revoke, throttles, spend limits, canaries, rollback, and incident response
+- adversarial evals and first secure autonomous slice
+
 ### Capability and Access Readiness
 
-Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, skill inventory, Agent OS runtime plan, and agent network/interoperability plan are known, then define:
+Reference `docs/capability-access-map.md` after the intelligence architecture, agent-engineering audit, skill inventory, Agent OS runtime plan, agent network/interoperability plan, and Agentic Zero Trust plan are known, then define:
 
 - production runtime surface for each external capability
 - Codex/agent implementation surface for each capability

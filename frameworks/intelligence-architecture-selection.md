@@ -2,7 +2,7 @@
 
 Codex Brain must decide the intelligence substrate before it designs production agents, skills, Agent OS runtime, or access surfaces.
 
-This framework sits after the Agentic Opportunity Audit and Intelligence System Plan, and before Agent Engineering, Skill Factory, Agent OS Runtime, Agent Network and Interoperability, and Capability Access.
+This framework sits after the Agentic Opportunity Audit and Intelligence System Plan, and before Agent Engineering, Skill Factory, Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability Access.
 
 ## Purpose
 
@@ -25,10 +25,10 @@ The Intelligence Architecture Selection gate forces the architecture to match th
 
 ## Gate 2.3
 
-Intelligence Architecture sits after Agentic Opportunity and before Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, and Capability Access.
+Intelligence Architecture sits after Agentic Opportunity and before Agent Engineering, Agent OS Runtime, Agent Network and Interoperability, Agentic Zero Trust, and Capability Access.
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Agentic Zero Trust -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Required artifact for AI-core, agentic, retrieval-heavy, knowledge-heavy, workflow-heavy, or automation-heavy products:

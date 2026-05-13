@@ -31,7 +31,8 @@ Use this as the tracking file for Full-mode research.
 | 25 | Agent Engineering and Skill Factory | Not started | | | | |
 | 26 | Agent OS Runtime | Not started | | | | |
 | 27 | Agent Network and Interoperability | Not started | | | | |
-| 28 | Capability and Access Readiness | Not started | | | | |
+| 28 | Agentic Zero Trust | Not started | | | | |
+| 29 | Capability and Access Readiness | Not started | | | | |
 
 ## Gate
 
@@ -48,4 +49,5 @@ Use this as the tracking file for Full-mode research.
 - [ ] Agent-engineering and skill-factory requirements generated
 - [ ] Agent OS runtime requirements generated
 - [ ] Agent network/interoperability requirements generated
+- [ ] Agentic Zero Trust requirements generated
 - [ ] Capability/access map requirements generated

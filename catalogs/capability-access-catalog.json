@@ -95,6 +95,18 @@
       "risks": ["hallucination", "prompt injection", "cost runaway", "privacy leakage", "tool misuse"]
     },
     {
+      "id": "agentic_zero_trust_controls",
+      "name": "Agentic Zero Trust Controls",
+      "keywords": ["zero trust", "non-human identity", "vault", "secret", "credential", "jit", "just in time", "policy enforcement", "ai firewall", "ai gateway", "kill switch", "throttle", "canary", "prompt injection", "memory poisoning"],
+      "always_consider": true,
+      "production_surfaces": ["identity_provider", "secrets_vault_or_broker", "policy_engine", "ai_gateway_or_firewall", "observability_platform"],
+      "agent_surfaces": ["native_cli_for_secret_scans", "official_api_sdk_for_vault_policy", "mcp_connector_only_if_scoped_and_audited"],
+      "required_access": ["identity provider/admin access", "vault or secret manager", "policy owner", "audit log destination", "red-team/eval fixtures", "incident response owner"],
+      "readiness_questions": ["Which non-human identities act for users?", "Where are credentials vaulted and checked out?", "Which policy engine authorizes tool actions?", "Where are immutable traces stored?", "How are kill switches and throttles operated?"],
+      "mock_strategy": "Use local fake vault tokens, policy fixtures, and adversarial eval fixtures before live privileged credentials.",
+      "risks": ["static secrets", "overbroad service accounts", "unregistered tools", "missing kill switch", "untraceable external action", "prompt injection bypass"]
+    },
+    {
       "id": "remote_agent_interop",
       "name": "Remote Agent and Inter-OS Interoperability",
       "keywords": ["a2a", "agent to agent", "agent-to-agent", "agent card", "remote agent", "domain os", "operating system", "federated agent", "agent marketplace", "multi-os", "delegation"],

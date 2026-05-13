@@ -123,7 +123,25 @@ The detailed inter-agent boundary belongs in `docs/agent-network-interop-plan.md
 | Versioning/compatibility | | | |
 | Reuse/commercialization | | | |
 
-## 12. Tool and Harness Layer
+## 12. Agentic Zero Trust Requirements
+
+The detailed zero-trust boundary belongs in `docs/agentic-zero-trust-plan.md`.
+
+| Control | Required? | First-Slice Scope | Notes |
+| --- | --- | --- | --- |
+| Non-human identity / actor chain | | | |
+| JIT credentials / vault | | | |
+| Per-action authorization | | | |
+| Trusted tool/MCP/skill/model/agent registry | | | |
+| AI gateway/firewall/policy enforcement | | | |
+| Memory/retrieval/model integrity | | | |
+| Sandbox/segmentation | | | |
+| Immutable trace | | | |
+| Human control / kill switch / throttles | | | |
+| Adversarial evals | | | |
+| Incident response | | | |
+
+## 13. Tool and Harness Layer
 
 Final access choices are resolved in `docs/capability-access-map.md`.
 
@@ -136,13 +154,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Browser automation | | | |
 | Computer Use | | | |
 
-## 13. Routine Layer
+## 14. Routine Layer
 
 | Routine | Trigger | Schedule | Inputs | Output | Approval | Recovery |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
-## 13. Approval and Control Layer
+## 15. Approval and Control Layer
 
 | Action | Default | Approval Required | Rollback / Revoke |
 | --- | --- | --- | --- |
@@ -152,13 +170,13 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | Spend money/use quota | Blocked until approved | | |
 | Delete/change durable external state | Blocked until approved | | |
 
-## 14. Evaluation Layer
+## 16. Evaluation Layer
 
 | Eval | Purpose | Dataset / Examples | Frequency | Blocks Release? |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
-## 15. Learning Layer
+## 17. Learning Layer
 
 - User corrections:
 - Accepted/rejected proposals:
@@ -167,18 +185,20 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 - Skill/routine updates:
 - Promotion into Codex Brain lessons:
 
-## 16. Risk Boundaries
+## 18. Risk Boundaries
 
 | Risk | Boundary | Mitigation |
 | --- | --- | --- |
 | Hallucination | | |
 | Tool misuse | | |
+| Prompt injection | | |
+| Memory poisoning | | |
 | Privacy leak | | |
 | Public/externally visible mistake | | |
 | Cost runaway | | |
 | Automation drift | | |
 
-## 17. Build Sequence
+## 19. Build Sequence
 
 | Slice | Goal | Intelligence Loop | Required Access | Verification |
 | --- | --- | --- | --- | --- |
@@ -186,7 +206,7 @@ Final access choices are resolved in `docs/capability-access-map.md`.
 | 2 | | | | |
 | 3 | | | | |
 
-## 18. Deferred OS Layers
+## 20. Deferred OS Layers
 
 | Layer | Why Deferred | Revisit Trigger |
 | --- | --- | --- |

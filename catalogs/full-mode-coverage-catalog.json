@@ -1,6 +1,6 @@
 {
   "$schema_note": "Machine-readable Full-mode coverage catalog for Codex Brain. Future sessions should use this to prevent skipped product, engineering, design, security, privacy, scale, and operating concerns.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "mode": "full",
   "principle": "If a project has unicorn-level ambition, enterprise risk, multi-tenancy, payments, AI-core workflows, EU personal data, or public users, every applicable domain must be addressed or explicitly justified as not applicable.",
   "domains": [
@@ -482,6 +482,34 @@
         "Delegated public, paid, destructive, or compliance-sensitive action without human approval and recovery."
       ],
       "review_roles": ["agent-network-interop-reviewer", "architecture-strategist", "security-gdpr-reviewer", "ai-orchestration-reviewer", "product-strategist"]
+    },
+    {
+      "id": "agentic-zero-trust",
+      "name": "Agentic Zero Trust",
+      "purpose": "Ensure agentic systems verify identity, intent, credentials, tool trust, policy, memory integrity, traces, human controls, and adversarial resilience before access planning and Build Plan approval.",
+      "required_questions": [
+        "What agents, sub-agents, routines, tools, MCP servers, skills, models, memories, retrieval sources, credentials, and external actions exist?",
+        "What non-human identities and actor-chain attribution are required?",
+        "Which credentials must be issued just in time from a vault or broker?",
+        "Which public, paid, destructive, externally visible, or compliance-sensitive actions require per-action authorization and human approval?",
+        "Which tools, MCP servers, skills, generated harnesses, agent cards, models, prompts, policies, and eval sets must be registered and reviewed?",
+        "Where should AI gateway, firewall, DLP, egress, and policy enforcement controls run?",
+        "How are memory, RAG, embeddings, policies, preferences, and model artifacts protected from poisoning or tampering?",
+        "What sandboxing, segmentation, immutable trace, kill switch, throttles, canaries, adversarial evals, and incident response are required?"
+      ],
+      "required_artifacts": [
+        "docs/agentic-zero-trust-plan.md",
+        "frameworks/agentic-zero-trust.md",
+        "catalogs/agentic-zero-trust-catalog.json"
+      ],
+      "p0_blockers": [
+        "Agentic action without user, tenant, agent, credential, policy, and approval attribution.",
+        "Static, broad, embedded, or unrevocable credentials available to agents.",
+        "Privileged tools, MCP servers, skills, models, or agent cards without registry trust controls.",
+        "Retrieved context, memory, policies, preferences, embeddings, or model artifacts can be poisoned without provenance, quarantine, evals, or rollback.",
+        "No immutable trace, kill switch, throttle, canary, or incident response path for autonomous or externally acting flows."
+      ],
+      "review_roles": ["agentic-zero-trust-reviewer", "security-gdpr-reviewer", "architecture-strategist", "ai-orchestration-reviewer", "performance-reliability-reviewer"]
     },
     {
       "id": "reliability-observability",

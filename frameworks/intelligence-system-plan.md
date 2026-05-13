@@ -2,7 +2,7 @@
 
 An Intelligence System Plan describes the high-level operating architecture for products that should become more than a normal app.
 
-It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, the Agent OS Runtime Plan, the Agent Network and Interoperability Plan, and the Capability and Access Map.
+It is the bridge between the Agentic Opportunity Audit, the Intelligence Architecture Decision, the Agent Engineering Audit, the Skill Factory, the Agent OS Runtime Plan, the Agent Network and Interoperability Plan, the Agentic Zero Trust Plan, and the Capability and Access Map.
 
 ## Purpose
 
@@ -21,6 +21,7 @@ The plan turns an idea into a clear intelligence architecture:
 - what production-agent disciplines must be satisfied
 - what runtime kernel must supervise the agents
 - what other agents or domain operating systems it should expose, consume, or delegate to
+- what zero-trust controls must govern identity, credentials, policy, memory integrity, traces, and human control before access is granted
 
 ## Required Artifact
 
@@ -35,6 +36,7 @@ Use:
 - `frameworks/skill-factory.md`
 - `frameworks/agent-os-runtime.md`
 - `frameworks/agent-network-interop.md`
+- `frameworks/agentic-zero-trust.md`
 - `catalogs/agent-engineering-catalog.json`
 
 ## System Anatomy
@@ -167,7 +169,24 @@ How the system collaborates beyond its own runtime:
 
 The detailed interop boundary belongs in `docs/agent-network-interop-plan.md`.
 
-### 9. Routine Layer
+### 9. Agentic Zero Trust Layer
+
+How the system earns trust before it receives real access:
+
+- non-human identity and actor-chain attribution
+- just-in-time credentials and vaulting
+- per-action authorization and approval thresholds
+- trusted tool, MCP, skill, agent-card, model, prompt, policy, and eval registry
+- AI gateway/firewall and policy enforcement
+- memory, retrieval, embedding, policy, preference, eval, and model integrity
+- sandboxing and segmentation
+- immutable traces
+- human control, kill switch, throttles, and canaries
+- adversarial evals and incident response
+
+The detailed zero-trust boundary belongs in `docs/agentic-zero-trust-plan.md`.
+
+### 10. Routine Layer
 
 What happens repeatedly:
 
@@ -183,7 +202,7 @@ What happens repeatedly:
 
 Routines should define trigger, schedule, owner, inputs, output, approval, and failure behavior.
 
-### 10. Approval and Control Layer
+### 11. Approval and Control Layer
 
 Where humans remain in control:
 
@@ -195,7 +214,7 @@ Where humans remain in control:
 - approve publish/send/delete
 - rollback or revoke
 
-### 10. Evaluation Layer
+### 12. Evaluation Layer
 
 How quality is proven:
 
@@ -208,7 +227,7 @@ How quality is proven:
 - regression tests
 - outcome metrics
 
-### 11. Learning Layer
+### 13. Learning Layer
 
 How the system improves:
 

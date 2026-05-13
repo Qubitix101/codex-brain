@@ -11,12 +11,13 @@ When the user says "Use Codex Brain", "Follow Codex Brain", "Start with Codex Br
 3. Ensure the target project has a local `CODEX.md` generated from `templates/shared/project-codex.template.md`.
 4. Read the local `.codex-brain/` state and project context.
 5. Determine and state the next allowed action before building.
-6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, Agent OS runtime, agent network/interoperability, and capability/access planning.
+6. For AI-core or automation-heavy projects, audit the agentic opportunity and intelligence-system shape before intelligence architecture, agent-engineering, Agent OS runtime, agent network/interoperability, Agentic Zero Trust, and capability/access planning.
 7. For AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy projects, select the intelligence architecture before Agent Engineering.
-8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before Agent OS runtime, agent network/interoperability, and capability/access planning.
-9. For L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting projects, define the Agent OS runtime before agent network/interoperability and capability/access planning.
-10. For products where agents or domain operating systems collaborate across boundaries, define agent cards, delegation boundaries, task contracts, context sharing, protocol choices, streaming, traces, recovery, and versioning before capability/access planning.
-11. For integration-heavy projects, map capability and access needs before Build Plan approval.
+8. For agentic, skill-driven, retrieval-heavy, or multi-model projects, audit production-agent readiness and procedural skills before Agent OS runtime, agent network/interoperability, Agentic Zero Trust, and capability/access planning.
+9. For L3+ agentic, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting projects, define the Agent OS runtime before agent network/interoperability, Agentic Zero Trust, and capability/access planning.
+10. For products where agents or domain operating systems collaborate across boundaries, define agent cards, delegation boundaries, task contracts, context sharing, protocol choices, streaming, traces, recovery, and versioning before Agentic Zero Trust and capability/access planning.
+11. For agentic systems with tools, MCP, memory, credentials, external action, or sensitive data, define Agentic Zero Trust before capability/access planning.
+12. For integration-heavy projects, map capability and access needs before Build Plan approval.
 
 For the exact reusable new-project instruction, read `START-NEW-PROJECT.md`.
 
@@ -55,6 +56,7 @@ If the user asks whether to use ADK, RAG, structured retrieval, extraction, dura
 If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 If the user asks how agents are scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated, read `frameworks/agent-os-runtime.md`.
 If the user asks how separate agents or domain operating systems discover each other, delegate work, exchange artifacts, share context, stream progress, or choose between MCP and A2A-style protocol boundaries, read `frameworks/agent-network-interop.md`.
+If the user asks how agentic systems defend against prompt injection, tool poisoning, credential theft, excessive agency, memory poisoning, MCP compromise, A2A spoofing, or cyberattackers, read `frameworks/agentic-zero-trust.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
@@ -101,6 +103,7 @@ The lifecycle is:
 2.35. Agent Engineering and Skill Factory
 2.4. Agent OS Runtime
 2.45. Agent Network and Interoperability
+2.47. Agentic Zero Trust
 2.5. Capability and Access
 3. Plan
 3.5. Design DNA
@@ -233,7 +236,7 @@ Forbidden:
 - defaulting to RAG, ADK, or a prompt wrapper without documenting alternatives
 - using semantic RAG for exact record state without justification
 - storing extracted fields without schema, provenance, confidence, and correction flow
-- running Agent Engineering, Agent Network, or Capability Access before the intelligence substrate is selected
+- running Agent Engineering, Agent Network, Agentic Zero Trust, or Capability Access before the intelligence substrate is selected
 
 ### Gate 2.35 - Agent Engineering and Skill Factory
 
@@ -253,7 +256,7 @@ Requires:
 
 Forbidden:
 
-- choosing capability/access surfaces before skill and tool-contract requirements are understood
+- choosing Agentic Zero Trust or capability/access surfaces before skill and tool-contract requirements are understood
 - choosing agent network boundaries before skill and tool-contract requirements are understood
 - generating or installing executable skills before trust review
 - approving Build Plan with missing agent reliability, security, observability, or product trust boundaries
@@ -279,7 +282,7 @@ Requires:
 
 Forbidden:
 
-- choosing agent network or capability/access surfaces before runtime boundaries are known
+- choosing agent network, Agentic Zero Trust, or capability/access surfaces before runtime boundaries are known
 - approving Build Plan with hidden memory writes
 - approving Build Plan with unsandboxed tools or unattributed external actions
 - allowing autonomous routines without budget, trace, idempotency, and recovery policy
@@ -314,6 +317,33 @@ Forbidden:
 - approving Build Plan with unscoped remote-agent delegation or untraceable cross-agent actions
 - using A2A-style delegation for simple same-runtime function calls
 
+### Gate 2.47 - Agentic Zero Trust
+
+Required when the product is L3+ agentic, tool-using, MCP-enabled, memory/retrieval-backed, externally acting, autonomous, multi-agent, customer-data-bearing, enterprise, regulated, or able to publish, send, delete, spend, or mutate production.
+
+Requires:
+
+- `docs/agentic-zero-trust-plan.md`
+- non-human identity and actor-chain attribution for users, tenants, agents, sub-agents, routines, tool runners, credentials, and downstream agents
+- JIT credentials, vault/broker checkout, least scope, expiry, rotation, revocation, and secret scanning
+- per-action authorization and intent verification for public, paid, destructive, externally visible, and compliance-sensitive actions
+- trusted registry for tools, MCP servers, connectors, skills, generated harnesses, agent cards, models, prompts, policies, and eval sets
+- AI gateway/firewall and policy enforcement around input, retrieved context, tool arguments, output, egress, and delegated payloads
+- memory, retrieval, embedding, policy, preference, eval, and model integrity controls
+- sandboxing, segmentation, egress, tenant, browser, desktop, subprocess, and production mutation boundaries
+- immutable observability and forensic traces for prompt, context, retrieval, memory, model route, policy, credential checkout, tool call, delegation, approval, failure, and external action events
+- human controls: approval queue, kill switch, pause/stop, revoke, throttles, spend limits, canaries, rollback, and incident response
+- adversarial eval suite for prompt injection, indirect prompt injection, tool poisoning, MCP compromise, skill supply-chain attack, credential misuse, data exfiltration, memory poisoning, data/model poisoning, excessive agency, sub-agent escalation, A2A spoofing, and unbounded consumption
+- first secure autonomous slice
+
+Forbidden:
+
+- choosing capability/access surfaces before zero-trust controls are known
+- approving Build Plan with static, broad, embedded, or unrevocable credentials
+- approving Build Plan with unregistered privileged tools, MCP servers, skills, models, or agent cards
+- allowing model output to drive privileged tool calls without validation and policy enforcement
+- shipping launch-critical agentic flows without immutable traces, human controls, adversarial evals, and incident response
+
 ### Gate 2.5 - Capability and Access
 
 Required when the product depends on external systems, APIs, SDKs, CLIs, MCP servers, browser automation, desktop apps, paid vendors, media generation, AI tools, authenticated SaaS, deployment platforms, or user-provided credentials.
@@ -326,6 +356,7 @@ Requires:
 - `docs/agent-engineering-audit.md` and `docs/skill-inventory.md` when agent engineering or procedural skills are relevant
 - `docs/agent-os-runtime-plan.md` when L3+ agentic runtime governance is relevant
 - `docs/agent-network-interop-plan.md` when agent network or inter-OS collaboration is relevant
+- `docs/agentic-zero-trust-plan.md` when agentic security controls are relevant
 - required capability inventory
 - production runtime surface decisions
 - Codex/agent implementation surface decisions

@@ -5,7 +5,7 @@ Codex Brain uses an adaptive product lifecycle. The point is not bureaucracy. Th
 ## The Lifecycle
 
 ```text
-Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
+Classify -> Validate -> Research -> Agentic Opportunity -> Intelligence Architecture -> Agent Engineering -> Agent OS Runtime -> Agent Network and Interoperability -> Agentic Zero Trust -> Capability and Access -> Plan -> Design DNA -> Decompose -> Execute -> Review -> Ship -> Learn
 ```
 
 Each phase has:
@@ -160,6 +160,27 @@ Codex should map:
 - blockers before capability/access and Build Plan
 
 See `frameworks/agent-network-interop.md`.
+
+## Phase 2.47 - Agentic Zero Trust
+
+Answer: how does this agentic system earn trust continuously before it receives real access?
+
+Codex should map:
+
+- non-human identities and actor-chain attribution
+- just-in-time credentials, vaulting, rotation, and revocation
+- per-action authorization and intent verification
+- tool, MCP, skill, agent-card, model, prompt, policy, and eval registry trust
+- AI gateway/firewall and policy enforcement boundaries
+- memory, retrieval, embedding, policy, preference, eval, and model integrity
+- sandboxing, segmentation, egress, tenant, browser, desktop, and production mutation boundaries
+- immutable observability and forensic traces
+- human control, kill switch, throttles, canaries, and rollback
+- adversarial evals for prompt injection, tool poisoning, credential misuse, exfiltration, memory poisoning, excessive agency, A2A spoofing, and cost runaway
+- incident response and blast-radius reduction
+- blockers before capability/access and Build Plan
+
+See `frameworks/agentic-zero-trust.md`.
 
 ## Phase 2.5 - Capability and Access
 

@@ -50,6 +50,15 @@
 - Protocol decisions:
 - Cross-agent trace/recovery status:
 
+## Agentic Zero Trust
+
+- Agentic zero-trust plan:
+- Identity/credential status:
+- Policy enforcement status:
+- Memory/retrieval integrity status:
+- Sandbox/trace/human-control status:
+- Adversarial eval status:
+
 ## Capability and Access
 
 - Capability/access map:
