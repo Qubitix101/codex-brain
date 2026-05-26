@@ -270,7 +270,9 @@ Reference `docs/agent-os-runtime-plan.md` after `docs/agent-engineering-audit.md
 Define:
 
 - scheduler/orchestrator policy
+- per-loop memory fit for working, semantic, procedural, and episodic memory when memory-backed behavior is relevant
 - memory manager policy
+- memory owner, provenance, review, correction, retention, and forgetting rules
 - tool manager and sandbox boundary
 - identity and delegation model
 - observability and trace schema
@@ -279,6 +281,8 @@ Define:
 - budget and quota plan
 - agent registry and role model
 - human control surface
+
+Use `docs/memory-architecture-decision.md` when durable, customer-specific, regulated, cross-session, or cross-agent memory is central. Otherwise the Agent OS runtime plan must still include the per-loop memory-fit matrix.
 
 ### Agent Network and Interoperability Plan
 

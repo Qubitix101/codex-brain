@@ -82,12 +82,14 @@ codex-brain/
 │   ├── agent-engineering-skill-stack.md # Gate 2.35 production-agent readiness audit
 │   ├── skill-factory.md               # Procedural skill inventory, trust, and generation model
 │   ├── agent-os-runtime.md            # Gate 2.4 runtime kernel for production agents
+│   ├── memory-architecture.md          # Per-loop working / semantic / procedural / episodic memory fit
 │   ├── agent-network-interop.md       # Gate 2.45 agent-to-agent and inter-OS boundaries
 │   ├── agentic-zero-trust.md          # Gate 2.47 zero-trust controls for agentic systems
 │   ├── capability-access-readiness.md # Gate 2.5 access and integration readiness
 │   ├── tool-surface-routing.md        # CLI / API / MCP / browser / computer-use routing
 │   ├── design-dna.md                 # Frontend aesthetics gate
 │   ├── frontend-visual-qa.md         # Visual verification after UI build
+│   ├── qa-subagent-orchestration.md  # QA and multi-subagent delegation protocol
 │   ├── narrative-validation.md        # Promise-to-spec audit
 │   ├── governance-and-evolution.md    # How lessons safely upgrade the brain
 │   ├── competitive-benchmark.md       # BMAD / TracerKit / Memory Bank benchmark
@@ -184,10 +186,12 @@ The installer validates each skill and writes it to `~/.codex/skills` by default
 - No AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy Build Plan before intelligence architecture is selected.
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
 - No L3+ agentic, multi-agent, routine-heavy, tool-using, or externally acting Build Plan before the Agent OS runtime kernel is defined.
+- No memory-backed agentic Build Plan before each loop has a working, semantic, procedural, and episodic memory-fit decision with owner, provenance, review, and forgetting rules.
 - No agentic external access before Agentic Zero Trust defines identity, JIT credentials, per-action authorization, trusted registries, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response.
 - No federated agentic or multi-OS Build Plan before agent cards, delegation boundaries, task contracts, protocol decisions, context sharing, identity, streaming, traces, recovery, and versioning are defined.
 - No serious integration-heavy Build Plan before required capabilities, access surfaces, credentials, mocks, and live verification are mapped.
 - No phase jump without `npm run verify-lifecycle -- --dir /path/to/project --phase [target-phase]`; this hard-fails when earlier gates are incomplete, unapproved, still declare missing items, or lack required artifacts.
+- No meaningful Standard or Full implementation should be called done without an explicit capability/skill audit, QA plan, required evidence, and a deliberate subagent/reviewer decision when risk warrants it.
 - No multi-tenant product without an isolation model.
 - No paid product without billing edge cases.
 - No European user data without GDPR analysis.

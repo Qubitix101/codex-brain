@@ -43,6 +43,7 @@ Before production:
 - local Codex review with `/review` was run when available
 - GitHub Codex Code Review was requested or ran automatically when the repository integration is available
 - P0 and P1 Codex Code Review findings are resolved or explicitly escalated to the user
+- the agreed QA/subagent evidence was produced or the skipped evidence is documented with accepted risk
 - tests pass
 - build passes
 - migrations safe

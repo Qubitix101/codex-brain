@@ -10,6 +10,7 @@
 - Related intelligence architecture decision:
 - Related agent engineering audit:
 - Related skill inventory:
+- Related memory architecture decision:
 - Related agent network/interoperability plan:
 - Related capability/access map:
 - Target maturity now:
@@ -44,6 +45,12 @@
 
 ## 5. Memory Manager
 
+### 5.1 Per-Loop Memory Fit
+
+| Loop | Working Memory | Semantic Memory | Procedural Memory | Episodic Memory | Read/Write Owner | Approval | Forget/Refresh Rule | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | |
+
 | Memory Store | Type | Read Access | Write Access | Approval | Provenance | Retention/Delete/Export |
 | --- | --- | --- | --- | --- | --- | --- |
 | Short-term context | short-term | | | | | |
@@ -55,6 +62,8 @@
 - Conflict policy:
 - Confidence policy:
 - Tenant/user boundary:
+- Stale/wrong memory correction policy:
+- Separate `docs/memory-architecture-decision.md` required? yes / no / why:
 - Hidden memory writes allowed? no / exception:
 
 ## 6. Tool Manager and Sandbox

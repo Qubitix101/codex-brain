@@ -16,8 +16,8 @@
       "name": "Memory Manager",
       "purpose": "Govern short-term, long-term, episodic, semantic, procedural, and tenant-specific memory.",
       "keywords": ["memory", "remember", "profile", "preferences", "episodic", "semantic", "procedural", "knowledge graph", "history", "learn"],
-      "required_outputs": ["memory store inventory", "read/write policy", "approval policy", "provenance/confidence policy", "delete/export/retention policy"],
-      "p0_blockers": ["hidden memory writes", "no memory owner", "unclear tenant or user boundary", "no correction or deletion path"]
+      "required_outputs": ["per-loop memory fit decision", "memory store inventory", "read/write policy", "approval policy", "provenance/confidence policy", "delete/export/retention policy"],
+      "p0_blockers": ["memory storage selected before memory type and owner are justified", "hidden memory writes", "no memory owner", "unclear tenant or user boundary", "no correction or deletion path"]
     },
     {
       "id": "tool_manager_sandbox",

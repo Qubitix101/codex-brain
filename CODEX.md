@@ -56,9 +56,11 @@ If the user asks whether an idea should become agentic, an operating system, or 
 If the user asks whether to use ADK, RAG, structured retrieval, extraction, durable memory, workflow agents, or hybrid AI architecture, read `frameworks/intelligence-architecture-selection.md`.
 If the user asks how to build production agents, multi-brain orchestration, or reusable agent skills, read `frameworks/agent-engineering-skill-stack.md` and `frameworks/skill-factory.md`.
 If the user asks how agents are scheduled, supervised, remembered, sandboxed, attributed, observed, governed, recovered, budgeted, or coordinated, read `frameworks/agent-os-runtime.md`.
+If the user asks what an agent should remember, how working/semantic/procedural/episodic memory should be used, or whether a memory store is needed, read `frameworks/memory-architecture.md`.
 If the user asks how separate agents or domain operating systems discover each other, delegate work, exchange artifacts, share context, stream progress, or choose between MCP and A2A-style protocol boundaries, read `frameworks/agent-network-interop.md`.
 If the user asks how agentic systems defend against prompt injection, tool poisoning, credential theft, excessive agency, memory poisoning, MCP compromise, A2A spoofing, or cyberattackers, read `frameworks/agentic-zero-trust.md`.
 If the user asks what APIs, CLIs, MCPs, credentials, or app access are needed, read `frameworks/capability-access-readiness.md` and `frameworks/tool-surface-routing.md`.
+If the user asks how to use multiple agents, subagents, QA agents, reviewer agents, or parallel checks for implementation quality, read `frameworks/qa-subagent-orchestration.md`.
 If the session has large artifacts, read `frameworks/context-distillation.md`.
 If the session has changed project state, read `frameworks/session-close-and-context-save.md` before ending.
 
@@ -115,6 +117,8 @@ The lifecycle is:
 8. Learn
 
 Phase 8 feeds back into the repository through structured lessons.
+
+For meaningful Standard or Full execution, Codex should audit required skills, MCP tools, MCP access, CLI access, credentials, mocks, and live verification surfaces; create or apply a QA plan; and decide whether explorer, verifier, reviewer, or specialist subagents are warranted before calling the task done. Use `frameworks/qa-subagent-orchestration.md` for the delegation rules and `templates/shared/qa-subagent-orchestration.template.md` for the task-level artifact.
 
 For gate decisions, use `frameworks/quality-gate-matrix.md`. P0 findings block progress.
 
@@ -271,6 +275,7 @@ Requires:
 
 - `docs/agent-os-runtime-plan.md`
 - scheduler/orchestrator policy for priority, queues, background work, concurrency, cancellation, and escalation
+- per-loop memory-fit decision for working, semantic, procedural, and episodic memory when the system is memory-backed
 - memory manager policy for short-term, long-term, episodic, semantic, procedural, private, reviewable, deleteable, and tenant-bound memory
 - tool manager and sandbox policy for read/write/destructive/public/paid tools, dry runs, fixtures, file/network boundaries, and tool-output trust
 - identity and delegation model for user, tenant, service account, scopes, token expiry, impersonation, and audit attribution
@@ -285,6 +290,7 @@ Forbidden:
 
 - choosing agent network, Agentic Zero Trust, or capability/access surfaces before runtime boundaries are known
 - approving Build Plan with hidden memory writes
+- approving Build Plan with memory storage selected before memory type, owner, provenance, and forgetting rules are justified
 - approving Build Plan with unsandboxed tools or unattributed external actions
 - allowing autonomous routines without budget, trace, idempotency, and recovery policy
 - calling a workflow graph an operating system without memory, identity, governance, and recovery contracts

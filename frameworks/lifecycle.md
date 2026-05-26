@@ -126,6 +126,7 @@ Answer: what runtime kernel supervises the agents?
 Codex should map:
 
 - scheduler/orchestrator priority, queues, concurrency, and cancellation
+- per-loop memory fit for working, semantic, procedural, episodic, or no durable memory
 - memory manager policy for short-term, long-term, episodic, semantic, procedural, and tenant-specific memory
 - tool manager and sandbox boundaries
 - identity and delegation model
@@ -137,7 +138,7 @@ Codex should map:
 - human control surface
 - blockers before capability/access and Build Plan
 
-See `frameworks/agent-os-runtime.md`.
+See `frameworks/agent-os-runtime.md` and `frameworks/memory-architecture.md`.
 
 ## Phase 2.45 - Agent Network and Interoperability
 

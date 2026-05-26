@@ -73,6 +73,8 @@ This file is the implementation constitution for future Codex sessions.
 
 - Agent OS runtime plan:
 - Scheduler/orchestrator model:
+- Memory architecture decision:
+- Per-loop memory fit:
 - Memory manager policy:
 - Tool manager/sandbox policy:
 - Identity/delegation model:

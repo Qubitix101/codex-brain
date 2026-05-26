@@ -27,6 +27,8 @@ These block all modes:
 - frontend implementation before required Design DNA approval
 - missing acceptance criteria for execution task
 - marking task complete without verification
+- meaningful Standard or Full implementation marked complete without QA evidence or a documented reason subagents/reviewers were not warranted
+- agentic or integration-heavy task delegated without auditing required skills, MCP tools, MCP access, CLI access, credentials, mocks, and live verification needs
 - unresolved destructive command or secret exposure
 - critical external capability without known access surface
 - no lesson capture considered at project end
@@ -70,6 +72,7 @@ These block all modes:
 | Intelligence architecture if RAG/structured retrieval/extraction/memory/workflow/action/routine is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Agent engineering/skill factory if L3+ or skill-driven | Required if relevant | Required if relevant | Deep | P0 |
 | Agent OS runtime if L3+/multi-agent/memory/tool/action/routine behavior is relevant | Required if relevant | Required if relevant | Deep | P0 |
+| Memory architecture if durable/customer/cross-session memory is relevant | Required if relevant | Required if relevant | Deep | P0 |
 | Agent network/interoperability if agents or domain operating systems collaborate across boundaries | Required if relevant | Required if relevant | Deep | P0 |
 | Reliability/observability | Optional | Required | Deep | P1 |
 | Capability/access research if integrations or external tools exist | Required if relevant | Required | Deep | P0 |
@@ -119,6 +122,7 @@ These block all modes:
 | Check | Light | Standard | Full | Severity |
 | --- | --- | --- | --- | --- |
 | Scheduler/orchestrator priority and queue model | Required if routines/tools | Required if relevant | Required if relevant | P0 |
+| Per-loop working/semantic/procedural/episodic memory fit | Required if memory | Required if memory | Required if memory | P0 |
 | Memory manager read/write/review/delete/export policy | Required if memory | Required if memory | Required if memory | P0 |
 | Tool manager and sandbox policy | Required if tools | Required if tools | Required if tools | P0 |
 | Identity and delegation attribution | Required if external action | Required if external action | Required if external action | P0 |
@@ -192,6 +196,7 @@ These block all modes:
 | Intelligence-architecture decision linked | Required if AI architecture matters | Required if AI architecture matters | Required if AI architecture matters | P0 |
 | Agent-engineering/skill inventory linked | Required if L3+ or skill-driven | Required if relevant | Required if relevant | P0 |
 | Agent OS runtime linked | Required if L3+ | Required if relevant | Required if relevant | P0 |
+| Memory architecture linked or embedded | Required if durable memory | Required if durable memory | Required if durable memory | P0 |
 | Agent network/interoperability linked | Required if cross-agent | Required if relevant | Required if relevant | P0 |
 | Agentic Zero Trust linked | Required if agentic action | Required if relevant | Required if relevant | P0 |
 | Capability/access map linked | Required if external tool | Required if integrations | Required | P0 |
@@ -233,6 +238,9 @@ These block all modes:
 | Dirty worktree checked | Required | Required | Required | P0 |
 | Scope respected | Required | Required | Required | P0 |
 | Tests/checks run | Required | Required | Required | P0 |
+| Capability and skill audit | Required if external/agentic | Required if external/agentic | Required if external/agentic | P0 |
+| QA evidence plan | Basic | Required | Required | P0 |
+| Subagent/reviewer decision | Optional | Required if risk warrants | Required if risk warrants | P1 |
 | Task record written | Recommended | Required | Required | P1 |
 | Lessons considered | Required | Required | Required | P1 |
 | Parallel task claiming | Required if parallel | Required if parallel | Required if parallel | P0 |

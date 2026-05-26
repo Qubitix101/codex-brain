@@ -146,6 +146,7 @@ Full mode requires the deep systems:
 - `frameworks/research-deep-methodology.md`
 - `frameworks/build-plan-deep-methodology.md`
 - `frameworks/quality-gate-matrix.md`
+- `frameworks/qa-subagent-orchestration.md`
 - `frameworks/narrative-validation.md`
 - `frameworks/test-architecture.md`
 - `frameworks/context-distillation.md`
@@ -175,6 +176,52 @@ Recommended sequence:
 19. Specialist reviews
 20. Ship gate
 21. Postmortem and lessons
+```
+
+## 5.1 QA Subagent Orchestration
+
+For meaningful Standard and Full implementation work, Codex should decide before implementation whether multiple agents are warranted.
+
+Use:
+
+```text
+Use Codex Brain style QA subagent orchestration for this project.
+```
+
+Then require Codex to inspect the local project context, audit required skills/tools/access, classify risk, choose the smallest useful subagent set, define read/write boundaries, produce a QA plan, and report evidence before calling the task done.
+
+Default structure:
+
+```text
+main implementer -> owns critical path and final integration
+explorer -> read-only architecture, constraints, root cause, existing patterns
+QA verifier -> tests, browser checks, screenshots, regression evidence
+reviewer -> P0/P1 correctness, security, privacy, accessibility, product, or reliability findings
+```
+
+Only use write-capable worker agents when file or module ownership is disjoint. Do not spawn agents that edit the same files or answer the same question.
+
+The plan must also include a capability and skill audit:
+
+```text
+required Codex/project skills
+required MCP tools or connectors
+required MCP accounts, scopes, OAuth grants, or tenant access
+required CLI tools and local commands
+browser or Computer Use needs
+product runtime surfaces
+Codex implementation surfaces
+credentials, sandbox, mock, or live verification needs
+access blockers
+```
+
+Reusable artifacts:
+
+```text
+frameworks/qa-subagent-orchestration.md
+templates/shared/qa-subagent-orchestration.template.md
+agents/quality-orchestrator.md
+skills/codex-brain/qa-subagent-orchestrator/SKILL.md
 ```
 
 ## 6. Research Procedure
@@ -298,13 +345,16 @@ npm run plan-agent-os-runtime -- --brief "[what we are building]" --mode full --
 Then copy or fill:
 
 ```text
+templates/shared/memory-architecture-decision.template.md -> docs/memory-architecture-decision.md when durable or customer-specific memory is central
 templates/shared/agent-os-runtime-plan.template.md -> docs/agent-os-runtime-plan.md
 ```
 
 Decide:
 
 - scheduler/orchestrator priorities, queues, concurrency, cancellation, and escalation
+- per-loop working, semantic, procedural, and episodic memory fit
 - memory manager read/write/review/delete/export policy
+- memory owner, provenance, stale/wrong memory correction, retention, and forgetting rules
 - tool manager and sandbox boundary
 - identity and delegation model
 - observability and trace schema
@@ -314,7 +364,7 @@ Decide:
 - agent registry and role model
 - human control surface for approvals, memory review, traces, pause/stop, rollback, and escalation
 
-Agent Network, Agentic Zero Trust, and capability/access planning are blocked while an L3+ agent has no runtime owner, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
+Agent Network, Agentic Zero Trust, and capability/access planning are blocked while an L3+ agent has no runtime owner, memory-fit decision, memory manager, tool sandbox, identity attribution, trace path, governance policy, recovery model, budget ceiling, agent registry, or human control surface.
 
 ## 11. Agent Network and Interoperability Procedure
 

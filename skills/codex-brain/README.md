@@ -34,6 +34,7 @@ npm run install-global-skills -- --dry-run
 - `intelligence-architecture-selector`
 - `agent-engineering-reviewer`
 - `agent-os-runtime-architect`
+- `memory-architecture-planner`
 - `agent-network-architect`
 - `agentic-zero-trust-architect`
 - `capability-access-mapper`
@@ -41,6 +42,7 @@ npm run install-global-skills -- --dry-run
 - `skill-factory`
 - `vertical-slice-prd-decomposer`
 - `design-dna-gate`
+- `qa-subagent-orchestrator`
 - `context-save-handoff`
 
 ## Design Rules

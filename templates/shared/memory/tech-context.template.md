@@ -38,6 +38,8 @@
 ## Agent OS Runtime
 
 - Agent OS runtime plan:
+- Memory architecture decision:
+- Per-loop memory fit:
 - Scheduler/memory/tool/identity status:
 - Trace/governance/recovery status:
 - Budget/agent-registry/human-control status:

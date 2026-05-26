@@ -43,6 +43,7 @@ At the start of a Codex Brain session:
    - agentic opportunity/intelligence-system status when AI or automation is involved
    - intelligence-architecture status when RAG, structured retrieval, extraction, memory, workflow, action, or routines are involved
    - agent-engineering/skill-inventory status when agents, retrieval, multi-model routing, or procedural skills are involved
+   - memory-architecture status when durable, customer-specific, cross-session, or cross-agent memory is involved
    - Agent OS runtime status when L3+, multi-agent, memory-writing, routine-heavy, tool-using, or externally acting behavior is involved
    - agent network/interoperability status when agents or domain operating systems collaborate across boundaries
    - Agentic Zero Trust status when agents use tools, MCP, memory/retrieval, credentials, external action, sensitive data, or autonomous routines
@@ -93,6 +94,7 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No AI-core, retrieval-heavy, extraction-heavy, memory-backed, workflow-heavy, or automation-heavy Build Plan before intelligence architecture is selected.
 - No L3+ agentic Build Plan before production-agent readiness, model routing, and procedural skills are audited.
 - No L3+ agentic, multi-agent, routine-heavy, tool-using, memory-writing, or externally acting Build Plan before the Agent OS runtime kernel is defined.
+- No memory-backed agentic Build Plan before each loop has a working, semantic, procedural, and episodic memory-fit decision with owner, provenance, review, and forgetting rules.
 - No federated agentic or multi-OS Build Plan before agent cards, delegation boundaries, task contracts, protocol choices, context sharing, identity, streaming, traces, recovery, and versioning are defined.
 - No agentic external access before Agentic Zero Trust defines identity, JIT credentials, per-action authorization, registry trust, policy enforcement, memory integrity, sandboxing, immutable traces, human controls, adversarial evals, and incident response.
 - No serious integration-heavy Build Plan before required APIs, SDKs, CLIs, MCPs, credentials, mocks, and live verification are mapped.
@@ -100,8 +102,43 @@ If the user asks for world-class, top-ten, unicorn-level, enterprise-grade, or n
 - No paid product without billing and entitlement edge cases.
 - No EU personal data without GDPR analysis.
 - No AI-core product without eval, fallback, cost, safety, and permission plans.
+- No meaningful Standard or Full implementation should be marked done without a QA plan, evidence, and a deliberate decision about whether explorer, verifier, reviewer, or specialist subagents are warranted.
 - No shipping without tests, monitoring, smoke tests, rollback, and launch approval.
 - No project end without lessons captured.
+
+## QA Subagent Orchestration
+
+When the user asks for multiple agents, subagents, QA agents, review agents, testing agents, analysis agents, or "most powerful" Codex execution, use this protocol before implementation:
+
+```text
+Use Codex Brain style QA subagent orchestration for this project.
+
+First inspect the project context:
+- current branch and dirty worktree
+- project instructions such as CODEX.md, AGENTS.md, README, docs, PRD, Build Plan, Design DNA, and test strategy
+- package scripts, test commands, routes, deployment notes, and known constraints
+- available Codex skills, project skills, MCP tools/connectors, CLI tools, browser/computer-use surfaces, credentials/access assumptions, mocks, and live verification needs
+- current task, acceptance criteria, and risk areas
+
+Then propose the smallest powerful capability and subagent plan.
+
+Rules:
+- Keep the main agent responsible for the critical path and final integration.
+- Use subagents only where they add independent value.
+- Prefer read-only explorer/reviewer/verifier agents unless write scopes are clearly disjoint.
+- Do not spawn agents that edit the same files or chase the same question.
+- Give each subagent a concrete scope, allowed files, forbidden files, expected output, and stop condition.
+- Audit required skills, MCP tools, MCP access, CLI access, credentials, mocks, and live verification before spawning agents.
+- Separate Codex implementation surfaces from product runtime surfaces.
+- Make QA evidence mandatory before calling the task done.
+- Separate P0/P1 blockers from P2/P3 improvements.
+- Preserve existing user changes and project conventions.
+- Do not use broad refactors unless required by the task.
+
+Create the capability/skill audit, subagent plan, QA plan, done definition, and non-goals before implementation. After implementation, report exactly what passed, what failed, and what remains risky.
+```
+
+Use read-only explorer/reviewer/verifier agents by default. Use write-capable workers only when file or module ownership is disjoint.
 
 ## Git and Review Workflow
 

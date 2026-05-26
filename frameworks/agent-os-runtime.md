@@ -74,6 +74,7 @@ Defines how short-term, long-term, episodic, semantic, procedural, and tenant-sp
 
 Map:
 
+- per-loop memory fit: working, semantic, procedural, episodic, or not needed
 - memory stores
 - read/write authority
 - approval policy for memory updates
@@ -81,7 +82,9 @@ Map:
 - conflict handling
 - delete/export/retention rules
 
-Block when memory writes are hidden, no owner exists, or tenant/user boundaries are unclear.
+Use `frameworks/memory-architecture.md` when memory is central to the product. Create `docs/memory-architecture-decision.md` from `templates/shared/memory-architecture-decision.template.md` when durable, customer-specific, regulated, cross-agent, or cross-session memory needs its own artifact.
+
+Block when memory writes are hidden, no owner exists, tenant/user boundaries are unclear, or a storage choice is made before the memory type and owner are justified.
 
 ### 3. Tool Manager and Sandbox
 
@@ -236,6 +239,7 @@ The runtime plan must produce:
 Approve the gate only when:
 
 - every active agent loop has a runtime owner
+- every memory-backed loop has a per-loop memory fit decision
 - memory reads and writes are governed
 - tool actions are sandboxed and classified
 - external actions have preview, approval, audit, and recovery rules
@@ -248,6 +252,7 @@ Approve the gate only when:
 
 - Treating a workflow graph as an operating system.
 - Adding memory without a memory manager.
+- Choosing a vector store, graph, or transcript archive before deciding whether the loop needs semantic, procedural, episodic, or only working memory.
 - Adding tools without a sandbox or approval policy.
 - Calling logs observability when tool inputs, retrieved context, and approvals are missing.
 - Allowing agents to act on behalf of users without identity attribution.

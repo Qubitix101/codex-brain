@@ -430,6 +430,7 @@
       "purpose": "Ensure L3+ agentic products define the runtime kernel that schedules, remembers, sandboxes, attributes, observes, governs, recovers, budgets, and coordinates agents before agent network, access planning, and Build Plan approval.",
       "required_questions": [
         "What scheduler/orchestrator priority, queue, concurrency, cancellation, and escalation model is required?",
+        "Which loops need working, semantic, procedural, episodic, or no durable memory?",
         "What memory manager governs short-term, long-term, episodic, semantic, procedural, and tenant-specific memory?",
         "What tool manager and sandbox boundaries are required?",
         "What identity and delegation model attributes every action?",
@@ -442,11 +443,14 @@
       ],
       "required_artifacts": [
         "docs/agent-os-runtime-plan.md",
+        "docs/memory-architecture-decision.md when durable, customer-specific, regulated, cross-session, or cross-agent memory is central",
         "frameworks/agent-os-runtime.md",
+        "frameworks/memory-architecture.md",
         "catalogs/agent-os-runtime-catalog.json"
       ],
       "p0_blockers": [
         "L3+ agentic product without runtime owner and kernel component map.",
+        "Memory-backed product without per-loop memory-fit decision.",
         "Memory-writing product without memory manager and review/delete/export policy.",
         "Tool-using product without sandbox and action classification.",
         "External action without identity attribution, approval, audit, and recovery.",
