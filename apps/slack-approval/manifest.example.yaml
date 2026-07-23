@@ -1,0 +1,26 @@
+display_information:
+  name: Loop Approvals
+  description: Exact-SHA, founder-authorized merge receipts
+  background_color: "#1D1C1D"
+
+features:
+  bot_user:
+    display_name: Loop Approvals
+    always_online: false
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - reactions:read
+      - reactions:write
+
+settings:
+  event_subscriptions:
+    bot_events:
+      - reaction_added
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: true

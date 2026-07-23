@@ -1,0 +1,13 @@
+{
+  "name": "@codex-loop-os/slack-approval",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dry-run-first policy core for exact-SHA Slack reaction approvals.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
