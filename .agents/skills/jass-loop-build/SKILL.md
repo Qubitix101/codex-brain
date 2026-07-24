@@ -1,15 +1,15 @@
 ---
-name: finn-build
-description: Use when asked to claim and implement exactly one safe agent-ready Linear issue, or repair review feedback on one existing Finn-loop PR. Invoke as $finn-build. One pass handles one unit, verifies it, opens or updates a PR, and never merges.
-version: 0.1.0
+name: jass-loop-build
+description: Use when asked to claim and implement exactly one safe agent-ready Linear issue, or repair review feedback on one existing Jass Loop PR. Invoke as $jass-loop-build. One pass handles one unit, verifies it, opens or updates a PR, and never merges.
+version: 0.2.0
 ---
 
-# Finn Build for Codex
+# Jass Loop Build
 
 Read `references/CALIBRATION.md` when deciding whether this skill should
 trigger.
 
-One `$finn-build` invocation handles one unit of work and stops. This is a T3
+One `$jass-loop-build` invocation handles one unit of work and stops. This is a T3
 controlled-external-tooling skill because it updates Linear, branches, and PRs.
 
 Adapted from
@@ -49,13 +49,18 @@ Before any write:
 6. **Verify.** Run the relevant lint, typecheck, build, targeted tests, and
    real-interface check. Review diff and status. Record direct proof and an
    independent check where practical in a timestamped receipt.
-7. **Ship.** Push and open or update one PR. Its body includes:
+7. **Ship.** Push and open or update one PR. Its body uses plain language and
+   includes:
+   - a one-paragraph “What this means for you” explanation understandable
+     without technical knowledge;
    - what changed and why;
    - `Closes TEAM-NNN`;
    - one evidence line per `AC-N`;
    - one preservation line per `NG-N`;
    - `Other behavior changes: None`;
    - numbered manual steps and actual automated results;
+   - the real preview URL when a deployment exists, or the exact sentence
+     `No app preview for this PR` when it does not;
    - risk level: Low, Medium, or High.
 8. Comment the PR URL on Linear and move the issue to review when that state
    exists. Update `STATUS.md` and `docs/HANDOFF.md`, then stop.

@@ -14,7 +14,8 @@ Read these files before changing the project:
 5. `docs/HANDOFF.md`
 6. `docs/DECISIONS.md`
 7. `runbooks/LOOPS.md`
-8. the relevant Linear issue on team `Qubitix`
+8. `docs/MERGE_READY_MESSAGE.md` for any PR or Slack approval package
+9. the relevant Linear issue on team `Qubitix`
 
 Linear is the source of truth for approved work scope and queue state. Repository
 files are the source of truth for implementation, verification, decisions, and

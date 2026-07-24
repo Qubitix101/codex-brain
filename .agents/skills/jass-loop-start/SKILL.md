@@ -1,10 +1,10 @@
 ---
-name: loop-engineering-bootstrap
-description: Use when starting a new software project, converting an existing repository into a governed agent workflow, or deciding whether work needs a goal, bounded loop, multi-agent workflow, reusable skill, or persistent workspace. Do not use for an ordinary one-off implementation or status question.
-version: 0.1.0
+name: jass-loop-start
+description: Use when starting a new software project, converting an existing repository into the Jass Loop governed workflow, or deciding whether work needs a goal, bounded loop, multi-agent workflow, reusable skill, or persistent workspace. Do not use for an ordinary one-off implementation or status question.
+version: 0.2.0
 ---
 
-# Loop Engineering Bootstrap
+# Jass Loop Start
 
 Design the smallest governed operating system that can take a project from
 intake to independently proven outcomes. This is a T1 instruction-only skill;

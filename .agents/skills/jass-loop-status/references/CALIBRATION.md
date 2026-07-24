@@ -16,5 +16,5 @@
 4. “Send the status report to Slack.”
 5. “Implement the next queue item.”
 
-Expected: trigger for a read-only operating snapshot. Never repair, schedule,
+Expected: trigger `$jass-loop-status` for a read-only operating snapshot. Never repair, schedule,
 message, merge, or otherwise mutate state.

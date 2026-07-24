@@ -1,4 +1,4 @@
-# Slack Reaction Approval Scaffold
+# Jass Loop Slack Approval Core
 
 This is a dependency-free policy core for a custom Slack app. It does **not**
 install an app, expose an HTTP endpoint, hold credentials, deploy a worker, or
@@ -13,6 +13,11 @@ human-authorization protocol:
 - `✅` (`white_check_mark`) is an outcome receipt. It is added only after GitHub
   reports the pull request merged and the service has durably stored the merge
   receipt.
+
+The associated merge-ready message must follow
+`../../docs/MERGE_READY_MESSAGE.md`. A green check proves merge completion,
+not deployment. The system may say `live` only after a separate deployment
+check proves the new commit is serving successfully.
 
 ## Fail-closed contract
 

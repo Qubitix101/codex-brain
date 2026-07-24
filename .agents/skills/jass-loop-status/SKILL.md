@@ -1,10 +1,10 @@
 ---
-name: loop-status
+name: jass-loop-status
 description: Use when the user asks whether the agent loop is healthy, running, blocked, scheduled, continuous, merge-ready, or safe to leave unattended. Produces a read-only evidence-backed snapshot and makes no external changes.
-version: 0.1.0
+version: 0.2.0
 ---
 
-# Loop Status
+# Jass Loop Status
 
 Read `references/CALIBRATION.md` when deciding whether this skill should
 trigger.
@@ -21,7 +21,7 @@ not repair, relabel, message, merge, or schedule anything.
    worktrees, and last local commit.
 3. Read Linear team `Qubitix` for queue counts, claimed issues,
    blockers, owners, and stale work.
-4. Read GitHub for open PRs, exact head SHAs, latest Finn verdict SHAs, required
+4. Read GitHub for open PRs, exact head SHAs, latest Jass Loop verdict SHAs, required
    CI, mergeability, and evidence labels.
 5. Inspect scheduler or automation state only through read-only surfaces. Name
    the host/app/session dependency and next run if one exists.
@@ -37,7 +37,8 @@ Report, in this order:
 - **Proven healthy:** concrete evidence and freshness.
 - **Blocked:** issue, owner, exact human decision, and since when.
 - **Queue and fleet:** ready, claimed, review, blocked; actual worker shape.
-- **PR gates:** PR, head SHA, reviewed SHA, CI, conflict, risk, merge authority.
+- **PR gates:** PR, head SHA, reviewed SHA, CI, conflict, preview status, risk,
+  merge authority.
 - **Execution mode:** manual, scheduled, or continuous; next run and host
   dependency.
 - **Connections:** GitHub, Linear, Slack, hosting; configured versus verified.

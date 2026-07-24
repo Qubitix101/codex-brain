@@ -1,10 +1,10 @@
 ---
-name: finn-spec
-description: Use when the user asks to turn a raw feature idea into a build-ready Linear issue through an interactive codebase-grounded interview. Invoke as $finn-spec. Requires the user present and never runs unattended or applies agent-ready.
-version: 0.1.0
+name: jass-loop-spec
+description: Use when the user asks to turn a raw feature idea into a build-ready Linear issue through an interactive codebase-grounded interview. Invoke as $jass-loop-spec. Requires the user present and never runs unattended or applies agent-ready.
+version: 0.2.0
 ---
 
-# Finn Spec for Codex
+# Jass Loop Spec
 
 Read `references/CALIBRATION.md` when deciding whether this skill should
 trigger.
@@ -39,6 +39,10 @@ Finn, under the MIT License. See `../../../THIRD_PARTY_NOTICES.md`.
 
 One or two sentences.
 
+## Plain-English outcome
+
+Explain what will be better for the user without technical language.
+
 ## Acceptance Criteria
 
 - [ ] AC-1 — Observable, testable outcome
@@ -57,7 +61,12 @@ One or two sentences.
 
 ## How to verify
 
-1. Exact reproducible step and expected result
+1. Grandma-simple reproducible step and expected result
+
+## Preview expectation
+
+State which trusted system should produce the preview URL, or state that this
+work has no deployable UI and therefore no app preview.
 ```
 
 5. Resolve every conflict between an `AC-N` and `NG-N`. Split oversized work

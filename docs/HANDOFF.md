@@ -6,9 +6,9 @@ To: `Qubitix101 repository owner or next pilot agent`
 
 ## Objective
 
-Install and prove the governed loop baseline for
-`Qubitix101/codex-brain`. No Linear issue exists yet because the first issue
-must be created interactively after the baseline PR is reviewable.
+Install and prove the governed Jass Loop baseline for
+`Qubitix101/codex-brain`, including the plain-language merge-ready package in
+QUB-5.
 
 ## Proven complete
 
@@ -36,7 +36,9 @@ must be created interactively after the baseline PR is reviewable.
 - Repository and branch: `Qubitix101/codex-brain` /
   `agent/loop-engineering-pilot`
 - Worktree: local pilot checkout
-- Linear issue and state: none; project is Backlog
+- Linear issue and state:
+  `https://linear.app/qubitix/issue/QUB-5/make-merge-ready-messages-simple-complete-and-jass-branded`
+  — In Progress
 - Pull request: `https://github.com/Qubitix101/codex-brain/pull/1` (draft)
 - Current PR head SHA: re-read before review; implementation baseline was
   `d27a52e5da7f1641cea62eecea48c77cba19b6c7`

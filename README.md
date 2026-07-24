@@ -1,8 +1,10 @@
 # Codex Brain
 
-> The governed Linear -> Codex -> GitHub -> Slack pilot is documented in
+> **Jass Loop** is the governed Linear -> Codex -> GitHub -> Slack operating
+> system. The pilot is documented in
 > [`docs/GOAL.md`](docs/GOAL.md), [`runbooks/LOOPS.md`](runbooks/LOOPS.md),
-> and [`apps/slack-approval/`](apps/slack-approval/). The approval service is
+> [`docs/MERGE_READY_MESSAGE.md`](docs/MERGE_READY_MESSAGE.md), and
+> [`apps/slack-approval/`](apps/slack-approval/). The approval service is
 > dry-run-only; humans merge by default.
 
 Codex Brain is a Codex-native operating system for building serious software products methodically.

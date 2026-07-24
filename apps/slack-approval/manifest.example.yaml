@@ -1,11 +1,11 @@
 display_information:
-  name: Loop Approvals
-  description: Exact-SHA, founder-authorized merge receipts
+  name: Jass Loops
+  description: Plain-English, exact-SHA mobile approval receipts
   background_color: "#1D1C1D"
 
 features:
   bot_user:
-    display_name: Loop Approvals
+    display_name: Jass Loops
     always_online: false
 
 oauth_config:

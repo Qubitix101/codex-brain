@@ -2,9 +2,9 @@
 
 ## Trigger examples
 
-1. “Run `$finn-review` on the next open builder PR.”
+1. “Run `$jass-loop-review` on the next open builder PR.”
 2. “Independently verify PR 91 against its linked Linear contract.”
-3. “Review this exact head SHA and publish the Finn verdict.”
+3. “Review this exact head SHA and publish the Jass Loop verdict.”
 4. “Check the preview, tests, and acceptance criteria before merge.”
 5. “Re-review the new PR head after the requested fixes.”
 

@@ -15,7 +15,7 @@
 6. “Audit our current agent process and propose the smallest proof-first work
    graph with budgets and authority gates.”
 
-Expected: trigger `loop-engineering-bootstrap`, perform read-only discovery,
+Expected: trigger `$jass-loop-start`, perform read-only discovery,
 and return a governed architecture plus first vertical slice.
 
 ## Non-trigger examples
@@ -27,7 +27,7 @@ and return a governed architecture plus first vertical slice.
 5. “Send this already approved message to Slack.”
 6. “Run the existing test suite and tell me what failed.”
 
-Expected: do not trigger. Use the direct task, `$loop-status`, the project’s
+Expected: do not trigger. Use the direct task, `$jass-loop-status`, the project’s
 review skill, or the relevant integration skill.
 
 ## Boundary cases

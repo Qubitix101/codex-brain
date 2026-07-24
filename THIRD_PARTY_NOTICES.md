@@ -1,7 +1,10 @@
 # Third-Party Notices
 
-The `finn-spec`, `finn-build`, and `finn-review` skill templates are adapted
-from [finna/Finn-loop](https://github.com/finna/Finn-loop).
+The Jass Loop skills `jass-loop-spec`, `jass-loop-build`, and
+`jass-loop-review` include workflow concepts adapted from
+[finna/Finn-loop](https://github.com/finna/Finn-loop). Jass Loop is the
+project-specific operating system name; Finn-loop is credited here only as an
+upstream MIT-licensed source.
 
 MIT License
 

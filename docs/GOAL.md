@@ -28,7 +28,7 @@ The goal is complete only when all of these are true:
 
 - Primary proof: GitHub Actions `Loop validation` plus a durable dry-run
   approval record.
-- Independent cross-check: exact-SHA `$finn-review` from a context separate
+- Independent cross-check: exact-SHA `$jass-loop-review` from a context separate
   from the builder.
 - Receipt path: `receipts/YYYY-MM-DDTHH-MM-SSZ-QUB-NNN-*.md`
 - Human acceptance needed: yes; the owner decides whether to merge manually

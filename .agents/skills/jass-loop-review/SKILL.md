@@ -1,15 +1,15 @@
 ---
-name: finn-review
-description: Use when asked to independently review exactly one open Finn-loop PR against its linked Linear contract, required GitHub checks, mergeability, and exact head SHA. Invoke as $finn-review. Posts evidence labels and comments but never pushes or merges.
-version: 0.1.0
+name: jass-loop-review
+description: Use when asked to independently review exactly one open Jass Loop PR against its linked Linear contract, preview, required GitHub checks, mergeability, and exact head SHA. Invoke as $jass-loop-review. Posts the plain-language merge-ready package and evidence but never pushes or merges.
+version: 0.2.0
 ---
 
-# Finn Review for Codex
+# Jass Loop Review
 
 Read `references/CALIBRATION.md` when deciding whether this skill should
 trigger.
 
-One `$finn-review` invocation reviews one PR and stops. Use a separate context
+One `$jass-loop-review` invocation reviews one PR and stops. Use a separate context
 from the builder when practical. This is a T3 controlled-external-tooling skill
 because it may comment and change labels on GitHub.
 
@@ -22,7 +22,7 @@ Finn, under the MIT License. See `../../../THIRD_PARTY_NOTICES.md`.
 1. List open, non-draft PRs with number, labels, current `headRefOid`, update
    time, and URL.
 2. Find the latest comment whose first line is
-   `Finn-loop review of COMMIT_SHA`. Skip a PR only when that SHA equals the
+   `Jass Loop review of COMMIT_SHA`. Skip a PR only when that SHA equals the
    current head and it already has a terminal loop label. New commits always
    require a new review.
 3. Pick one eligible PR. Parse `Closes TEAM-NNN`, fetch the complete issue from
@@ -47,7 +47,7 @@ gh pr checks NUMBER --required --json bucket,name,state,link
 8. Post one verdict:
 
 ```md
-Finn-loop review of COMMIT_SHA
+Jass Loop review of COMMIT_SHA
 
 CI: required checks passed | failed | not configured
 Mergeability: clean | conflicting
@@ -73,12 +73,23 @@ Yes — evidence is complete. A human still makes the merge decision.
    - clean, passing, no escalation -> `loop-approved`;
    - must-fix -> `loop-changes-requested`;
    - scope conflict, sensitive risk, or missing CI -> `needs-human-review`.
-10. Record the reviewed SHA, checks, result, and links in a receipt; update
-    status and handoff; stop.
+10. For a clean verdict, resolve the preview:
+    - use a real deployment URL returned by the repository's trusted hosting
+      or GitHub deployment surface;
+    - if the repository has no deployable UI, write exactly
+      `No app preview for this PR`;
+    - never invent, infer, or reuse a preview URL from another PR.
+11. Post one merge-ready message to the configured Slack channel using
+    `docs/MERGE_READY_MESSAGE.md`. It must link the Linear issue, PR, preview
+    status, checks, exact SHA, and grandma-simple test steps. Bind that message
+    to the exact reviewed SHA for the approval service.
+12. Record the reviewed SHA, checks, Slack message link, result, and preview
+    evidence in a receipt; update status and handoff; stop.
 
 ## Hard limits
 
 - Never merge, enable auto-merge, push commits, or deploy.
+- Never say `live` merely because a PR merged. Deployment needs separate proof.
 - `loop-approved` is evidence for a human, not merge authorization.
 - Preserve an existing `needs-human-review` gate until a human resolves it.
 - Never create a scheduled or recurring reviewer without explicit owner,

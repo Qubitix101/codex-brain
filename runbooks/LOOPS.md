@@ -18,14 +18,18 @@ measurable end condition. A workflow coordinates multiple bounded roles.
 1. Complete `docs/INTAKE.md`.
 2. Define the outcome, exit tests, budgets, and stop conditions in
    `docs/GOAL.md`.
-3. Run `$loop-engineering-bootstrap` to audit the repository and propose the
+3. Run `$jass-loop-start` to audit the repository and propose the
    smallest proof-first work graph.
-4. With the user present, run `$finn-spec` for each buildable slice.
+4. With the user present, run `$jass-loop-spec` for each buildable slice.
 5. The user reviews each Linear issue and applies `agent-ready`.
-6. Run one `$finn-build` pass.
-7. Run one independent `$finn-review` pass.
+6. Run one `$jass-loop-build` pass.
+7. Run one independent `$jass-loop-review` pass.
 8. A human merges by default.
 9. Record the receipt, status, decisions, and handoff.
+
+Every clean review publishes the merge-ready package defined in
+`docs/MERGE_READY_MESSAGE.md`. The message must be understandable without
+engineering knowledge and must never invent a preview deployment.
 
 ## Pass contract
 

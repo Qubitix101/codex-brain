@@ -10,10 +10,11 @@ Default branch: `main`
 
 - Goal: See `docs/GOAL.md`
 - Phase: `build`
-- Active Linear issue: `None`
+- Active Linear issue:
+  `QUB-5` — Make merge-ready messages simple, complete, and Jass-branded
 - Active PR and reviewed SHA:
   `https://github.com/Qubitix101/codex-brain/pull/1`; no independent review yet
-- Current worker or worktree: `agent/loop-engineering-pilot`
+- Current worker or worktree: `agent/loop-engineering-pilot` / QUB-5
 - Last verified receipt:
   `receipts/2026-07-23T23-35-16Z-loop-pilot-baseline.md`
 
@@ -42,7 +43,8 @@ Default branch: `main`
    `https://github.com/Qubitix101/codex-brain/pull/1`.
 2. Merge only after the repository owner explicitly approves that exact
    action.
-3. Create the first low-risk issue interactively with `$finn-spec`.
+3. Continue QUB-5 and create future work interactively with
+   `$jass-loop-spec`.
 
 ## Claims and limits
 

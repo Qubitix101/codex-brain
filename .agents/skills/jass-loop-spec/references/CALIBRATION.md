@@ -6,7 +6,7 @@
 2. “Interview me and specify the next vertical slice before anyone codes.”
 3. “Break this feature into dependency-ordered, observable issue contracts.”
 4. “Clarify the acceptance criteria and non-goals for this idea.”
-5. “Use `$finn-spec` to prepare one human-reviewable work packet.”
+5. “Use `$jass-loop-spec` to prepare one human-reviewable work packet.”
 
 ## Non-trigger examples
 

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/check-repo.mjs",
-    "verify:loop": "npm run check && npm --prefix apps/slack-approval test",
+    "verify:loop": "npm run check && node scripts/check-jass-loop.mjs && npm --prefix apps/slack-approval test",
     "audit-depth": "node scripts/audit-depth.mjs",
     "classify": "node scripts/classify-project.mjs",
     "bootstrap": "node scripts/bootstrap-project.mjs",

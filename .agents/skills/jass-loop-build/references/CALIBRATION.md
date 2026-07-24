@@ -2,7 +2,7 @@
 
 ## Trigger examples
 
-1. “Run one `$finn-build` pass for the next eligible Qubitix issue.”
+1. “Run one `$jass-loop-build` pass for the next eligible Qubitix issue.”
 2. “Claim one `agent-ready` issue and implement only its contract.”
 3. “Build QUB-42, prove it, and open one PR.”
 4. “Continue the bounded builder workflow for this already specified issue.”
