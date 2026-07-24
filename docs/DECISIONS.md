@@ -50,6 +50,26 @@ entries; append a superseding decision.
 - Evidence: `apps/slack-approval/` policy tests and `docs/GOAL.md`.
 - Supersedes: None
 
+## DEC-004 — Phase 2 is an event-driven, non-mergeable bridge
+
+- Date: `2026-07-24`
+- Status: Accepted
+- Owner: Qubitix101 repository owner
+- Context: Mobile approval must work while the owner's Mac is asleep without
+  giving an unproven reaction bridge merge authority.
+- Options considered: local polling, hosted polling, and a signed cloud event
+  receiver.
+- Decision: Host one signed Slack Events API receiver for
+  `Qubitix101/codex-brain`. It records an atomic durable dry-run decision,
+  reads GitHub through repository-scoped credentials, and replies in Slack.
+  The runtime rejects live mode and its GitHub adapter has no merge request.
+- Consequences: The pilot can prove a real mobile `🚀` round trip. A separate
+  explicit decision is still required before any merge-capable code or
+  permission exists. The kill switch is `JASS_LOOP_ENABLED=false`.
+- Evidence: owner approval in Codex and Linear issue `QUB-6`.
+- Supersedes: the Phase 1 zero-hosting and zero-spend boundary only; DEC-001
+  and DEC-003 remain active.
+
 ## Decision template
 
 ### DEC-NNN — Short title

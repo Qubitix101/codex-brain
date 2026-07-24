@@ -1,8 +1,10 @@
 # Jass Loop Slack Approval Core
 
-This is a dependency-free policy core for a custom Slack app. It does **not**
-install an app, expose an HTTP endpoint, hold credentials, deploy a worker, or
-merge a real pull request. It is intentionally dry-run-first.
+This package contains the policy core and the Phase 2 hosted dry-run receiver
+for a custom Slack app. It is intentionally incapable of merging a pull
+request: the deployed processor has no approval-claim or merge contract, the
+GitHub adapter implements reads only, and runtime configuration rejects live
+mode.
 
 It is separate from the official Codex Slack app. The official app can start and
 continue Codex work from Slack; this custom app owns the narrower
@@ -50,11 +52,20 @@ other sensitive lane should never be classified `low`.
 
 ## Layout
 
-- `manifest.example.yaml` is an example Slack manifest for a Socket Mode pilot.
+- `manifest.example.yaml` is an HTTP Events API manifest; replace its request
+  URL only after deploying the signed receiver.
+- `api/slack-events.mjs` verifies Slack's signature over the raw body,
+  acknowledges promptly, and schedules one bounded processor.
 - `src/policy.mjs` contains deterministic, side-effect-free gates.
+- `src/dry-run-engine.mjs` is the only processor imported by the hosted
+  receiver; it has no merge-capable adapter method.
 - `src/engine.mjs` orchestrates injected storage, GitHub, and Slack adapters.
-- `sql/001_approval_receipts.sql` defines bindings, event claims, and durable
-  merge receipts.
+- `src/github-readonly.mjs` reads the live PR, branch protection, required
+  checks, and source GitHub App IDs. It has no merge request.
+- `src/supabase-store.mjs` uses the atomic RPCs defined in `sql/`.
+- `sql/001_approval_receipts.sql` defines bindings, event claims, and future
+  merge receipts; `sql/002_dry_run_bridge.sql` adds RLS and the narrowly
+  granted Phase 2 RPC surface.
 - `test/` proves the gate and ordering contracts without network access.
 
 ## Run the proof
@@ -138,20 +149,44 @@ Slack's signing secret against the **raw** request body, reject stale
 timestamps, preserve Slack's top-level `event_id`, acknowledge promptly, and
 enqueue the event for the single durable processor.
 
+## Phase 2 environment contract
+
+All secrets are encrypted hosting environment variables and must never be
+written to Git, Slack, logs, or receipts.
+
+```text
+JASS_LOOP_ENABLED=true
+JASS_LOOP_MODE=dry-run
+JASS_LOOP_LIVE_MERGE_ENABLED=false
+SLACK_SIGNING_SECRET=...
+SLACK_BOT_TOKEN=...
+SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+GITHUB_READ_TOKEN=...
+JASS_LOOP_ALLOWED_WORKSPACE_IDS=T0BK00B99LP
+JASS_LOOP_ALLOWED_CHANNEL_IDS=C0BKE20NC0N
+JASS_LOOP_ALLOWED_USER_IDS=U0BKC2VG39B
+JASS_LOOP_ALLOWED_REPOSITORIES=Qubitix101/codex-brain
+JASS_LOOP_ALLOWED_BASE_BRANCHES=main
+JASS_LOOP_TRUSTED_CHECK_NAME=verify
+JASS_LOOP_TRUSTED_CHECK_APP_ID=15368
+```
+
+The emergency stop is `JASS_LOOP_ENABLED=false`, followed by a deployment.
+
 ## Safe activation sequence
 
 1. Create a Slack app from `manifest.example.yaml` in a test workspace/channel.
-2. Add signature verification or use Socket Mode with an authenticated socket.
-3. Implement the SQL-backed store with atomic `INSERT ... ON CONFLICT DO
-   NOTHING` event claims and an atomic binding-state transition.
-4. Implement a read-only GitHub adapter and run in `dry-run` mode.
+2. Deploy the HTTP endpoint and verify the request URL in Slack.
+3. Apply both SQL migrations to an isolated Supabase project.
+4. Configure encrypted variables and keep both dry-run locks in place.
 5. Seed one non-sensitive binding with `merge_enabled = false`; verify all
    denial receipts.
 6. Enable the binding but keep the global live flag false; verify
    `dry_run_ready`.
 7. Require branch protection and an independently produced approval check.
-8. Only then enable a single low-risk pilot repository with an owner, budget,
-   rollback policy, expiry, and stop condition.
+8. After one independently checked real receipt, request a new owner decision
+   before designing any merge-capable adapter.
 
 If a merge succeeds but receipt storage or the Slack reaction fails, the engine
 does not fabricate `✅`. Alert an operator and reconcile GitHub against the

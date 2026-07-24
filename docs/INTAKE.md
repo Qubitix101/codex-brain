@@ -47,7 +47,8 @@ Complete this before enabling an agent queue.
 | GitHub | Code, PRs, CI | `Qubitix101/codex-brain` | `yes, 2026-07-24` | branch/PR writes; human merge only |
 | Linear | Scope and queue | `Qubitix` / `Codex Brain Loop Pilot` | `yes, 2026-07-24` | project and explicitly approved issue writes |
 | Slack | Mobile steering | Qubitix / `#loop-codex-brain` | `yes, 2026-07-24` | scoped pilot messages; no merge authority |
-| Hosting | Preview or production | none | `not applicable` | none |
+| Hosting | Event receiver | Vercel personal team | `yes, 2026-07-24` | one isolated dry-run project |
+| Database | Idempotency and approval receipts | Supabase / `Qubitix101's Org` | `yes, 2026-07-24` | isolated project only after repeated USD 10 cost confirmation |
 
 Never place tokens or secrets in this file.
 
@@ -59,9 +60,26 @@ Never place tokens or secrets in this file.
 - Regulated or personal data: none permitted in issues, logs, or receipts.
 - Destructive operations: deleting branches, force-pushing, rewriting history,
   removing protections, or deleting integration state.
-- Paid operations: none authorized.
+- Paid operations: Phase 2 ceiling is `USD 10/month`; no paid resource may be
+  created until its current price is repeated and confirmed.
 - Actions that always need a human: merging, live-merge activation,
-  credential/permission changes, deployment, scheduling, and scope expansion.
+  scheduling, scope expansion, and credentials or permissions broader than the
+  exact Phase 2 contract.
+
+## Phase 2 event-driven operating contract
+
+- Owner: Jassim / Qubitix101 repository owner
+- Scope: only `Qubitix101/codex-brain`
+- Trigger: a `🚀` reaction on the exact bound merge-ready message
+- Runtime: cloud event receiver; no polling, scheduler, daemon, or awake Mac
+- Slack boundary: Qubitix workspace and private `#loop-codex-brain` only
+- Mode: dry-run; record and report the decision, never merge
+- Budget ceiling: `USD 10/month`
+- Failure policy: fail closed, at most three deliveries, post a concise Slack
+  failure reply, and never merge when state is uncertain
+- Stop condition: `JASS_LOOP_ENABLED=false`
+- Live merge lock: `JASS_LOOP_LIVE_MERGE_ENABLED=false`
+- Approved by and date: repository owner in Codex on `2026-07-24`
 
 ## Queue policy
 

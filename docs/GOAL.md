@@ -42,15 +42,16 @@ The goal is complete only when all of these are true:
 - Compatibility: Node.js 18 or newer; GitHub Actions uses Node.js 22.
 - Scope boundaries: repository `Qubitix101/codex-brain`, base branch `main`,
   Linear team `Qubitix`, private Slack channel `#loop-codex-brain`.
-- Non-goals: 24/7 scheduling, hosted workers, live merge, deployment,
-  production credentials, or rollout to another repository.
+- Non-goals: polling or scheduled workers, live merge, a merge-capable GitHub
+  credential, application deployment, or rollout to another repository.
 
 ## Resources and budget
 
 - Human owner: `Qubitix101 repository owner`
 - Compute or token budget: one bounded builder pass and one bounded reviewer
   pass per issue; stop after three failed verification attempts.
-- External spend ceiling: `USD 0` for the pilot baseline.
+- External spend ceiling: `USD 10/month` for the isolated Phase 2 receipt
+  store; current price must be repeated and confirmed before creation.
 - Timebox: one week, reviewed by `2026-07-31`.
 - Concurrency limit: one builder and one separate reviewer.
 
