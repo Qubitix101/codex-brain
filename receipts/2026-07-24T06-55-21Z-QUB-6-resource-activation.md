@@ -51,7 +51,14 @@ Mode: hosted dry-run only; no merge-capable credential or adapter
 
 - Vercel project: `jass-loop-pilot`
 - Encrypted production variables currently configured:
-  `SLACK_SIGNING_SECRET`, `SLACK_BOT_TOKEN`
+  - secrets: `SLACK_SIGNING_SECRET`, `SLACK_BOT_TOKEN`;
+  - project endpoint: `SUPABASE_URL`;
+  - exact workspace, channel, user, repository, base branch, trusted check
+    name, and trusted check App ID allowlists;
+  - locks: `JASS_LOOP_MODE=dry-run`,
+    `JASS_LOOP_LIVE_MERGE_ENABLED=false`, and
+    `JASS_LOOP_ENABLED=false`.
+- Still absent: `GITHUB_READ_TOKEN` and `SUPABASE_SERVICE_ROLE_KEY`.
 - Deployment state: none.
 
 ### Activation hardening

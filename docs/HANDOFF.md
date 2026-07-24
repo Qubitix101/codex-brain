@@ -55,6 +55,13 @@ single `Qubitix101/codex-brain` pilot without creating a merge-capable path.
   - Secrets: rotated signing secret and bot token stored as encrypted
     production variables in the isolated Vercel project; values never belong
     in repository receipts.
+- Vercel activation boundary configured:
+  - Exact workspace/channel/user/repository/base-branch/check allowlists and
+    the Supabase URL are encrypted production variables.
+  - Both dry-run locks remain in place and the kill switch is
+    `JASS_LOOP_ENABLED=false`.
+  - Missing by design: repository-scoped GitHub read token and Supabase server
+    secret.
 - Activation hardening implemented locally:
   - Slack URL verification requires only the signing secret.
   - Durable tables move to non-exposed `jass_loop_private`; public RPCs use

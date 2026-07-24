@@ -39,9 +39,9 @@ Default branch: `main`
   review proof/check are not provisioned.
 - The private-schema and minimal URL-verification hardening must be reviewed
   and merged before its SQL is applied or the receiver is deployed.
-- Vercel has the rotated Slack signing secret and bot token, but no production
-  deployment exists and the remaining runtime variables are intentionally
-  absent.
+- Vercel has the rotated Slack secrets, the Supabase URL, and the exact
+  allowlists. The kill switch is configured `false`; the read-only GitHub
+  token and Supabase server secret remain absent, and no deployment exists.
 
 ## Next bounded pass
 
