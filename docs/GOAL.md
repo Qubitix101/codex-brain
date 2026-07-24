@@ -15,14 +15,21 @@ Prove one safe, mobile-visible Linear -> Codex -> GitHub -> Slack workflow for
 
 The goal is complete only when all of these are true:
 
-- [ ] `EXIT-1` — a low-risk Linear issue produces a focused pull request whose
+- [x] `EXIT-1` — a low-risk Linear issue produces a focused pull request whose
   required CI passes.
-- [ ] `EXIT-2` — an independent exact-SHA review produces a merge-ready Slack
+- [x] `EXIT-2` — an independent exact-SHA review produces a merge-ready Slack
   message in `#loop-codex-brain`.
 - [ ] `EXIT-3` — the repository owner reacts with `🚀`, the dry-run service
   records an approval decision, and no GitHub merge occurs.
-- [ ] `EXIT-4` — a timestamped repository receipt links the Linear issue, PR,
+- [x] `EXIT-4` — a timestamped repository receipt links the Linear issue, PR,
   reviewed SHA, CI run, Slack message, reaction decision, and human next step.
+
+`EXIT-3` is technically proven for the Slack event bridge, durable decision,
+reply, and no-merge boundary. It remains unchecked because the owner's first
+mobile action sent a standalone emoji message; the attached reaction was
+applied afterward through the authenticated Slack connector under the owner's
+explicit approval. The next mobile **Add reaction** gesture closes the literal
+mobile interaction condition.
 
 ## Verification
 

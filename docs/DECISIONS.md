@@ -112,6 +112,25 @@ entries; append a superseding decision.
   `receipts/2026-07-24T13-08-23Z-QUB-6-slack-event-activation.md`.
 - Supersedes: DEC-005 proposed status
 
+## DEC-007 — Only an attached reaction is an approval event
+
+- Date: `2026-07-24`
+- Status: Accepted
+- Owner: Qubitix101 repository owner
+- Context: Slack mobile lets a user either send an emoji in the message box or
+  attach an emoji to an existing message. Only the attached reaction produces
+  the exact `reaction_added` event bound to the reviewed PR card.
+- Options considered: treat a standalone rocket message as approval, infer the
+  nearest review card, or require an attached reaction on the exact card.
+- Decision: Only a `🚀` attached with Slack **Add reaction** to the exact bound
+  merge-ready message counts. A standalone `🚀` message is never approval.
+- Consequences: The user should long-press or open the message menu and choose
+  **Add reaction**. The system stays fail-closed when the emoji is sent in the
+  message box.
+- Evidence:
+  `receipts/2026-07-24T14-24-57Z-QUB-6-rocket-dry-run.md`.
+- Supersedes: None
+
 
 ## Decision template
 

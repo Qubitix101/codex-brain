@@ -1,6 +1,6 @@
 # Handoff
 
-Updated: `2026-07-24 17:08 +04`
+Updated: `2026-07-24 18:24 +04`
 From: `QUB-6 Slack event activation pass`
 To: `Qubitix101 repository owner or next pilot agent`
 
@@ -108,6 +108,29 @@ single `Qubitix101/codex-brain` pilot without creating a merge-capable path.
     `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`
   - Required CI run `30095571190` passed.
   - The PR remains open and unmerged.
+- Exact-SHA review package completed:
+  - Owner approval recorded for
+    `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`.
+  - PR #4 has `loop-approved` and `risk:low`.
+  - Merge-ready Slack card:
+    `https://qubitix-workspace.slack.com/archives/C0BKE20NC0N/p1784899231087059`.
+- Dry-run event bridge completed:
+  - Slack event: `Ev0BK5NX55HV`.
+  - Approved user: `U0BKC2VG39B`.
+  - Durable state: `dry_run_ready`.
+  - Decision: `MODE_NOT_LIVE`.
+  - Slack bot posted one “Nothing was merged” thread reply.
+  - Supabase contains no merge receipt, merge SHA, merge method, or merged
+    timestamp.
+- GitHub no-merge cross-check completed:
+  - PR #4 remains `OPEN`, unmerged, `CLEAN`, and at the exact reviewed SHA.
+  - Required `verify` check remains successful.
+- Processing window closed:
+  - `JASS_LOOP_ENABLED=false`.
+  - `JASS_LOOP_LIVE_MERGE_ENABLED=false`.
+  - Shutdown deployment `dpl_FYZuW47XYfJURQBaKQqRuFqiUyEG` is `Ready`.
+  - Receipt:
+    `receipts/2026-07-24T14-24-57Z-QUB-6-rocket-dry-run.md`.
 
 ## Active state
 
@@ -120,30 +143,30 @@ single `Qubitix101/codex-brain` pilot without creating a merge-capable path.
 - Pull request under proof: #4
 - Current PR head SHA:
   `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`
-- Last reviewed SHA: owner review pending
+- Last reviewed SHA:
+  `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`
 - Required checks: `Loop validation / verify`
 
 ## Blockers and decisions needed
 
-- Independent review: `verify` / GitHub Actions App ID `15368` proves CI
-  provenance only. It is not an independent reviewer check for PR #4.
-- The deployed GitHub token must still be exercised through the actual
-  reaction path.
-- No message binding or real mobile reaction receipt exists yet.
+- No technical blocker remains for the hosted dry-run reaction path.
+- The first mobile attempt sent a standalone `🚀` message. The connector
+  attached the intended reaction after explicit owner approval, so the
+  end-to-end bridge is proven but the literal mobile **Add reaction** gesture
+  remains unproven.
+- Live merge, merge-capable GitHub permission, scheduling, and expansion to
+  another repository still require separate explicit owner decisions.
 
 When blocked, state one answerable question, the available options, the
 recommended option, and the affected acceptance criterion.
 
 ## Next safe pass
 
-1. Owner reviews PR #4 at its exact SHA and explicitly approves or requests
-   changes.
-2. On approval, add `loop-approved`, publish the plain-English merge-ready
-   message, and save its exact message/PR/SHA binding.
-3. Enable only `JASS_LOOP_ENABLED=true`, redeploy, and ask the owner to react
-   once from Slack mobile.
-4. Prove the durable `dry_run_ready` decision, Slack reply, and still-open PR,
-   then return the kill switch to `false`.
+1. Review and merge the QUB-6 receipt PR through the normal human-merge path.
+2. On the next low-risk review card, the owner uses Slack mobile
+   **Add reaction**, not the message box, so `🚀` appears under the card.
+3. Treat any proposal for live merge as a new phase with a separate threat
+   review, exact authority contract, rollback path, and owner approval.
 
 ## Verification commands
 
@@ -157,9 +180,11 @@ clean whitespace check.
 
 ## Limits
 
-- Unverified: the deployed GitHub-token read through the receiver and the
-  real mobile reaction round trip.
+- Verified: deployed GitHub-token read through the receiver, one durable
+  `reaction_added` decision, Slack reply, and the still-open PR.
+- Unverified: the owner's physical mobile **Add reaction** gesture; the first
+  mobile attempt was a standalone emoji message.
 - Deferred: live merge and any merge-capable permission or adapter.
 - Activated but stopped: one hosted dry-run receiver, private store, and
-  Slack event subscription; the processing kill switch is still off.
+  Slack event subscription; the processing kill switch is off again.
 - Scheduled or continuous work: `none unless explicitly recorded`
