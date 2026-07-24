@@ -74,6 +74,12 @@ Run -> Drive -> Prove -> Unblock -> repeat until receipt or genuine blocker
   `liveMergeEnabled` to true, deploy a receiver, provision credentials, or
   grant merge permissions without a new explicit owner decision and receipt.
 
+Phase 2 exception recorded on `2026-07-24`: the owner authorized one hosted
+dry-run receiver, encrypted runtime credentials, and an isolated durable store
+under `docs/INTAKE.md` and QUB-6. This does not authorize a merge-capable
+credential, live mode, scheduling, another repository/channel/user, or spend
+above the confirmed ceiling.
+
 ## End-of-pass contract
 
 Before ending a pass:
