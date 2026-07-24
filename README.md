@@ -1,5 +1,12 @@
 # Codex Brain
 
+> **Jass Loop** is the governed Linear -> Codex -> GitHub -> Slack operating
+> system. The pilot is documented in
+> [`docs/GOAL.md`](docs/GOAL.md), [`runbooks/LOOPS.md`](runbooks/LOOPS.md),
+> [`docs/MERGE_READY_MESSAGE.md`](docs/MERGE_READY_MESSAGE.md), and
+> [`apps/slack-approval/`](apps/slack-approval/). The approval service is
+> dry-run-only; humans merge by default.
+
 Codex Brain is a Codex-native operating system for building serious software products methodically.
 
 It is especially strict for AI-native products: before implementation, it decides whether the idea should become a normal app, an AI-assisted workflow, a memory-backed copilot, a workflow agent, a bounded autonomous operator, or a full domain operating system, selects the right intelligence architecture, defines the Agent OS runtime kernel, maps whether the product should collaborate with other agents or operating systems, locks down Agentic Zero Trust controls, then maps the production-agent skills and access surfaces needed to build it safely.
