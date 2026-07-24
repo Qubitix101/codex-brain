@@ -148,6 +148,59 @@ as $$
   where event_id = p_event_id;
 $$;
 
+create or replace function public.jass_loop_finalize_dry_run_approval(
+  p_event_id text,
+  p_workspace_id text,
+  p_channel_id text,
+  p_message_ts text,
+  p_reviewed_sha text,
+  p_authorized_by_user_id text,
+  p_decision jsonb
+)
+returns boolean
+language plpgsql
+security definer
+set search_path = public, pg_temp
+as $$
+declare
+  updated_count integer;
+begin
+  update public.slack_merge_message_bindings
+  set state = 'claimed',
+      claimed_event_id = p_event_id,
+      claimed_by_user_id = p_authorized_by_user_id,
+      claimed_at = now()
+  where workspace_id = p_workspace_id
+    and channel_id = p_channel_id
+    and message_ts = p_message_ts
+    and reviewed_sha = p_reviewed_sha
+    and state = 'awaiting_approval'
+    and merge_enabled = true
+    and (expires_at is null or expires_at > now());
+
+  get diagnostics updated_count = row_count;
+  if updated_count <> 1 then
+    return false;
+  end if;
+
+  update public.slack_merge_approval_events
+  set status = 'dry_run_ready',
+      decision_code = p_decision ->> 'code',
+      decision = p_decision,
+      failure = null,
+      updated_at = now()
+  where event_id = p_event_id
+    and status = 'claimed';
+
+  get diagnostics updated_count = row_count;
+  if updated_count <> 1 then
+    raise exception 'dry-run event was not durably claimed';
+  end if;
+
+  return true;
+end;
+$$;
+
 revoke all on function public.jass_loop_claim_event(text, text, text, text, text, text)
   from public, anon, authenticated;
 revoke all on function public.jass_loop_find_binding(text, text, text)
@@ -156,6 +209,9 @@ revoke all on function public.jass_loop_record_decision(text, text, jsonb, jsonb
   from public, anon, authenticated;
 revoke all on function public.jass_loop_get_event_outcome(text)
   from public, anon, authenticated;
+revoke all on function public.jass_loop_finalize_dry_run_approval(
+  text, text, text, text, text, text, jsonb
+) from public, anon, authenticated;
 
 grant execute on function public.jass_loop_claim_event(text, text, text, text, text, text)
   to service_role;
@@ -165,3 +221,6 @@ grant execute on function public.jass_loop_record_decision(text, text, jsonb, js
   to service_role;
 grant execute on function public.jass_loop_get_event_outcome(text)
   to service_role;
+grant execute on function public.jass_loop_finalize_dry_run_approval(
+  text, text, text, text, text, text, jsonb
+) to service_role;

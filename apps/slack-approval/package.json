@@ -7,9 +7,6 @@
   "scripts": {
     "test": "node --test"
   },
-  "dependencies": {
-    "@vercel/functions": "^3.4.3"
-  },
   "engines": {
     "node": "22.x"
   }

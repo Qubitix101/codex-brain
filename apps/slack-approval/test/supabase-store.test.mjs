@@ -51,4 +51,5 @@ test("uses atomic RPCs and never exposes a Phase 2 merge receipt path", async ()
   assert.equal(calls[0].options.body.includes("service-secret"), false);
   assert.equal(store.claimApproval, undefined);
   assert.equal(store.saveMergeReceipt, undefined);
+  assert.equal(typeof store.finalizeDryRunApproval, "function");
 });

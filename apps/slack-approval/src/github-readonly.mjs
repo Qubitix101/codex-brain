@@ -2,6 +2,7 @@ const API = "https://api.github.com";
 
 export function createGitHubReadOnlyAdapter({
   token,
+  signal,
   fetchImpl = fetch,
   delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds))
 }) {
@@ -11,7 +12,8 @@ export function createGitHubReadOnlyAdapter({
         accept: "application/vnd.github+json",
         authorization: `Bearer ${token}`,
         "x-github-api-version": "2022-11-28"
-      }
+      },
+      signal
     });
     if (!response.ok) {
       throw new Error(`GitHub read failed with HTTP ${response.status}`);

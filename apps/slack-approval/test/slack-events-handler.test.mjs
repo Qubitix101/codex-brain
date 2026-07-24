@@ -70,25 +70,26 @@ test("answers Slack URL verification after signature validation", async () => {
   });
 });
 
-test("acknowledges a reaction promptly and schedules one bounded processor", async () => {
-  const scheduled = [];
+test("acknowledges only after reading the durable decision", async () => {
+  let replies = 0;
   const adapter = {
     store: {
       async claimEvent() { return false; },
       async getEventOutcome() { return { status: "dry_run_ready" }; },
       async findBinding() { throw new Error("should not run"); },
-      async recordDecision() {}
+      async recordDecision() { return true; },
+      async finalizeDryRunApproval() { throw new Error("should not run"); }
     },
     github: {
       async getPullRequest() { throw new Error("should not run"); }
     },
     slack: {
-      async postDryRunResult() {}
+      async postDryRunResult() { replies += 1; },
+      async postProcessingFailure() {}
     }
   };
   const handler = createSlackEventsHandler({
     env: environment(),
-    schedule(promise) { scheduled.push(promise); },
     createAdapters() { return adapter; }
   });
   const response = responseRecorder();
@@ -109,30 +110,29 @@ test("acknowledges a reaction promptly and schedules one bounded processor", asy
     ok: true,
     code: "ACCEPTED"
   });
-  assert.equal(scheduled.length, 1);
-  await scheduled[0];
+  assert.equal(replies, 1);
 });
 
 test("never posts into a channel outside the approved reply boundary", async () => {
-  const scheduled = [];
   let replies = 0;
   const adapter = {
     store: {
       async claimEvent() { return true; },
       async getEventOutcome() { return null; },
       async findBinding() { throw new Error("should not run"); },
-      async recordDecision() {}
+      async recordDecision() { return true; },
+      async finalizeDryRunApproval() { throw new Error("should not run"); }
     },
     github: {
       async getPullRequest() { throw new Error("should not run"); }
     },
     slack: {
-      async postDryRunResult() { replies += 1; }
+      async postDryRunResult() { replies += 1; },
+      async postProcessingFailure() { replies += 1; }
     }
   };
   const handler = createSlackEventsHandler({
     env: environment(),
-    schedule(promise) { scheduled.push(promise); },
     createAdapters() { return adapter; }
   });
   const response = responseRecorder();
@@ -147,7 +147,47 @@ test("never posts into a channel outside the approved reply boundary", async () 
       item: { type: "message", channel: "C-NOT-ALLOWED", ts: "1.3" }
     }
   }), response);
-  await scheduled[0];
   assert.equal(response.statusCode, 200);
   assert.equal(replies, 0);
+});
+
+test("returns a retryable error and never claims recording when storage fails", async () => {
+  let dryRunReplies = 0;
+  let failureReplies = 0;
+  const adapter = {
+    store: {
+      async claimEvent() { throw new Error("database unavailable"); },
+      async getEventOutcome() { return null; },
+      async findBinding() { throw new Error("should not run"); },
+      async recordDecision() { return false; },
+      async finalizeDryRunApproval() { throw new Error("should not run"); }
+    },
+    github: {
+      async getPullRequest() { throw new Error("should not run"); }
+    },
+    slack: {
+      async postDryRunResult() { dryRunReplies += 1; },
+      async postProcessingFailure() { failureReplies += 1; }
+    }
+  };
+  const handler = createSlackEventsHandler({
+    env: environment(),
+    createAdapters() { return adapter; }
+  });
+  const response = responseRecorder();
+  await handler(signedRequest({
+    type: "event_callback",
+    event_id: "Ev-storage-failed",
+    team_id: "T1",
+    event: {
+      type: "reaction_added",
+      reaction: "rocket",
+      user: "U1",
+      item: { type: "message", channel: "C1", ts: "1.4" }
+    }
+  }), response);
+  assert.equal(response.statusCode, 503);
+  assert.equal(JSON.parse(response.body).code, "RETRYABLE_PROCESSING_FAILURE");
+  assert.equal(dryRunReplies, 0);
+  assert.equal(failureReplies, 1);
 });

@@ -15,15 +15,19 @@ function validateAdapters(adapters) {
   requireMethod(adapters?.store, "store", "getEventOutcome");
   requireMethod(adapters?.store, "store", "findBinding");
   requireMethod(adapters?.store, "store", "recordDecision");
+  requireMethod(adapters?.store, "store", "finalizeDryRunApproval");
   requireMethod(adapters?.github, "github", "getPullRequest");
 }
 
 async function record(store, eventId, status, decision) {
-  await store.recordDecision(eventId, {
+  const durable = await store.recordDecision(eventId, {
     status,
     decision,
     recordedAt: new Date().toISOString()
   });
+  if (durable !== true) {
+    throw new Error("Durable decision write was not confirmed");
+  }
 }
 
 /**
@@ -68,11 +72,37 @@ export async function processDryRunReaction({ event, config, adapters }) {
     : null;
   const context = { event, config, binding, pullRequest };
   const decision = evaluateApproval(context);
-  const status = isDryRunReady(decision, context) ? "dry_run_ready" : "denied";
+  const dryRunReady = isDryRunReady(decision, context);
+  if (dryRunReady) {
+    const durable = await store.finalizeDryRunApproval({
+      eventId: event.id,
+      workspaceId: event.workspaceId,
+      channelId: event.channelId,
+      messageTs: event.messageTs,
+      reviewedSha: binding.reviewedSha,
+      authorizedByUserId: event.userId,
+      decision
+    });
+    if (durable !== true) {
+      await record(store, event.id, "approval_already_claimed", decision);
+      return Object.freeze({
+        status: "approval_already_claimed",
+        eventId: event.id,
+        decision,
+        mergeAttempted: false
+      });
+    }
+    return Object.freeze({
+      status: "dry_run_ready",
+      eventId: event.id,
+      decision,
+      mergeAttempted: false
+    });
+  }
 
-  await record(store, event.id, status, decision);
+  await record(store, event.id, "denied", decision);
   return Object.freeze({
-    status,
+    status: "denied",
     eventId: event.id,
     decision,
     mergeAttempted: false

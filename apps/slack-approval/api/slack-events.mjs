@@ -1,5 +1,3 @@
-import { waitUntil } from "@vercel/functions";
-
 import { loadRuntimeConfig } from "../src/config.mjs";
 import { processDryRunReaction } from "../src/dry-run-engine.mjs";
 import { createGitHubReadOnlyAdapter } from "../src/github-readonly.mjs";
@@ -20,14 +18,15 @@ function reply(response, status, body) {
   response.end(JSON.stringify(body));
 }
 
-function adaptersFor(runtime) {
+function adaptersFor(runtime, signal) {
   return {
     store: createSupabaseStore({
       url: runtime.supabaseUrl,
-      serviceRoleKey: runtime.supabaseServiceRoleKey
+      serviceRoleKey: runtime.supabaseServiceRoleKey,
+      signal
     }),
-    github: createGitHubReadOnlyAdapter({ token: runtime.githubToken }),
-    slack: createSlackClient({ token: runtime.slackBotToken })
+    github: createGitHubReadOnlyAdapter({ token: runtime.githubToken, signal }),
+    slack: createSlackClient({ token: runtime.slackBotToken, signal })
   };
 }
 
@@ -39,61 +38,10 @@ function mayReplyToEvent(event, runtime) {
   );
 }
 
-async function processInBackground({ event, runtime, adapters }) {
-  const mayReply = mayReplyToEvent(event, runtime);
-  try {
-    const result = await processDryRunReaction({
-      event,
-      config: runtime,
-      adapters
-    });
-    if (
-      mayReply &&
-      result.status !== "duplicate" &&
-      result.status !== "ignored"
-    ) {
-      await adapters.slack.postDryRunResult({
-        channelId: event.channelId,
-        messageTs: event.messageTs,
-        result
-      });
-    }
-  } catch (error) {
-    const code = error?.code ?? "PROCESSING_ERROR";
-    console.error("jass_loop_event_failed", {
-      eventId: event.id,
-      code
-    });
-    try {
-      await adapters.store.recordDecision(event.id, {
-        status: "processing_failed",
-        failure: { code }
-      });
-    } catch {
-      console.error("jass_loop_failure_receipt_failed", {
-        eventId: event.id
-      });
-    }
-    if (mayReply) {
-      try {
-        await adapters.slack.postDryRunResult({
-          channelId: event.channelId,
-          messageTs: event.messageTs,
-          result: { status: "PROCESSING_ERROR" }
-        });
-      } catch {
-        console.error("jass_loop_failure_notification_failed", {
-          eventId: event.id
-        });
-      }
-    }
-  }
-}
-
 export function createSlackEventsHandler({
   env = process.env,
-  schedule = waitUntil,
-  createAdapters = adaptersFor
+  createAdapters = adaptersFor,
+  processingTimeoutMs = 2400
 } = {}) {
   return async function slackEventsHandler(request, response) {
     if (request.method !== "POST") {
@@ -152,11 +100,77 @@ export function createSlackEventsHandler({
       return reply(response, 200, { ok: true, code: "EVENT_IGNORED" });
     }
 
-    schedule(processInBackground({
-      event,
-      runtime,
-      adapters: createAdapters(runtime)
-    }));
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), processingTimeoutMs);
+    const adapters = createAdapters(runtime, controller.signal);
+    let result;
+    try {
+      result = await processDryRunReaction({
+        event,
+        config: runtime,
+        adapters
+      });
+    } catch (error) {
+      clearTimeout(timeout);
+      const code = error?.name === "AbortError"
+        ? "PROCESSING_TIMEOUT"
+        : error?.code ?? "PROCESSING_ERROR";
+      console.error("jass_loop_event_failed", { eventId: event.id, code });
+      try {
+        const recoveryAdapters = createAdapters(
+          runtime,
+          AbortSignal.timeout(500)
+        );
+        const stored = await recoveryAdapters.store.recordDecision(event.id, {
+          status: "processing_failed",
+          failure: { code }
+        });
+        if (stored !== true) {
+          console.error("jass_loop_failure_receipt_unconfirmed", {
+            eventId: event.id
+          });
+        }
+        if (mayReplyToEvent(event, runtime)) {
+          await recoveryAdapters.slack.postProcessingFailure({
+            channelId: event.channelId,
+            messageTs: event.messageTs
+          });
+        }
+      } catch {
+        console.error("jass_loop_failure_handling_failed", {
+          eventId: event.id
+        });
+      }
+      return reply(response, 503, {
+        ok: false,
+        code: "RETRYABLE_PROCESSING_FAILURE"
+      });
+    }
+
+    const notificationResult = result.status === "duplicate"
+      ? result.prior
+      : result;
+    if (
+      mayReplyToEvent(event, runtime) &&
+      notificationResult &&
+      !["ignored", "claimed", "processing_failed"].includes(notificationResult.status)
+    ) {
+      try {
+        await adapters.slack.postDryRunResult({
+          channelId: event.channelId,
+          messageTs: event.messageTs,
+          result: notificationResult
+        });
+      } catch {
+        clearTimeout(timeout);
+        return reply(response, 503, {
+          ok: false,
+          code: "RETRYABLE_NOTIFICATION_FAILURE"
+        });
+      }
+    }
+
+    clearTimeout(timeout);
     return reply(response, 200, { ok: true, code: "ACCEPTED" });
   };
 }

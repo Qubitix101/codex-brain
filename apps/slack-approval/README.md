@@ -144,10 +144,12 @@ Required semantics:
   `{ durable: true }`. The engine will not add `✅` otherwise.
 - `slack.addReaction` must add `white_check_mark` to the original message.
 
-The transport layer is deliberately absent. A production receiver must verify
-Slack's signing secret against the **raw** request body, reject stale
-timestamps, preserve Slack's top-level `event_id`, acknowledge promptly, and
-enqueue the event for the single durable processor.
+The Phase 2 receiver verifies Slack's signing secret against the **raw**
+request body, rejects stale timestamps, preserves Slack's top-level `event_id`,
+and finishes the durable decision before returning HTTP 200. Each network call
+shares a 2.4-second request deadline. A processing or notification failure
+returns HTTP 503 so Slack can retry; the event and binding RPCs cap recovery at
+three attempts and never reopen a completed decision.
 
 ## Phase 2 environment contract
 
@@ -171,6 +173,11 @@ JASS_LOOP_ALLOWED_BASE_BRANCHES=main
 JASS_LOOP_TRUSTED_CHECK_NAME=verify
 JASS_LOOP_TRUSTED_CHECK_APP_ID=15368
 ```
+
+`verify` / App ID `15368` proves the source of the required GitHub Actions CI
+check. It does **not** prove reviewer separation. An independent exact-SHA
+review receipt remains a separate activation gate until a distinct protected
+reviewer check is installed.
 
 The emergency stop is `JASS_LOOP_ENABLED=false`, followed by a deployment.
 

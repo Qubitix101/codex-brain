@@ -53,6 +53,11 @@ function subject(overrides = {}) {
         },
         async recordDecision(_eventId, record) {
           calls.push(`recordDecision:${record.status}`);
+          return true;
+        },
+        async finalizeDryRunApproval() {
+          calls.push("finalizeDryRunApproval");
+          return overrides.finalized ?? true;
         }
       },
       github: {
@@ -87,10 +92,23 @@ test("records dry_run_ready with no merge-capable adapter contract", async () =>
     "claimEvent",
     "findBinding",
     "getPullRequest",
-    "recordDecision:dry_run_ready"
+    "finalizeDryRunApproval"
   ]);
   assert.equal(input.adapters.github.mergePullRequest, undefined);
   assert.equal(input.adapters.store.claimApproval, undefined);
+});
+
+test("a second rocket cannot finalize the same binding", async () => {
+  const input = subject({ finalized: false });
+  const result = await processDryRunReaction(input);
+  assert.equal(result.status, "approval_already_claimed");
+  assert.deepEqual(input.calls, [
+    "claimEvent",
+    "findBinding",
+    "getPullRequest",
+    "finalizeDryRunApproval",
+    "recordDecision:approval_already_claimed"
+  ]);
 });
 
 test("duplicate delivery returns the durable outcome and does no live read", async () => {

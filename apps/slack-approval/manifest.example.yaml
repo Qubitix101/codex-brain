@@ -13,7 +13,6 @@ oauth_config:
     bot:
       - chat:write
       - reactions:read
-      - reactions:write
 
 settings:
   event_subscriptions:
@@ -24,4 +23,4 @@ settings:
     is_enabled: false
   org_deploy_enabled: false
   socket_mode_enabled: false
-  token_rotation_enabled: true
+  token_rotation_enabled: false

@@ -13,7 +13,12 @@ function snakeToCamelBinding(row) {
   });
 }
 
-export function createSupabaseStore({ url, serviceRoleKey, fetchImpl = fetch }) {
+export function createSupabaseStore({
+  url,
+  serviceRoleKey,
+  signal,
+  fetchImpl = fetch
+}) {
   async function rpc(name, body) {
     const response = await fetchImpl(`${url}/rest/v1/rpc/${name}`, {
       method: "POST",
@@ -22,6 +27,7 @@ export function createSupabaseStore({ url, serviceRoleKey, fetchImpl = fetch }) 
         authorization: `Bearer ${serviceRoleKey}`,
         "content-type": "application/json"
       },
+      signal,
       body: JSON.stringify(body)
     });
 
@@ -60,6 +66,17 @@ export function createSupabaseStore({ url, serviceRoleKey, fetchImpl = fetch }) 
         p_status: record.status,
         p_decision: record.decision ?? null,
         p_failure: record.failure ?? null
+      });
+    },
+    async finalizeDryRunApproval(value) {
+      return rpc("jass_loop_finalize_dry_run_approval", {
+        p_event_id: value.eventId,
+        p_workspace_id: value.workspaceId,
+        p_channel_id: value.channelId,
+        p_message_ts: value.messageTs,
+        p_reviewed_sha: value.reviewedSha,
+        p_authorized_by_user_id: value.authorizedByUserId,
+        p_decision: value.decision
       });
     }
   });
