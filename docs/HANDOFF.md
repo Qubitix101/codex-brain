@@ -1,7 +1,7 @@
 # Handoff
 
-Updated: `2026-07-24 06:10 +04`
-From: `QUB-6 Phase 2 builder`
+Updated: `2026-07-24 10:55 +04`
+From: `QUB-6 resource activation and hardening pass`
 To: `Qubitix101 repository owner or next pilot agent`
 
 ## Objective
@@ -39,44 +39,58 @@ single `Qubitix101/codex-brain` pilot without creating a merge-capable path.
     vulnerabilities, and a successful Vercel platform build.
   - Safety proof: hosted import graph has no merge-capable adapter; runtime
     rejects live mode.
+- Phase 2 PR merged:
+  - Evidence: PR #2 squash merge commit
+    `b039de113139494ba442489173012659d0c0bd5e`.
+  - Post-merge proof: GitHub Actions run `30073055116`, `verify` passed.
+- Isolated Supabase project provisioned:
+  - Evidence: project `jass-loop-pilot` / `afximcslmhbkidmtlitr`,
+    `eu-central-1`, status `ACTIVE_HEALTHY`.
+  - Cost: owner-confirmed `USD 10/month`.
+- Custom Slack app installed:
+  - Evidence: app `Jass Loop Pilot` / `A0BKG3GDW4E` in workspace
+    `T0BK00B99LP`; bot added to `#loop-codex-brain`.
+  - Scopes: `chat:write` and `reactions:read`; unnecessary
+    `channels:history` removed.
+  - Secrets: rotated signing secret and bot token stored as encrypted
+    production variables in the isolated Vercel project; values never belong
+    in repository receipts.
+- Activation hardening implemented locally:
+  - Slack URL verification requires only the signing secret.
+  - Durable tables move to non-exposed `jass_loop_private`; public RPCs use
+    `security invoker` and are executable only by `service_role`.
+  - Proof: 46 local tests pass and `git diff --check` passes.
 
 ## Active state
 
 - Repository and branch: `Qubitix101/codex-brain` /
-  `agent/qub-6-slack-dry-run-bridge`
+  `agent/qub-6-activation-hardening`
 - Worktree: local pilot checkout
 - Linear issue and state:
   `https://linear.app/qubitix/issue/QUB-6/phase-2-connect-the-event-driven-slack-rocket-dry-run-bridge`
   — In Progress
-- Pull request: `https://github.com/Qubitix101/codex-brain/pull/2` (draft)
-- Current PR head SHA: re-read after the audit-hardening push
-- Last reviewed SHA:
+- Pull request: activation-hardening draft PR not yet opened
+- Current PR head SHA: pending commit
+- Last reviewed SHA: none for this follow-up
 - Required checks: `Loop validation / verify`
 
 ## Blockers and decisions needed
 
-- Supabase isolated project: current cost is `USD 10/month`; owner confirmation
-  is required before creation.
-- Slack developer dashboard: owner must sign in in the already-open Codex
-  browser tab.
 - GitHub runtime credential: must be read-only and repository-scoped.
 - Independent review: `verify` / GitHub Actions App ID `15368` proves CI
   provenance only. It is not an independent reviewer check.
+- Sensitive activation-hardening paths require a human review before merge,
+  migration, and deployment.
 
 When blocked, state one answerable question, the available options, the
 recommended option, and the affected acceptance criterion.
 
 ## Next safe pass
 
-1. Run:
-
-```text
-npm run verify:loop
-```
-
-2. Re-run protected PR #2 CI and review its exact final head SHA.
-3. Do not activate resources until the cost, Slack sign-in, scoped GitHub
-   credential, and distinct review proof are resolved.
+1. Publish the activation-hardening branch as a draft PR.
+2. Run protected CI and review the exact final SHA.
+3. Only after approval, apply the private migration, deploy the signed
+   receiver, and verify Slack's event request URL.
 
 ## Verification commands
 
@@ -90,8 +104,9 @@ clean whitespace check.
 
 ## Limits
 
-- Unverified: live Supabase permissions/concurrency, signed Slack request URL,
-  repository-scoped GitHub reads, and the real mobile reaction round trip.
+- Unverified: live Supabase migration/permissions/concurrency, signed Slack
+  request URL, repository-scoped GitHub reads, and the real mobile reaction
+  round trip.
 - Deferred: live merge and any merge-capable permission or adapter.
 - Authorized but not yet activated: one hosted dry-run receiver and isolated
   database under the Phase 2 contract.

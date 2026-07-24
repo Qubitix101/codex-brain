@@ -70,6 +70,23 @@ test("answers Slack URL verification after signature validation", async () => {
   });
 });
 
+test("answers Slack URL verification before full runtime provisioning", async () => {
+  const handler = createSlackEventsHandler({
+    env: {
+      SLACK_SIGNING_SECRET: SIGNING_SECRET
+    }
+  });
+  const response = responseRecorder();
+  await handler(signedRequest({
+    type: "url_verification",
+    challenge: "bootstrap-challenge"
+  }), response);
+  assert.equal(response.statusCode, 200);
+  assert.deepEqual(JSON.parse(response.body), {
+    challenge: "bootstrap-challenge"
+  });
+});
+
 test("acknowledges only after reading the durable decision", async () => {
   let replies = 0;
   const adapter = {

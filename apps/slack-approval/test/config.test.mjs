@@ -1,7 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { loadRuntimeConfig } from "../src/config.mjs";
+import {
+  loadRuntimeConfig,
+  loadSlackVerificationConfig
+} from "../src/config.mjs";
 
 function environment(overrides = {}) {
   return {
@@ -34,6 +37,17 @@ test("loads the fixed dry-run operating contract", () => {
     name: "verify",
     appId: 15368
   });
+});
+
+test("loads signing verification without requiring the runtime adapters", () => {
+  assert.deepEqual(
+    loadSlackVerificationConfig({
+      SLACK_SIGNING_SECRET: "signing-only"
+    }),
+    {
+      signingSecret: "signing-only"
+    }
+  );
 });
 
 test("refuses live mode even if an environment variable is changed", () => {

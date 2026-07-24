@@ -2,7 +2,11 @@
 -- Apply with a dedicated migration role. The runtime service should receive
 -- only the least privileges needed for the statements documented below.
 
-create table if not exists slack_merge_message_bindings (
+create schema if not exists jass_loop_private;
+revoke all on schema jass_loop_private from public, anon, authenticated;
+grant usage on schema jass_loop_private to service_role;
+
+create table if not exists jass_loop_private.slack_merge_message_bindings (
   workspace_id text not null,
   channel_id text not null,
   message_ts text not null,
@@ -24,7 +28,7 @@ create table if not exists slack_merge_message_bindings (
   check (risk_level = 'low' or merge_enabled = false)
 );
 
-create table if not exists slack_merge_approval_events (
+create table if not exists jass_loop_private.slack_merge_approval_events (
   event_id text primary key,
   workspace_id text not null,
   channel_id text not null,
@@ -39,9 +43,10 @@ create table if not exists slack_merge_approval_events (
   updated_at timestamptz not null default now()
 );
 
-create table if not exists slack_merge_receipts (
+create table if not exists jass_loop_private.slack_merge_receipts (
   event_id text primary key
-    references slack_merge_approval_events(event_id) on delete restrict,
+    references jass_loop_private.slack_merge_approval_events(event_id)
+      on delete restrict,
   workspace_id text not null,
   channel_id text not null,
   message_ts text not null,
@@ -63,14 +68,22 @@ create table if not exists slack_merge_receipts (
 );
 
 create index if not exists slack_merge_events_message_idx
-  on slack_merge_approval_events (workspace_id, channel_id, message_ts);
+  on jass_loop_private.slack_merge_approval_events (
+    workspace_id,
+    channel_id,
+    message_ts
+  );
 
 create index if not exists slack_merge_receipts_pr_idx
-  on slack_merge_receipts (repo_owner, repo_name, pull_number);
+  on jass_loop_private.slack_merge_receipts (
+    repo_owner,
+    repo_name,
+    pull_number
+  );
 
 -- Atomic event claim. Exactly one worker receives a returned row.
 --
--- insert into slack_merge_approval_events (
+-- insert into jass_loop_private.slack_merge_approval_events (
 --   event_id, workspace_id, channel_id, message_ts, user_id, reaction
 -- ) values ($1, $2, $3, $4, $5, $6)
 -- on conflict (event_id) do nothing
@@ -79,7 +92,7 @@ create index if not exists slack_merge_receipts_pr_idx
 -- Atomic approval claim. Exactly one distinct Slack event may claim the
 -- message/PR/SHA approval, even if several rockets arrive concurrently.
 --
--- update slack_merge_message_bindings
+-- update jass_loop_private.slack_merge_message_bindings
 -- set state = 'claimed',
 --     claimed_event_id = $5,
 --     claimed_by_user_id = $6,
@@ -105,6 +118,6 @@ create index if not exists slack_merge_receipts_pr_idx
 --      and (expires_at is null or expires_at > now())
 -- 2. saveMergeReceipt and the corresponding event status update should commit
 --    in one transaction.
--- 3. Add row-level security or isolate this schema behind a private service;
---    never expose mutation access to a browser client.
+-- 3. Keep jass_loop_private out of the Supabase Data API exposed schemas.
+--    Public RPCs must use security invoker and be granted only to service_role.
 -- 4. Do not delete claims or receipts as part of routine retries.

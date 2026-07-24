@@ -1,4 +1,7 @@
-import { loadRuntimeConfig } from "../src/config.mjs";
+import {
+  loadRuntimeConfig,
+  loadSlackVerificationConfig
+} from "../src/config.mjs";
 import { processDryRunReaction } from "../src/dry-run-engine.mjs";
 import { createGitHubReadOnlyAdapter } from "../src/github-readonly.mjs";
 import { createSlackClient } from "../src/slack-client.mjs";
@@ -58,9 +61,9 @@ export function createSlackEventsHandler({
       });
     }
 
-    let runtime;
+    let verificationConfig;
     try {
-      runtime = loadRuntimeConfig(env);
+      verificationConfig = loadSlackVerificationConfig(env);
     } catch {
       return reply(response, 503, { ok: false, code: "CONFIGURATION_ERROR" });
     }
@@ -69,7 +72,7 @@ export function createSlackEventsHandler({
       rawBody,
       timestamp: request.headers["x-slack-request-timestamp"],
       signature: request.headers["x-slack-signature"],
-      signingSecret: runtime.signingSecret
+      signingSecret: verificationConfig.signingSecret
     });
     if (!verification.ok) {
       return reply(response, 401, { ok: false, code: verification.code });
@@ -84,6 +87,13 @@ export function createSlackEventsHandler({
 
     if (payload.type === "url_verification") {
       return reply(response, 200, { challenge: payload.challenge });
+    }
+
+    let runtime;
+    try {
+      runtime = loadRuntimeConfig(env);
+    } catch {
+      return reply(response, 503, { ok: false, code: "CONFIGURATION_ERROR" });
     }
 
     if (!runtime.enabled) {

@@ -13,6 +13,12 @@ function required(env, name) {
   return value;
 }
 
+export function loadSlackVerificationConfig(env = process.env) {
+  return Object.freeze({
+    signingSecret: required(env, "SLACK_SIGNING_SECRET")
+  });
+}
+
 export function loadRuntimeConfig(env = process.env) {
   const enabled = env.JASS_LOOP_ENABLED === "true";
   const mode = env.JASS_LOOP_MODE ?? "dry-run";
@@ -29,7 +35,7 @@ export function loadRuntimeConfig(env = process.env) {
     enabled,
     mode,
     liveMergeEnabled,
-    signingSecret: required(env, "SLACK_SIGNING_SECRET"),
+    signingSecret: loadSlackVerificationConfig(env).signingSecret,
     slackBotToken: required(env, "SLACK_BOT_TOKEN"),
     supabaseUrl: required(env, "SUPABASE_URL").replace(/\/+$/, ""),
     supabaseServiceRoleKey: required(env, "SUPABASE_SERVICE_ROLE_KEY"),
