@@ -70,6 +70,28 @@ entries; append a superseding decision.
 - Supersedes: the Phase 1 zero-hosting and zero-spend boundary only; DEC-001
   and DEC-003 remain active.
 
+## DEC-005 — Bootstrap verification and persistence stay least-privileged
+
+- Date: `2026-07-24`
+- Status: Proposed
+- Owner: proposed by the QUB-6 builder for repository-owner review
+- Context: Slack must verify the receiver URL before all runtime adapters are
+  provisioned, and Supabase warns against privileged `security definer`
+  functions in an exposed schema.
+- Options considered: require every credential during URL verification; keep
+  public privileged functions; or separate signed bootstrap verification and
+  private persistence.
+- Decision: Slack URL verification loads only the signing secret. Durable
+  tables live in non-exposed `jass_loop_private`; callable public RPCs use
+  `security invoker` and are granted only to `service_role`.
+- Consequences: Request signing remains mandatory, URL setup no longer depends
+  on unrelated credentials, and browser/anonymous roles cannot reach the
+  durable tables or RPCs.
+- Evidence: activation-hardening tests and
+  `receipts/2026-07-24T06-55-21Z-QUB-6-resource-activation.md`.
+- Supersedes: None
+
+
 ## Decision template
 
 ### DEC-NNN — Short title

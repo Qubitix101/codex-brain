@@ -1,20 +1,33 @@
 -- Phase 2 dry-run bridge hardening and atomic RPC surface.
 -- This migration does not create any merge-capable database function.
 
-alter table public.slack_merge_message_bindings enable row level security;
-alter table public.slack_merge_approval_events enable row level security;
-alter table public.slack_merge_receipts enable row level security;
+alter table jass_loop_private.slack_merge_message_bindings
+  enable row level security;
+alter table jass_loop_private.slack_merge_approval_events
+  enable row level security;
+alter table jass_loop_private.slack_merge_receipts
+  enable row level security;
 
-alter table public.slack_merge_approval_events
+alter table jass_loop_private.slack_merge_approval_events
   add column if not exists attempt_count integer not null default 1
     check (attempt_count between 1 and 3);
 
-revoke all on table public.slack_merge_message_bindings
+revoke all on table jass_loop_private.slack_merge_message_bindings
   from anon, authenticated, service_role;
-revoke all on table public.slack_merge_approval_events
+revoke all on table jass_loop_private.slack_merge_approval_events
   from anon, authenticated, service_role;
-revoke all on table public.slack_merge_receipts
+revoke all on table jass_loop_private.slack_merge_receipts
   from anon, authenticated, service_role;
+
+grant select, insert, update
+  on table jass_loop_private.slack_merge_message_bindings
+  to service_role;
+grant select, insert, update
+  on table jass_loop_private.slack_merge_approval_events
+  to service_role;
+grant select, insert, update
+  on table jass_loop_private.slack_merge_receipts
+  to service_role;
 
 create or replace function public.jass_loop_claim_event(
   p_event_id text,
@@ -26,13 +39,13 @@ create or replace function public.jass_loop_claim_event(
 )
 returns boolean
 language plpgsql
-security definer
-set search_path = public, pg_temp
+security invoker
+set search_path = jass_loop_private, pg_temp
 as $$
 declare
   inserted_count integer;
 begin
-  insert into public.slack_merge_approval_events (
+  insert into jass_loop_private.slack_merge_approval_events (
     event_id,
     workspace_id,
     channel_id,
@@ -56,7 +69,7 @@ begin
 
   -- A later Slack retry may recover an explicitly failed delivery, or a claim
   -- abandoned for at least 30 seconds. Completed/denied events never reopen.
-  update public.slack_merge_approval_events
+  update jass_loop_private.slack_merge_approval_events
   set status = 'claimed',
       attempt_count = attempt_count + 1,
       decision_code = null,
@@ -84,11 +97,11 @@ create or replace function public.jass_loop_find_binding(
 returns jsonb
 language sql
 stable
-security definer
-set search_path = public, pg_temp
+security invoker
+set search_path = jass_loop_private, pg_temp
 as $$
   select to_jsonb(binding)
-  from public.slack_merge_message_bindings as binding
+  from jass_loop_private.slack_merge_message_bindings as binding
   where binding.workspace_id = p_workspace_id
     and binding.channel_id = p_channel_id
     and binding.message_ts = p_message_ts
@@ -106,13 +119,13 @@ create or replace function public.jass_loop_record_decision(
 )
 returns boolean
 language plpgsql
-security definer
-set search_path = public, pg_temp
+security invoker
+set search_path = jass_loop_private, pg_temp
 as $$
 declare
   updated_count integer;
 begin
-  update public.slack_merge_approval_events
+  update jass_loop_private.slack_merge_approval_events
   set status = p_status,
       decision_code = p_decision ->> 'code',
       decision = p_decision,
@@ -138,8 +151,8 @@ create or replace function public.jass_loop_get_event_outcome(
 returns jsonb
 language sql
 stable
-security definer
-set search_path = public, pg_temp
+security invoker
+set search_path = jass_loop_private, pg_temp
 as $$
   select jsonb_build_object(
     'eventId', event_id,
@@ -151,7 +164,7 @@ as $$
     'claimedAt', claimed_at,
     'updatedAt', updated_at
   )
-  from public.slack_merge_approval_events
+  from jass_loop_private.slack_merge_approval_events
   where event_id = p_event_id;
 $$;
 
@@ -166,13 +179,13 @@ create or replace function public.jass_loop_finalize_dry_run_approval(
 )
 returns boolean
 language plpgsql
-security definer
-set search_path = public, pg_temp
+security invoker
+set search_path = jass_loop_private, pg_temp
 as $$
 declare
   updated_count integer;
 begin
-  update public.slack_merge_message_bindings
+  update jass_loop_private.slack_merge_message_bindings
   set state = 'claimed',
       claimed_event_id = p_event_id,
       claimed_by_user_id = p_authorized_by_user_id,
@@ -199,7 +212,7 @@ begin
     return false;
   end if;
 
-  update public.slack_merge_approval_events
+  update jass_loop_private.slack_merge_approval_events
   set status = 'dry_run_ready',
       decision_code = p_decision ->> 'code',
       decision = p_decision,

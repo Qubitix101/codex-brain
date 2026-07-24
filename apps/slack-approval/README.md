@@ -64,8 +64,9 @@ other sensitive lane should never be classified `low`.
   checks, and source GitHub App IDs. It has no merge request.
 - `src/supabase-store.mjs` uses the atomic RPCs defined in `sql/`.
 - `sql/001_approval_receipts.sql` defines bindings, event claims, and future
-  merge receipts; `sql/002_dry_run_bridge.sql` adds RLS and the narrowly
-  granted Phase 2 RPC surface.
+  merge receipts inside the non-exposed `jass_loop_private` schema;
+  `sql/002_dry_run_bridge.sql` adds RLS and public `security invoker` RPCs
+  granted only to `service_role`.
 - `test/` proves the gate and ordering contracts without network access.
 
 ## Run the proof
@@ -151,6 +152,11 @@ shares a 2.4-second request deadline. A processing or notification failure
 returns HTTP 503 so Slack can retry; the event and binding RPCs cap recovery at
 three attempts and never reopen a completed decision.
 
+Slack URL verification needs only `SLACK_SIGNING_SECRET`. The receiver does
+not require GitHub, Supabase, the bot token, or the allowlists until it handles
+a real event. This permits the request URL to be verified before the remaining
+runtime adapters are provisioned without weakening signature validation.
+
 ## Phase 2 environment contract
 
 All secrets are encrypted hosting environment variables and must never be
@@ -185,7 +191,8 @@ The emergency stop is `JASS_LOOP_ENABLED=false`, followed by a deployment.
 
 1. Create a Slack app from `manifest.example.yaml` in a test workspace/channel.
 2. Deploy the HTTP endpoint and verify the request URL in Slack.
-3. Apply both SQL migrations to an isolated Supabase project.
+3. Apply both SQL migrations to an isolated Supabase project. Confirm
+   `jass_loop_private` is not listed as an exposed Data API schema.
 4. Configure encrypted variables and keep both dry-run locks in place.
 5. Seed one non-sensitive binding with `merge_enabled = false`; verify all
    denial receipts.
