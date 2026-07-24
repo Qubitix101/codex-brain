@@ -1,7 +1,7 @@
 # Handoff
 
-Updated: `2026-07-24 10:55 +04`
-From: `QUB-6 resource activation and hardening pass`
+Updated: `2026-07-24 17:08 +04`
+From: `QUB-6 Slack event activation pass`
 To: `Qubitix101 repository owner or next pilot agent`
 
 ## Objective
@@ -67,37 +67,83 @@ single `Qubitix101/codex-brain` pilot without creating a merge-capable path.
   - Durable tables move to non-exposed `jass_loop_private`; public RPCs use
     `security invoker` and are executable only by `service_role`.
   - Proof: 46 local tests pass and `git diff --check` passes.
+- Activation hardening merged:
+  - Evidence: PR #3 squash merge commit
+    `4c3e5f9cc35dd3b0307002d74d7dbabf8ad89a1b`.
+  - Post-merge proof: GitHub Actions run `30092198339`, `verify` passed.
+- Private Supabase persistence applied:
+  - Migrations: `jass_loop_private_schema` and
+    `jass_loop_dry_run_bridge`.
+  - Proof: three private tables, zero public Slack tables, five public
+    security-invoker RPCs, and zero public execute grants.
+- Read-only GitHub pilot token provisioned:
+  - Name: `Jass Loop Pilot Dry Run`.
+  - Scope: only `Qubitix101/codex-brain`; read-only administration,
+    metadata, and pull requests.
+  - Expiry: `2026-08-23`.
+  - Direct reads of the PR, branch protection, and check-runs endpoints
+    returned `200`.
+- Signed receiver deployed:
+  - Stable URL:
+    `https://jass-loop-pilot.vercel.app/api/slack-events`.
+  - Current production deployment:
+    `dpl_8hi3JywQ1GyDfnsNT9uMYdcLn8a2`, status `Ready`.
+  - The latest GET boundary returns expected `405 METHOD_NOT_ALLOWED`;
+    a correctly signed synthetic Slack challenge returned `200`.
+- Slack Events API wired:
+  - Socket Mode is off.
+  - Request URL is verified.
+  - Only bot event `reaction_added` is subscribed.
+  - Delayed Events is off.
+- Runtime settings repaired:
+  - Single-line values no longer contain hidden trailing newlines.
+  - Slack signing secret, Slack bot token, and Supabase server key were
+    refreshed without exposing their values.
+  - `JASS_LOOP_ENABLED=false` and
+    `JASS_LOOP_LIVE_MERGE_ENABLED=false`.
+- Harmless mobile proof PR opened:
+  - PR #4:
+    `https://github.com/Qubitix101/codex-brain/pull/4`
+  - Exact SHA:
+    `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`
+  - Required CI run `30095571190` passed.
+  - The PR remains open and unmerged.
 
 ## Active state
 
 - Repository and branch: `Qubitix101/codex-brain` /
-  `agent/qub-6-activation-hardening`
+  `agent/qub-6-slack-event-activation-receipt`
 - Worktree: local pilot checkout
 - Linear issue and state:
   `https://linear.app/qubitix/issue/QUB-6/phase-2-connect-the-event-driven-slack-rocket-dry-run-bridge`
   — In Progress
-- Pull request: activation-hardening draft PR not yet opened
-- Current PR head SHA: pending commit
-- Last reviewed SHA: none for this follow-up
+- Pull request under proof: #4
+- Current PR head SHA:
+  `bb2a24e22d54a4e1d39911c0384b75fba3a36d51`
+- Last reviewed SHA: owner review pending
 - Required checks: `Loop validation / verify`
 
 ## Blockers and decisions needed
 
-- GitHub runtime credential: must be read-only and repository-scoped.
 - Independent review: `verify` / GitHub Actions App ID `15368` proves CI
-  provenance only. It is not an independent reviewer check.
-- Sensitive activation-hardening paths require a human review before merge,
-  migration, and deployment.
+  provenance only. It is not an independent reviewer check for PR #4.
+- The deployed GitHub token must still be exercised through the actual
+  reaction path.
+- No message binding or real mobile reaction receipt exists yet.
 
 When blocked, state one answerable question, the available options, the
 recommended option, and the affected acceptance criterion.
 
 ## Next safe pass
 
-1. Publish the activation-hardening branch as a draft PR.
-2. Run protected CI and review the exact final SHA.
-3. Only after approval, apply the private migration, deploy the signed
-   receiver, and verify Slack's event request URL.
+1. Owner reviews PR #4 at its exact SHA and explicitly approves or requests
+   changes.
+2. On approval, add `loop-approved`, publish the plain-English merge-ready
+   message, and save its exact message/PR/SHA binding.
+3. Enable only `JASS_LOOP_ENABLED=true`, redeploy, and ask the owner to react
+   once from Slack mobile.
+4. Prove the durable `dry_run_ready` decision, Slack reply, and still-open PR,
+   then return the kill switch to `false`.
 
 ## Verification commands
 
@@ -111,10 +157,9 @@ clean whitespace check.
 
 ## Limits
 
-- Unverified: live Supabase migration/permissions/concurrency, signed Slack
-  request URL, repository-scoped GitHub reads, and the real mobile reaction
-  round trip.
+- Unverified: the deployed GitHub-token read through the receiver and the
+  real mobile reaction round trip.
 - Deferred: live merge and any merge-capable permission or adapter.
-- Authorized but not yet activated: one hosted dry-run receiver and isolated
-  database under the Phase 2 contract.
+- Activated but stopped: one hosted dry-run receiver, private store, and
+  Slack event subscription; the processing kill switch is still off.
 - Scheduled or continuous work: `none unless explicitly recorded`
