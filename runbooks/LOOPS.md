@@ -125,6 +125,9 @@ session running; describe that constraint plainly.
 - Dirty checkout: report paths and stop; never stash or reset user work.
 - Lost ownership: re-fetch Linear before editing; do not assume the old claim.
 - Stale review: discard it and review the new head SHA.
+- Rocket sent as a message: it is not approval. On mobile, open the exact
+  merge-ready card, choose **Add reaction**, and select `🚀` so it appears
+  underneath the card.
 - Failed CI: record the failing check; builder handles only in-scope fixes.
 - Product ambiguity: add `blocked`, ask one precise question, unassign, stop.
 - External outage: preserve the partial receipt, next retry condition, and

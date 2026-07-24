@@ -91,6 +91,46 @@ entries; append a superseding decision.
   `receipts/2026-07-24T06-55-21Z-QUB-6-resource-activation.md`.
 - Supersedes: None
 
+## DEC-006 — Adopt the reviewed HTTP event activation boundary
+
+- Date: `2026-07-24`
+- Status: Accepted
+- Owner: Qubitix101 repository owner
+- Context: PR #3 implemented the proposed private persistence and
+  signing-secret-only URL verification boundary. The owner approved PR #3 and
+  the exact reviewed change was merged before migration and deployment.
+- Options considered: keep the receiver inactive; deploy with public
+  persistence; or adopt the reviewed private-schema HTTP event design.
+- Decision: Adopt the PR #3 design, apply only its reviewed migrations, and
+  subscribe the Slack app only to `reaction_added` at the verified HTTPS
+  receiver. Keep processing and live merge disabled until the bounded mobile
+  proof package is independently reviewed.
+- Consequences: Slack can deliver reactions while the Mac is asleep, but no
+  event is processed until `JASS_LOOP_ENABLED=true`, and no merge path exists.
+- Evidence: PR #3, GitHub Actions runs `30092198339` and `30095571190`,
+  Vercel deployment `dpl_8hi3JywQ1GyDfnsNT9uMYdcLn8a2`, and
+  `receipts/2026-07-24T13-08-23Z-QUB-6-slack-event-activation.md`.
+- Supersedes: DEC-005 proposed status
+
+## DEC-007 — Only an attached reaction is an approval event
+
+- Date: `2026-07-24`
+- Status: Accepted
+- Owner: Qubitix101 repository owner
+- Context: Slack mobile lets a user either send an emoji in the message box or
+  attach an emoji to an existing message. Only the attached reaction produces
+  the exact `reaction_added` event bound to the reviewed PR card.
+- Options considered: treat a standalone rocket message as approval, infer the
+  nearest review card, or require an attached reaction on the exact card.
+- Decision: Only a `🚀` attached with Slack **Add reaction** to the exact bound
+  merge-ready message counts. A standalone `🚀` message is never approval.
+- Consequences: The user should long-press or open the message menu and choose
+  **Add reaction**. The system stays fail-closed when the emoji is sent in the
+  message box.
+- Evidence:
+  `receipts/2026-07-24T14-24-57Z-QUB-6-rocket-dry-run.md`.
+- Supersedes: None
+
 
 ## Decision template
 
