@@ -24,9 +24,8 @@ Default branch: `main`
 
 - Queue: `QUB-6 in progress`
 - Build: `Phase 2 candidate implemented; external activation blocked`
-- Required CI: the first PR run failed because the original candidate still
-  imported a package not installed in CI; the current fix removes that
-  dependency and requires a new protected run
+- Required CI: protected `verify` passed on `f338c37`; the final recovery
+  hardening head must also pass before handoff (see PR #2 checks)
 - Review: independent security audit completed with no P0; its P1/P2 findings
   are being closed before activation
 - Merge authority: `human`

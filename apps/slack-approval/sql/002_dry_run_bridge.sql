@@ -118,7 +118,14 @@ begin
       decision = p_decision,
       failure = p_failure,
       updated_at = now()
-  where event_id = p_event_id;
+  where event_id = p_event_id
+    and (
+      (p_status = 'processing_failed' and status = 'claimed')
+      or (
+        p_status <> 'processing_failed'
+        and status in ('claimed', 'processing_failed')
+      )
+    );
 
   get diagnostics updated_count = row_count;
   return updated_count = 1;
@@ -174,9 +181,18 @@ begin
     and channel_id = p_channel_id
     and message_ts = p_message_ts
     and reviewed_sha = p_reviewed_sha
-    and state = 'awaiting_approval'
     and merge_enabled = true
-    and (expires_at is null or expires_at > now());
+    and (
+      (
+        state = 'awaiting_approval'
+        and (expires_at is null or expires_at > now())
+      )
+      or (
+        state = 'claimed'
+        and claimed_event_id = p_event_id
+        and claimed_by_user_id = p_authorized_by_user_id
+      )
+    );
 
   get diagnostics updated_count = row_count;
   if updated_count <> 1 then
@@ -190,7 +206,7 @@ begin
       failure = null,
       updated_at = now()
   where event_id = p_event_id
-    and status = 'claimed';
+    and status in ('claimed', 'processing_failed', 'dry_run_ready');
 
   get diagnostics updated_count = row_count;
   if updated_count <> 1 then

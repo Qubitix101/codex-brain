@@ -54,8 +54,8 @@ other sensitive lane should never be classified `low`.
 
 - `manifest.example.yaml` is an HTTP Events API manifest; replace its request
   URL only after deploying the signed receiver.
-- `api/slack-events.mjs` verifies Slack's signature over the raw body,
-  acknowledges promptly, and schedules one bounded processor.
+- `api/slack-events.mjs` verifies Slack's signature over the raw body and
+  completes one bounded durable decision before acknowledging.
 - `src/policy.mjs` contains deterministic, side-effect-free gates.
 - `src/dry-run-engine.mjs` is the only processor imported by the hosted
   receiver; it has no merge-capable adapter method.

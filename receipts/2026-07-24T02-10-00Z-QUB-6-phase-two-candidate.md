@@ -9,7 +9,7 @@
 
 ## Proven locally
 
-- `npm run verify:loop`: passed after audit hardening; 40 tests.
+- `npm run verify:loop`: passed after audit hardening; 43 tests.
 - `git diff --check`: passed.
 - `npm audit`: zero known vulnerabilities; the hosted package has no runtime
   dependency.
@@ -34,6 +34,10 @@ The candidate was then hardened to:
 - require exact `true` from durable decision RPCs;
 - atomically claim one message/PR/SHA dry-run decision;
 - use truthful persistence-failure wording.
+- reconcile a committed result after a lost RPC response;
+- prevent failure writes from overwriting terminal decisions;
+- keep in-flight duplicates retryable until the bounded lease can recover;
+- make same-event finalization idempotent.
 
 ## Not yet proven
 

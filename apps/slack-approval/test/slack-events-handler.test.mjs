@@ -191,3 +191,121 @@ test("returns a retryable error and never claims recording when storage fails", 
   assert.equal(dryRunReplies, 0);
   assert.equal(failureReplies, 1);
 });
+
+test("reconciles a committed approval when the finalization response is lost", async () => {
+  const sha = "a".repeat(40);
+  let failureWrites = 0;
+  let readyReplies = 0;
+  const adapter = {
+    store: {
+      async claimEvent() { return true; },
+      async getEventOutcome() {
+        return {
+          status: "dry_run_ready",
+          decision: { code: "MODE_NOT_LIVE" }
+        };
+      },
+      async findBinding() {
+        return {
+          workspaceId: "T1",
+          channelId: "C1",
+          messageTs: "1.5",
+          repoOwner: "Qubitix101",
+          repoName: "codex-brain",
+          pullNumber: 2,
+          reviewedSha: sha,
+          riskLevel: "low",
+          mergeEnabled: true
+        };
+      },
+      async recordDecision() {
+        failureWrites += 1;
+        return true;
+      },
+      async finalizeDryRunApproval() {
+        throw new Error("response lost after commit");
+      }
+    },
+    github: {
+      async getPullRequest() {
+        return {
+          headSha: sha,
+          baseBranch: "main",
+          state: "open",
+          isDraft: false,
+          labels: ["loop-approved", "risk:low"],
+          requiredChecks: [{
+            name: "verify",
+            appId: 15368,
+            status: "completed",
+            conclusion: "success"
+          }],
+          mergeableState: "clean"
+        };
+      }
+    },
+    slack: {
+      async postDryRunResult() { readyReplies += 1; },
+      async postProcessingFailure() { throw new Error("should not run"); }
+    }
+  };
+  const handler = createSlackEventsHandler({
+    env: environment(),
+    createAdapters() { return adapter; }
+  });
+  const response = responseRecorder();
+  await handler(signedRequest({
+    type: "event_callback",
+    event_id: "Ev-ambiguous",
+    team_id: "T1",
+    event: {
+      type: "reaction_added",
+      reaction: "rocket",
+      user: "U1",
+      item: { type: "message", channel: "C1", ts: "1.5" }
+    }
+  }), response);
+  assert.equal(response.statusCode, 200);
+  assert.equal(JSON.parse(response.body).code, "RECONCILED_DURABLE_OUTCOME");
+  assert.equal(failureWrites, 0);
+  assert.equal(readyReplies, 1);
+});
+
+test("keeps an in-flight duplicate retryable until its lease can recover", async () => {
+  let replies = 0;
+  const adapter = {
+    store: {
+      async claimEvent() { return false; },
+      async getEventOutcome() { return { status: "claimed" }; },
+      async findBinding() { throw new Error("should not run"); },
+      async recordDecision() { throw new Error("should not run"); },
+      async finalizeDryRunApproval() { throw new Error("should not run"); }
+    },
+    github: {
+      async getPullRequest() { throw new Error("should not run"); }
+    },
+    slack: {
+      async postDryRunResult() { replies += 1; },
+      async postProcessingFailure() { replies += 1; }
+    }
+  };
+  const handler = createSlackEventsHandler({
+    env: environment(),
+    createAdapters() { return adapter; }
+  });
+  const response = responseRecorder();
+  await handler(signedRequest({
+    type: "event_callback",
+    event_id: "Ev-in-flight",
+    team_id: "T1",
+    event: {
+      type: "reaction_added",
+      reaction: "rocket",
+      user: "U1",
+      item: { type: "message", channel: "C1", ts: "1.6" }
+    }
+  }), response);
+  assert.equal(response.statusCode, 503);
+  assert.equal(JSON.parse(response.body).code, "RETRYABLE_EVENT_IN_PROGRESS");
+  assert.equal(replies, 0);
+});

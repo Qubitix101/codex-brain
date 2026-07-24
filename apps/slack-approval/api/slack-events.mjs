@@ -121,6 +121,32 @@ export function createSlackEventsHandler({
           runtime,
           AbortSignal.timeout(500)
         );
+        const prior = await recoveryAdapters.store.getEventOutcome(event.id);
+        if (
+          prior &&
+          ["dry_run_ready", "denied", "approval_already_claimed"].includes(
+            prior.status
+          )
+        ) {
+          if (mayReplyToEvent(event, runtime)) {
+            try {
+              await recoveryAdapters.slack.postDryRunResult({
+                channelId: event.channelId,
+                messageTs: event.messageTs,
+                result: prior
+              });
+            } catch {
+              return reply(response, 503, {
+                ok: false,
+                code: "RETRYABLE_NOTIFICATION_FAILURE"
+              });
+            }
+          }
+          return reply(response, 200, {
+            ok: true,
+            code: "RECONCILED_DURABLE_OUTCOME"
+          });
+        }
         const stored = await recoveryAdapters.store.recordDecision(event.id, {
           status: "processing_failed",
           failure: { code }
@@ -150,6 +176,16 @@ export function createSlackEventsHandler({
     const notificationResult = result.status === "duplicate"
       ? result.prior
       : result;
+    if (
+      result.status === "duplicate" &&
+      notificationResult?.status === "claimed"
+    ) {
+      clearTimeout(timeout);
+      return reply(response, 503, {
+        ok: false,
+        code: "RETRYABLE_EVENT_IN_PROGRESS"
+      });
+    }
     if (
       mayReplyToEvent(event, runtime) &&
       notificationResult &&
